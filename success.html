@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - MissFit Coaching</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .success-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 72px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .success-title {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .success-message {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .success-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .success-details h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .success-details p {
+            margin: 8px 0;
+        }
+        
+        .next-steps {
+            margin-top: 30px;
+        }
+        
+        .home-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #f50057;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h1 class="success-title">Payment Successful!</h1>
+        <p class="success-message">Thank you for choosing MissFit Coaching. Your payment has been processed successfully.</p>
+        
+        <div class="success-details">
+            <h3>Order Details</h3>
+            <p><strong>Plan:</strong> <span id="plan-name">Loading...</span></p>
+            <p><strong>Payment Type:</strong> <span id="payment-type">Loading...</span></p>
+        </div>
+        
+        <div class="next-steps">
+            <h3>What's Next?</h3>
+            <p>We'll be in touch shortly with further instructions and to welcome you to our program. Be sure to check your email (including spam/junk folders) for our welcome message.</p>
+            <p>If you have any questions, please contact us at <a href="mailto:support@missfitcoaching.com">support@missfitcoaching.com</a>.</p>
+        </div>
+        
+        <a href="/" class="home-button">Return to Homepage</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const planName = urlParams.get('plan') || 'Selected Plan';
+            const paymentType = urlParams.get('type') || 'standard';
+            
+            // Display plan name
+            document.getElementById('plan-name').textContent = planName;
+            
+            // Display payment type in user-friendly format
+            const paymentTypeText = paymentType === 'subscription' 
+                ? 'Monthly Subscription' 
+                : 'One-time Payment';
+            document.getElementById('payment-type').textContent = paymentTypeText;
+        });
+    </script>
+</body>
+</html>

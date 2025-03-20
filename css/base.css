@@ -1,0 +1,43 @@
+/* === CSS RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+} */
+
+body {
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+
+/* === VARIABLES === */
+:root {
+    --color-primary: #C41E3D;
+    --color-secondary: #1D1D1D;
+    --color-light-gray: #F0F0F0;
+    --color-dark-gray: #212121;
+    --color-white: #FFFFFF;
+    
+    --font-primary: 'Barlow', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+
+    --spacing-small: 1rem;
+    --spacing-medium: 2rem;
+    --spacing-large: 3rem;
+}
+
+/* === UTILITY CLASSES === */
+.u-text-center { text-align: center; }
+.u-text-left { text-align: left; }
+.u-margin-top { margin-top: var(--spacing-medium); }
+.u-margin-bottom { margin-bottom: var(--spacing-medium); }
+.u-padding { padding: var(--spacing-medium); }
+.u-hidden { display: none; }
+.u-flex { display: flex; align-items: center; }
