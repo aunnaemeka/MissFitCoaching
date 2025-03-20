@@ -410,63 +410,6 @@
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
 
-    <script type="module">
-      // Import Firebase
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-
-// Your Firebase Config
-const firebaseConfig = {
-  apiKey: "AIzaSyChLc_2YkWUW5-oGY-N4W54vvhD9x6CETU",
-  authDomain: "missfit-d2924.firebaseapp.com",
-  projectId: "missfit-d2924",
-  storageBucket: "missfit-d2924.appspot.com", // Corrected the storageBucket URL
-  messagingSenderId: "1052588043114",
-  appId: "1:1052588043114:web:c4390a5669cbfc1cfc5313",
-  measurementId: "G-EWMZRBP8HT"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Function to Load Articles Based on Selected Category
-async function loadArticles(category) {
-    const articlesGrid = document.querySelector(".articles__grid");
-    articlesGrid.innerHTML = ""; // Clear existing articles
-
-    // Query Firestore for articles matching the selected category
-    const q = query(collection(db, "articles"), where("category", "==", category));
-    const querySnapshot = await getDocs(q);
-
-    querySnapshot.forEach((doc) => {
-        const article = doc.data();
-        const articleHTML = `
-            <a href="${article.link}" class="article__link">
-                <article class="article">
-                    <img src="${article.image}" alt="${article.title}" class="article__image" />
-                    <h3 class="article__title">${article.title}</h3>
-                    <p class="article__description">${article.description}</p>
-                    <p class="article__time">8 min read</p>
-                </article>
-            </a>`;
-        articlesGrid.innerHTML += articleHTML;
-    });
-}
-
-// Attach Event Listeners to Category Buttons
-document.querySelectorAll(".category").forEach(button => {
-    button.addEventListener("click", function () {
-        document.querySelectorAll(".category").forEach(btn => btn.classList.remove("active"));
-        this.classList.add("active");
-        loadArticles(this.getAttribute("data-value"));
-    });
-});
-
-// Load Default Category on Page Load
-loadArticles("Executive Coaching");
-
-    </script>
     
 </body>
 </html>
