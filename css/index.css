@@ -1,0 +1,622 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, li,
+dl, dt, dd,
+figure, figcaption,
+form, fieldset, legend,
+table, th, td,
+address,
+code, kbd, samp, var,
+abbr, acronym,
+small, sub, sup,
+button, input, select, textarea {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+}
+/* === HERO SECTION === */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 38.3125rem; /* Full viewport height */
+    max-width: 100%; /* Full width */
+    background-image: url('../assets/images/hero-woman.png'); /* Background image */
+    background-size:cover; /* Cover the hero section */
+    background-repeat: no-repeat;
+    color: #FFFFFF; /* White text */
+    background-position: right 90%; /* Center the image vertically and position it to keep the face visible */
+}
+
+
+
+
+/* === CLIENTS SECTION === */
+.clients {
+  display: grid;
+  justify-items: center;
+  background-color: #1D1D1D; /* Black background for contrast */
+  color: #FFFFFF; /* White text */
+  padding: 3.75rem 0;
+}
+
+/* Container Element */
+.clients__container {
+  display: grid;
+  max-width: 1200px; /* Limit overall content width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 0 3.75rem; /* Initial side padding (60px converted to rem) */
+}
+
+/* Title Element */
+.clients__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px, responsive font size */
+  font-weight: 400;
+  line-height: 2.3rem; /* 36.8px, responsive line height */
+  text-align: center;
+  text-shadow: 1px 1px 1px #00000033; /* Apply shadow to the text */
+  margin-bottom: 1.25rem; /* 20px spacing between title and logos */
+}
+
+/* Logos Wrapper Element */
+.clients__logos {
+  display: grid;
+  gap: clamp(3.125rem, -2.8542rem + 11.6667vw, 4rem); /* 80px spacing between logos, matching original */
+  justify-items: center;
+  max-width: calc(5 * 6.25rem + 4 * 5rem); /* Max width: 5 logos * 6.25rem + 4 gaps * 5rem = 31.25rem + 20rem = 51.25rem (820px) */
+}
+
+/* Logo Element */
+.clients__logo {
+  width: 6.25rem; /* 100px, restrict logo width */
+  height: 3.125rem; /* 50px, restrict logo height */
+  object-fit: contain; /* Ensures logos scale proportionally within bounds */
+}
+
+/* === Responsive Design === */
+
+/* Desktop (Above 940px): One row, five columns */
+@media (min-width: 940px) {
+  .clients__logos {
+    grid-template-columns: repeat(5, 1fr); /* Five equal columns */
+    grid-template-rows: 1fr; /* Single row */
+    max-width: 51.25rem; /* Cap width to keep logos together, separated by gaps */
+  }
+
+
+}
+
+/* Tablet (Below 940px, Above 666px): Two rows, four columns */
+@media (max-width: 940px) and (min-width: 666px) {
+  .clients__logos {
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    max-width: calc(4 * 6.25rem + 3 * 5rem); /* Max width: 4 logos * 6.25rem + 3 gaps * 5rem = 25rem + 15rem = 40rem (640px) */
+  }
+
+  /* Position logos to match two rows (four in first, one in second) */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .clients__logo:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .clients__logo:nth-child(4) { grid-column: 4; grid-row: 1; }
+  .clients__logo:nth-child(5) { grid-row: 2; } /* Span all four columns in second row */
+
+  .clients__container {
+    padding: 0 3rem; 
+  }
+}
+
+/* Tablet/Mobile (Below 666px, Above 520px): Three columns, two rows */
+@media (max-width: 666px) and (min-width: 520px) {
+  .clients__logos {
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    max-width: calc(3 * 6.25rem + 2 * 5rem); /* Max width: 3 logos * 6.25rem + 2 gaps * 5rem = 18.75rem + 10rem = 28.75rem (460px) */
+  }
+
+  /* Position logos to match three columns, two rows */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .clients__logo:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .clients__logo:nth-child(4) { grid-column: 1; grid-row: 2; }
+  .clients__logo:nth-child(5) {  grid-row: 2; } /* Span remaining columns in second row */
+
+  .clients__container {
+    padding: 0 3rem; 
+  }
+}
+
+/* Mobile (Below 520px, Above 370px): Two columns, three rows */
+@media (max-width: 520px) and (min-width: 370px) {
+  .clients__logos {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(3, 1fr); /* Three rows */
+    max-width: calc(2 * 6.25rem + 1 * 5rem); /* Max width: 2 logos * 6.25rem + 1 gap * 5rem = 12.5rem + 5rem = 17.5rem (280px) */
+  }
+
+  /* Position logos to match two columns, three rows */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .clients__logo:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .clients__logo:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .clients__logo:nth-child(5) { grid-row: 3; } /* Span both columns in third row */
+
+  .clients__container {
+    padding: 0 2.25rem; 
+  }
+}
+
+/* Mobile (Below 370px): Single column */
+@media (max-width: 370px) {
+  .clients__logos {
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-rows: repeat(5, 1fr); /* Five rows */
+    max-width: 6.25rem; /* Max width: single logo width (100px) */
+    margin: 0 auto;
+  }
+
+  /* Position logos to stack vertically */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .clients__logo:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .clients__logo:nth-child(4) { grid-column: 1; grid-row: 4; }
+  .clients__logo:nth-child(5) { grid-column: 1; grid-row: 5; }
+
+  .clients__container {
+    padding: 0 2.25rem; /* Dynamic padding to center and allow margins to grow */
+  }
+}
+
+
+/* === COACHING PROGRAMS SECTION === */
+/* === COACHING PROGRAMS SECTION === */
+.coaching-programs {
+  background-color: #FFFFFF; /* White background for contrast */
+}
+
+/* Container Element */
+.coaching-programs__container {
+  display: grid;
+  max-width: 1200px; /* Limit content width, matching original intent */
+  margin: 0 auto; /* Center horizontally */
+  padding: 0 3rem; /* Match your original side padding (60px converted to rem) */
+  justify-content: center;
+}
+
+/* Title Element */
+.coaching-programs__title {
+  margin-top: 8.25rem; /* 132px converted to rem */
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.875rem; /* 30px converted to rem */
+  font-weight: 700;
+  line-height: 2.25rem; /* 36px converted to rem */
+  text-align: left;
+  color: #000000; /* Black text color */
+  margin-bottom: 5.5rem; /* 88px converted to rem, spacing above cards */
+}
+
+/* Cards Wrapper Element */
+.coaching-programs__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns on desktop, matching flex layout */
+  gap: 3rem; /* 48px spacing between cards, matching original gap */
+  margin-bottom: 8.3125rem; /* 133px converted to rem */
+}
+
+/* Card Element */
+.coaching-programs__card {
+  position: relative;
+  height: 22.875rem; /* 366px converted to rem */
+  overflow: hidden;
+  border-radius: 0.1rem; /* Optional: Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex; /* Keep flex for internal card layout, as overlay uses absolute positioning */
+  flex-direction: column;
+}
+
+.coaching-programs__card-link {
+  text-decoration: none; /* Removes underline from the link */
+  color: inherit; /* Inherits text color from parent */
+  display: block; /* Makes the entire card area clickable */
+}
+
+.coaching-programs__card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.coaching-programs__card-link:hover .coaching-programs__card {
+  transform: scale(1.01); /* Slight zoom on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+  cursor: pointer; /* Shows it's clickable */
+}
+
+/* Image Element */
+.coaching-programs__image {
+  flex: 1; /* Take up available space, matching original */
+}
+
+.coaching-programs__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the card */
+}
+
+/* Overlay Element (Unchanged, Preserving Original) */
+.coaching-programs__overlay {
+  position: absolute;
+  top: 0;
+  left: 1.5rem; /* 24px converted to rem */
+  right: 1.5rem; /* Align text within image boundaries */
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #FFFFFF; /* White text for contrast */
+  padding-bottom: 1rem; /* Padding for spacing inside the overlay */
+}
+
+/* Card Title Element */
+.coaching-programs__card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem; /* 20px converted to rem */
+  font-weight: 600;
+  line-height: 1.5rem; /* 24px converted to rem */
+  text-align: left;
+  margin-bottom: 0.75rem; /* 12px converted to rem */
+}
+
+/* Card Description Element */
+.coaching-programs__card-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px converted to rem */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px converted to rem */
+  text-align: left;
+}
+
+/* === Responsive Design === */
+
+/* Tablet Layout (Below 1152px, Above 796px) - Two Columns */
+@media (max-width: 1152px) and (min-width: 796px){
+  .coaching-programs__cards {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 2.25rem;
+  }
+
+  .coaching-programs__card:nth-child(3) {
+    grid-column: span 1; /* Third card spans both columns on the bottom row */
+  }
+  .coaching-programs__title{
+    text-align: left;
+  }
+  .coaching-programs__container {
+    padding: 0 2.25rem; /* Match your original side padding (60px converted to rem) */
+  }
+}
+
+/* Mobile Layout (Below 796px) - Single Column */
+@media (max-width: 796px) {
+
+  .coaching-programs__container {
+    padding: 0 1.5rem; /* Match your original side padding (60px converted to rem) */
+  }
+
+  .coaching-programs__title {
+    font-size: 1.5rem; /* Reduce heading size, matching original */
+    line-height: 2rem; /* Adjust line height, matching original */
+    margin-bottom: 3.5rem; /* Reduce spacing above cards, matching original */
+    text-align: left;
+  }
+
+  .coaching-programs__cards {
+    grid-template-columns: 1fr; /* Single column, three rows */
+    gap: 2.25rem; /* Maintain original gap between cards (48px) */
+    justify-items: center; /* Center cards horizontally */
+    width: 100%; /* Ensure full width to center properly */
+  }
+
+  .coaching-programs__card {
+    height: 22.875rem; /* Maintain original card height (366px) */
+    /* Keep other styling (border-radius, shadow, etc.) as is */
+  }
+}
+
+/* === Testimonial Slider Section 1 === */
+.testimonial-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1D1D1D; /* Dark background */
+  color: #FFFFFF;
+  padding: 5.5rem 3.75rem; /* Space at the top and bottom of the section */
+}
+
+.testimonial-slider__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Relative positioning for slides */
+}
+
+.testimonial-slider__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center navigation horizontally */
+  margin-bottom: 2.25rem; /* 36px beneath the navigation */
+}
+
+.testimonial-slider__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.testimonial-slider__arrow:hover {
+  background-color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.testimonial-slider__arrow img {
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
+}
+
+.testimonial-slider__pagination {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.21rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 1.6rem; /* Space between arrows and text */
+}
+
+.testimonial-slider__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Ensure container takes full viewport width */
+  max-width: 43.75rem; /* 700px on larger screens */
+  margin: 0 auto; /* Center the content horizontally */
+  position: relative; /* For positioning slides */
+  overflow: hidden; /* Hide overflow slides */
+  height: auto; /* Allow height to be dynamically determined */
+  transition: height 0.3s ease; /* Smooth transition */
+}
+
+.testimonial-slider__slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.2s ease; /* Smooth slide transition */
+  height: auto;
+}
+
+.testimonial-slider__slide {
+  flex: 0 0 100%; /* Each slide takes full width of container */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure slide takes full width */
+  height: fit-content;
+}
+
+.testimonial-slider__slide > * {
+  flex: none; /* Prevent content from stretching */
+}
+
+.testimonial-slider__quote {
+  color: var(--color-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.125rem; /* 20px */
+  font-weight: 400;
+  line-height: 1.8rem; /* 32px */
+  margin-bottom: 2.25rem; /* Space beneath the quote */
+  max-width: 100%; /* Ensure text wraps within container */
+  word-wrap: break-word; /* Force wrapping of long words */
+  word-break: break-word; /* Ensure breaking across words for better wrapping */
+}
+
+.testimonial-slider__author {
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-slider__avatar {
+  width: 3.75rem; /* 60px */
+  height: 3.75rem; /* 60px */
+  border-radius: 50%;
+  background-color: #FFFFFF; /* Assuming a white background */
+  margin-bottom: 1rem; /* 16px space beneath the avatar */
+  overflow: hidden; /* Ensure image fits circle */
+}
+
+.testimonial-slider__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image fills the circle */
+}
+
+.testimonial-slider__name {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-slider__company {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+}
+
+/* === Testimonial Slider Section 2 === */
+.testimonial-slider-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1D1D1D; /* Dark background */
+  color: #FFFFFF;
+  padding: 5.5rem 3.75rem; /* Space at the top and bottom of the section */
+}
+
+.testimonial-slider-2__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Relative positioning for slides */
+}
+
+.testimonial-slider-2__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center navigation horizontally */
+  margin-bottom: 2.25rem; /* 36px beneath the navigation */
+}
+
+.testimonial-slider-2__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.testimonial-slider-2__arrow:hover {
+  background-color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.testimonial-slider-2__arrow img {
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
+}
+
+.testimonial-slider-2__pagination {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.21rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 1.6rem; /* Space between arrows and text */
+}
+
+.testimonial-slider-2__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Ensure container takes full viewport width */
+  max-width: 43.75rem; /* 700px on larger screens */
+  margin: 0 auto; /* Center the content horizontally */
+  position: relative; /* For positioning slides */
+  overflow: hidden; /* Hide overflow slides */
+  height: auto;
+  transition: height 0.3s ease;
+
+}
+
+.testimonial-slider-2__slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease; /* Smooth slide transition */
+  height: auto;
+}
+
+.testimonial-slider-2__slide {
+  flex: 0 0 100%; /* Each slide takes full width of container */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure slide takes full width */
+  height: fit-content;
+}
+
+.testimonial-slider-2__quote {
+  color: var(--color-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.125rem; /* 20px */
+  font-weight: 400;
+  line-height: 1.8rem; /* 32px */
+  margin-bottom: 2.25rem; /* Space beneath the quote */
+  max-width: 100%; /* Ensure text wraps within container */
+  word-wrap: break-word; /* Force wrapping of long words */
+  word-break: break-word; /* Ensure breaking across words for better wrapping */
+}
+
+.testimonial-slider-2__author {
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-slider-2__avatar {
+  width: 3.75rem; /* 60px */
+  height: 3.75rem; /* 60px */
+  border-radius: 50%;
+  background-color: #FFFFFF; /* Assuming a white background */
+  margin-bottom: 1rem; /* 16px space beneath the avatar */
+  overflow: hidden; /* Ensure image fits circle */
+}
+
+.testimonial-slider-2__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image fills the circle */
+}
+
+.testimonial-slider-2__name {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-slider-2__company {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+}

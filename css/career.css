@@ -1,0 +1,102 @@
+body {
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+.benefit-item {
+    border-bottom: none;
+}
+.hero {
+  background: url('../assets/images/career-coaching-background.png');
+  background-size: cover;
+  background-position: -1% 85px;
+}
+.header__mobile-nav-link:hover {
+  color: #0c41aa;; /* Darker background on hover, optional */
+}
+/* .faq {
+  background-color:#1D1D1D;
+  color: #E1E2E9;
+}
+
+.faq__item {
+  background-color: #272727;
+  border: 1px solid #000000;
+} */
+
+.faq__question{
+  color: #000000;
+}
+.faq__answer {
+color: #000000;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+  color: #1D55C4;
+}
+
+
+
+.pricing {
+  padding: 8.25rem 3rem; /* 132px top/bottom, 48px left/right */
+}
+
+.pricing__item {
+  max-width: 336px; 
+}
+
+.pricing__grid {
+  max-width: 45rem; 
+  margin: 0 auto;
+  column-count: 2; /* Default: 3 columns */
+  column-gap: 3rem; /* Horizontal gap between columns */
+}
+
+/* Media queries for responsive column count */
+@media (max-width: 812px) {
+  .pricing__grid {
+    column-count: 1; /* 2 columns on medium screens */
+    max-width: 100%;
+  }
+  .pricing__item:nth-child(1) {
+    margin-bottom: 124px;
+}
+.pricing__item {
+  max-width: 100%; 
+  }
+  .pricing {
+    padding: 8.25rem 1.5rem; 
+  }
+
+}
+
+
+/* === "Most Popular" Badge === */
+.pricing__item--popular::before {
+  content: "Most Popular";
+  position: absolute;
+  background-color: #D0FFDA;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) translateY(-200%); /* Center and move above */
+  top: 0; /* Align to top edge, then transform moves it up */
+  color: #00901F;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+.pricing__item--best::before {
+
+  transform: translateX(-50%) translateY(-200%); /* Center and move above */
+
+}
+
+
+
+
+

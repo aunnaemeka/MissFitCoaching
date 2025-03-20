@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissFit Coaching - Homepage</title>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+    
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/resume.css"> 
+    <link rel="stylesheet" href="../css/linkedin-drill.css"> 
+
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <header class="header hero__header">
+    <div class="header__container hero__container">
+      <a href="../index.html" class="header__logo hero__logo">
+        <img src="../assets/icons/logo.svg" alt="MissFit Coaching Logo">
+      </a>
+      <nav class="header__nav hero__nav">
+        <ul class="header__nav-list hero__nav-list">
+          <li class="hero__nav-item">
+            <a href="../pages/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../pages/executive.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
+              <li><a href="../pages/career.html" class="header__nav-dropdown-link">Career Coaching</a></li>
+              <li><a href="../pages/job-search.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">WORKSHOP
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../pages/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">SERVICES
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../pages/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">RESOURCES
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../pages/articles.html" class="header__nav-dropdown-link">Articles</a></li>
+              <li><a href="../pages/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+        <a href="../pages/contact.html" class="header__cta hero__cta">CONTACT</a>
+      </div>
+    </div>
+    <div class="header__mobile-menu">
+      <ul class="header__mobile-nav-list">
+        <li>
+          <a href="../pages/about.html" class="header__mobile-nav-link">ABOUT</a>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../pages/executive.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
+            <li><a href="../pages/career.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
+            <li><a href="../pages/job-search.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">WORKSHOP
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../pages/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">SERVICES
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../pages/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">RESOURCES
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../pages/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
+            <li><a href="../pages/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
+
+          </ul>
+        </li>
+        <li>
+          <a href="../pages/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+        </li>
+      </ul>
+    </div>
+  </header>
+    <div class="hero__content">
+        <div class="hero__text">
+            <h1 class="hero__title">TAKE CONTROL OF YOUR PROFESSIONAL STORY</h1>
+            <p class="hero__subtitle">
+                The LinkedIn Drill is a 3 months group workshop focused on branding, authority building, and networking for professionals looking to unlock LinkedIn's full potential. The workshop holds twice a year. 
+            </p>
+            <p class="hero__subtitle hero__session__subtitle">
+                Next session starts May 2025.
+            </p>
+            <a href="#pricing" class="hero__button">ENROLL NOW</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="testimonial testimonial-section--dark">
+    <blockquote class="testimonial__quote">
+      “Dee is fantastic! The first thing the interviewer said during my third interview with the company was, “Wow, I really like the format of your resume! It has everything I need to see and in ALLthe right places.” That was all the confirmation I needed to know I’d made an excellent choice.”
+     </blockquote>
+    <cite class="testimonial__author">
+      Tanisha N.
+    </cite>
+  </section>
+  
+
+  <section class="info">
+    <!-- Section 1: Get Found by Recruiters and Employers -->
+    <div class="info__wrapper">
+      <div class="info__container">
+        <h2 class="info__title">GET FOUND BY RECRUITERS AND EMPLOYERS</h2>
+        <div class="info__image">
+          <img src="../assets/images/recruiters-image.png" alt="Professional woman holding a resume">
+        </div>
+        <p class="info__description">
+          Create a LinkedIn profile designed to match what companies and recruiters search for, making it easy for them to find and reach out to you.
+        </p>
+        <ul class="info__features">
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Linkedin Profile Audit</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Profile Optimization Blueprint</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Keyword Strategy Development</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Compelling Headline & Summary Workshop</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Experience and Skills Revamp</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Custom LinkedIn Banner Design</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Profile Review and Feedback</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial testimonial-section--dark">
+      <blockquote class="testimonial__quote">
+        “Dee is an Angel!!! I gave her the recipe of my draft resume, and she made it into a Michelin Star dish!!! Mind you, within 2 hours. Just simply amazing, and I highly recommend her. Thank you, Dee! You are the bomb!!!”
+      </blockquote>
+      <cite class="testimonial__author">
+       Irene D.
+      </cite>
+    </div>
+
+    <!-- Section 2: Build a Presence That Gets You Noticed -->
+    <div class="info__wrapper info__wrapper--reversed">
+      <div class="info__container info__container--reversed">
+        <h2 class="info__title">BUILD A PRESENCE THAT GETS YOU NOTICED</h2>
+        <div class="info__image">
+          <img src="../assets/images/presence-image.png" alt="Professional woman holding a resume">
+        </div>
+        <p class="info__description">
+          Use LinkedIn content to attract the right opportunities by showcasing your expertise and telling compelling stories.
+        </p>
+        <ul class="info__features">
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Personal Branding Workshop</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Content Strategy Blueprint</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Linkedin Algorithm Insights</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Thought Leadership Framework</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Storytelling Masterclass</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Content Creation Calendar</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Custom Post Templates</span>
+          </li>
+          <li class="info__feature">
+            <img src="../assets/icons/checkmark-blue.svg" alt="Check" class="info__icon">
+            <span>Analytics and Insights Workshop</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+</section>
+
+
+  <section class="masonry-section">
+    <header class="masonry-section__header">
+      <h2 class="masonry-section__title">HOW DOES IT WORK?</h2>
+    </header>
+    <div class="masonry-grid">
+      <div class="masonry-item">
+        <p class="masonry-item__number">01</p>
+        <p class="masonry-item__title">Reserve Your Seat</p>
+        <p class="masonry-item__description">
+            Secure your spot in the program by choosing your preferred payment plan. With only 20 seats available, early registration ensures you don’t miss out.
+        </p>
+      </div>
+
+      <div class="masonry-item">
+        <p class="masonry-item__number">02</p>
+        <p class="masonry-item__title">Kickoff and Onboarding</p>
+        <p class="masonry-item__description">
+            Join our onboarding session to set clear career goals, understand the workshop structure, and get access to exclusive resources and templates to start building momentum.
+        </p>
+      </div>
+
+      <div class="masonry-item">
+        <p class="masonry-item__number">03</p>
+        <p class="masonry-item__title">Participate In Weekly Workshops</p>
+        <p class="masonry-item__description">
+            Attend live, interactive group sessions designed to help you master LinkedIn optimization, content creation, and strategic networking. Each session includes practical exercises to ensure immediate implementation.
+        </p>
+      </div>
+
+      <div class="masonry-item">
+        <p class="masonry-item__number">04</p>
+        <p class="masonry-item__title">Apply Strategies with Guided Support</p>
+        <p class="masonry-item__description">
+            Work on your LinkedIn profile, content, and outreach strategies during and between sessions, using step-by-step frameworks, outreach templates, and expert guidance. Get feedback and make iterative improvements to maximize results.
+        </p>
+      </div>
+
+      <div class="masonry-item">
+        <p class="masonry-item__number">05</p>
+        <p class="masonry-item__title">Engage with the Community</p>
+        <p class="masonry-item__description">
+            Collaborate with peers in the program through our Slack group. Share progress, get answers to questions, and expand your professional network.
+        </p>
+      </div>
+
+
+      <div class="masonry-item">
+        <p class="masonry-item__number">06</p>
+        <p class="masonry-item__title">Track Progress and Adjust</p>
+        <p class="masonry-item__description">
+            Use personalized feedback from the program coach and weekly analytics reviews to refine your approach. Monitor improvements in profile visibility, engagement, and networking outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <!-- Testimonial Section -->
+<section class="testimonial testimonial-section--light">
+    <blockquote class="testimonial__quote">
+      “Since updating my resume, I've already seen a positive impact—as I noticed a significant increase in recruiter engagement, almost instantly once I received my final resume for Dee.”    </blockquote>
+    <cite class="testimonial__author">
+      Veena N.
+    </cite>
+  </section>
+  
+
+  <section class="faq">
+    <div class="faq__container">
+      <!-- FAQ Section Title -->
+      <h2 class="faq__title">F.A.Q's</h2>
+  
+      <!-- FAQ Items -->
+      <div class="faq__items">
+        <!-- FAQ Item 1 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHO IS THIS PROGRAM FOR?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The LinkedIn Drill is designed for professionals who want to take control of their career narrative and unlock new opportunities using LinkedIn. Whether you’re job hunting, building your personal brand, or seeking to expand your professional network, this program is for you.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 2 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IS INCLUDED IN THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The program includes:
+              <ul>
+                <li>Personalized LinkedIn profile optimization.</li>
+                <li>Strategies for creating impactful content.</li>
+                <li>Tools and scripts for strategic networking.</li>
+                <li>Weekly workshops with expert guidance.</li>
+                <li>Access to templates, analytics tools, and a support community.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 3 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW LONG IS THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The LinkedIn Drill is a 3-month program with weekly workshops and actionable tasks to help you build a powerful LinkedIn presence.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 4 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IS THE TIME COMMITMENT?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Participants should allocate 3-5 hours per week, which includes attending workshops, completing exercises, and applying strategies on LinkedIn.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 5 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW MANY PARTICIPANTS ARE IN THE WORKSHOP?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              To ensure personalized attention, the program is limited to 20 participants per session.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 6 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT HAPPENS IF I MISS A WORKSHOP?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              All workshops are recorded, and participants will have access to recordings and materials. However, active participation is strongly recommended to maximize the program’s benefits.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 7 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN I JOIN IF I ALREADY HAVE A GOOD LINKEDIN PROFILE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Absolutely. Even if your profile is optimized, this program will help you refine your personal brand, enhance your content strategy, and master networking to achieve your career goals.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 8 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">DO I NEED SALES NAVIGATOR TO BENEFIT FROM THIS PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              No, Sales Navigator is not required. While the program includes tips on using Sales Navigator effectively, the strategies are designed to work with or without it.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 9 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">IS THIS PROGRAM FOCUSED ONLY ON JOB SEEKERS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Not at all. While job seekers will benefit greatly, the program is also tailored for professionals looking to build a personal brand, attract leadership opportunities, or expand their network strategically.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 10 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT SUPPORT IS AVAILABLE DURING THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              You’ll receive weekly workshops, personalized feedback, access to outreach templates and guides, and ongoing support through our community platform.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 11 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">ARE PAYMENT PLANS AVAILABLE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes. We offer flexible payment options:
+              <ul>
+                <li>$750/month if paid upfront.</li>
+                <li>$850/month for installment payments.</li>
+                <li>$600/month early-bird pricing.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 12 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT HAPPENS AFTER THE PROGRAM ENDS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              After the program, you’ll have access to all templates, guides, and recorded sessions to continue applying the strategies. You’ll also leave with a fully optimized profile, a content strategy, and a strong professional network.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 13 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DO I KNOW THIS PROGRAM WILL WORK FOR ME?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The LinkedIn Drill is built on proven frameworks and strategies that have helped countless professionals achieve tangible career growth. If you’re committed to the process, you’ll see results.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 14 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DO I SECURE MY SPOT?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Click "Get Started" to enroll. Remember, spots are limited to 20 participants per session, so early registration is recommended.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <!-- Testimonial Section -->
+<section class="testimonial testimonial-section--light">
+    <blockquote class="testimonial__quote">
+      “I needed an updated resume to be completed within a few hours to apply for Govt jobs that were hiring onsite. Ms. Dee expedited request with a cover letter and an outline of potential questions for me during my interview process. I was offered 4 jobs that day. She's phenomenal and highly recommended for your professional writing and coaching needs.”
+    </blockquote>
+    <cite class="testimonial__author">
+      Holli E.
+    </cite>
+  </section>
+  
+
+  <section id="pricing" class="pricing">
+    <header class="pricing__header">
+        <h2 class="pricing__title">INVEST IN YOUR FUTURE WITH <br> MISSFIT’S LINKEDIN WORKSHOP</h2>
+    </header>
+    <div class="pricing__grid">
+
+        <!-- Premier Plan -->
+        <div class="pricing__item pricing__item--popular">
+          <h3 class="pricing__plan">FLEXIBLE</h3>
+          <h3 class="pricing__plan-subtitle">3 Monthly Payments of</h3>
+          <p class="pricing__price">$750</p>
+          <button class="pricing__button" data-plan="FLEXIBLE" data-price="750">ENROLL NOW</button>
+          <h4 class="pricing__included-title">What’s Included?</h4>
+          <ul class="pricing__features">
+              <li>Live Weekly Workshops (60 minutes)</li>
+              <li>Dedicated Q&A Sessions (30 minutes)</li>
+              <li>On-Demand Recordings</li>
+              <li>Resource Library</li>
+              <li>Slack Community Access</li>
+              <li>Progress Tracker and Accountability Framework</li>
+              <li>Guest Speaker Sessions</li>                
+          </ul>
+      </div>
+
+        <!-- Standard Plan -->
+        <div class="pricing__item pricing__item--best">
+          <h3 class="pricing__plan">UPFRONT</h3>
+          <p class="pricing__price">$2200</p>
+          <button class="pricing__button" data-plan="UPFRONT" data-price="2200">ENROLL NOW</button>
+          <p class="pricing__contact"><strong>What's Included</strong></p>
+          <ul class="pricing__features">
+              <li>Live Weekly Workshops (60 minutes)</li>
+              <li>Dedicated Q&A Sessions (30 minutes)</li>
+              <li>On-Demand Recordings</li>
+              <li>Resource Library</li>
+              <li>Slack Community Access</li>
+              <li>Progress Tracker and Accountability Framework</li>
+              <li>Guest Speaker Sessions</li>
+          </ul>
+      </div>   
+
+
+
+
+
+
+
+
+    </div>
+</section>
+
+
+    <!-- Testimonial Section -->
+    <section class="testimonial testimonial-section--white">
+        <blockquote class="testimonial__quote">
+          “For my entire career, I’ve written my own resume. So I was blown away with how Dee reframed and recast it in a whole new light. The extra attention my reimagined resume has produced has been a total game changer. Why did I wait this long to get help?!?”
+        </blockquote>
+        <cite class="testimonial__author">
+          Bill H.
+        </cite>
+      </section>
+
+
+
+      <footer class="footer">
+        <div class="footer__container">
+          <!-- Branding Section -->
+          <div class="footer__branding">
+            <a href="../index.html" class="footer__logo" >
+              <img src="../assets/icons/logo.svg" alt="MissFit Coaching Logo">
+            </a>
+            <p class="footer__tagline">The Career Gym for Professionals.</p>
+            <div class="footer__socials">
+              <a href="#" class="footer__social-link">
+                <img src="../assets/icons/linkedin-logo.svg" alt="LinkedIn">
+              </a>
+              <a href="#" class="footer__social-link">
+                <img src="../assets/icons/youtube-logo.svg" alt="YouTube">
+              </a>
+            </div>
+            <p class="footer__copyright">© 2025 MissFit Coaching. All Rights Reserved.</p>
+          </div>
+      
+          <!-- Links Section with Dropdown Support -->
+          <div class="footer__links">
+            <!-- COMPANY Section -->
+            <div class="footer__links-group">
+              <div class="footer__heading">
+                <span class="footer__heading-text">COMPANY</span>
+                <div class="footer__heading-icon-wrapper">
+                  <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+                  <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+                </div>
+              </div>
+              <div class="footer__list-container">
+                <ul class="footer__list">
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/about.html" class="footer__link">About</a>
+                    </div>
+                  </li>
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/contact.html" class="footer__link">Contact</a>
+                    </div>
+                  </li>
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/terms.html" class="footer__link">Terms of Service</a>
+                    </div>
+                  </li>
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/policy.html" class="footer__link">Privacy Policy</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- COACHING Section -->
+            <div class="footer__links-group">
+              <div class="footer__heading">
+                <span class="footer__heading-text">COACHING</span>
+                <div class="footer__heading-icon-wrapper">
+                  <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+                  <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+                </div>
+              </div>
+              <div class="footer__list-container">
+                <ul class="footer__list">
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/executive.html" class="footer__link">Executive Coaching</a>
+                    </div>
+                  </li>
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/career.html" class="footer__link">Career Coaching</a>
+                    </div>
+                  </li>
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/job-search.html" class="footer__link">Job Search Coaching</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Similar structure for other sections... -->
+            <!-- WORKSHOP Section -->
+            <div class="footer__links-group">
+              <div class="footer__heading">
+                <span class="footer__heading-text">WORKSHOP</span>
+                <div class="footer__heading-icon-wrapper">
+                  <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+                  <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+                </div>
+              </div>
+              <div class="footer__list-container">
+                <ul class="footer__list">
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- SERVICES Section -->
+            <div class="footer__links-group">
+              <div class="footer__heading">
+                <span class="footer__heading-text">SERVICES</span>
+                <div class="footer__heading-icon-wrapper">
+                  <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+                  <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+                </div>
+              </div>
+              <div class="footer__list-container">
+                <ul class="footer__list">
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/resume.html" class="footer__link">Resume Writing</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- RESOURCES Section -->
+            <div class="footer__links-group">
+              <div class="footer__heading">
+                <span class="footer__heading-text">RESOURCES</span>
+                <div class="footer__heading-icon-wrapper">
+                  <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+                  <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+                </div>
+              </div>
+              <div class="footer__list-container">
+                <ul class="footer__list">
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/articles.html" class="footer__link">Articles</a>
+                    </div>
+                  </li>
+                  <li class="footer__list-item">
+                    <div class="footer__link-wrapper">
+                      <a href="../pages/newsletter.html" class="footer__link">Newsletter</a>
+                    </div>
+                  </li>
+      
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      
+
+
+
+    <script src="../assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>   
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+      <script>
+                $(document).ready(function() {
+         var $grid = $('.masonry-grid').isotope({
+           itemSelector: '.masonry-item',
+           percentPosition: true,
+           transitionDuration: 0, // Set to 0 to disable animations
+           masonry: {
+             columnWidth: '.masonry-item',
+             gutter: 48
+           }
+          });
+          $grid.imagesLoaded().progress(function() {
+           $grid.isotope('layout');
+         });
+     
+         // Reinitialize on window resize
+         $(window).resize(function() {
+           $grid.isotope('layout');
+         });
+       });
+      </script>
+
+</body>
+</html>
