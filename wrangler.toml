@@ -1,0 +1,5 @@
+name = "missfit-payment"
+main = "functions/payment.js"
+compatibility_date = "2025-03-20"
+[vars]
+STRIPE_SECRET_KEY = "sk_test_51R2dMLP3TwKfCku1pQ8sBvMttVlWWWiiXeOHZxgQUn8AP0WCWKU40z6nZujtLBat7OMoDUkfsnyjg857rBRV3nmo00gK6xrXWd"  
