@@ -31,8 +31,8 @@ export async function onRequest(context) {
             });
         }
         
-        const { planName, amount, paymentType, intervalCount } = await request.json();
-        console.log('Request body:', { planName, amount, paymentType, intervalCount });
+        const { planName, amount, paymentType, intervalCount, returnUrl } = await request.json();
+        console.log('Request body:', { planName, amount, paymentType, intervalCount, returnUrl });
         
         if (!planName || !amount) {
             console.log('Missing planName or amount');
@@ -42,7 +42,8 @@ export async function onRequest(context) {
             });
         }
         
-        const origin = request.headers.get('Origin') || 'https://2846a354.missfitcoachingweb.pages.dev';
+        const origin = request.headers.get('Origin') || 'https://missfitcoaching.pages.dev';
+        const cancelUrl = returnUrl || origin;
         const productName = `MissFit - ${planName} Plan`;
         
         let sessionParams;
@@ -60,7 +61,7 @@ export async function onRequest(context) {
                 'line_items[0][quantity]': '1',
                 'mode': 'subscription',
                 'success_url': `${origin}/success.html?plan=${encodeURIComponent(planName)}&type=subscription`,
-                'cancel_url': `${origin}`,
+                'cancel_url': cancelUrl,
             };
         } else {
             // Create a one-time payment checkout session
@@ -73,7 +74,7 @@ export async function onRequest(context) {
                 'line_items[0][quantity]': '1',
                 'mode': 'payment',
                 'success_url': `${origin}/success.html?plan=${encodeURIComponent(planName)}&type=onetime`,
-                'cancel_url': `${origin}`,
+                'cancel_url': cancelUrl,
             };
         }
         

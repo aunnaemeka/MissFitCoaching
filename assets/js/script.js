@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const stripe = Stripe('pk_test_51R2dMLP3TwKfCku1aLatGYAG8YFllSi0QPmBc8h7fv6zWPto5If9hLzHdO4MIqUTYs2OyTcc1lC87KVkOXZeTOtu00XRYDtGQh');
+  const stripe = Stripe('pk_live_51R50MCEK0wONGgBdBUqnsuJBmfqqYvg6BgGaKCtgVw2wPExrpbFwT7btRs15dFhHx48lGbEFMStbpZIqZoDSPaZx00jEXXl5zj');
   
   const orderButtons = document.querySelectorAll('.pricing__button');
   
@@ -448,6 +448,9 @@ document.addEventListener('DOMContentLoaded', () => {
       this.disabled = true;
       
       try {
+        // Include the current page URL for the cancel URL
+        const currentURL = window.location.href;
+        
         const response = await fetch('/payment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -455,7 +458,8 @@ document.addEventListener('DOMContentLoaded', () => {
             planName, 
             amount: price, 
             paymentType,
-            intervalCount
+            intervalCount,
+            returnUrl: currentURL  // Send the full URL, not just the path
           }),
         });
         
