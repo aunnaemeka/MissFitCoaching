@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minusIcon = document.createElement("img");
 
     // Set minus icon attributes
-    minusIcon.src = "/MissfitCoachingWebsite/assets/icons/minus.svg";
+    minusIcon.src = "../assets/icons/minus.svg";
     minusIcon.alt = "Collapse";
     minusIcon.classList.add("faq__icon", "faq__icon--minus");
     minusIcon.style.display = "none"; // Hide minus icon initially

@@ -1697,7 +1697,9 @@ body {
   margin-bottom: 0.625rem;
   color: #020D43;
 
-
+}
+.pricing__feature-bold{
+  font-weight: 500;
 }
 
 
