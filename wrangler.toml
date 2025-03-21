@@ -1,3 +1,0 @@
-name = "missfit-payment"
-main = "functions/payment.js"
-compatibility_date = "2025-03-20"
