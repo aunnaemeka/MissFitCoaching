@@ -131,115 +131,100 @@
   </div>
 </section>
 
-<!-- Contact Section -->
 <section class="contact-section">
-  <div class="contact-section__container">
-    <!-- Contact Information -->
-    <div class="contact-info">
-      <!-- Phone Information -->
-      <div class="contact-info__item">
-        <div class="contact-info__icon">
-          <img src="../assets/icons/phone-icon.svg" alt="Phone Icon">
+    <div class="contact-section__container">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <!-- Phone Information -->
+        <div class="contact-info__item">
+          <div class="contact-info__icon">
+            <img src="../assets/icons/phone-icon.svg" alt="Phone Icon">
+          </div>
+          <div class="contact-info__content">
+            <h3 class="contact-info__title">PHONE</h3>
+            <p class="contact-info__details">312 380 5682</p>
+          </div>
         </div>
-        <div class="contact-info__content">
-          <h3 class="contact-info__title">PHONE</h3>
-          <p class="contact-info__details">312 380 5682</p>
+  
+        <!-- Email Information -->
+        <div class="contact-info__item">
+          <div class="contact-info__icon">
+            <img src="../assets/icons/email-icon.svg" alt="Email Icon">
+          </div>
+          <div class="contact-info__content">
+            <h3 class="contact-info__title">EMAIL</h3>
+            <p class="contact-info__details">support@missfitcoaching.com</p>
+          </div>
+        </div>
+  
+        <!-- Address Information -->
+        <div class="contact-info__item">
+          <div class="contact-info__icon">
+            <img src="../assets/icons/address-icon.svg" alt="Address Icon">
+          </div>
+          <div class="contact-info__content">
+            <h3 class="contact-info__title">ADDRESS</h3>
+            <p class="contact-info__details">
+              MissFit Coaching,<br>
+              11 North Northwest Highway,<br>
+              Suite 143, Park Ridge, IL 60068
+            </p>
+          </div>
         </div>
       </div>
-
-      <!-- Email Information -->
-      <div class="contact-info__item">
-        <div class="contact-info__icon">
-          <img src="../assets/icons/email-icon.svg" alt="Email Icon">
-        </div>
-        <div class="contact-info__content">
-          <h3 class="contact-info__title">EMAIL</h3>
-          <p class="contact-info__details">support@missfitcoaching.com</p>
-        </div>
-      </div>
-
-      <!-- Address Information -->
-      <div class="contact-info__item">
-        <div class="contact-info__icon">
-          <img src="../assets/icons/address-icon.svg" alt="Address Icon">
-        </div>
-        <div class="contact-info__content">
-          <h3 class="contact-info__title">ADDRESS</h3>
-          <p class="contact-info__details">
-            MissFit Coaching,<br>
-            11 North Northwest Highway,<br>
-            Suite 143, Park Ridge, IL 60068
-          </p>
-        </div>
-      </div>
+  
+<!-- Contact Form Section -->
+<div class="contact-form" id="contact-form">
+  <div id="contactFormContainer">
+    <div class="contact-form__header">
+      <h3 class="contact-form__title">CONTACT FORM</h3>
+      <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
     </div>
-
-    <!-- Contact Form Section -->
-    <div class="contact-form" id="contact-form">
-      <div id="contactFormContainer">
-        <div class="contact-form__header">
-          <h3 class="contact-form__title">CONTACT FORM</h3>
-          <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
-        </div>
-        <form id="contactForm" action="https://form-turnstile-validator.aunnaemeka.workers.dev" method="POST" class="contact-form__body">
-          <input type="hidden" name="_redirect" value="false" />
-          <input type="hidden" name="_form_id" value="contact" /> <!-- Identify the form -->
-          <div class="contact-form__field">
-            <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
-            <input type="text" id="first-name" name="first-name" placeholder="First Name" class="contact-form__input" required>
-          </div>
-          <div class="contact-form__field">
-            <label for="email" class="contact-form__label">Email Address<span class="required-asterisk">*</span></label>
-            <input type="email" id="email" name="email" placeholder="Email Address" class="contact-form__input" required>
-          </div>
-          <div class="contact-form__field">
-            <label for="phone" class="contact-form__label">Phone Number<span class="required-asterisk">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="contact-form__input" required>
-          </div>
-          <div class="contact-form__field">
-            <label for="purpose" class="contact-form__label">Purpose of Contact<span class="required-asterisk">*</span></label>
-            <select id="purpose" name="purpose" class="contact-form__select" required>
-              <option value="" disabled selected>Purpose of Contact</option>
-              <option value="executive">Executive Coaching</option>
-              <option value="career">Career Coaching</option>
-              <option value="job-search">Job Search Coaching</option>
-              <option value="enquiry">Enquiry</option>
-              <option value="complaint">Complaint</option>
-              <option value="press">Press</option>
-            </select>
-          </div>
-          <div class="contact-form__field">
-            <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
-            <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
-          </div>
-
-          <!-- Turnstile widget (can be invisible) -->
-          <div
-            class="cf-turnstile"
-            data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
-            data-callback="onTurnstileSuccess"
-            data-theme="auto"
-            data-size="normal"
-          ></div>
-
-          <!-- Hidden field for Turnstile token -->
-          <input type="hidden" name="_turnstile" id="_turnstile" />
-
-          <button type="submit" class="contact-form__submit">SUBMIT</button>
-        </form>
+    <form id="contactForm" action="https://submit-form.com/wGugSzbz7" method="POST" class="contact-form__body">
+      <input type="hidden" name="_redirect" value="false" />
+      <div class="contact-form__field">
+        <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
+        <input type="text" id="first-name" name="first-name" placeholder="First Name" class="contact-form__input" required>
       </div>
-
-      <!-- Contact Form Success Message (Hidden by default) -->
-      <div class="contact-confirmation" id="contact-confirmation" style="display: none;">
-        <div class="contact-form__header">
-          <h3 class="contact-form__title">CONTACT FORM</h3>
-        </div>
-        <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
-        <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
+      <div class="contact-form__field">
+        <label for="email" class="contact-form__label">Email Address<span class="required-asterisk">*</span></label>
+        <input type="email" id="email" name="email" placeholder="Email Address" class="contact-form__input" required>
       </div>
-    </div>
+      <div class="contact-form__field">
+        <label for="phone" class="contact-form__label">Phone Number<span class="required-asterisk">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="contact-form__input" required>
+      </div>
+      <div class="contact-form__field">
+        <label for="purpose" class="contact-form__label">Purpose of Contact<span class="required-asterisk">*</span></label>
+        <select id="purpose" name="purpose" class="contact-form__select" required>
+          <option value="" disabled selected>Purpose of Contact</option>
+          <option value="executive">Executive Coaching</option>
+          <option value="career">Career Coaching</option>
+          <option value="job-search">Job Search Coaching</option>
+          <option value="enquiry">Enquiry</option>
+          <option value="complaint">Complaint</option>
+          <option value="press">Press</option>
+        </select>
+      </div>
+      <div class="contact-form__field">
+        <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
+        <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
+      </div>
+      <button type="submit" class="contact-form__submit">SUBMIT</button>
+    </form>
   </div>
-</section>
+  
+  <!-- Contact Form Success Message (Hidden by default) -->
+  <div class="contact-confirmation" id="contact-confirmation" style="display: none;">
+    <div class="contact-form__header">
+      <h3 class="contact-form__title">CONTACT FORM</h3>
+    </div>
+    <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
+    <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
+  </div>
+</div>
+</div>
+  </section>
 
 <!-- Newsletter Section -->
 <section class="newsletter" id="newsletter">
@@ -252,27 +237,13 @@
         Join the Insider Edge Newsletter. 45k+ professionals subscribed.
       </p>
     </header>
-    <form id="newsletterForm" action="https://form-turnstile-validator.aunnaemeka.workers.dev" method="POST" class="newsletter__form">
+    <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
       <input type="hidden" name="_redirect" value="false" />
-      <input type="hidden" name="_form_id" value="newsletter" /> <!-- Identify the form -->
       <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
-
-      <!-- Turnstile widget (can be invisible) -->
-      <div
-        class="cf-turnstile"
-        data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
-        data-callback="onTurnstileSuccess"
-        data-theme="auto"
-        data-size="normal"
-      ></div>
-
-      <!-- Hidden field for Turnstile token -->
-      <input type="hidden" name="_turnstile" id="_turnstile" />
-
       <button type="submit" class="newsletter__submit">SUBMIT</button>
     </form>
   </div>
-
+  
   <!-- Newsletter Success Message (Hidden by default) -->
   <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
     <div class="subscription-confirmation__checkmark-circle">
@@ -283,6 +254,7 @@
     <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
   </div>
 </section>
+
 
 
 
@@ -448,8 +420,6 @@
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
 
 
 
