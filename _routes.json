@@ -1,35 +1,35 @@
 {
-    "version": 1,
-    "include": ["/*"],
-    "exclude": [],
-    "routes": [
-      {
-        "pattern": "/resume",
-        "script": "no-cache.js"
-      },
-      {
-        "pattern": "/linkedin-drill",
-        "script": "no-cache.js"
-      },
-      {
-        "pattern": "/job-search",
-        "script": "no-cache.js"
-      },
-      {
-        "pattern": "/career",
-        "script": "no-cache.js"
-      },
-      {
-        "pattern": "/success.html",
-        "script": "no-cache.js"
-      },
-      {
-        "pattern": "/payment",
-        "script": "payment.js"
-      },
-      {
-        "pattern": "/webhook",
-        "script": "webhook.js"
-      }
-    ]
-  }
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [],
+  "routes": [
+    {
+      "pattern": "/resume",
+      "script": "no-cache.js"
+    },
+    {
+      "pattern": "/linkedin-drill",
+      "script": "no-cache.js"
+    },
+    {
+      "pattern": "/job-search",
+      "script": "no-cache.js"
+    },
+    {
+      "pattern": "/career",
+      "script": "no-cache.js"
+    },
+    {
+      "pattern": "/success.html",
+      "script": "no-cache.js"
+    },
+    {
+      "pattern": "/payment",
+      "script": "payment.js"
+    },
+    {
+      "pattern": "/webhook",
+      "script": "webhook.js"
+    }
+  ]
+}

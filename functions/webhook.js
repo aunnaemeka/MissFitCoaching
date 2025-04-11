@@ -1,3 +1,13 @@
+// Add a debug flag to control logging
+const DEBUG = false; // Set to false in production, true in development
+
+// Helper function to conditionally log
+function debugLog(...args) {
+  if (DEBUG) {
+    console.log(...args);
+  }
+}
+
 export async function onRequest(context) {
     const { request, env } = context;
     
@@ -106,7 +116,8 @@ export async function onRequest(context) {
  * @param {Object} env - Environment variables
  */
 async function processWebhookEvent(event, env) {
-    console.log('Processing webhook event:', event.type, event.id);
+    // Only log essential info
+    debugLog('Processing event:', event.type);
     
     // Extract customer data if available
     const customer = event.data.object.customer || null;
@@ -144,15 +155,14 @@ async function processWebhookEvent(event, env) {
             await handleInvoicePaymentFailed(event.data.object, env);
             break;
             
+        // Consolidate customer events
         case 'customer.created':
         case 'customer.updated':
-            // Log customer events for future customer management features
-            console.log(`Customer ${event.type.split('.')[1]}:`, event.data.object.id);
+            debugLog(`Customer ${event.type.split('.')[1]}:`, event.data.object.id);
             break;
             
         default:
-            // Log unhandled event types for monitoring
-            console.log('Unhandled event type:', event.type);
+            debugLog('Unhandled event type:', event.type);
     }
 }
 
@@ -162,7 +172,7 @@ async function processWebhookEvent(event, env) {
  * @param {Object} env - Environment variables
  */
 async function handleCheckoutCompleted(session, env) {
-    console.log('Payment successful for session:', session.id);
+    debugLog('Payment successful for session:', session.id);
     
     // Extract metadata
     const planName = getPlanNameFromSession(session);
@@ -174,146 +184,58 @@ async function handleCheckoutCompleted(session, env) {
         // Subscription purchase
         const subscriptionId = session.subscription;
         
-        console.log(`New subscription ${subscriptionId} activated for plan: ${planName}`);
-        console.log(`Customer: ${customerId} (${customerEmail})`);
-        
-        // Store subscription data
-        // await storeSubscriptionData(session, env);
+        debugLog(`New subscription ${subscriptionId} for plan: ${planName}`);
         
         // Send welcome email to new subscriber
         await sendWelcomeEmail(customerEmail, planName, 'subscription', env);
         
     } else if (session.mode === 'payment') {
         // One-time payment
-        const paymentIntentId = session.payment_intent;
-        
-        console.log(`One-time payment ${paymentIntentId} completed for plan: ${planName}`);
-        console.log(`Customer: ${customerId} (${customerEmail})`);
-        
-        // Store payment data
-        // await storePaymentData(session, env);
+        debugLog(`One-time payment completed for plan: ${planName}`);
         
         // Send confirmation email for one-time purchase
         await sendWelcomeEmail(customerEmail, planName, 'onetime', env);
     }
 }
 
-/**
- * Handle payment_intent.succeeded event
- * @param {Object} paymentIntent - The payment intent object
- * @param {Object} env - Environment variables
- */
+// Similar optimization for other handlers
 async function handlePaymentSucceeded(paymentIntent, env) {
-    console.log('Payment intent succeeded:', paymentIntent.id);
-    
-    // This is sometimes redundant with checkout.session.completed
-    // but can be useful for payment intents created outside of Checkout
+    debugLog('Payment intent succeeded:', paymentIntent.id);
 }
 
-/**
- * Handle payment_intent.payment_failed event
- * @param {Object} paymentIntent - The payment intent object
- * @param {Object} env - Environment variables
- */
 async function handlePaymentFailed(paymentIntent, env) {
-    console.log('Payment intent failed:', paymentIntent.id);
+    debugLog('Payment intent failed:', paymentIntent.id);
     const customerEmail = paymentIntent.receipt_email;
     
     if (customerEmail) {
-        // Send email notification about failed payment
         await sendPaymentFailureEmail(customerEmail, env);
     }
 }
 
-/**
- * Handle customer.subscription.created event
- * @param {Object} subscription - The subscription object
- * @param {Object} env - Environment variables
- */
 async function handleSubscriptionCreated(subscription, env) {
-    console.log('New subscription created:', subscription.id);
-    console.log('Status:', subscription.status);
-    console.log('Customer:', subscription.customer);
-    
-    // Set up any additional resources for new subscription
-    // For example, create coaching appointment slots
-    // await setupCoachingResources(subscription, env);
+    debugLog('New subscription created:', subscription.id);
 }
 
-/**
- * Handle customer.subscription.updated event
- * @param {Object} subscription - The subscription object
- * @param {Object} env - Environment variables
- */
 async function handleSubscriptionUpdated(subscription, env) {
-    console.log('Subscription updated:', subscription.id);
-    console.log('New status:', subscription.status);
+    debugLog('Subscription updated:', subscription.id);
     
-    // Handle subscription status changes
     if (subscription.status === 'active' && subscription.cancel_at_period_end) {
-        // Customer has set their subscription to cancel at period end
-        console.log('Subscription set to cancel at period end:', subscription.current_period_end);
-        
-        // Send retention email or offer
-        // await sendRetentionOffer(subscription.customer, env);
+        debugLog('Subscription set to cancel at period end');
     } else if (subscription.status === 'past_due') {
-        // Handle past due payment
-        console.log('Subscription payment past due');
-        
-        // Send payment reminder email
-        // await sendPaymentReminderEmail(subscription.customer, env);
+        debugLog('Subscription payment past due');
     }
 }
 
-/**
- * Handle customer.subscription.deleted event
- * @param {Object} subscription - The subscription object
- * @param {Object} env - Environment variables
- */
 async function handleSubscriptionCancelled(subscription, env) {
-    console.log('Subscription cancelled:', subscription.id);
-    
-    // Update customer status
-    // await updateCustomerStatus(subscription.customer, 'cancelled', env);
-    
-    // Send cancellation survey or feedback request
-    // await sendCancellationSurvey(subscription.customer, env);
+    debugLog('Subscription cancelled:', subscription.id);
 }
 
-/**
- * Handle invoice.payment_succeeded event
- * @param {Object} invoice - The invoice object
- * @param {Object} env - Environment variables
- */
 async function handleInvoicePaymentSucceeded(invoice, env) {
-    console.log('Invoice payment succeeded:', invoice.id);
-    
-    if (invoice.subscription) {
-        // This is a recurring payment for a subscription
-        console.log('Recurring payment for subscription:', invoice.subscription);
-        
-        // Check if this is a renewal (not the first payment)
-        if (invoice.billing_reason === 'subscription_cycle') {
-            // Send thank you email for continued subscription
-            // await sendRenewalThankYouEmail(invoice.customer, env);
-        }
-    }
+    debugLog('Invoice payment succeeded:', invoice.id);
 }
 
-/**
- * Handle invoice.payment_failed event
- * @param {Object} invoice - The invoice object
- * @param {Object} env - Environment variables
- */
 async function handleInvoicePaymentFailed(invoice, env) {
-    console.log('Invoice payment failed:', invoice.id);
-    
-    if (invoice.subscription) {
-        console.log('Failed payment for subscription:', invoice.subscription);
-        
-        // Send payment failure notification
-        // await sendSubscriptionPaymentFailureEmail(invoice.customer, env);
-    }
+    debugLog('Invoice payment failed:', invoice.id);
 }
 
 /**
@@ -346,36 +268,9 @@ function getPlanNameFromSession(session) {
  * @param {Object} env - Environment variables
  */
 async function sendWelcomeEmail(email, planName, type, env) {
-    // This is a placeholder for email sending logic
-    // In production, you would integrate with an email service
-    console.log(`[EMAIL SERVICE] Sending welcome email to ${email} for ${planName} (${type})`);
+    debugLog(`[EMAIL] Welcome email to ${email} for ${planName}`);
     
-    // Example of email service integration
-    // if (env.EMAIL_API_KEY) {
-    //     try {
-    //         const emailResponse = await fetch('https://api.youremailservice.com/send', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Authorization': `Bearer ${env.EMAIL_API_KEY}`,
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({
-    //                 to: email,
-    //                 subject: `Welcome to MissFit ${planName} Plan!`,
-    //                 template: type === 'subscription' ? 'welcome-subscription' : 'welcome-onetime',
-    //                 templateData: {
-    //                     planName: planName,
-    //                     nextSteps: 'Your coach will contact you within 24 hours.'
-    //                 }
-    //             })
-    //         });
-    //         
-    //         const result = await emailResponse.json();
-    //         console.log('Email sent:', result);
-    //     } catch (error) {
-    //         console.error('Failed to send welcome email:', error);
-    //     }
-    // }
+    // Email service implementation here
 }
 
 /**
@@ -384,8 +279,7 @@ async function sendWelcomeEmail(email, planName, type, env) {
  * @param {Object} env - Environment variables
  */
 async function sendPaymentFailureEmail(email, env) {
-    // This is a placeholder for email sending logic
-    console.log(`[EMAIL SERVICE] Sending payment failure email to ${email}`);
+    debugLog(`[EMAIL] Payment failure email to ${email}`);
     
-    // Similar implementation as sendWelcomeEmail but with failure template
+    // Email service implementation here
 }
