@@ -312,20 +312,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Contact Form Handling
   const contactForm = document.getElementById('contactForm');
-  
+
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
+      // Disable the submit button to prevent multiple clicks
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+
       const formData = new FormData(contactForm);
       const formDataObj = {};
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
-      
+
       fetch(contactForm.action, {
         method: 'POST',
         body: JSON.stringify(formDataObj),
@@ -334,51 +338,57 @@ document.addEventListener('DOMContentLoaded', function() {
           'Accept': 'application/json'
         }
       })
-      .then(response => {
-        if (response.ok) {
-          // Create the replacement confirmation element
-          const confirmationElement = document.createElement('div');
-          confirmationElement.className = 'contact-confirmation';
-          confirmationElement.id = 'contact-confirmation';
-          confirmationElement.innerHTML = `
-            <div class="contact-form__header">
-              <h3 class="contact-form__title">CONTACT FORM</h3>
-            </div>
-            <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
-            <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
-          `;
-          
-          // Get the parent container and the contact form element
-          const contactFormElement = document.getElementById('contact-form');
-          const parentContainer = contactFormElement.parentNode;
-          
-          // Replace the contact form with the confirmation
-          parentContainer.replaceChild(confirmationElement, contactFormElement);
-        } else {
-          console.error('Form submission error:', response);
+        .then(response => {
+          if (response.ok) {
+            // Create the replacement confirmation element
+            const confirmationElement = document.createElement('div');
+            confirmationElement.className = 'contact-confirmation';
+            confirmationElement.id = 'contact-confirmation';
+            confirmationElement.innerHTML = `
+              <div class="contact-form__header">
+                <h3 class="contact-form__title">CONTACT FORM</h3>
+              </div>
+              <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
+              <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
+            `;
+
+            // Get the parent container and the contact form element
+            const contactFormElement = document.getElementById('contact-form');
+            const parentContainer = contactFormElement.parentNode;
+
+            // Replace the contact form with the confirmation
+            parentContainer.replaceChild(confirmationElement, contactFormElement);
+          } else {
+            console.error('Form submission error:', response);
+            alert('Something went wrong. Please try again.');
+            submitButton.disabled = false; // Re-enable the button on error
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
           alert('Something went wrong. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again.');
-      });
-    });
+          submitButton.disabled = false; // Re-enable the button on error
+        });
+    }, { once: true }); // Ensure the event listener is added only once
   }
-  
+
   // Newsletter Form Handling
   const newsletterForm = document.getElementById('newsletterForm');
-  
+
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
+    newsletterForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
+      // Disable the submit button to prevent multiple clicks
+      const submitButton = newsletterForm.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+
       const formData = new FormData(newsletterForm);
       const formDataObj = {};
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
-      
+
       fetch(newsletterForm.action, {
         method: 'POST',
         body: JSON.stringify(formDataObj),
@@ -387,33 +397,35 @@ document.addEventListener('DOMContentLoaded', function() {
           'Accept': 'application/json'
         }
       })
-      .then(response => {
-        if (response.ok) {
-          // Create the replacement confirmation HTML
-          const confirmationHTML = `
-            <div class="subscription-confirmation">
-              <div class="subscription-confirmation__checkmark-circle">
-                <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+        .then(response => {
+          if (response.ok) {
+            // Create the replacement confirmation HTML
+            const confirmationHTML = `
+              <div class="subscription-confirmation">
+                <div class="subscription-confirmation__checkmark-circle">
+                  <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+                </div>
+                <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
+                <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
+                <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
               </div>
-              <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
-              <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
-              <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
-            </div>
-          `;
-          
-          // Replace the entire newsletter container with the confirmation
-          const newsletterSection = document.getElementById('newsletter');
-          newsletterSection.innerHTML = confirmationHTML;
-        } else {
-          console.error('Form submission error:', response);
+            `;
+
+            // Replace the entire newsletter container with the confirmation
+            const newsletterSection = document.getElementById('newsletter');
+            newsletterSection.innerHTML = confirmationHTML;
+          } else {
+            console.error('Form submission error:', response);
+            alert('Something went wrong. Please try again.');
+            submitButton.disabled = false; // Re-enable the button on error
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
           alert('Something went wrong. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again.');
-      });
-    });
+          submitButton.disabled = false; // Re-enable the button on error
+        });
+    }, { once: true }); // Ensure the event listener is added only once
   }
 });
 
@@ -481,4 +493,88 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
+
+
+
+
+
+// Callback function to set the Turnstile token in the hidden field
+window.onTurnstileSuccess = function (token) {
+  // Find all Turnstile hidden fields and set the token
+  document.querySelectorAll('input[name="_turnstile"]').forEach(input => {
+    input.value = token;
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Handle Contact Form
+  const contactForm = document.getElementById('contactForm');
+  const contactConfirmation = document.getElementById('contact-confirmation');
+  const contactFormContainer = document.getElementById('contactFormContainer');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent default form submission
+
+      const turnstileToken = contactForm.querySelector('input[name="_turnstile"]').value;
+      if (!turnstileToken) {
+        alert('Please wait for Turnstile verification to complete.');
+        return;
+      }
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+        });
+
+        if (response.ok) {
+          // Hide the form and show the confirmation message
+          contactFormContainer.style.display = 'none';
+          contactConfirmation.style.display = 'block';
+        } else {
+          alert('There was an error submitting the contact form. Please try again.');
+        }
+      } catch (error) {
+        console.error('Contact form submission error:', error);
+        alert('An error occurred. Please try again later.');
+      }
+    });
+  }
+
+  // Handle Newsletter Form
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterConfirmation = document.getElementById('newsletter-confirmation');
+  const newsletterFormContainer = document.getElementById('newsletterFormContainer');
+
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent default form submission
+
+      const turnstileToken = newsletterForm.querySelector('input[name="_turnstile"]').value;
+      if (!turnstileToken) {
+        alert('Please wait for Turnstile verification to complete.');
+        return;
+      }
+
+      try {
+        const response = await fetch(newsletterForm.action, {
+          method: 'POST',
+          body: new FormData(newsletterForm),
+        });
+
+        if (response.ok) {
+          // Hide the form and show the confirmation message
+          newsletterFormContainer.style.display = 'none';
+          newsletterConfirmation.style.display = 'block';
+        } else {
+          alert('There was an error submitting the newsletter form. Please try again.');
+        }
+      } catch (error) {
+        console.error('Newsletter form submission error:', error);
+        alert('An error occurred. Please try again later.');
+      }
+    });
+  }
 });

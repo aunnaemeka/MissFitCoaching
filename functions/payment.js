@@ -1,10 +1,19 @@
+// Add a debug flag to control logging
+const DEBUG = false; // Set to false in production, true in development
+
+// Helper function to conditionally log
+function debugLog(...args) {
+  if (DEBUG) {
+    console.log(...args);
+  }
+}
+
 export async function onRequest(context) {
     const { request, env } = context;
     
-    console.log('Request received:', request.method, request.url);
+    debugLog('Payment request received:', request.method);
     
     if (request.method === 'OPTIONS') {
-        console.log('Handling OPTIONS request');
         return new Response(null, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -15,7 +24,6 @@ export async function onRequest(context) {
     }
     
     if (request.method !== 'POST') {
-        console.log('Method not allowed:', request.method);
         return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
             status: 405,
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
@@ -32,10 +40,9 @@ export async function onRequest(context) {
         }
         
         const { planName, amount, paymentType, intervalCount, returnUrl } = await request.json();
-        console.log('Request body:', { planName, amount, paymentType, intervalCount, returnUrl });
+        debugLog('Payment request for:', planName, amount);
         
         if (!planName || !amount) {
-            console.log('Missing planName or amount');
             return new Response(JSON.stringify({ error: 'Missing planName or amount' }), {
                 status: 400,
                 headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
@@ -88,7 +95,7 @@ export async function onRequest(context) {
         });
         
         const session = await response.json();
-        console.log('Stripe session created:', session.id);
+        debugLog('Stripe session created:', session.id);
         
         if (!response.ok) {
             throw new Error(session.error?.message || 'Failed to create Stripe session');
@@ -102,7 +109,7 @@ export async function onRequest(context) {
             },
         });
     } catch (error) {
-        console.error('Worker error:', error.message);
+        console.error('Payment error:', error.message);
         return new Response(JSON.stringify({ error: error.message }), {
             status: 500,
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
