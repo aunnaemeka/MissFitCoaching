@@ -210,12 +210,18 @@
         <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
         <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
       </div>
+      <!-- Turnstile widget -->
+      <div
+        class="cf-turnstile"
+        data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
+        data-callback="onTurnstileSuccess"
+        data-theme="auto"
+        data-size="normal"
+      ></div>
+      
+      <!-- Hidden field for Turnstile token -->
+      <input type="hidden" name="_turnstile" id="_turnstile" />
 
-      <div class="cf-turnstile" 
-      data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM" 
-      data-callback="onContactTurnstileSuccess">
- </div>
- <input type="hidden" name="cf-turnstile-response" id="contactTurnstileResponse" />
       <button type="submit" class="contact-form__submit">SUBMIT</button>
     </form>
   </div>
@@ -247,11 +253,17 @@
       <input type="hidden" name="_redirect" value="false" />
       <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
 
-      <div class="cf-turnstile" 
-      data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM" 
-      data-callback="onNewsletterTurnstileSuccess">
-      </div>
-      <input type="hidden" name="cf-turnstile-response" id="newsletterTurnstileResponse" />
+     <!-- Turnstile widget -->
+     <div
+     class="cf-turnstile"
+     data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
+     data-callback="onTurnstileSuccess"
+     data-theme="auto"
+     data-size="normal"
+   ></div>
+
+   <!-- Hidden field for Turnstile token -->
+   <input type="hidden" name="_turnstile" id="_turnstile-newsletter" />
 
       <button type="submit" class="newsletter__submit">SUBMIT</button>
     </form>
