@@ -180,7 +180,7 @@
       <h3 class="contact-form__title">CONTACT FORM</h3>
       <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
     </div>
-    <form id="contactForm" action="https://submit-form.com/wGugSzbz7" method="POST" class="contact-form__body">
+    <form id="contactForm" action="https://form-handler.aunnaemeka.workers.dev" method="POST" class="contact-form__body">
       <input type="hidden" name="_redirect" value="false" />
       <div class="contact-form__field">
         <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
@@ -210,6 +210,12 @@
         <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
         <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
       </div>
+
+      <div class="cf-turnstile" 
+      data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM" 
+      data-callback="onContactTurnstileSuccess">
+ </div>
+ <input type="hidden" name="cf-turnstile-response" id="contactTurnstileResponse" />
       <button type="submit" class="contact-form__submit">SUBMIT</button>
     </form>
   </div>
@@ -237,9 +243,16 @@
         Join the Insider Edge Newsletter. 45k+ professionals subscribed.
       </p>
     </header>
-    <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
+    <form id="newsletterForm" action="https://form-handler.aunnaemeka.workers.dev" method="POST" class="newsletter__form">
       <input type="hidden" name="_redirect" value="false" />
       <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
+
+      <div class="cf-turnstile" 
+      data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM" 
+      data-callback="onNewsletterTurnstileSuccess">
+      </div>
+      <input type="hidden" name="cf-turnstile-response" id="newsletterTurnstileResponse" />
+
       <button type="submit" class="newsletter__submit">SUBMIT</button>
     </form>
   </div>
