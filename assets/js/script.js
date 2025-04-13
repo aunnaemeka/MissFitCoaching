@@ -500,14 +500,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Load Turnstile script
-document.addEventListener('DOMContentLoaded', function() {
-  const turnstileScript = document.createElement('script');
-  turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-  turnstileScript.async = true;
-  turnstileScript.defer = true;
-  document.head.appendChild(turnstileScript);
-});
+// Only load Turnstile script once
+if (!window.turnstileScriptLoaded) {
+  window.turnstileScriptLoaded = true;
+  document.addEventListener('DOMContentLoaded', function() {
+    const turnstileScript = document.createElement('script');
+    turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
+    turnstileScript.async = true;
+    turnstileScript.defer = true;
+    document.head.appendChild(turnstileScript);
+  });
+}
+
+// Create a callback function for when Turnstile loads
+window.onloadTurnstileCallback = function() {
+  // Render the Turnstile widgets if they exist
+  if (typeof turnstile !== 'undefined') {
+    document.querySelectorAll('.cf-turnstile').forEach(function(widget) {
+      if (!widget.hasAttribute('data-widget-id')) {
+        turnstile.render(widget);
+      }
+    });
+  }
+};
 
 // Callback function when Turnstile widget validates
 function onTurnstileSuccess(token) {
@@ -525,11 +540,11 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Get the token value
-      const token = document.getElementById('_turnstile').value;
+      // Try to get the token value
+      const tokenInput = document.querySelector('#contactForm [name="_turnstile"]');
       
-      // If no token, alert user to complete the CAPTCHA
-      if (!token) {
+      // Check if token input exists and has a value
+      if (!tokenInput || !tokenInput.value) {
         alert('Please complete the CAPTCHA verification');
         return;
       }
@@ -538,18 +553,27 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(contactForm);
       
       try {
+        console.log('Submitting contact form to:', contactForm.action);
+        
         // Submit to your Cloudflare Worker
         const response = await fetch(contactForm.action, {
           method: 'POST',
           body: formData
         });
         
+        // Check if the response is OK
         if (response.ok) {
           // Show success message
           document.getElementById('contactFormContainer').style.display = 'none';
           document.getElementById('contact-confirmation').style.display = 'block';
         } else {
-          alert('There was a problem submitting your form. Please try again.');
+          // Try to parse the error response
+          try {
+            const errorData = await response.json();
+            alert('Error: ' + (errorData.error || 'There was a problem submitting your form. Please try again.'));
+          } catch (jsonError) {
+            alert('There was a problem submitting your form. Please try again.');
+          }
         }
       } catch (error) {
         console.error('Error:', error);
@@ -564,11 +588,11 @@ document.addEventListener('DOMContentLoaded', function() {
     newsletterForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Get the token value
-      const token = document.getElementById('_turnstile').value;
+      // Try to get the token value
+      const tokenInput = document.querySelector('#newsletterForm [name="_turnstile"]');
       
-      // If no token, alert user to complete the CAPTCHA
-      if (!token) {
+      // Check if token input exists and has a value
+      if (!tokenInput || !tokenInput.value) {
         alert('Please complete the CAPTCHA verification');
         return;
       }
@@ -577,18 +601,27 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(newsletterForm);
       
       try {
+        console.log('Submitting newsletter form to:', newsletterForm.action);
+        
         // Submit to your Cloudflare Worker
         const response = await fetch(newsletterForm.action, {
           method: 'POST',
           body: formData
         });
         
+        // Check if the response is OK
         if (response.ok) {
           // Show success message
           document.getElementById('newsletterFormContainer').style.display = 'none';
           document.getElementById('newsletter-confirmation').style.display = 'block';
         } else {
-          alert('There was a problem subscribing to the newsletter. Please try again.');
+          // Try to parse the error response
+          try {
+            const errorData = await response.json();
+            alert('Error: ' + (errorData.error || 'There was a problem subscribing to the newsletter. Please try again.'));
+          } catch (jsonError) {
+            alert('There was a problem subscribing to the newsletter. Please try again.');
+          }
         }
       } catch (error) {
         console.error('Error:', error);
