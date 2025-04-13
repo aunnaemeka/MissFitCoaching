@@ -210,19 +210,22 @@
         <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
         <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
       </div>
-      <!-- Turnstile widget for contact form -->
-      <div
-        class="cf-turnstile"
-        data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
-        data-callback="onContactTurnstileSuccess"
-        data-theme="auto"
-        data-size="normal"
-      ></div>
-      <!-- Hidden field for Turnstile token -->
-      <input type="hidden" name="_turnstile" id="_turnstile-contact" />
+<!-- Turnstile widget -->
+<div
+class="cf-turnstile"
+data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
+data-callback="onContactTurnstileSuccess"
+data-theme="auto"
+data-size="normal"
+></div>
+
+<!-- Hidden field for Turnstile token -->
+<input type="hidden" name="_turnstile" id="_turnstile-contact" />
+
       <button type="submit" class="contact-form__submit">SUBMIT</button>
     </form>
   </div>
+  
   <!-- Contact Form Success Message (Hidden by default) -->
   <div class="contact-confirmation" id="contact-confirmation" style="display: none;">
     <div class="contact-form__header">
@@ -232,6 +235,8 @@
     <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
   </div>
 </div>
+</div>
+  </section>
 
 <!-- Newsletter Section -->
 <section class="newsletter" id="newsletter">
@@ -247,19 +252,23 @@
     <form id="newsletterForm" action="https://form-handler.aunnaemeka.workers.dev" method="POST" class="newsletter__form">
       <input type="hidden" name="_redirect" value="false" />
       <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
-      <!-- Turnstile widget for newsletter form -->
-      <div
-        class="cf-turnstile"
-        data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
-        data-callback="onNewsletterTurnstileSuccess"
-        data-theme="auto"
-        data-size="normal"
-      ></div>
-      <!-- Hidden field for Turnstile token -->
-      <input type="hidden" name="_turnstile" id="_turnstile-newsletter" />
+
+<!-- Turnstile widget -->
+<div
+class="cf-turnstile"
+data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
+data-callback="onNewsletterTurnstileSuccess"
+data-theme="auto"
+data-size="normal"
+></div>
+
+<!-- Hidden field for Turnstile token -->
+<input type="hidden" name="_turnstile" id="_turnstile-newsletter" />
+
       <button type="submit" class="newsletter__submit">SUBMIT</button>
     </form>
   </div>
+  
   <!-- Newsletter Success Message (Hidden by default) -->
   <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
     <div class="subscription-confirmation__checkmark-circle">
@@ -436,8 +445,6 @@
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
-    <script src="../assets/js/form-script.js" defer></script>
-
 
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
