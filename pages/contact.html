@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/contact.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 <body>
@@ -180,7 +181,7 @@
       <h3 class="contact-form__title">CONTACT FORM</h3>
       <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
     </div>
-    <form id="contactForm" action="https://form-handler.aunnaemeka.workers.dev" method="POST" class="contact-form__body">
+    <form id="contactForm" action="https://submit-form.com/wGugSzbz7" method="POST" class="contact-form__body">
       <input type="hidden" name="_redirect" value="false" />
       <div class="contact-form__field">
         <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
@@ -210,17 +211,9 @@
         <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
         <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
       </div>
-<!-- Turnstile widget -->
-<div
-class="cf-turnstile"
-data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
-data-callback="onContactTurnstileSuccess"
-data-theme="auto"
-data-size="normal"
-></div>
 
-<!-- Hidden field for Turnstile token -->
-<input type="hidden" name="_turnstile" id="_turnstile-contact" />
+      <!-- Turnstile Widget -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"></div>
 
       <button type="submit" class="contact-form__submit">SUBMIT</button>
     </form>
@@ -249,21 +242,12 @@ data-size="normal"
         Join the Insider Edge Newsletter. 45k+ professionals subscribed.
       </p>
     </header>
-    <form id="newsletterForm" action="https://form-handler.aunnaemeka.workers.dev" method="POST" class="newsletter__form">
+    <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
       <input type="hidden" name="_redirect" value="false" />
       <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
 
-<!-- Turnstile widget -->
-<div
-class="cf-turnstile"
-data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"
-data-callback="onNewsletterTurnstileSuccess"
-data-theme="auto"
-data-size="normal"
-></div>
-
-<!-- Hidden field for Turnstile token -->
-<input type="hidden" name="_turnstile" id="_turnstile-newsletter" />
+      <!-- Turnstile Widget -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"></div>
 
       <button type="submit" class="newsletter__submit">SUBMIT</button>
     </form>
@@ -446,8 +430,51 @@ data-size="normal"
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
 
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
+    <script>
+      // Handle Contact Form Submission
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = this;
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            document.getElementById('contactFormContainer').style.display = 'none';
+            document.getElementById('contact-confirmation').style.display = 'block';
+          } else {
+            alert('There was an error submitting the form. Please try again.');
+          }
+        })
+        .catch(error => {
+          alert('There was an error submitting the form. Please try again.');
+        });
+      });
+  
+      // Handle Newsletter Form Submission
+      document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = this;
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            document.getElementById('newsletterFormContainer').style.display = 'none';
+            document.getElementById('newsletter-confirmation').style.display = 'block';
+          } else {
+            alert('There was an error subscribing. Please try again.');
+          }
+        })
+        .catch(error => {
+          alert('There was an error subscribing. Please try again.');
+        });
+      });
+    </script>
 
 </body>
 </html>
