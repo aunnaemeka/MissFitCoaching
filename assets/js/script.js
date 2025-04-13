@@ -500,39 +500,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Only load Turnstile script once
-if (!window.turnstileScriptLoaded) {
-  window.turnstileScriptLoaded = true;
-  document.addEventListener('DOMContentLoaded', function() {
-    const turnstileScript = document.createElement('script');
-    turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
-    turnstileScript.async = true;
-    turnstileScript.defer = true;
-    document.head.appendChild(turnstileScript);
-  });
-}
+// Turnstile and form handling code
 
-// Create a callback function for when Turnstile loads
-window.onloadTurnstileCallback = function() {
-  // Render the Turnstile widgets if they exist
-  if (typeof turnstile !== 'undefined') {
-    document.querySelectorAll('.cf-turnstile').forEach(function(widget) {
-      if (!widget.hasAttribute('data-widget-id')) {
-        turnstile.render(widget);
+// Only initialize Turnstile once
+(function() {
+  // Check if Turnstile is already initialized
+  if (window.turnstileInitialized) return;
+  window.turnstileInitialized = true;
+  
+  // Create a function to load the Turnstile script
+  function loadTurnstileScript() {
+    // Check if script is already in the document
+    if (document.querySelector('script[src*="turnstile/v0/api.js"]')) return;
+    
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+  
+  // Callback for when Turnstile is loaded
+  window.onloadTurnstileCallback = function() {
+    if (typeof turnstile === 'undefined') return;
+    
+    // Get all containers that don't have widgets rendered yet
+    const containers = document.querySelectorAll('.cf-turnstile:not([data-widget-rendered="true"])');
+    
+    containers.forEach(function(container) {
+      try {
+        // Mark as rendered to prevent multiple renders
+        container.setAttribute('data-widget-rendered', 'true');
+        
+        // Render the widget
+        turnstile.render(container, {
+          sitekey: container.getAttribute('data-sitekey'),
+          callback: function(token) {
+            // Find the nearest form
+            const form = container.closest('form');
+            if (form) {
+              // Find the hidden token input field in this form
+              const tokenInput = form.querySelector('[name="_turnstile"]');
+              if (tokenInput) {
+                tokenInput.value = token;
+              }
+            }
+          }
+        });
+      } catch (e) {
+        console.error('Error rendering Turnstile:', e);
       }
     });
+  };
+  
+  // Load script on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadTurnstileScript);
+  } else {
+    loadTurnstileScript();
   }
-};
+})();
 
-// Callback function when Turnstile widget validates
-function onTurnstileSuccess(token) {
-  // Find all hidden turnstile token inputs and set their value
-  document.querySelectorAll('[name="_turnstile"]').forEach(input => {
-    input.value = token;
-  });
-}
-
-// Handle form submissions
+// Form handling code
 document.addEventListener('DOMContentLoaded', function() {
   // Contact form submission
   const contactForm = document.getElementById('contactForm');
@@ -540,44 +569,77 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Try to get the token value
-      const tokenInput = document.querySelector('#contactForm [name="_turnstile"]');
-      
-      // Check if token input exists and has a value
+      // Check for Turnstile token
+      const tokenInput = contactForm.querySelector('[name="_turnstile"]');
       if (!tokenInput || !tokenInput.value) {
-        alert('Please complete the CAPTCHA verification');
+        alert('Please complete the security verification');
         return;
       }
       
-      // Create form data for submission
-      const formData = new FormData(contactForm);
-      
       try {
-        console.log('Submitting contact form to:', contactForm.action);
+        // Show loading state
+        const submitButton = contactForm.querySelector('[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...';
+        }
         
-        // Submit to your Cloudflare Worker
+        // Send the form data
+        const formData = new FormData(contactForm);
+        
+        console.log('Submitting form to:', contactForm.action);
+        
         const response = await fetch(contactForm.action, {
           method: 'POST',
           body: formData
         });
         
-        // Check if the response is OK
         if (response.ok) {
-          // Show success message
-          document.getElementById('contactFormContainer').style.display = 'none';
-          document.getElementById('contact-confirmation').style.display = 'block';
+          // Try to parse response
+          let responseData;
+          try {
+            responseData = await response.json();
+          } catch (e) {
+            responseData = { success: true };
+          }
+          
+          if (responseData.success) {
+            // Show success message
+            const formContainer = document.getElementById('contactFormContainer');
+            const confirmationMessage = document.getElementById('contact-confirmation');
+            
+            if (formContainer && confirmationMessage) {
+              formContainer.style.display = 'none';
+              confirmationMessage.style.display = 'block';
+            } else {
+              alert('Thank you! Your message has been sent.');
+            }
+          } else {
+            throw new Error(responseData.error || 'Form submission failed');
+          }
         } else {
-          // Try to parse the error response
+          // Handle non-OK response
+          let errorMessage = 'Form submission failed';
           try {
             const errorData = await response.json();
-            alert('Error: ' + (errorData.error || 'There was a problem submitting your form. Please try again.'));
-          } catch (jsonError) {
-            alert('There was a problem submitting your form. Please try again.');
+            errorMessage = errorData.error || errorMessage;
+          } catch (e) {
+            // If can't parse JSON, use status text
+            errorMessage = response.statusText || errorMessage;
           }
+          
+          throw new Error(errorMessage);
         }
       } catch (error) {
-        console.error('Error:', error);
-        alert('There was a problem submitting your form. Please try again.');
+        console.error('Form submission error:', error);
+        alert('Sorry, there was a problem sending your message: ' + error.message);
+      } finally {
+        // Reset button state
+        const submitButton = contactForm.querySelector('[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Submit';
+        }
       }
     });
   }
@@ -588,44 +650,77 @@ document.addEventListener('DOMContentLoaded', function() {
     newsletterForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Try to get the token value
-      const tokenInput = document.querySelector('#newsletterForm [name="_turnstile"]');
-      
-      // Check if token input exists and has a value
+      // Check for Turnstile token
+      const tokenInput = newsletterForm.querySelector('[name="_turnstile"]');
       if (!tokenInput || !tokenInput.value) {
-        alert('Please complete the CAPTCHA verification');
+        alert('Please complete the security verification');
         return;
       }
       
-      // Create form data for submission
-      const formData = new FormData(newsletterForm);
-      
       try {
+        // Show loading state
+        const submitButton = newsletterForm.querySelector('[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Subscribing...';
+        }
+        
+        // Send the form data
+        const formData = new FormData(newsletterForm);
+        
         console.log('Submitting newsletter form to:', newsletterForm.action);
         
-        // Submit to your Cloudflare Worker
         const response = await fetch(newsletterForm.action, {
           method: 'POST',
           body: formData
         });
         
-        // Check if the response is OK
         if (response.ok) {
-          // Show success message
-          document.getElementById('newsletterFormContainer').style.display = 'none';
-          document.getElementById('newsletter-confirmation').style.display = 'block';
+          // Try to parse response
+          let responseData;
+          try {
+            responseData = await response.json();
+          } catch (e) {
+            responseData = { success: true };
+          }
+          
+          if (responseData.success) {
+            // Show success message
+            const formContainer = document.getElementById('newsletterFormContainer');
+            const confirmationMessage = document.getElementById('newsletter-confirmation');
+            
+            if (formContainer && confirmationMessage) {
+              formContainer.style.display = 'none';
+              confirmationMessage.style.display = 'block';
+            } else {
+              alert('Thank you! You have been subscribed to our newsletter.');
+            }
+          } else {
+            throw new Error(responseData.error || 'Newsletter subscription failed');
+          }
         } else {
-          // Try to parse the error response
+          // Handle non-OK response
+          let errorMessage = 'Newsletter subscription failed';
           try {
             const errorData = await response.json();
-            alert('Error: ' + (errorData.error || 'There was a problem subscribing to the newsletter. Please try again.'));
-          } catch (jsonError) {
-            alert('There was a problem subscribing to the newsletter. Please try again.');
+            errorMessage = errorData.error || errorMessage;
+          } catch (e) {
+            // If can't parse JSON, use status text
+            errorMessage = response.statusText || errorMessage;
           }
+          
+          throw new Error(errorMessage);
         }
       } catch (error) {
-        console.error('Error:', error);
-        alert('There was a problem subscribing to the newsletter. Please try again.');
+        console.error('Newsletter submission error:', error);
+        alert('Sorry, there was a problem subscribing you to our newsletter: ' + error.message);
+      } finally {
+        // Reset button state
+        const submitButton = newsletterForm.querySelector('[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Subscribe';
+        }
       }
     });
   }
