@@ -431,49 +431,20 @@
     <script src="../assets/js/script.js"></script>
 
     <script>
-      // Handle Contact Form Submission
-      document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const form = this;
-        const formData = new FormData(form);
-        fetch(form.action, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (response.ok) {
-            document.getElementById('contactFormContainer').style.display = 'none';
-            document.getElementById('contact-confirmation').style.display = 'block';
-          } else {
-            alert('There was an error submitting the form. Please try again.');
-          }
-        })
-        .catch(error => {
-          alert('There was an error submitting the form. Please try again.');
-        });
-      });
-  
-      // Handle Newsletter Form Submission
-      document.getElementById('newsletterForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const form = this;
-        const formData = new FormData(form);
-        fetch(form.action, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (response.ok) {
-            document.getElementById('newsletterFormContainer').style.display = 'none';
-            document.getElementById('newsletter-confirmation').style.display = 'block';
-          } else {
-            alert('There was an error subscribing. Please try again.');
-          }
-        })
-        .catch(error => {
-          alert('There was an error subscribing. Please try again.');
-        });
-      });
+     const form = document.getElementById('contactForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const response = await fetch(form.action, {
+    method: 'POST',
+    body: formData,
+  });
+  if (response.ok) {
+    // Show success message
+    document.getElementById('contactFormContainer').style.display = 'none';
+    document.getElementById('contact-confirmation').style.display = 'block';
+  }
+});
     </script>
 
 </body>
