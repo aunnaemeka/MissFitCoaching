@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MissFit Coaching - Homepage</title>
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <!-- Fallback PNG for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
@@ -220,24 +223,29 @@
     <!-- Newsletter Section -->
     <aside class="newsletter" id="newsletter">
       <div class="newsletter__container" id="newsletterFormContainer">
-        <header class="newsletter__header">
-          <h2 class="newsletter__title">
-            SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
-          </h2>
-          <p class="newsletter__subtitle">
-            Join the Insider Edge Newsletter. 45k+ professionals subscribed.
-          </p>
-        </header>
-        <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
-          <input type="hidden" name="_redirect" value="false" />
-          <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
-                <!-- Turnstile Widget -->
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"></div>
-          <button type="submit" class="newsletter__submit">SUBMIT</button>
-        </form>
+        <!-- GoHighLevel Form - This already contains the heading and subtitle -->
+        <div class="newsletter__ghl-container">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/0ReUutPxYEcFxSpTwVaU"
+            style="width:100%;border:none;border-radius:4px"
+            id="inline-0ReUutPxYEcFxSpTwVaU" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Newsletter Signup Form with only Captcha"
+            data-height="507"
+            data-layout-iframe-id="inline-0ReUutPxYEcFxSpTwVaU"
+            data-form-id="0ReUutPxYEcFxSpTwVaU"
+            title="Newsletter Signup Form with only Captcha">
+          </iframe>
+        </div>
       </div>
       
-      <!-- Newsletter Success Message (Hidden by default) -->
+      <!-- Your existing confirmation message can be kept if needed -->
       <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
         <div class="subscription-confirmation__checkmark-circle">
           <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
@@ -247,6 +255,7 @@
         <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
       </div>
     </aside>
+    
   </div>
 </section>
 
@@ -413,6 +422,7 @@
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
     
 </body>
