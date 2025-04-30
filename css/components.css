@@ -1102,7 +1102,6 @@ body {
 
 .newsletter__container {
   background-color: #1d1d1d; /* Box background */
-  padding: 2.25rem; /* 56px padding on all sides */
   width: 100%; /* Full width */
   box-sizing: border-box; /* Include padding in width */
   text-align: center; /* Center text alignment */
