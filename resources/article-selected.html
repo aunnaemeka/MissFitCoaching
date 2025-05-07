@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MissFit Coaching - Newsletter</title>
+    <title>MissFit Coaching - Article</title>
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
     <!-- Fallback PNG for browsers that don't support SVG favicons -->
     <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
@@ -17,9 +17,11 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/newsletter-selected.css">
+    <link rel="stylesheet" href="../css/article-selected.css">
+    <link rel="stylesheet" href="../css/article.css">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
+    
 
 </head>
 <body>
@@ -34,16 +36,16 @@
       <nav class="header__nav hero__nav">
         <ul class="header__nav-list hero__nav-list">
           <li class="hero__nav-item">
-            <a href="../pages/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+            <a href="../company/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
           </li>
           <li class="hero__nav-item">
             <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/executive.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
-              <li><a href="../pages/career.html" class="header__nav-dropdown-link">Career Coaching</a></li>
-              <li><a href="../pages/job-search.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
+              <li><a href="../coaching/executive-coaching.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
+              <li><a href="../coaching/career-coaching.html" class="header__nav-dropdown-link">Career Coaching</a></li>
+              <li><a href="../coaching/job-search-coaching.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
             </ul>
           </li>
           <li class="hero__nav-item">
@@ -51,7 +53,7 @@
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
+              <li><a href="../workshops/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
             </ul>
           </li>
           <li class="hero__nav-item">
@@ -59,7 +61,7 @@
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
+              <li><a href="../services/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
             </ul>
           </li>
           <li class="hero__nav-item">
@@ -67,30 +69,30 @@
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/articles.html" class="header__nav-dropdown-link">Articles</a></li>
-              <li><a href="../pages/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
+              <li><a href="../resources/articles.html" class="header__nav-dropdown-link">Articles</a></li>
+              <li><a href="../resources/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
             </ul>
           </li>
         </ul>
       </nav>
       <div class="header__right">
         <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-        <a href="../pages/contact.html" class="header__cta hero__cta">CONTACT</a>
+        <a href="../company/contact.html" class="header__cta hero__cta">CONTACT</a>
       </div>
     </div>
     <div class="header__mobile-menu">
       <ul class="header__mobile-nav-list">
         <li>
-          <a href="../pages/about.html" class="header__mobile-nav-link">ABOUT</a>
+          <a href="../company/about.html" class="header__mobile-nav-link">ABOUT</a>
         </li>
         <li>
           <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/executive.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
-            <li><a href="../pages/career.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
-            <li><a href="../pages/job-search.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
+            <li><a href="../coaching/executive-coaching.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
+            <li><a href="../coaching/career-coaching.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
+            <li><a href="../coaching/job-search-coaching.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
           </ul>
         </li>
         <li>
@@ -98,7 +100,7 @@
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
+            <li><a href="../workshops/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
           </ul>
         </li>
         <li>
@@ -106,7 +108,7 @@
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
+            <li><a href="../services/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
           </ul>
         </li>
         <li>
@@ -114,48 +116,49 @@
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
-            <li><a href="../pages/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
+            <li><a href="../resources/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
+            <li><a href="../resources/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
           </ul>
         </li>
         <li>
-          <a href="../pages/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+          <a href="../company/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
         </li>
       </ul>
     </div>
   </header>
   </section>
 
-  <section class="details details--newsletter">
+  <section class="details">
 
     <div class="details__content">
-      
       <header class="details__header">
         <div class="details__back-link">
-          <a href="../pages/newsletter.html"><span><img src="../assets/icons/backward-icon.svg" alt=""></span> Back to Newsletter</a>
+          <a href="../resources/articles.html"> <span><img src="../assets/icons/backward-icon.svg" alt=""></span> Back to Articles</a>
         </div>
         <h1 class="details__title">
           FROM A SEA OF RESUMES TO RECOGNITION: HOW TO BE REMEMBERED
         </h1>
         <div class="details__meta">
-          <span class="details__time">Jan 16, 2025</span>
+          <span class="details__category category-dropdown__item"  data-value="Executive Coaching">Executive Coaching</span>
+          <span class="details__time">8 min read</span>
         </div>
       </header>
       <div class="details__body-wrapper">
         <div class="details__body">
           <p>
-            Last week, we talked about the crazy number of job applicants out there.
-            Seriously, hiring managers are overwhelmed! Here we are in March 2024,
-            and job seekers have really upped their game. There are tons of search
-            tools, ways to fine-tune resumes with the right keywords, and even
-            automated application fill-outs. If you haven’t tried something like
-            ChatGPT yet, you might feel like you’re stuck on a deserted island!
+            Last week, we talked about the crazy number of job applicants out
+            there. Seriously, hiring managers are overwhelmed! Here we are in
+            March 2024, and job seekers have really upped their game. There are
+            tons of search tools, ways to fine-tune resumes with the right
+            keywords, and even automated application fill-outs. If you haven’t
+            tried something like ChatGPT yet, you might feel like you’re stuck on
+            a deserted island!
           </p>
           <p>
-            But despite all these tools, I hear from so many people who still can’t
-            get interviews, let alone job offers. Just yesterday, I spoke with a
-            young woman who had sent out over 1,000 applications and hadn’t heard
-            back once. Can you believe that?
+            But despite all these tools, I hear from so many people who still
+            can’t get interviews, let alone job offers. Just yesterday, I spoke
+            with a young woman who had sent out over 1,000 applications and hadn’t
+            heard back once. Can you believe that?
           </p>
           <p><strong>Enjoying this publication? Upgrade to paid Subscribed.</strong></p>
           <p>
@@ -164,25 +167,26 @@
             that look just as polished?
           </p>
           <p>
-            Here’s the thing: it’s not all about technology. Think about reaching out
-            to someone you know, like Marty, who just got promoted to Director after
-            leaving Chase. You might say something like, “Hey Marty, congrats on your
-            new role! I’m really interested in the Program Manager position under the
-            CIO. Before I dive in, I wanted to check if there’s any way I could help
-            you if they choose me. Is there an employee referral bonus?”
+            Here’s the thing: it’s not all about technology. Think about reaching
+            out to someone you know, like Marty, who just got promoted to Director
+            after leaving Chase. You might say something like, “Hey Marty, congrats
+            on your new role! I’m really interested in the Program Manager position
+            under the CIO. Before I dive in, I wanted to check if there’s any way
+            I could help you if they choose me. Is there an employee referral
+            bonus?”
           </p>
           <p>
-            Chances are, Marty will remember you and might even give you a call. Even
-            if there’s no referral bonus, he could offer some helpful advice or
-            connections just because you reached out.
+            Chances are, Marty will remember you and might even give you a call.
+            Even if there’s no referral bonus, he could offer some helpful advice
+            or connections just because you reached out.
           </p>
           <p>
-            So, while having a standout resume is super important, don’t forget the
-            power of networking. By combining a strong professional resume with a few
-            thoughtful connections, you can really boost your chances of standing out
-            in this competitive job market. It’s not just about applying; it’s about
-            making those personal connections that could lead you to your next big
-            opportunity!
+            So, while having a standout resume is super important, don’t forget
+            the power of networking. By combining a strong professional resume
+            with a few thoughtful connections, you can really boost your chances
+            of standing out in this competitive job market. It’s not just about
+            applying; it’s about making those personal connections that could lead
+            you to your next big opportunity!
           </p>
           <p>
             If you’re looking to elevate your career with
@@ -214,29 +218,24 @@
     <!-- Newsletter Section -->
     <aside class="newsletter" id="newsletter">
       <div class="newsletter__container" id="newsletterFormContainer">
-        <!-- GoHighLevel Form - This already contains the heading and subtitle -->
-        <div class="newsletter__ghl-container">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/0ReUutPxYEcFxSpTwVaU"
-            style="width:100%;border:none;border-radius:4px"
-            id="inline-0ReUutPxYEcFxSpTwVaU" 
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Newsletter Signup Form with only Captcha"
-            data-height="507"
-            data-layout-iframe-id="inline-0ReUutPxYEcFxSpTwVaU"
-            data-form-id="0ReUutPxYEcFxSpTwVaU"
-            title="Newsletter Signup Form with only Captcha">
-          </iframe>
-        </div>
+        <header class="newsletter__header">
+          <h2 class="newsletter__title">
+            SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
+          </h2>
+          <p class="newsletter__subtitle">
+            Join the Insider Edge Newsletter. 45k+ professionals subscribed.
+          </p>
+        </header>
+        <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
+          <input type="hidden" name="_redirect" value="false" />
+          <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
+                <!-- Turnstile Widget -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"></div>
+          <button type="submit" class="newsletter__submit">SUBMIT</button>
+        </form>
       </div>
       
-      <!-- Your existing confirmation message can be kept if needed -->
+      <!-- Newsletter Success Message (Hidden by default) -->
       <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
         <div class="subscription-confirmation__checkmark-circle">
           <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
@@ -246,11 +245,10 @@
         <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
       </div>
     </aside>
-    
       </div>
-      
     </div>
   </section>
+  
   
   
   <section class="read-next">
@@ -282,7 +280,6 @@
 
   
 
-  
   <footer class="footer">
     <div class="footer__container">
       <!-- Branding Section -->
@@ -317,22 +314,22 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/about.html" class="footer__link">About</a>
+                  <a href="../company/about.html" class="footer__link">About</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/contact.html" class="footer__link">Contact</a>
+                  <a href="../company/contact.html" class="footer__link">Contact</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/terms.html" class="footer__link">Terms of Service</a>
+                  <a href="../company/terms.html" class="footer__link">Terms of Service</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/policy.html" class="footer__link">Privacy Policy</a>
+                  <a href="../company/policy.html" class="footer__link">Privacy Policy</a>
                 </div>
               </li>
             </ul>
@@ -352,17 +349,17 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/executive.html" class="footer__link">Executive Coaching</a>
+                  <a href="../coaching/executive-coaching.html" class="footer__link">Executive Coaching</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/career.html" class="footer__link">Career Coaching</a>
+                  <a href="../coaching/career-coaching.html" class="footer__link">Career Coaching</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/job-search.html" class="footer__link">Job Search Coaching</a>
+                  <a href="../coaching/job-search-coaching.html" class="footer__link">Job Search Coaching</a>
                 </div>
               </li>
             </ul>
@@ -383,7 +380,7 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
+                  <a href="../workshops/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
                 </div>
               </li>
             </ul>
@@ -403,7 +400,7 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/resume.html" class="footer__link">Resume Writing</a>
+                  <a href="../services/resume.html" class="footer__link">Resume Writing</a>
                 </div>
               </li>
             </ul>
@@ -423,12 +420,12 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/articles.html" class="footer__link">Articles</a>
+                  <a href="../resources/articles.html" class="footer__link">Articles</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../pages/newsletter.html" class="footer__link">Newsletter</a>
+                  <a href="../resources/newsletter.html" class="footer__link">Newsletter</a>
                 </div>
               </li>
 
@@ -438,12 +435,60 @@
       </div>
     </div>
   </footer>
-  
+
 
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+  
+      // Firebase Config
+      const firebaseConfig = {
+          apiKey: "AIzaSyChLc_2YkWUW5-oGY-N4W54vvhD9x6CETU",
+          authDomain: "missfit-d2924.firebaseapp.com",
+          projectId: "missfit-d2924",
+          storageBucket: "missfit-d2924.appspot.com",
+          messagingSenderId: "1052588043114",
+          appId: "1:1052588043114:web:c4390a5669cbfc1cfc5313",
+          measurementId: "G-EWMZRBP8HT"
+      };
+  
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+  
+      // Function to Get Article ID from URL
+      function getArticleId() {
+          const params = new URLSearchParams(window.location.search);
+          return params.get("id"); // Example: article-selected.html?id=article1
+      }
+  
+      // Function to Load Article Content
+      async function loadArticle() {
+          const articleId = getArticleId();
+          if (!articleId) {
+              document.querySelector(".details__body").innerHTML = "<p>Article not found.</p>";
+              return;
+          }
+  
+          const docRef = doc(db, "articles", articleId);
+          const docSnap = await getDoc(docRef);
+  
+          if (docSnap.exists()) {
+              const data = docSnap.data();
+              document.querySelector(".details__title").innerText = data.title;
+              document.querySelector(".details__category").innerText = data.category;
+              document.querySelector(".details__body").innerHTML = `<p>${data.content}</p>`;
+          } else {
+              document.querySelector(".details__body").innerHTML = "<p>Article not found.</p>";
+          }
+      }
+  
+      // Load the article when the page loads
+      window.onload = loadArticle;
+  </script>
+  
 </body>
 </html>
