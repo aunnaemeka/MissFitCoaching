@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MissFit Coaching - Articles</title>
+    <title>MissFit Coaching - Newsletters</title>
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
     <!-- Fallback PNG for browsers that don't support SVG favicons -->
     <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
@@ -17,15 +17,16 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/articles.css">
+    <link rel="stylesheet" href="../css/newsletter.css">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 
 </head>
 <body>
 
+
 <!-- HERO SECTION -->
-<section class="hero shared-hero articles-hero">
+<section class="hero shared-hero newsletter-hero">
   <header class="header hero__header">
     <div class="header__container hero__container">
       <a href="../index.html" class="header__logo hero__logo">
@@ -34,16 +35,16 @@
       <nav class="header__nav hero__nav">
         <ul class="header__nav-list hero__nav-list">
           <li class="hero__nav-item">
-            <a href="../pages/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+            <a href="../company/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
           </li>
           <li class="hero__nav-item">
             <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/executive.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
-              <li><a href="../pages/career.html" class="header__nav-dropdown-link">Career Coaching</a></li>
-              <li><a href="../pages/job-search.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
+              <li><a href="../coaching/executive-coaching.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
+              <li><a href="../coaching/career-coaching.html" class="header__nav-dropdown-link">Career Coaching</a></li>
+              <li><a href="../coaching/job-search-coaching.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
             </ul>
           </li>
           <li class="hero__nav-item">
@@ -51,7 +52,7 @@
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
+              <li><a href="../workshops/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
             </ul>
           </li>
           <li class="hero__nav-item">
@@ -59,7 +60,7 @@
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
+              <li><a href="../services/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
             </ul>
           </li>
           <li class="hero__nav-item">
@@ -67,30 +68,30 @@
               <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
             </a>
             <ul class="header__nav-dropdown">
-              <li><a href="../pages/articles.html" class="header__nav-dropdown-link">Articles</a></li>
-              <li><a href="../pages/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
+              <li><a href="../resources/articles.html" class="header__nav-dropdown-link">Articles</a></li>
+              <li><a href="../resources/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
             </ul>
           </li>
         </ul>
       </nav>
       <div class="header__right">
         <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-        <a href="../pages/contact.html" class="header__cta hero__cta">CONTACT</a>
+        <a href="../company/contact.html" class="header__cta hero__cta">CONTACT</a>
       </div>
     </div>
     <div class="header__mobile-menu">
       <ul class="header__mobile-nav-list">
         <li>
-          <a href="../pages/about.html" class="header__mobile-nav-link">ABOUT</a>
+          <a href="../company/about.html" class="header__mobile-nav-link">ABOUT</a>
         </li>
         <li>
           <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/executive.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
-            <li><a href="../pages/career.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
-            <li><a href="../pages/job-search.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
+            <li><a href="../coaching/executive-coaching.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
+            <li><a href="../coaching/career-coaching.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
+            <li><a href="../coaching/job-search-coaching.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
           </ul>
         </li>
         <li>
@@ -98,7 +99,7 @@
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
+            <li><a href="../workshops/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
           </ul>
         </li>
         <li>
@@ -106,7 +107,7 @@
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
+            <li><a href="../services/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
           </ul>
         </li>
         <li>
@@ -114,153 +115,112 @@
             <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
-            <li><a href="../pages/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
+            <li><a href="../resources/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
+            <li><a href="../resources/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
           </ul>
         </li>
         <li>
-          <a href="../pages/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+          <a href="../company/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
         </li>
       </ul>
     </div>
   </header>
-  
-    <div class="hero__content">
-      <div class="hero__text">
-        <h1 class="hero__title">ARTICLES</h1>
-        <p class="hero__subtitle">
-          We’d love to hear from you and resolve enquiries or complaints.
-        </p>
-      </div>
-    </div>
-    <div class="articles-hero__categories">
-      <!-- Horizontal buttons for desktop -->
-      <button class="category active" data-value="Executive Coaching">Executive Coaching</button>
-      <button class="category" data-value="Career Coaching">Career Coaching</button>
-      <button class="category" data-value="Job Search Coaching">Job Search Coaching</button>
-      <button class="category" data-value="Guides">Guides</button>
-      <button class="category" data-value="Workbook">Workbook</button>
-      <button class="category" data-value="Templates">Templates</button>
-    
-      <!-- Dropdown for mobile -->
-      <div class="category-dropdown">
-        <button class="category-dropdown__toggle" aria-label="Toggle category menu" aria-expanded="false">
-          <span class="category-dropdown__text">Executive Coaching</span>
-          <img src="../assets/icons/angle-icon.svg" alt="Toggle dropdown" class="category-dropdown__icon" />
-        </button>
-        <ul class="category-dropdown__list">
-          <li class="category-dropdown__item" data-value="Executive Coaching">Executive Coaching</li>
-          <li class="category-dropdown__item" data-value="Career Coaching">Career Coaching</li>
-          <li class="category-dropdown__item" data-value="Job Search Coaching">Job Search Coaching</li>
-          <li class="category-dropdown__item" data-value="Guides">Guides</li>
-          <li class="category-dropdown__item" data-value="Workbook">Workbook</li>
-          <li class="category-dropdown__item" data-value="Templates">Templates</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  
-<!-- Articles Section -->
-<section class="articles">
-  <div class="articles__wrapper">
-    <!-- Articles Content and Load More -->
-    <div class="articles__main">
-      <div class="articles__content">
-        <div class="articles__grid">
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-1.jpg" alt="Article 1" class="article__image" />
-              <h3 class="article__title">From a Sea of Resumes to Recognition: How to Be Remembered</h3>
-              <p class="article__description">We’d love to hear from you and resolve enquiries or complaints.</p>
-              <p class="article__time">8 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-2.jpg" alt="Article 2" class="article__image" />
-              <h3 class="article__title">Are you losing out on a 30% pay increase?</h3>
-              <p class="article__description">Hey there, career rockstars! Let’s talk about the job market shake-up and why you...</p>
-              <p class="article__time">8 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-3.jpg" alt="Article 3" class="article__image" />
-              <h3 class="article__title">Harnessing Intuition and Structure in Job Interviews</h3>
-              <p class="article__description">Why identify and manage interview anxiety. Notice subtle cues about company...</p>
-              <p class="article__time">5 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-4.jpg" alt="Article 4" class="article__image" />
-              <h3 class="article__title">Food Innovation Jobs In Chicago</h3>
-              <p class="article__description">Chicago is unique in the world in terms of food innovation and manufacturing...</p>
-              <p class="article__time">6 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-5.jpg" alt="Article 5" class="article__image" />
-              <h3 class="article__title">Unlocking Career Opportunities in Chicago's Vibrant Food Scene</h3>
-              <p class="article__description">Are you a food enthusiast or job seeker interested in pursuing an...</p>
-              <p class="article__time">8 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-6.jpg" alt="Article 6" class="article__image" />
-              <h3 class="article__title">Top Chicago Companies Recognized for Workplace Excellence</h3>
-              <p class="article__description">As a professional resume writer and career coach based in Chicago, I’ve...</p>
-              <p class="article__time">5 min read</p>
-            </article>
-          </a>
-        </div>
-      </div>
-      <button class="articles__load-more">LOAD MORE</button>
-    </div>
+    <div class="newsletter-hero__content hero__content">
 
-    <!-- Newsletter Section -->
-    <aside class="newsletter" id="newsletter">
-      <div class="newsletter__container" id="newsletterFormContainer">
-        <!-- GoHighLevel Form - This already contains the heading and subtitle -->
-        <div class="newsletter__ghl-container">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/0ReUutPxYEcFxSpTwVaU"
-            style="width:100%;border:none;border-radius:4px"
-            id="inline-0ReUutPxYEcFxSpTwVaU" 
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Newsletter Signup Form with only Captcha"
-            data-height="507"
-            data-layout-iframe-id="inline-0ReUutPxYEcFxSpTwVaU"
-            data-form-id="0ReUutPxYEcFxSpTwVaU"
-            title="Newsletter Signup Form with only Captcha">
-          </iframe>
-        </div>
+        <h1 class="newsletter-hero__title hero__title">THE INSIDER EDGE NEWSLETTER</h1>
+        <p class="newsletter-hero__subtitle hero__subtitle">
+          Join 45k+ professionals subscribed receiving actionable career tips.
+        </p>
+        <form class="newsletter-hero__form">
+          <input
+            type="email"
+            class="newsletter-hero__input"
+            placeholder="Email Address"
+            required
+          />
+                <!-- Turnstile Widget -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"></div>
+          <button type="submit" class="newsletter-hero__submit">SUBMIT</button>
+        </form>
       </div>
-      
-      <!-- Your existing confirmation message can be kept if needed -->
-      <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
-        <div class="subscription-confirmation__checkmark-circle">
-          <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
-        </div>
-        <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
-        <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
-        <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
-      </div>
-    </aside>
-    
+  </section>
+
+  
+<!-- Newsletter Archive Section -->
+<section class="newsletter-archive">
+  <header class="newsletter-archive__header">
+    <h2 class="newsletter-archive__title">NEWSLETTER ARCHIVE</h2>
+  </header>
+  <div class="newsletter-archive__grid">
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#101</h3>
+        <p class="newsletter-item__title">How to Transform New Year's Wishful Thinking into Career-Changing Action</p>
+        <p class="newsletter-item__date">JAN 16, 2025</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#100</h3>
+        <p class="newsletter-item__title">The Art of Hiring: A Peek Behind the Scenes</p>
+        <p class="newsletter-item__date">JAN 9, 2025</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#99</h3>
+        <p class="newsletter-item__title">A Career Strategist's New Playbook: Three Power Moves</p>
+        <p class="newsletter-item__date">DEC 19, 2024</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#98</h3>
+        <p class="newsletter-item__title">The Sideways Career Move: A 50+ Executive's Path to Success</p>
+        <p class="newsletter-item__date">DEC 12, 2024</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#97</h3>
+        <p class="newsletter-item__title">The Career Paradox Elite Leaders Are Exploiting in 2024's Uncertain Market</p>
+        <p class="newsletter-item__date">DEC 5, 2024</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#96</h3>
+        <p class="newsletter-item__title">Mosaic Mentors: How 91% of Fortune 500 Leaders Are Shifting in 2024</p>
+        <p class="newsletter-item__date">NOV 27, 2024</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#95</h3>
+        <p class="newsletter-item__title">Why 25% of High-Potential Leaders Fail: The Year-End Leadership Test</p>
+        <p class="newsletter-item__date">NOV 21, 2024</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#94</h3>
+        <p class="newsletter-item__title">(Corrected) Your Boss Knows You're on Autopilot (I Learned This at 1:15 PM)</p>
+        <p class="newsletter-item__date">NOV 14, 2024</p>
+      </article>
+    </a>
+    <a href="newsletter-selected.html" class="newsletter-item__link">
+      <article class="newsletter-item">
+        <h3 class="newsletter-item__number">#93</h3>
+        <p class="newsletter-item__title">A Career Strategist's New Playbook: Three Power Moves</p>
+        <p class="newsletter-item__date">JAN 14, 2025</p>
+      </article>
+    </a>
   </div>
+  <button class="newsletter-archive__load-more">LOAD MORE</button>
 </section>
 
-
   
+
 
 <footer class="footer">
   <div class="footer__container">
@@ -296,22 +256,22 @@
           <ul class="footer__list">
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/about.html" class="footer__link">About</a>
+                <a href="../company/about.html" class="footer__link">About</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/contact.html" class="footer__link">Contact</a>
+                <a href="../company/contact.html" class="footer__link">Contact</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/terms.html" class="footer__link">Terms of Service</a>
+                <a href="../company/terms.html" class="footer__link">Terms of Service</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/policy.html" class="footer__link">Privacy Policy</a>
+                <a href="../company/policy.html" class="footer__link">Privacy Policy</a>
               </div>
             </li>
           </ul>
@@ -331,17 +291,17 @@
           <ul class="footer__list">
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/executive.html" class="footer__link">Executive Coaching</a>
+                <a href="../coaching/executive-coaching.html" class="footer__link">Executive Coaching</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/career.html" class="footer__link">Career Coaching</a>
+                <a href="../coaching/career-coaching.html" class="footer__link">Career Coaching</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/job-search.html" class="footer__link">Job Search Coaching</a>
+                <a href="../coaching/job-search-coaching.html" class="footer__link">Job Search Coaching</a>
               </div>
             </li>
           </ul>
@@ -362,7 +322,7 @@
           <ul class="footer__list">
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
+                <a href="../workshops/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
               </div>
             </li>
           </ul>
@@ -382,7 +342,7 @@
           <ul class="footer__list">
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/resume.html" class="footer__link">Resume Writing</a>
+                <a href="../services/resume.html" class="footer__link">Resume Writing</a>
               </div>
             </li>
           </ul>
@@ -402,12 +362,12 @@
           <ul class="footer__list">
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/articles.html" class="footer__link">Articles</a>
+                <a href="../resources/articles.html" class="footer__link">Articles</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../pages/newsletter.html" class="footer__link">Newsletter</a>
+                <a href="../resources/newsletter.html" class="footer__link">Newsletter</a>
               </div>
             </li>
 
@@ -420,10 +380,9 @@
 
 
 
+
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
-    
 </body>
 </html>
