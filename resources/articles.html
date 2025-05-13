@@ -4,26 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MissFit Coaching - Articles</title>
+    <script src="https://cdn.jsdelivr.net/npm/@sanity/client@3.19.0/lib/sanityClient.browser.min.js"></script>
+
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
-    <!-- Fallback PNG for browsers that don't support SVG favicons -->
     <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
-   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
     </style>
-    
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/articles.css">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-
 </head>
 <body>
-
 <!-- HERO SECTION -->
 <section class="hero shared-hero articles-hero">
   <header class="header hero__header">
@@ -34,7 +32,7 @@
       <nav class="header__nav hero__nav">
         <ul class="header__nav-list hero__nav-list">
           <li class="hero__nav-item">
-            <a href="../company/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+            <a href="../about.html" class="header__nav-link hero__nav-link">ABOUT</a>
           </li>
           <li class="hero__nav-item">
             <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
@@ -75,13 +73,13 @@
       </nav>
       <div class="header__right">
         <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-        <a href="../company/contact.html" class="header__cta hero__cta">CONTACT</a>
+        <a href="../contact.html" class="header__cta hero__cta">CONTACT</a>
       </div>
     </div>
     <div class="header__mobile-menu">
       <ul class="header__mobile-nav-list">
         <li>
-          <a href="../company/about.html" class="header__mobile-nav-link">ABOUT</a>
+          <a href="../about.html" class="header__mobile-nav-link">ABOUT</a>
         </li>
         <li>
           <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
@@ -119,116 +117,64 @@
           </ul>
         </li>
         <li>
-          <a href="../company/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+          <a href="../contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
         </li>
       </ul>
     </div>
   </header>
-  
-    <div class="hero__content">
-      <div class="hero__text">
-        <h1 class="hero__title">ARTICLES</h1>
-        <p class="hero__subtitle">
-          We’d love to hear from you and resolve enquiries or complaints.
-        </p>
-      </div>
+  <div class="hero__content">
+    <div class="hero__text">
+      <h1 class="hero__title">ARTICLES</h1>
+      <p class="hero__subtitle">
+        We’d love to hear from you and resolve enquiries or complaints.
+      </p>
     </div>
-    <div class="articles-hero__categories">
-      <!-- Horizontal buttons for desktop -->
-      <button class="category active" data-value="Executive Coaching">Executive Coaching</button>
-      <button class="category" data-value="Career Coaching">Career Coaching</button>
-      <button class="category" data-value="Job Search Coaching">Job Search Coaching</button>
-      <button class="category" data-value="Guides">Guides</button>
-      <button class="category" data-value="Workbook">Workbook</button>
-      <button class="category" data-value="Templates">Templates</button>
-    
-      <!-- Dropdown for mobile -->
-      <div class="category-dropdown">
-        <button class="category-dropdown__toggle" aria-label="Toggle category menu" aria-expanded="false">
-          <span class="category-dropdown__text">Executive Coaching</span>
-          <img src="../assets/icons/angle-icon.svg" alt="Toggle dropdown" class="category-dropdown__icon" />
-        </button>
-        <ul class="category-dropdown__list">
-          <li class="category-dropdown__item" data-value="Executive Coaching">Executive Coaching</li>
-          <li class="category-dropdown__item" data-value="Career Coaching">Career Coaching</li>
-          <li class="category-dropdown__item" data-value="Job Search Coaching">Job Search Coaching</li>
-          <li class="category-dropdown__item" data-value="Guides">Guides</li>
-          <li class="category-dropdown__item" data-value="Workbook">Workbook</li>
-          <li class="category-dropdown__item" data-value="Templates">Templates</li>
-        </ul>
-      </div>
+  </div>
+  <div class="articles-hero__categories">
+    <!-- Horizontal buttons for desktop -->
+    <button class="category active" data-value="Executive Coaching">Executive Coaching</button>
+    <button class="category" data-value="Career Coaching">Career Coaching</button>
+    <button class="category" data-value="Job Search Coaching">Job Search Coaching</button>
+    <button class="category" data-value="Guides">Guides</button>
+    <button class="category" data-value="Workbook">Workbook</button>
+    <button class="category" data-value="Templates">Templates</button>
+    <!-- Dropdown for mobile -->
+    <div class="category-dropdown">
+      <button class="category-dropdown__toggle" aria-label="Toggle category menu" aria-expanded="false">
+        <span class="category-dropdown__text">Executive Coaching</span>
+        <img src="../assets/icons/angle-icon.svg" alt="Toggle dropdown" class="category-dropdown__icon" />
+      </button>
+      <ul class="category-dropdown__list">
+        <li class="category-dropdown__item" data-value="Executive Coaching">Executive Coaching</li>
+        <li class="category-dropdown__item" data-value="Career Coaching">Career Coaching</li>
+        <li class="category-dropdown__item" data-value="Job Search Coaching">Job Search Coaching</li>
+        <li class="category-dropdown__item" data-value="Guides">Guides</li>
+        <li class="category-dropdown__item" data-value="Workbook">Workbook</li>
+        <li class="category-dropdown__item" data-value="Templates">Templates</li>
+      </ul>
     </div>
-  </section>
-  
+  </div>
+</section>
 <!-- Articles Section -->
 <section class="articles">
   <div class="articles__wrapper">
     <!-- Articles Content and Load More -->
     <div class="articles__main">
       <div class="articles__content">
-        <div class="articles__grid">
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-1.jpg" alt="Article 1" class="article__image" />
-              <h3 class="article__title">From a Sea of Resumes to Recognition: How to Be Remembered</h3>
-              <p class="article__description">We’d love to hear from you and resolve enquiries or complaints.</p>
-              <p class="article__time">8 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-2.jpg" alt="Article 2" class="article__image" />
-              <h3 class="article__title">Are you losing out on a 30% pay increase?</h3>
-              <p class="article__description">Hey there, career rockstars! Let’s talk about the job market shake-up and why you...</p>
-              <p class="article__time">8 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-3.jpg" alt="Article 3" class="article__image" />
-              <h3 class="article__title">Harnessing Intuition and Structure in Job Interviews</h3>
-              <p class="article__description">Why identify and manage interview anxiety. Notice subtle cues about company...</p>
-              <p class="article__time">5 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-4.jpg" alt="Article 4" class="article__image" />
-              <h3 class="article__title">Food Innovation Jobs In Chicago</h3>
-              <p class="article__description">Chicago is unique in the world in terms of food innovation and manufacturing...</p>
-              <p class="article__time">6 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-5.jpg" alt="Article 5" class="article__image" />
-              <h3 class="article__title">Unlocking Career Opportunities in Chicago's Vibrant Food Scene</h3>
-              <p class="article__description">Are you a food enthusiast or job seeker interested in pursuing an...</p>
-              <p class="article__time">8 min read</p>
-            </article>
-          </a>
-          <a href="article-selected.html" class="article__link">
-            <article class="article">
-              <img src="../assets/images/article-image-6.jpg" alt="Article 6" class="article__image" />
-              <h3 class="article__title">Top Chicago Companies Recognized for Workplace Excellence</h3>
-              <p class="article__description">As a professional resume writer and career coach based in Chicago, I’ve...</p>
-              <p class="article__time">5 min read</p>
-            </article>
-          </a>
+        <div class="articles__grid" id="articles-grid">
+          <!-- Articles will be dynamically inserted here -->
         </div>
       </div>
-      <button class="articles__load-more">LOAD MORE</button>
+      <button class="articles__load-more" id="load-more">LOAD MORE</button>
     </div>
-
     <!-- Newsletter Section -->
     <aside class="newsletter" id="newsletter">
       <div class="newsletter__container" id="newsletterFormContainer">
-        <!-- GoHighLevel Form - This already contains the heading and subtitle -->
         <div class="newsletter__ghl-container">
           <iframe
             src="https://api.leadconnectorhq.com/widget/form/0ReUutPxYEcFxSpTwVaU"
             style="width:100%;border:none;border-radius:4px"
-            id="inline-0ReUutPxYEcFxSpTwVaU" 
+            id="inline-0ReUutPxYEcFxSpTwVaU"
             data-layout="{'id':'INLINE'}"
             data-trigger-type="alwaysShow"
             data-trigger-value=""
@@ -244,8 +190,6 @@
           </iframe>
         </div>
       </div>
-      
-      <!-- Your existing confirmation message can be kept if needed -->
       <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
         <div class="subscription-confirmation__checkmark-circle">
           <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
@@ -255,14 +199,11 @@
         <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
       </div>
     </aside>
-    
   </div>
 </section>
 
 
-  
-
-
+ 
 <footer class="footer">
   <div class="footer__container">
     <!-- Branding Section -->
@@ -297,22 +238,22 @@
           <ul class="footer__list">
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../company/about.html" class="footer__link">About</a>
+                <a href="../about.html" class="footer__link">About</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../company/contact.html" class="footer__link">Contact</a>
+                <a href="../contact.html" class="footer__link">Contact</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../company/terms.html" class="footer__link">Terms of Service</a>
+                <a href="../terms.html" class="footer__link">Terms of Service</a>
               </div>
             </li>
             <li class="footer__list-item">
               <div class="footer__link-wrapper">
-                <a href="../company/policy.html" class="footer__link">Privacy Policy</a>
+                <a href="../policy.html" class="footer__link">Privacy Policy</a>
               </div>
             </li>
           </ul>
@@ -419,12 +360,97 @@
   </div>
 </footer>
 
+<!-- ✅ Load Sanity First -->
+<!-- Load Sanity Client v3.19.0 and Image URL Builder -->
+<script src="https://unpkg.com/@sanity/client@2.29.6/dist/sanityClient.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sanity/image-url@1.0.2/lib/browser.js"></script>
+<script src="https://cdn.sanity.io/client/v3.min.js"></script>
+<script>
+  const ARTICLES_PER_PAGE = 6;
+  let currentPage = 1;
+  let currentCategory = 'Executive Coaching';
+  let allArticles = [];
+
+  function buildImageUrl(ref) {
+    if (!ref) return '';
+    const [_, id, size, format] = ref.split('-');
+    return `https://cdn.sanity.io/images/6lsv3s2h/production/${id}-${size}.${format}`;
+  }
+
+  async function fetchArticles(category, page = 1) {
+    const start = (page - 1) * ARTICLES_PER_PAGE;
+    const end = page * ARTICLES_PER_PAGE;
+    const query = encodeURIComponent(`*[_type == "article" && category == "${category}"] | order(publishedAt desc) [${start}...${end}] {
+      title,
+      slug,
+      readingTime,
+      "mainImage": { "ref": mainImage.asset._ref }
+    }`);
+    const url = `https://6lsv3s2h.api.sanity.io/v2023-05-03/data/query/production?query=${query}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.result || [];
+  }
+
+  function renderArticles(articles) {
+    const grid = document.getElementById('articles-grid');
+    if (!grid) return;
+    grid.innerHTML = articles.map(article => `
+      <a href="article-selected.html?slug=${article.slug.current}" class="article__link">
+        <article class="article">
+          <img src="${buildImageUrl(article.mainImage?.ref)}" alt="${article.title}" class="article__image" />
+          <h3 class="article__title">${article.title}</h3>
+          <p class="article__time">${article.readingTime} min read</p>
+        </article>
+      </a>
+    `).join('');
+  }
+
+  async function loadArticles(category, page = 1) {
+    currentCategory = category;
+    currentPage = page;
+    const articles = await fetchArticles(category, page);
+    allArticles = page === 1 ? articles : [...allArticles, ...articles];
+    renderArticles(allArticles);
+    updateCategoryButtons(category);
+  }
+
+  function updateCategoryButtons(selectedCategory) {
+    document.querySelectorAll('.category, .category-dropdown__item').forEach(button => {
+      button.classList.toggle('active', button.dataset.value === selectedCategory);
+    });
+    const dropdownText = document.querySelector('.category-dropdown__text');
+    if (dropdownText) dropdownText.textContent = selectedCategory;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadArticles(currentCategory);
+
+    document.querySelectorAll('.category, .category-dropdown__item').forEach(button => {
+      button.addEventListener('click', () => {
+        loadArticles(button.dataset.value);
+      });
+    });
+
+    const loadMoreButton = document.getElementById('load-more');
+    if (loadMoreButton) {
+      loadMoreButton.addEventListener('click', () => {
+        loadArticles(currentCategory, currentPage + 1);
+      });
+    }
+  });
+</script>
 
 
-    <script src="assets/js/slider.js"></script>
-    <script src="../assets/js/script.js"></script>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
-    
+
+
+
+<!-- ✅ Finally, load all your other scripts AFTER -->
+<script src="../assets/js/slider.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+
 </body>
 </html>
