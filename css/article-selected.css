@@ -41,3 +41,10 @@ body {
 }
 
 
+
+
+@media (max-width: 952px) {
+  .category {
+      display: block;
+  }
+}

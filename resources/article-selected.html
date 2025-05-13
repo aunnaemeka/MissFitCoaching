@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/articles.css">
     <link rel="stylesheet" href="../css/article-selected.css">
-    <link rel="stylesheet" href="../css/article.css">
+
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     
@@ -36,7 +37,7 @@
       <nav class="header__nav hero__nav">
         <ul class="header__nav-list hero__nav-list">
           <li class="hero__nav-item">
-            <a href="../company/about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+            <a href="../about.html" class="header__nav-link hero__nav-link">ABOUT</a>
           </li>
           <li class="hero__nav-item">
             <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
@@ -77,13 +78,13 @@
       </nav>
       <div class="header__right">
         <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-        <a href="../company/contact.html" class="header__cta hero__cta">CONTACT</a>
+        <a href="../contact.html" class="header__cta hero__cta">CONTACT</a>
       </div>
     </div>
     <div class="header__mobile-menu">
       <ul class="header__mobile-nav-list">
         <li>
-          <a href="../company/about.html" class="header__mobile-nav-link">ABOUT</a>
+          <a href="../about.html" class="header__mobile-nav-link">ABOUT</a>
         </li>
         <li>
           <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
@@ -121,7 +122,7 @@
           </ul>
         </li>
         <li>
-          <a href="../company/contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+          <a href="../contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
         </li>
       </ul>
     </div>
@@ -139,7 +140,7 @@
           FROM A SEA OF RESUMES TO RECOGNITION: HOW TO BE REMEMBERED
         </h1>
         <div class="details__meta">
-          <span class="details__category category-dropdown__item"  data-value="Executive Coaching">Executive Coaching</span>
+          <span class="details__category category"  data-value="Executive Coaching">Executive Coaching</span>
           <span class="details__time">8 min read</span>
         </div>
       </header>
@@ -217,25 +218,27 @@
         </div>
     <!-- Newsletter Section -->
     <aside class="newsletter" id="newsletter">
-      <div class="newsletter__container" id="newsletterFormContainer">
-        <header class="newsletter__header">
-          <h2 class="newsletter__title">
-            SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
-          </h2>
-          <p class="newsletter__subtitle">
-            Join the Insider Edge Newsletter. 45k+ professionals subscribed.
-          </p>
-        </header>
-        <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
-          <input type="hidden" name="_redirect" value="false" />
-          <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
-                <!-- Turnstile Widget -->
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAABI6_gx6Hffc7XoM"></div>
-          <button type="submit" class="newsletter__submit">SUBMIT</button>
-        </form>
+      <div class="newsletter__container" id="newsletterFormContainer" >
+        <div class="newsletter__ghl-container">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/0ReUutPxYEcFxSpTwVaU"
+            style="width:100%;border:none;border-radius:4px"
+            id="inline-0ReUutPxYEcFxSpTwVaU"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Newsletter Signup Form with only Captcha"
+            data-height="507"
+            data-layout-iframe-id="inline-0ReUutPxYEcFxSpTwVaU"
+            data-form-id="0ReUutPxYEcFxSpTwVaU"
+            title="Newsletter Signup Form with only Captcha">
+          </iframe>
+        </div>
       </div>
-      
-      <!-- Newsletter Success Message (Hidden by default) -->
       <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
         <div class="subscription-confirmation__checkmark-circle">
           <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
@@ -248,7 +251,6 @@
       </div>
     </div>
   </section>
-  
   
   
   <section class="read-next">
@@ -314,22 +316,22 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../company/about.html" class="footer__link">About</a>
+                  <a href="../about.html" class="footer__link">About</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../company/contact.html" class="footer__link">Contact</a>
+                  <a href="../contact.html" class="footer__link">Contact</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../company/terms.html" class="footer__link">Terms of Service</a>
+                  <a href="../terms.html" class="footer__link">Terms of Service</a>
                 </div>
               </li>
               <li class="footer__list-item">
                 <div class="footer__link-wrapper">
-                  <a href="../company/policy.html" class="footer__link">Privacy Policy</a>
+                  <a href="../policy.html" class="footer__link">Privacy Policy</a>
                 </div>
               </li>
             </ul>
@@ -436,59 +438,92 @@
     </div>
   </footer>
 
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
-
-    <script src="assets/js/slider.js"></script>
-    <script src="../assets/js/script.js"></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+  <script src="../assets/js/sanityClient.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', loadArticle);
   
-      // Firebase Config
-      const firebaseConfig = {
-          apiKey: "AIzaSyChLc_2YkWUW5-oGY-N4W54vvhD9x6CETU",
-          authDomain: "missfit-d2924.firebaseapp.com",
-          projectId: "missfit-d2924",
-          storageBucket: "missfit-d2924.appspot.com",
-          messagingSenderId: "1052588043114",
-          appId: "1:1052588043114:web:c4390a5669cbfc1cfc5313",
-          measurementId: "G-EWMZRBP8HT"
-      };
+    async function loadArticle() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+      if (!slug) return;
   
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
+      const query = encodeURIComponent(`*[_type == "article" && slug.current == "${slug}"][0] {
+        title,
+        category,
+        readingTime,
+        content
+      }`);
+      const url = `https://6lsv3s2h.api.sanity.io/v2023-05-03/data/query/production?query=${query}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const article = data.result;
+      if (!article) return;
   
-      // Function to Get Article ID from URL
-      function getArticleId() {
-          const params = new URLSearchParams(window.location.search);
-          return params.get("id"); // Example: article-selected.html?id=article1
-      }
+      document.querySelector('.details__title').innerText = article.title;
+      const categoryEl = document.querySelector('.details__category');
+      categoryEl.innerText = article.category;
+      categoryEl.dataset.value = article.category;
+      categoryEl.classList.add('active');
+      document.querySelector('.details__time').innerText = `${article.readingTime} min read`;
   
-      // Function to Load Article Content
-      async function loadArticle() {
-          const articleId = getArticleId();
-          if (!articleId) {
-              document.querySelector(".details__body").innerHTML = "<p>Article not found.</p>";
-              return;
-          }
+      const bodyContainer = document.querySelector('.details__body');
+      bodyContainer.innerHTML = renderContent(article.content);
   
-          const docRef = doc(db, "articles", articleId);
-          const docSnap = await getDoc(docRef);
+      loadNextArticles(slug);
+    }
   
-          if (docSnap.exists()) {
-              const data = docSnap.data();
-              document.querySelector(".details__title").innerText = data.title;
-              document.querySelector(".details__category").innerText = data.category;
-              document.querySelector(".details__body").innerHTML = `<p>${data.content}</p>`;
-          } else {
-              document.querySelector(".details__body").innerHTML = "<p>Article not found.</p>";
-          }
-      }
+    function renderContent(blocks) {
+      return blocks.map(block => {
+        if (block._type === 'block') {
+          const tag = block.style.startsWith('h') ? block.style : 'p';
+          return `<${tag}>${block.children.map(child => child.text).join('')}</${tag}>`;
+        }
+        if (block._type === 'image') {
+          return `<img src="${buildImageUrl(block.asset._ref)}" alt="" />`;
+        }
+        return '';
+      }).join('');
+    }
   
-      // Load the article when the page loads
-      window.onload = loadArticle;
+    function buildImageUrl(ref) {
+      if (!ref) return '';
+      const [_, id, size, format] = ref.split('-');
+      return `https://cdn.sanity.io/images/6lsv3s2h/production/${id}-${size}.${format}`;
+    }
+  
+    async function loadNextArticles(currentSlug) {
+      const nextQuery = encodeURIComponent(`*[_type == "article" && slug.current != "${currentSlug}"] | order(publishedAt desc)[0...3] {
+        title,
+        slug,
+        readingTime,
+        "mainImage": { "ref": mainImage.asset._ref }
+      }`);
+      const url = `https://6lsv3s2h.api.sanity.io/v2023-05-03/data/query/production?query=${nextQuery}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      renderNextArticles(data.result);
+    }
+  
+    function renderNextArticles(articles) {
+      const grid = document.querySelector('.read-next__grid');
+      if (!grid) return;
+  
+      grid.innerHTML = articles.map(article => `
+        <a href="article-selected.html?slug=${article.slug.current}" class="article__link">
+          <article class="article">
+            <img src="${buildImageUrl(article.mainImage?.ref)}" alt="${article.title}" class="article__image" />
+            <h3 class="article__title">${article.title}</h3>
+            <p class="article__time">${article.readingTime} min read</p>
+          </article>
+        </a>
+      `).join('');
+    }
   </script>
+  
+  
+  
   
 </body>
 </html>
