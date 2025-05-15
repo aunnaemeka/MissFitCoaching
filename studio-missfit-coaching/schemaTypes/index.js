@@ -1,2 +1,3 @@
 import { articleType } from './article';
-export const schemaTypes = [articleType];
+import { newsletterType } from './newsletter';
+export const schemaTypes = [articleType, newsletterType];

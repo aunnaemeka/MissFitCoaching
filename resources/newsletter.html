@@ -379,6 +379,61 @@
 </footer>
 
 
+<script>
+  const NEWSLETTERS_PER_PAGE = 9;
+  let currentPage = 1;
+  let allNewsletters = [];
+
+  async function fetchNewsletters(page = 1) {
+    const start = (page - 1) * NEWSLETTERS_PER_PAGE;
+    const end = page * NEWSLETTERS_PER_PAGE;
+    const query = encodeURIComponent(`*[_type == "newsletter"] | order(publishedAt desc) [${start}...${end}] {
+      number,
+      title,
+      slug,
+      publishedAt
+    }`);
+    const url = `https://6lsv3s2h.api.sanity.io/v2023-05-03/data/query/production?query=${query}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.result || [];
+  }
+
+  function renderNewsletters(newsletters) {
+    const grid = document.querySelector('.newsletter-archive__grid');
+    if (!grid) return;
+
+    grid.innerHTML = newsletters.map(n => `
+      <a href="newsletter-selected.html?slug=${n.slug.current}" class="newsletter-item__link">
+        <article class="newsletter-item">
+          <h3 class="newsletter-item__number">#${n.number}</h3>
+          <p class="newsletter-item__title">${n.title}</p>
+          <p class="newsletter-item__date">${new Date(n.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}</p>
+        </article>
+      </a>
+    `).join('');
+  }
+
+  async function loadNewsletters(page = 1) {
+    currentPage = page;
+    const newsletters = await fetchNewsletters(page);
+    allNewsletters = page === 1 ? newsletters : [...allNewsletters, ...newsletters];
+    renderNewsletters(allNewsletters);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadNewsletters();
+
+    const loadMoreButton = document.querySelector('.newsletter-archive__load-more');
+    if (loadMoreButton) {
+      loadMoreButton.addEventListener('click', () => {
+        loadNewsletters(currentPage + 1);
+      });
+    }
+  });
+</script>
+
+
 
 
     <script src="assets/js/slider.js"></script>

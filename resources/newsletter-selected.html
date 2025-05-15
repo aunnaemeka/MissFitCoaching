@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/newsletter.css">
+
     <link rel="stylesheet" href="../css/newsletter-selected.css">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
@@ -437,8 +439,84 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', loadNewsletter);
   
-
+    async function loadNewsletter() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+      if (!slug) return;
+  
+      const query = encodeURIComponent(`*[_type == "newsletter" && slug.current == "${slug}"][0] {
+        number,
+        title,
+        publishedAt,
+        content
+      }`);
+      const url = `https://6lsv3s2h.api.sanity.io/v2023-05-03/data/query/production?query=${query}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const newsletter = data.result;
+      if (!newsletter) return;
+  
+      document.querySelector('.details__title').innerText = `#${newsletter.number} - ${newsletter.title}`;
+      document.querySelector('.details__time').innerText = new Date(newsletter.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  
+      const bodyContainer = document.querySelector('.details__body');
+      bodyContainer.innerHTML = renderContent(newsletter.content);
+  
+      // Trigger Read Next load
+      loadReadNext(slug);
+    }
+  
+    function renderContent(blocks) {
+      return blocks.map(block => {
+        if (block._type === 'block') {
+          const tag = block.style.startsWith('h') ? block.style : 'p';
+          return `<${tag}>${block.children.map(child => child.text).join('')}</${tag}>`;
+        }
+        if (block._type === 'image') {
+          return `<img src="${buildImageUrl(block.asset._ref)}" alt="" />`;
+        }
+        return '';
+      }).join('');
+    }
+  
+    function buildImageUrl(ref) {
+      if (!ref) return '';
+      const [_, id, size, format] = ref.split('-');
+      return `https://cdn.sanity.io/images/6lsv3s2h/production/${id}-${size}.${format}`;
+    }
+  
+    function renderReadNext(newsletters) {
+      const grid = document.querySelector('.read-next__grid');
+      if (!grid) return;
+  
+      grid.innerHTML = newsletters.map(n => `
+        <a href="newsletter-selected.html?slug=${n.slug.current}" class="newsletter-item__link">
+          <article class="newsletter-item">
+            <h3 class="newsletter-item__number">#${n.number}</h3>
+            <p class="newsletter-item__title">${n.title}</p>
+            <p class="newsletter-item__date">${new Date(n.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}</p>
+          </article>
+        </a>
+      `).join('');
+    }
+  
+    async function loadReadNext(currentSlug) {
+      const query = encodeURIComponent(`*[_type == "newsletter" && slug.current != "${currentSlug}"] | order(publishedAt desc)[0...3] {
+        number,
+        title,
+        slug,
+        publishedAt
+      }`);
+      const url = `https://6lsv3s2h.api.sanity.io/v2023-05-03/data/query/production?query=${query}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      renderReadNext(data.result);
+    }
+  </script>
+  
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
