@@ -1,0 +1,342 @@
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  
+}
+
+
+/* === CONTACT HERO SECTION === */
+.contact-hero {
+    height: 29.125rem; /* 266px converted to rem */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: url('../assets/images/background-contact.png') center/cover no-repeat;
+    color: #ffffff; /* White text */
+    box-sizing: border-box;
+  }
+  
+
+  .header{
+    background-color: transparent;
+}
+
+
+
+.hero__subtitle{
+  max-width: 41rem;
+}
+
+
+/* === Contact Section === */
+.contact-section {
+    display: flex;
+    justify-content: center; /* Horizontally center the container */
+    padding: 8.25rem 2.25rem 5.5rem;
+  }
+  
+  .contact-section__container {
+    display: flex;
+    gap: clamp(2.25rem, 0.931rem + 2.2989vw, 3rem); /* 56px between Contact Info and Form */
+    max-width: 52.875rem; /* Ensures it matches the specified width */
+    width: 100%;
+  }
+  
+  /* === Contact Information === */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem; /* 56px between Contact Info Items */
+    flex: 1;
+    max-width: 22.5rem;
+
+  }
+  
+  .contact-info__item {
+    display: flex;
+    position: relative; /* For proper placement of the icon */
+    padding: 2.25rem clamp(1.5rem, 0.181rem + 2.2989vw, 2.25rem) 2.375rem clamp(1.5rem, 0.181rem + 2.2989vw, 2.25rem); /* Top: 36px, Sides: 36px, Bottom: 39px */
+    background-color: #1D1D1D; /* Dark background */
+    border-radius: 4px; /* Smooth edges */
+    overflow: hidden; /* Prevent icon overflow */
+  }
+  
+  .contact-info__icon {
+    position: absolute;
+    right: -1rem; /* Slightly off-box */
+    top: 1rem; /* Adjust based on observation */
+    width: 6rem; /* Approximate width */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0.9; /* Behind text */
+  }
+  
+  .contact-info__title {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+    line-height: 1.575rem; /* 25.25px */
+    text-align: left;
+    color: #C41E3D;
+    margin-bottom: 1.5rem; /* 24px below */
+    position: relative;
+  }
+  
+  .contact-info__details {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.6rem; /* 25.6px */
+    text-align: left;
+    color: #ffffff; /* White text */
+    position: relative;
+  }
+  
+/* === Contact Form === */
+.contact-form {
+  background-color: #1D1D1D; /* Dark background */
+  border-radius: 4px; /* Smooth edges */
+  flex: 1;
+  padding: 2.25rem; /* 36px padding all around */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+/* Contact Form Header (Title and Required Text) */
+.contact-form__header {
+  display: flex; /* Use flex to position title and required text */
+  justify-content: space-between; /* Push title left, required text right */
+  align-items: center; /* Vertically align title and required text */
+  margin-bottom: 2.0625rem; /* 33px below, matching original title margin */
+}
+
+/* Contact Form Title */
+.contact-form__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  line-height: 1.575rem; /* 25.25px */
+  text-align: left;
+  color: #C41E3D;
+}
+
+/* Required Text (Separated to Right) */
+.contact-form__required {
+  color: #999999; /* Red color as specified */
+  font-family: "Inter", sans-serif;
+  font-size: 0.8125rem; /* 16px, match label font size for consistency */
+  font-weight: 400; /* Match label font weight */
+  line-height: 1.3rem; /* 25.6px, match label line height */
+  text-align: right; /* Align to the right edge */
+}
+.contact-form__required .required-asterisk{
+margin-left: 0;
+margin-right: 3px;
+}
+/* Contact Form Body */
+.contact-form__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem; /* 26px between form fields */
+}
+
+/* Contact Form Field */
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Contact Form Label */
+.contact-form__label {
+  color: #ffffff; /* White text */
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px */
+  text-align: left;
+  margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+.required-asterisk {
+  color: #C41E3D; /* Red color as specified */
+  margin-left: 3px;
+  font-weight: bold; /* Make it stand out */
+}
+
+/* Contact Form Input, Select, and Textarea */
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  line-height: 1.5rem; /* 24px */
+  text-align: left;
+  padding: 1rem 1.5rem; /* Add padding inside, now affects input, select, and textarea */
+  border: 1px solid #EFEFEF; /* Light border */
+  border-radius: 4px;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+
+}
+.contact-form__input::placeholder{
+  color: #484848;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-form__textarea {
+  height: 10.5rem; /* Fixed height for textarea, adjust as needed */
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+
+
+/* Ensure the custom arrow doesn’t interfere with text */
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+  outline: none; /* Remove default focus outline if desired */
+}
+
+/* Contact Form Submit Button */
+.contact-form__submit {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  background-color: #C41E3D;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem; /* 16px padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  width: 100%; /* Ensure button takes full width */
+}
+
+.contact-form__submit:hover {
+  opacity: 0.8;
+  background-color: #a91e1e;
+}
+
+/* Contact Form Terms with Links */
+.contact-form__terms {
+  color: #999999; /* Light gray text */
+  font-family: "Inter", sans-serif;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 400;
+  line-height: 1.3rem; /* 20.8px */
+  text-align: left;
+}
+
+.contact-form__terms-link {
+  color: #999999; /* Match text color */
+  text-decoration: underline; /* Underline for links */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.contact-form__terms-link:hover {
+  color: #ffffff; /* White on hover for emphasis */
+}
+
+  @media (max-width: 716px) {
+    .contact-section__container {
+      flex-direction: column; /* Stack into one column */
+      gap: 3.5rem; /* Maintain the same gap between items */
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .contact-info {
+      max-width: 100%;
+      width: 100%;
+    }
+    .contact-form {
+      max-width:100%; /* Ensure both sections take full width */
+      width: 100%;
+      padding: 3.875rem 1.5rem;
+
+    }
+    .contact-section {
+      padding: 8.25rem 1.5rem 5.5rem;
+    }
+  }
+  
+
+  /* === Newsletter Section === */
+
+  .newsletter {
+
+    background-color: #fafafa; /* Background color for contrast */
+  }
+
+
+
+  /* Block: subscription-confirmation (the main container) */
+.subscription-confirmation {
+  max-width: 413px; /* Maximum width of the box */
+  padding: 74px 36px; /* Padding: 74px top/bottom, 36px left/right */
+  color: #ffffff; /* White text */
+  background-color: #1D1D1D;
+  text-align: center;
+  box-sizing: border-box; /* Ensures padding is included in max-width */
+}
+
+/* Element: checkmark-circle (the red circle containing the checkmark) */
+.subscription-confirmation__checkmark-circle {
+  width: 96px; /* Size of the circle */
+  height: 96px;
+  background-color: #C41E3D; /* Red circle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 36px; /* Centered with 36px bottom margin */
+}
+
+/* Element: checkmark (the SVG image) */
+.subscription-confirmation__checkmark {
+  width: 48px; /* Half the circle size for proper fit */
+  height: 48px;
+}
+
+/* Element: title (the main heading) */
+.subscription-confirmation__title {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 35px; /* Title size */
+  margin: 0 0 22px; /* 22px margin below the title */
+}
+
+/* Element: text (the paragraphs) */
+.subscription-confirmation__text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; /* Regular weight */
+  font-size: 16px; /* Text size */
+  margin: 0; /* Reset margin */
+  line-height: 1.5; /* For readability */
+}
+
+
+.contact-confirmation{
+  max-width: 450px;
+  background-color: #1D1D1D;
+  padding: 3rem 2.25rem;
+  height: fit-content;
+}
+
+.contact-confirmation .contact-form__header{
+  margin-bottom: 1.5rem;
+}
+.subscription-confirmation__title{
+  color: #ffffff;
+  font-size: 1.25rem;
+
+}
+
+.subscription-confirmation__text{
+  color: #ffffff;
+  font-size: 1rem;
+}

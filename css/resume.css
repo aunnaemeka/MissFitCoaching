@@ -1,0 +1,281 @@
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/resume-background.png') center/cover no-repeat;
+  }
+
+/* HERO CONTENT SECTION */
+.hero__content {
+    justify-content: center;
+    align-items: center;
+    margin: 8.25rem 0;
+    text-align: center;
+  }
+
+  .header{
+    background-color: #020D4399;
+    ;
+}
+.hero__title {
+    text-align: center;
+}
+.hero__subtitle {
+    text-align: center;
+    justify-self: center;
+}
+.hero__session__subtitle{
+    font-weight: 700;
+}
+
+
+@media (max-width: 948px) {
+
+  .hero__title {
+    font-size: clamp(2.188rem, 5.515vw + -0.142rem, 3.125rem);
+    line-height: clamp(2.625rem, 6.618vw + -0.171rem, 3.75rem);
+  }
+  .hero__content{
+    padding: 0 clamp(3rem, -0.1066rem + 7.3529vw, 4.25rem);;
+  }
+
+}
+
+@media (max-width: 675px) {
+
+  .hero__title {
+   text-align: left;
+  }
+  .hero__content{
+    text-align: left;
+  }
+  .hero__subtitle{
+    text-align: left;
+  }
+
+}
+
+/* === Shared Testimonial Styles === */
+.testimonial-section--dark {
+    background-color: #020D43; /* Dark blue background */
+    color: #ffffff; /* White text */
+
+
+}
+.testimonial-section--light {
+    background-color: #1D55C4; /* Light blue background */
+    color: #ffffff; /* White text */
+
+}
+
+.testimonial .testimonial-section--white {
+    background-color: #FFFFFF; /* Light blue background */
+    color: #1D1D1D;
+}
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5.5rem 3rem; /* 64px vertical padding */
+    text-align: center;
+  }
+  
+  .testimonial__quote {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.125rem; /* 24px */
+    font-weight: 400;
+    line-height: 2.25rem; /* 36px */
+    margin-bottom: 1.5rem; /* 24px below quote */
+    max-width: 43.75rem; /* 960px max width */
+  }
+
+
+  .testimonial__author {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 2.25rem; /* 38.86x */
+    font-style: normal; /* Removes the default italic style */
+
+  }
+
+  @media (max-width: 948px) {
+    .testimonial{
+      padding: 5.5rem 2.25rem;
+    }
+  }
+  @media (max-width: 568px) {
+    .testimonial{
+      padding: 5.5rem 1.5rem;
+    }
+  }
+
+  
+.info__title{
+  color: #020D43;
+}
+ 
+  
+  .footer__heading{
+    color:#E1E2E9 ;
+  }
+  .footer__link{
+    color: #E1E2E9;
+  }
+  .footer__tagline,
+  .footer__copyright {
+    color: #E1E2E9;
+  }
+
+    /* Masonry Section Styling */
+
+    
+    .masonry-section {
+      background-color: #020D43;
+      color: #ffffff;
+      padding: 8.25rem 3rem;
+      text-align: left;
+    }
+    
+    .masonry-section__title {
+      font-family: "Barlow", sans-serif;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      font-weight: 600;
+      margin-bottom: 5.5rem;
+      text-align: center;
+    }
+    
+    .masonry-grid {
+      max-width: 69rem; /* 1104px */
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .masonry-item {
+      background-color: #020E4A;
+      padding: 1.875rem 2.25rem;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #01051A;
+      width: calc(33.333% - 2rem); /* Column width with gap consideration */
+      margin-bottom: 48px;
+    }
+    
+    /* Number Styling */
+    .masonry-item__number {
+      font-family: "Inter", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.8125rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    
+    /* Title Styling */
+    .masonry-item__title {
+      font-family: "Inter", sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.5125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    /* Description Styling */
+    .masonry-item__description {
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      line-height: 1.6rem;
+      color: #d1d1d1;
+      text-align: left;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .masonry-item {
+        width: calc(50% - 1.5rem);
+      }
+      .masonry-section {
+        padding: 8.25rem 3rem;
+      }
+    }
+    
+    @media (max-width: 804px) {
+      .masonry-item {
+        width: 100%;
+      }
+      .masonry-section {
+        padding: 8.25rem 1.5rem;
+      }
+    }
+
+
+    .pricing__price s {
+      font-size: 1.875rem; /* Smaller size for strikethrough price */
+      color: #6A6A6A; /* Grayed out for strikethrough */
+      margin-left: 0.75rem; /* Space between strikethrough and current price */
+    }
+
+    .pricing__item {
+      max-width: 336px; 
+    }
+    .pricing__grid {
+      max-width: 84rem; /* 1104px */
+      margin: 0 auto;
+      column-count: 4; /* Default: 3 columns */
+      column-gap: 1.625rem; /* Horizontal gap between columns */
+    }
+
+
+    @media (max-width: 1411px) {
+      .pricing__grid {
+        max-width: 1080px;
+        column-count: 3; /* 2 columns on medium screens */
+
+      }
+      .pricing {
+        padding: 8.25rem 3rem; /* 132px top/bottom, 48px left/right */
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .pricing__grid {
+        column-count: 2; /* 2 columns on medium screens */
+        max-width: 44.25rem;
+      }
+      .pricing {
+        padding: 8.25rem 1.5rem; /* 132px top/bottom, 48px left/right */
+      }
+      .pricing__item--best{
+        margin-bottom: 7.2rem;
+      }
+      
+    }
+    
+    @media (max-width: 804px) {
+      .pricing__grid {
+        column-count: 1; /* 1 column on small screens */
+        max-width: 21rem;
+      }
+      .pricing {
+        padding: 8.25rem 1.5rem; /* 132px top/bottom, 48px left/right */
+      }
+    }
+    
+    @media (max-width: 804px) {
+      .pricing__grid {
+        column-count: 1; /* 1 column on small screens */
+        max-width: 100%;
+      }
+      .pricing__item{
+        max-width: 100%;
+      }
+    }

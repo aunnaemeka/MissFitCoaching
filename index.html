@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissFit Coaching - Homepage</title>
+    
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<!-- Fallback PNG for browsers that don't support SVG favicons -->
+<link rel="alternate icon" href="assets/icons/favicon.png" type="image/png">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/index.css"> <!-- Only on homepage -->
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <header class="header hero__header">
+    <div class="header__container hero__container">
+      <a href="index.html" class="header__logo hero__logo">
+        <img src="assets/icons/logo.svg" alt="MissFit Coaching Logo">
+      </a>
+      <nav class="header__nav hero__nav">
+        <ul class="header__nav-list hero__nav-list">
+          <li class="hero__nav-item">
+            <a href="about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="coaching/executive-coaching.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
+              <li><a href="coaching/career-coaching.html" class="header__nav-dropdown-link">Career Coaching</a></li>
+              <li><a href="coaching/job-search-coaching.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">WORKSHOP
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="workshops/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">SERVICES
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="services/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">RESOURCES
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="resources/articles.html" class="header__nav-dropdown-link">Articles</a></li>
+              <li><a href="resources/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+        <a href="contact.html" class="header__cta hero__cta">CONTACT</a>
+      </div>
+    </div>
+    <div class="header__mobile-menu">
+      <ul class="header__mobile-nav-list">
+        <li>
+          <a href="about.html" class="header__mobile-nav-link">ABOUT</a>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="coaching/executive-coaching.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
+            <li><a href="coaching/career-coaching.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
+            <li><a href="coaching/job-search-coaching.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">WORKSHOP
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="workshops/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link  header__mobile-nav-link--dropdown">SERVICES
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="services/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">RESOURCES
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="resources/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
+            <li><a href="resources/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+        </li>
+      </ul>
+    </div>
+  </header>
+    <div class="hero__content">
+        <div class="hero__text">
+            <h1 class="hero__title">BUILD THE CAREER YOU REALLY WANT, FASTER.</h1>
+            <p class="hero__subtitle">
+                Tailored coaching programs and resources to help you achieve your professional goals.
+            </p>
+            <a href="contact.html" class="hero__button">CONTACT</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- CLIENT LOGOS SECTION -->
+    <section class="clients">
+        <div class="clients__container">
+            <h2 class="clients__title">Trusted and loved by professionals at</h2>
+            <div class="clients__logos">
+                <img src="assets/images/logo-tesla.svg" alt="Tesla" class="clients__logo">
+                <img src="assets/images/logo-google.svg" alt="Google" class="clients__logo">
+                <img src="assets/images/logo-northrop-grumman.svg" alt="Northrop Grumman" class="clients__logo">
+                <img src="assets/images/logo-john-hancock.svg" alt="John Hancock" class="clients__logo">
+                <img src="assets/images/logo-mayo-clinic.svg" alt="Mayo Clinic" class="clients__logo">
+            </div>
+        </div>
+    </section>
+    
+
+<!-- Coaching Programs Section -->
+<section class="coaching-programs">
+  <div class="coaching-programs__container">
+    <!-- Section Title -->
+    <h2 class="coaching-programs__title">COACHING PROGRAMS</h2>
+
+    <!-- Coaching Cards -->
+    <div class="coaching-programs__cards">
+      <!-- Coaching Card 1 -->
+      <a href="coaching/job-search-coaching.html" class="coaching-programs__card-link">
+        <div class="coaching-programs__card">
+          <div class="coaching-programs__image">
+            <img src="assets/images/job-search-coaching.png" alt="Job Search Coaching">
+          </div>
+          <div class="coaching-programs__overlay">
+            <h3 class="coaching-programs__card-title">Job Search Coaching</h3>
+            <p class="coaching-programs__card-description">Re-enter the workforce after a short or long break.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Coaching Card 2 -->
+      <a href="coaching/career-coaching.html" class="coaching-programs__card-link">
+        <div class="coaching-programs__card">
+          <div class="coaching-programs__image">
+            <img src="assets/images/career-coaching.png" alt="Career Coaching">
+          </div>
+          <div class="coaching-programs__overlay">
+            <h3 class="coaching-programs__card-title">Career Coaching</h3>
+            <p class="coaching-programs__card-description">Build a fulfilling career with better benefits.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Coaching Card 3 -->
+      <a href="coaching/executive-coaching.html" class="coaching-programs__card-link">
+        <div class="coaching-programs__card">
+          <div class="coaching-programs__image">
+            <img src="assets/images/executive-coaching.png" alt="Executive Coaching">
+          </div>
+          <div class="coaching-programs__overlay">
+            <h3 class="coaching-programs__card-title">Executive Coaching</h3>
+            <p class="coaching-programs__card-description">Maximize the health of your organization.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial Slider Section -->
+<section class="testimonial-slider">
+  <div class="testimonial-slider__container">
+    <!-- Slider Navigation -->
+    <div class="testimonial-slider__navigation">
+      <!-- Left Arrow -->
+      <button class="testimonial-slider__arrow testimonial-slider__arrow--left" aria-label="Previous testimonial">
+        <img src="assets/icons/arrow-left.svg" alt="Previous">
+      </button>
+
+      <!-- Pagination -->
+      <span class="testimonial-slider__pagination">1 / 3</span>
+
+      <!-- Right Arrow -->
+      <button class="testimonial-slider__arrow testimonial-slider__arrow--right" aria-label="Next testimonial">
+        <img src="assets/icons/arrow-right.svg" alt="Next">
+      </button>
+    </div>
+
+    <!-- Testimonial Content (Slider Wrapper) -->
+    <div class="testimonial-slider__content">
+      <div class="testimonial-slider__slides">
+        <!-- Slide 1 -->
+        <div class="testimonial-slider__slide">
+          <blockquote class="testimonial-slider__quote">
+            “I can’t say enough about Dee as a career coach. Right from our first conversation, it was obvious she was deeply plugged into the fast-paced shifts in healthcare tech and knew exactly how to navigate them.”
+          </blockquote>
+          <div class="testimonial-slider__author">
+            <div class="testimonial-slider__avatar">
+              <img src="assets/images/David Anderson.png" alt="David A. Avatar">
+            </div>
+            <div class="testimonial-slider__author-info">
+              <p class="testimonial-slider__name">David A.</p>
+              <p class="testimonial-slider__company">Ensemble Health Partners</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slider__slide">
+          <blockquote class="testimonial-slider__quote">
+            “She stepped right up to the challenge of translating transferable skills from 2 careers—beautifully positioning me for another career transition with great relevance in a new industry.”
+          </blockquote>
+          <div class="testimonial-slider__author">
+            <div class="testimonial-slider__avatar">
+              <img src="assets/images/Skylar.png" alt="Skyler L. Avatar">
+            </div>
+            <div class="testimonial-slider__author-info">
+              <p class="testimonial-slider__name">Skylar L.</p>
+              <p class="testimonial-slider__company">Larkyn Enterprises</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slider__slide">
+          <blockquote class="testimonial-slider__quote">
+            ”I really enjoyed my experience working with Dee. Her professionalism, attention to detail, and communication were outstanding. I always felt like she had my best interests in mind and helped me prepare for my interview. I would highly recommend her services to anyone seeking a top-notch recruiter.”          </blockquote>
+          <div class="testimonial-slider__author">
+            <div class="testimonial-slider__avatar">
+              <img src="assets/images/Anthony Guzman.png" alt="Anthony G Avatar">
+            </div>
+            <div class="testimonial-slider__author-info">
+              <p class="testimonial-slider__name">Anthony G.</p>
+              <p class="testimonial-slider__company">Amazon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="info">
+    <!-- Section 1: Built for Today's Workforce -->
+    <div class="info__wrapper">
+      <div class="info__container">
+        <h2 class="info__title">BUILT FOR TODAY'S WORKFORCE.</h2>
+        <div class="info__image">
+          <img src="assets/images/workforce-image.png" alt="Workforce Image">
+        </div>
+        <p class="info__description">
+          Break through career roadblocks, boost your confidence, and develop the resilience to thrive in every stage of your career. With MissFit Coaching, you'll feel prepared, energized, and in control.
+        </p>
+        <ul class="info__features">
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Develop mental & emotional resilience</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Create sustainable habits that help you thrive</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Stay focused, motivated, and balanced</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Discover your unique strengths and opportunities</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Become more accountable</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Section 2: Results You Can Measure -->
+    <div class="info__wrapper info__wrapper--reversed">
+      <div class="info__container info__container--reversed">
+        <h2 class="info__title">RESULTS YOU CAN MEASURE.</h2>
+        <div class="info__image">
+          <img src="assets/images/results-image.png" alt="Results Image">
+        </div>
+        <p class="info__description">
+          Whether you’re searching for your next job, seeking a promotion, or transitioning into a new role, our coaching helps you achieve measurable career growth, from better job offers to higher salaries.
+        </p>
+        <ul class="info__features">
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Overcome application fatigue</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Learn proven negotiation strategies</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Develop leadership skills</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Navigate career change confidently</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Identify relevant opportunities</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Section 3: Coaching for You -->
+    <div class="info__wrapper">
+      <div class="info__container">
+        <h2 class="info__title">COACHING FOR YOU.</h2>
+        <div class="info__image">
+          <img src="assets/images/coaching-image.png" alt="Coaching Image">
+        </div>
+        <p class="info__description">
+          From tailored guidance to empathetic support, our coaching experience is designed to provide clarity, actionable steps, and results—without uncertainty.
+        </p>
+        <ul class="info__features">
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Personalized discovery & unique career roadmap</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Constructive feedback</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Expert guidance with up-to-date resources</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Timely and thorough support</span>
+          </li>
+          <li class="info__feature">
+            <img src="assets/icons/checkmark.svg" alt="Check" class="info__icon">
+            <span>Tailored action steps</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section class="faq">
+    <div class="faq__container">
+      <!-- FAQ Section Title -->
+      <h2 class="faq__title">F.A.Q's</h2>
+  
+      <!-- FAQ Items -->
+      <div class="faq__items">
+        <!-- FAQ Item 1 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT CAN I EXPECT FROM A COACHING SESSION?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              In a coaching session, you can expect personalized attention from your coach, who will actively listen to your goals and challenges. Sessions include insightful discussions, constructive feedback, and actionable tips tailored to your unique situation. Many clients find that sessions are not only informative but also invigorating, leading to immediate mindset shifts and practical applications.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 2 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DOES THE COACHING PROCESS WORK?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Our coaching process starts with an initial consultation to understand your goals and values. You'll complete a questionnaire that helps us discover your strengths and challenges. Sessions are flexible and can be scheduled at your convenience. Throughout the process, you will receive regular check-ins, detailed recaps of each session, and ongoing support to ensure consistent progress.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 3 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT ARE THE QUALIFICATIONS OF YOUR COACHES?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              With over 30 years of leadership experience, including a decade as a corporate VP and global work across top companies like Verizon and Google, Dacia “Dee” DeRidder brings deep, real-world expertise to your career journey. She combines tailored strategies with actionable insights, offering proven solutions that elevate your career to new heights. This isn’t just guidance—it’s the strategic expertise you need to drive real progress and unlock your full potential.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 4 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WILL I RECEIVE PERSONALIZED MATERIALS?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes! We offer customized materials, including tailored resumes and cover letters designed to highlight your strengths and fit the specific roles you're interested in. Many clients have reported receiving positive feedback on their revamped job applications, leading to interview invitations and job offers.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 5 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW QUICKLY CAN I EXPECT RESULTS?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              While results vary based on individual circumstances, many clients experience a significant shift in their mindset and career direction after just one session. Our comprehensive coaching programs are designed to help you make steady progress, and you can expect practical results, such as improved job applications and interview preparation, within weeks.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 6 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF I'M NOT SURE WHAT MY CAREER GOALS ARE?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              That's completely normal! Our coaching process includes exercises and discussions designed to help you identify your values, strengths, and the types of roles that align with them. We focus on self-discovery to empower you to set meaningful and achievable career goals.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 7 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">DO YOU OFFER GROUP COACHING SESSIONS?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes, we provide group coaching sessions that create a supportive community for participants. These sessions foster relationship-building and allow you to learn from others' experiences while receiving guidance from our coaches.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 8 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DO I SCHEDULE A COACHING SESSION?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              You can easily schedule a coaching session after you have been onboarded. Simply choose a time that works for you, and we will accommodate your schedule. If you prefer, you can also reach out to our team via phone or email for assistance.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 9 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF I NEED TO CHANGE MY APPOINTMENT?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              We understand that life can be unpredictable! You can reschedule your appointment with at least 24 hours' notice. Our team is committed to providing flexible options to accommodate your needs.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 10 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">IS THERE A SATISFACTION GUARANTEE?</span>
+            <img src="assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              We are confident in the quality of our coaching services and strive to provide an outstanding experience for all our clients. If you feel that our coaching isn't meeting your expectations, please reach out to us, and we will work with you to address your concerns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- Testimonial Slider Section 2 -->
+<section class="testimonial-slider-2">
+  <div class="testimonial-slider-2__container">
+    <!-- Slider Navigation -->
+    <div class="testimonial-slider-2__navigation">
+      <!-- Left Arrow -->
+      <button class="testimonial-slider-2__arrow testimonial-slider-2__arrow--left" aria-label="Previous testimonial">
+        <img src="assets/icons/arrow-left.svg" alt="Previous">
+      </button>
+
+      <!-- Pagination -->
+      <span class="testimonial-slider-2__pagination">1 / 3</span>
+
+      <!-- Right Arrow -->
+      <button class="testimonial-slider-2__arrow testimonial-slider-2__arrow--right" aria-label="Next testimonial">
+        <img src="assets/icons/arrow-right.svg" alt="Next">
+      </button>
+    </div>
+
+    <!-- Testimonial Content (Slider Wrapper) -->
+    <div class="testimonial-slider-2__content">
+      <div class="testimonial-slider-2__slides">
+        <!-- Slide 1 -->
+        <div class="testimonial-slider-2__slide active">
+          <blockquote class="testimonial-slider-2__quote">
+            “My experience with Dee has exceeded my high expectations. Dee is extremely personable and truly takes an interest in who you are and what you are looking for. On top of that, Dee is an expert in the field of knowing exactly what employers are looking for. Given Dee's professionalism, attention to detail, and remarkable writing skills, I give Dee my highest recommendation for all of your career enhancement needs.”
+          </blockquote>
+          <div class="testimonial-slider-2__author">
+            <div class="testimonial-slider-2__avatar">
+              <img src="assets/images/Edward Gottschalk.png" alt="Edward G. Avatar">
+            </div>
+            <div class="testimonial-slider-2__author-info">
+              <p class="testimonial-slider-2__name">Edward G.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slider-2__slide">
+          <blockquote class="testimonial-slider-2__quote">
+            “I am currently working with Dee, and it has been a game-changer for me both personally and professionally! Her expertise in providing insightful advice, guidance, and coaching has been inspiring. I highly recommend her services for anyone looking to enhance their professional profile and excel in their field.”
+          </blockquote>
+          <div class="testimonial-slider-2__author">
+            <div class="testimonial-slider-2__avatar">
+              <img src="assets/images/David Jeremy Vargas.png" alt="David J. Avatar">
+            </div>
+            <div class="testimonial-slider-2__author-info">
+              <p class="testimonial-slider-2__name">David J.</p>
+              <p class="testimonial-slider-2__company">Dsplus</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slider-2__slide">
+          <blockquote class="testimonial-slider-2__quote">
+            “Dee is extremely kind and genuinely caring. You won’t find better guidance anywhere.”
+          </blockquote>
+          <div class="testimonial-slider-2__author">
+            <div class="testimonial-slider-2__avatar">
+              <img src="assets/images/Aaron Jesus.png" alt="Aaron J. Avatar">
+            </div>
+            <div class="testimonial-slider-2__author-info">
+              <p class="testimonial-slider-2__name">Aaron J.</p>
+              <p class="testimonial-slider-2__company">Sutter Health</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="career-milestone-section">
+  <div class="career-milestone">
+      <h2 class="career-milestone__heading">ACHIEVE YOUR NEXT CAREER MILESTONE</h2>
+      <p class="career-milestone__description">
+          Whether you're navigating a career transition, striving for leadership, or seeking personal clarity, 
+          our specialized coaching programs offer practical, insightful guidance to help you succeed—predictably.
+      </p>
+      <a href="contact.html" class="career-milestone__button">CONTACT US</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__container">
+    <!-- Branding Section -->
+    <div class="footer__branding">
+      <a href="index.html" class="footer__logo" >
+        <img src="assets/icons/logo.svg" alt="MissFit Coaching Logo">
+      </a>
+      <p class="footer__tagline">The Career Gym for Professionals.</p>
+      <div class="footer__socials">
+        <a href="https://www.linkedin.com/in/daciaderidder/" class="footer__social-link" target="_blank">
+          <img src="assets/icons/linkedin-logo.svg" alt="LinkedIn">
+        </a>
+        <a href="https://www.youtube.com/@DaciaDeridder" class="footer__social-link" target="_blank">
+          <img src="assets/icons/youtube-logo.svg" alt="YouTube">
+        </a>
+      </div>
+      <p class="footer__copyright">© 2025 MissFit Coaching. All Rights Reserved.</p>
+    </div>
+
+    <!-- Links Section with Dropdown Support -->
+    <div class="footer__links">
+      <!-- COMPANY Section -->
+      <div class="footer__links-group">
+        <div class="footer__heading">
+          <span class="footer__heading-text">COMPANY</span>
+          <div class="footer__heading-icon-wrapper">
+            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+          </div>
+        </div>
+        <div class="footer__list-container">
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="about.html" class="footer__link">About</a>
+              </div>
+            </li>
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="contact.html" class="footer__link">Contact</a>
+              </div>
+            </li>
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="terms.html" class="footer__link">Terms of Service</a>
+              </div>
+            </li>
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="policy.html" class="footer__link">Privacy Policy</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COACHING Section -->
+      <div class="footer__links-group">
+        <div class="footer__heading">
+          <span class="footer__heading-text">COACHING</span>
+          <div class="footer__heading-icon-wrapper">
+            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+          </div>
+        </div>
+        <div class="footer__list-container">
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="coaching/executive-coaching.html" class="footer__link">Executive Coaching</a>
+              </div>
+            </li>
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="coaching/career-coaching.html" class="footer__link">Career Coaching</a>
+              </div>
+            </li>
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="coaching/job-search-coaching.html" class="footer__link">Job Search Coaching</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Similar structure for other sections... -->
+      <!-- WORKSHOP Section -->
+      <div class="footer__links-group">
+        <div class="footer__heading">
+          <span class="footer__heading-text">WORKSHOP</span>
+          <div class="footer__heading-icon-wrapper">
+            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+          </div>
+        </div>
+        <div class="footer__list-container">
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="workshops/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SERVICES Section -->
+      <div class="footer__links-group">
+        <div class="footer__heading">
+          <span class="footer__heading-text">SERVICES</span>
+          <div class="footer__heading-icon-wrapper">
+            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+          </div>
+        </div>
+        <div class="footer__list-container">
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="services/resume.html" class="footer__link">Resume Writing</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RESOURCES Section -->
+      <div class="footer__links-group">
+        <div class="footer__heading">
+          <span class="footer__heading-text">RESOURCES</span>
+          <div class="footer__heading-icon-wrapper">
+            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+          </div>
+        </div>
+        <div class="footer__list-container">
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="resources/articles.html" class="footer__link">Articles</a>
+              </div>
+            </li>
+            <li class="footer__list-item">
+              <div class="footer__link-wrapper">
+                <a href="resources/newsletter.html" class="footer__link">Newsletter</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

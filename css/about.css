@@ -1,0 +1,363 @@
+/* === HERO SECTION === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, li,
+dl, dt, dd,
+figure, figcaption,
+form, fieldset, legend,
+table, th, td,
+address,
+code, kbd, samp, var,
+abbr, acronym,
+small, sub, sup,
+button, input, select, textarea {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+}
+
+.hero {
+
+
+    /* Apply the gradient, image, and black base */
+    background: url('../assets/images/background-about-us.png');
+
+    background-size: cover; /* Ensure full coverage */
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFFFFF; /* White text */
+}
+
+.header{
+    background-color: transparent;
+}
+
+/* Hero Content */
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:  0; /* 132px spacing above and below */
+    gap: 1.0625rem; /* 17px gap between title and description */
+    padding: 8.25rem 3.75rem;
+}
+
+/* Hero Title */
+.hero__title {
+    font-family: 'Barlow', sans-serif;
+    line-height: 3.75rem; /* 60px */
+    font-weight: 700;
+    font-size: 3.125rem; /* 72px */
+    margin: 0;
+}
+
+/* Hero Description */
+.hero__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.6rem; /* 25.6px */
+    max-width: 52.375rem; /* 838px */
+    margin: 0;
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 753px) {
+  .hero__title {
+    font-size: clamp(2.188rem, 7.937vw + -0.61rem, 3.125rem);
+line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
+text-align: center;
+  }
+}
+
+  /* === VALUES SECTION === */
+.values {
+    padding: 88px 3.75rem; /* Space above, below, and side padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  .values__container {
+    max-width: 1104px; /* Restrict maximum width */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+/* General adjustments for responsiveness */
+.values__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); /* Flexible column sizing */
+    gap: 3rem; /* 48px converted to rem */
+    justify-items: center; /* Center items horizontally */
+  }
+  .values__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.5rem 2.25rem 2rem; /* Adjust padding: top, sides, bottom */
+    border: 1px solid #EFEFEF; /* Border around the box */
+    box-sizing: border-box; /* Include padding and border in size calculations */
+    height:fit-content;
+  }
+  
+  .values__icon {
+    width: 4rem; /* 64px converted to rem */
+    height: 3.9rem; /* 62.45px converted to rem */
+    margin-bottom: 0.84375rem; /* 13.5px converted to rem */
+  }
+  
+  .values__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem; /* 24px converted to rem */
+    font-weight: 600;
+    line-height: 1.8rem; /* 28.8px converted to rem */
+    text-align: center;
+    margin-bottom: 0.75rem; /* 12px converted to rem */
+  }
+  
+  .values__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* 16px converted to rem */
+    font-weight: 400;
+    line-height: 1.6rem; /* 25.6px converted to rem */
+    text-align: left;
+  }
+  
+  .career-milestone-section {
+    background-color: #FFFFFF; /* Background for the section */
+  }
+
+/* === MASONRY SECTION === */
+.masonry-section {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  padding: 2.75rem 3.75rem 1rem; /* 88px top/bottom, 168px left/right */
+  text-align: left;
+}
+
+.masonry-section__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.875rem;
+  line-height: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  text-align: center;
+  color: #C41E3D;
+}
+
+/* Masonry Grid */
+.masonry-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 2rem;
+}
+
+.masonry-item {
+  width: 100%;
+  background-color: #1d1d1d;
+  padding: 2.375rem 2.25rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #01051a;
+  margin-bottom: 3rem;
+  position: relative;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.masonry-item::before {
+  position: absolute;
+  width: 6rem;
+  height:auto;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Specific positioning for different items in desktop view */
+.masonry-item:nth-child(1)::before {
+  content: url('../assets/icons/Vector\ \(11\).svg');
+  top: 4rem;
+  right: 4.5rem;
+}
+
+.masonry-item:nth-child(2)::before {
+  content: url('../assets/icons/Vector\ \(12\).svg');
+  top: 4rem;
+  right: 10rem;
+}
+
+.masonry-item:nth-child(3)::before {
+  content: url('../assets/icons/Vector\ \(13\).svg');
+  right: 1.3rem;
+}
+
+.masonry-item:nth-child(4)::before {
+  content: url('../assets/icons/Vector\ \(14\).svg');
+  top: 3rem;
+  right: 6rem;
+}
+
+.masonry-item:nth-child(5)::before {
+  content: url('../assets/icons/Vector\ \(15\).svg');
+  right: 6.6rem;
+}
+
+.masonry-item:nth-child(6)::before {
+  content: url('../assets/icons/Vector\ \(16\).svg');
+  right: 2rem;
+  top: 0;
+}
+
+
+
+
+/* Title Styling */
+.masonry-item__title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.8rem; /* 28.8px */
+  font-weight: 600;
+  margin-bottom: 1.5rem; /* 16px spacing below title */
+  color: #C41E3D; /* Red text */
+  z-index: 2; /* Ensure text is above icons */
+  position: relative;
+}
+
+/* Description Styling */
+.masonry-item__description {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+  color: #d1d1d1; /* Light gray text */
+  text-align: left;
+  position: relative;
+  z-index: 2; /* Ensure text is above icons */
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+/* Between 1031px and 688px: 2 columns with 36px padding */
+@media (max-width: 1031px) and (min-width: 688px) {
+  .masonry-section {
+    padding: 2.75rem 36px 1rem;
+  }
+
+  .masonry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+/* Specific positioning for different items in desktop view */
+.masonry-item:nth-child(1)::before {
+  content: url('../assets/icons/expertise.svg');
+  top: 2rem;
+  right: 50%;
+}
+
+.masonry-item:nth-child(2)::before {
+  content: url('../assets/icons/Vector\ \(12\).svg');
+  top: 2.3rem;
+  right: 60%;
+}
+
+.masonry-item:nth-child(3)::before {
+  content: url('../assets/icons/client-centered.svg');
+  right: 50%;
+  top: 0;
+}
+
+.masonry-item:nth-child(4)::before {
+  content: url('../assets/icons/authenticity.svg');
+  top: 0;
+  right: 50%
+}
+
+.masonry-item:nth-child(5)::before {
+  content: url('../assets/icons/supportive.svg');
+  top: 0;
+  right: 50%;
+  max-height: 1rem;
+}
+
+.masonry-item:nth-child(6)::before {
+  content: url('../assets/icons/accessibility.svg');
+  right: 50%;
+  top: 0;
+}
+  
+  
+}
+
+/* Below 688px: Single column with 24px padding */
+@media (max-width: 688px) {
+  .masonry-section {
+    padding: 2.75rem 24px 1rem;
+  }
+  
+  /* Even on mobile, we'll keep the layout centered */
+  .masonry-grid {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .masonry-item {
+    width: 100%;
+  }
+  /* Specific positioning for different items in desktop view */
+.masonry-item:nth-child(1)::before {
+  content: url('../assets/icons/expertise.svg');
+  top: 2rem;
+  right: 50%;
+}
+
+.masonry-item:nth-child(2)::before {
+  content: url('../assets/icons/Vector\ \(12\).svg');
+  top: 2.3rem;
+  right: 60%;
+}
+
+.masonry-item:nth-child(3)::before {
+  content: url('../assets/icons/client-centered.svg');
+  right: 50%;
+  top: 0;
+}
+
+.masonry-item:nth-child(4)::before {
+  content: url('../assets/icons/authenticity.svg');
+  top: 0;
+  right: 50%
+}
+
+.masonry-item:nth-child(5)::before {
+  content: url('../assets/icons/supportive.svg');
+  top: 0;
+  right: 50%;
+  max-height: 1rem;
+}
+
+.masonry-item:nth-child(6)::before {
+  content: url('../assets/icons/accessibility.svg');
+  right: 50%;
+  top: 0;
+}
+}

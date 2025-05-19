@@ -1,0 +1,409 @@
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.articles-hero {
+    background: url('../assets/images/background-articles.png') center/cover no-repeat;
+    border-bottom: none; /* Thin white line to mask overlap */
+
+  }
+
+  .header{
+    background-color: transparent;
+}
+  
+.hero__subtitle{
+  padding-bottom: 0;
+}
+.hero__content{
+  margin-bottom: 7.9375rem;
+}
+/* General container styling */
+.articles-hero__categories {
+  display: flex;
+  gap: 2.25rem;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #EFEFEF;
+  position: relative;
+  justify-content: center;
+}
+
+/* Horizontal button styling */
+.category {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border-radius: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4rem;
+  color: #676767;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Category-specific styling for active states */
+.category[data-value="Executive Coaching"].active {
+  background-color: #1D1D1D;
+  color: #FFB400; /* Yellow gold color from your image */
+}
+
+.category[data-value="Career Coaching"].active {
+  background-color: #B3DBFF; /* Blue from your color palette */
+  color: #1D55C4; /* Lighter blue for text */
+}
+
+.category[data-value="Job Search Coaching"].active {
+  background-color: #D0FFDA; /* Green from your color palette */
+  color: #00901F; /* Darker green for text contrast */
+}
+
+.category[data-value="Guides"].active {
+  background-color: #FFCCD5; /* Pink/red from your color palette */
+  color: #E54561; /* Light pink for text */
+}
+
+.category[data-value="Workbook"].active {
+  background-color: #FFDCD1; /* Orange from your color palette */
+  color: #E56E49; /* Light orange for text */
+}
+
+.category[data-value="Templates"].active {
+  background-color: #F6D1FF; /* Purple from your color palette */
+  color: #BD1CE5; /* Light purple for text */
+}
+
+.category[data-value="Executive Coaching"]:hover:not(.active) {
+  background-color: #1D1D1D; /* Same as active */
+  color: #FFB400; /* Same as active */
+}
+
+.category[data-value="Career Coaching"]:hover:not(.active) {
+  background-color: #B3DBFF; /* Same as active */
+  color: #1D55C4; /* Same as active */
+}
+
+.category[data-value="Job Search Coaching"]:hover:not(.active) {
+  background-color: #D0FFDA; /* Same as active */
+  color: #00901F; /* Same as active */
+}
+
+.category[data-value="Guides"]:hover:not(.active) {
+  background-color: #FFCCD5; /* Same as active */
+  color: #E54561; /* Same as active */
+}
+
+.category[data-value="Workbook"]:hover:not(.active) {
+  background-color: #FFDCD1; /* Same as active */
+  color: #E56E49; /* Same as active */
+}
+
+.category[data-value="Templates"]:hover:not(.active) {
+  background-color: #F6D1FF; /* Same as active */
+  color: #BD1CE5; /* Same as active */
+}
+
+/* Default hover state if not matching any specific category */
+.category:hover:not(.active) {
+  background-color: #e0e0e0;
+}
+
+/* Dropdown styling (hidden by default) */
+.category-dropdown {
+  display: none;
+  width: 100%;
+}
+
+.category-dropdown__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 36px 0 48px; /* 36px right, 48px left padding */
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  cursor: pointer;
+  outline: none;
+}
+
+.category-dropdown__text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.6px;
+  color: #000; /* Default text color, can adjust based on design */
+}
+
+.category-dropdown__icon {
+  width: 0.8rem;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.category-dropdown__list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.5rem 3rem;
+  margin: 0;
+  z-index: 10;
+}
+
+.category-dropdown__list.active {
+  display: block;
+}
+
+/* Remove default background color change on hover */
+.category-dropdown__item:hover {
+  background-color: transparent; /* No background change */
+}
+
+/* Category-specific text color changes on hover */
+.category-dropdown__item[data-value="Executive Coaching"]:hover {
+  color: #FFB400; /* Matches active text color */
+}
+
+.category-dropdown__item[data-value="Career Coaching"]:hover {
+  color: #1D55C4; /* Matches active text color */
+}
+
+.category-dropdown__item[data-value="Job Search Coaching"]:hover {
+  color: #00901F; /* Matches active text color */
+}
+
+.category-dropdown__item[data-value="Guides"]:hover {
+  color: #E54561; /* Matches active text color */
+}
+
+.category-dropdown__item[data-value="Workbook"]:hover {
+  color: #E56E49; /* Matches active text color */
+}
+
+.category-dropdown__item[data-value="Templates"]:hover {
+  color: #BD1CE5; /* Matches active text color */
+}
+
+/* Default dropdown item styling */
+.category-dropdown__item {
+  padding: 1.75rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.category-dropdown__list .category-dropdown__item:last-child{
+  border: none;
+}
+
+
+/* Media query for mobile (952px and below) */
+@media (max-width: 952px) {
+  .articles-hero__categories {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .category {
+    display: none;
+  }
+
+  .category-dropdown {
+    display: block;
+  }
+
+  .category-dropdown__toggle.open .category-dropdown__icon {
+    transform: rotate(180deg); /* Rotate icon when dropdown is open */
+  }
+
+  /* Apply active category styles to dropdown toggle */
+  .category-dropdown[data-active="Executive Coaching"] .category-dropdown__text {
+    color: #FFB400;
+  }
+
+  .category-dropdown[data-active="Career Coaching"] .category-dropdown__text {
+    color: #B3D8FF;
+  }
+
+  .category-dropdown[data-active="Job Search Coaching"] .category-dropdown__text {
+    color: #004D29;
+  }
+
+  .category-dropdown[data-active="Guides"] .category-dropdown__text {
+    color: #FFECF0;
+  }
+
+  .category-dropdown[data-active="Workbook"] .category-dropdown__text {
+    color: #FFF1EC;
+  }
+
+  .category-dropdown[data-active="Templates"] .category-dropdown__text {
+    color: #F6E9FC;
+  }
+}
+
+/* Existing media query for desktop adjustments (unchanged, but included for completeness) */
+@media (min-width: 952px) and (max-width: 1012px) {
+  .articles-hero .articles-hero__categories {
+    gap: clamp(1.5rem, -10.4rem + 20vw, 2.25rem);
+  }
+}
+
+
+
+/* === Articles Section === */
+.articles {
+  padding: 6.625rem 3.75rem 8.25rem 6.875rem; /* 106px from previous section */
+  background-color: #fafafa;
+}
+
+.articles__wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Articles take 2 parts, newsletter 1 part on desktop */
+  gap: 3rem; /* 48px gap between articles and newsletter */
+  width: 100%;
+}
+
+/* Articles Content and Load More */
+.articles__main {
+  display: flex;
+  flex-direction: column;
+  gap: 8.25rem; /* 132px gap between grid and load more */
+}
+
+.articles__content {
+  flex: 1;
+}
+
+.articles__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 3rem; /* 48px horizontal, 63px vertical */
+}
+
+.articles__load-more {
+  font-family: "Barlow", sans-serif;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  line-height: 1.5rem; /* 24px */
+  text-align: center;
+  padding: 0.75rem 1.8125rem; /* 15px vertical, 36px horizontal */
+  background-color: #c41e3d;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem; /* 4px */
+  cursor: pointer;
+  display: block; /* Ensure the button behaves like a block element */
+ /* Clear right margin */
+  width: fit-content; /* Only as wide as content */
+  margin: 0 auto;
+}
+
+.articles__load-more:hover {
+  background-color: #a91e1e;
+}
+
+.article__link {
+  text-decoration: none; /* Remove default underline */
+  color: inherit; /* Inherit text color from parent (article) */
+  cursor: pointer;
+}
+
+.article__link:hover .article__title {
+  color: #C41E3D;
+}
+
+
+.newsletter {
+  display: flex;
+  align-items: center; /* Vertically center */
+  background-color: #fafafa;
+}
+
+/* Newsletter Section */
+.newsletter {
+  align-self: flex-start;
+}
+
+
+
+/* Responsive Breakpoints */
+@media (max-width: 1301px) {
+  .articles {
+    padding: 6.625rem 2.25rem 8.25rem 2.25rem; /* Reduce padding for smaller screens */
+  }
+
+  .articles__wrapper {
+    margin: 0 auto;
+    grid-template-columns: 1fr; /* Stack newsletter below articles */
+    gap: 8.25rem; /* Maintain gapxxxxx */
+  }
+
+  .articles__main {
+    order: 1; /* Articles first */
+  }
+
+  .newsletter {
+    order: 2; /* Newsletter second */
+  }
+
+  .articles__load-more {
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
+  }
+}
+
+@media (max-width: 840px) {
+
+  .articles {
+    padding: 6.625rem 2.25rem 8.25rem 2.25rem; /* Reduce padding for smaller screens */
+  }
+
+  .articles__grid {
+    grid-template-columns: 1fr; /* Single column for articles */
+    gap: 3rem; /* Reduce gap for mobile */
+  }
+
+  .articles__load-more {
+    margin-left: auto;
+    margin-right: auto; /* Keep centered */
+  }
+  .articles__wrapper{
+  }
+}
+
+
+
+
+  .footer__heading{
+    color:#E1E2E9 ;
+  }
+  .footer__link{
+    color: #E1E2E9;
+  }
+  .footer__tagline,
+  .footer__copyright {
+    color: #E1E2E9;
+  }
+  
+
+
+  .newsletter {
+    padding: 0;
+}
