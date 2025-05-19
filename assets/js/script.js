@@ -394,9 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch('/payment', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer f82d94e9-9e30-4a62-954a-26e93d7344f0'  // ✅ Must match the token in the worker
-          },
+            'Content-Type': 'application/json'          },
           body: JSON.stringify({
             planName,
             amount: price,
