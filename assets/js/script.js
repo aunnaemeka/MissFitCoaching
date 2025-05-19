@@ -368,13 +368,13 @@ if (newsletterForm) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const stripe = Stripe('pk_live_51R50MCEK0wONGgBdBUqnsuJBmfqqYvg6BgGaKCtgVw2wPExrpbFwT7btRs15dFhHx48lGbEFMStbpZIqZoDSPaZx00jEXXl5zj');
-  const orderButtons = document.querySelectorAll('.pricing__button');
+  const orderButtons = document.querySelectorAll('.pricingbutton');
 
   orderButtons.forEach(button => {
     button.addEventListener('click', async function () {
       const planName = this.getAttribute('data-plan');
       const price = parseFloat(this.getAttribute('data-price'));
-      const isSubscription = this.closest('.pricing__item').querySelector('.pricing__plan-subtitle');
+      const isSubscription = this.closest('.pricingitem').querySelector('.pricing__plan-subtitle');
       let paymentType = 'onetime';
       let intervalCount = 1;
 
@@ -389,7 +389,9 @@ document.addEventListener('DOMContentLoaded', () => {
       this.disabled = true;
 
       try {
-        // ✅ No Turnstile, just send the regular payload
+        // ✅ Get Turnstile token
+        const turnstileToken = document.querySelector('input[name="cf-turnstile-response"]').value;
+
         const response = await fetch('/payment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -398,7 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
             amount: price,
             paymentType,
             intervalCount,
-            returnUrl: window.location.href
+            returnUrl: window.location.href,
+            turnstileToken  // ✅ Send the token
           }),
         });
 
@@ -421,5 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
 
 
