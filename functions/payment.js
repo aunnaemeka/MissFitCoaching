@@ -1,4 +1,4 @@
-const DEBUG = false;  // Set to true temporarily to inspect incoming Origins
+const DEBUG = false;
 const ALLOWED_ORIGINS = [
   'https://missfitcoaching.pages.dev',
   'https://www.missfitcoaching.pages.dev',
@@ -14,11 +14,25 @@ function isAllowedOrigin(origin) {
   return ALLOWED_ORIGINS.includes(origin);
 }
 
+// ✅ Turnstile Verification Function
+async function verifyTurnstileToken(token, secretKey, clientIp) {
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      secret: secretKey,
+      response: token,
+      remoteip: clientIp
+    })
+  });
+
+  const result = await response.json();
+  return result.success;
+}
+
 export async function onRequest(context) {
   const { request, env } = context;
   const origin = request.headers.get('Origin') || '';
-
-  debugLog('Incoming request origin:', origin);
 
   if (request.method !== 'POST' && request.method !== 'OPTIONS') {
     return new Response(null, { status: 405 });
@@ -39,15 +53,28 @@ export async function onRequest(context) {
   }
 
   try {
-    if (!env.STRIPE_SECRET_KEY) {
-      console.error('STRIPE_SECRET_KEY not set');
-      return new Response(JSON.stringify({ error: 'Server configuration error: STRIPE_SECRET_KEY not set' }), {
+    if (!env.STRIPE_SECRET_KEY || !env.TURNSTILE_SECRET_KEY) {
+      console.error('Missing environment keys');
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
       });
     }
 
-    const { planName, amount, paymentType, intervalCount, returnUrl } = await request.json();
+    const body = await request.json();
+    const { turnstileToken, planName, amount, paymentType, intervalCount, returnUrl } = body;
+
+    // ✅ Turnstile Verification
+    const clientIp = request.headers.get('CF-Connecting-IP') || '';
+    const turnstileValid = await verifyTurnstileToken(turnstileToken, env.TURNSTILE_SECRET_KEY, clientIp);
+
+    if (!turnstileValid) {
+      return new Response(JSON.stringify({ error: 'Bot detection failed' }), {
+        status: 403,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
+      });
+    }
+
     debugLog('Payment request for:', planName, amount);
 
     if (!planName || !amount) {
