@@ -1,6 +1,10 @@
-const DEBUG = false;
-const ALLOWED_ORIGINS = ['https://missfitcoaching.pages.dev', 'https://www.missfitcoaching.pages.dev'];
-const SECRET_TOKEN = 'f82d94e9-9e30-4a62-954a-26e93d7344f0';  // ✅ Pre-generated random token
+const DEBUG = false;  // Set to true temporarily to inspect incoming Origins
+const ALLOWED_ORIGINS = [
+  'https://missfitcoaching.pages.dev',
+  'https://www.missfitcoaching.pages.dev',
+  'https://missfitcoaching.com',
+  'https://www.missfitcoaching.com'
+];
 
 function debugLog(...args) {
   if (DEBUG) console.log(...args);
@@ -10,14 +14,11 @@ function isAllowedOrigin(origin) {
   return ALLOWED_ORIGINS.includes(origin);
 }
 
-function isAuthorized(request) {
-  const token = request.headers.get('Authorization');
-  return token === `Bearer ${SECRET_TOKEN}`;
-}
-
 export async function onRequest(context) {
   const { request, env } = context;
   const origin = request.headers.get('Origin') || '';
+
+  debugLog('Incoming request origin:', origin);
 
   if (request.method !== 'POST' && request.method !== 'OPTIONS') {
     return new Response(null, { status: 405 });
@@ -32,27 +33,28 @@ export async function onRequest(context) {
       headers: {
         'Access-Control-Allow-Origin': origin,
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Allow-Headers': 'Content-Type',
       },
-    });
-  }
-
-  if (!isAuthorized(request)) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 403,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
     });
   }
 
   try {
     if (!env.STRIPE_SECRET_KEY) {
       console.error('STRIPE_SECRET_KEY not set');
-      return new Response(JSON.stringify({ error: 'Server configuration error' }), { status: 500 });
+      return new Response(JSON.stringify({ error: 'Server configuration error: STRIPE_SECRET_KEY not set' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
+      });
     }
 
     const { planName, amount, paymentType, intervalCount, returnUrl } = await request.json();
+    debugLog('Payment request for:', planName, amount);
+
     if (!planName || !amount) {
-      return new Response(JSON.stringify({ error: 'Missing planName or amount' }), { status: 400 });
+      return new Response(JSON.stringify({ error: 'Missing planName or amount' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
+      });
     }
 
     const cancelUrl = returnUrl || origin;
@@ -91,11 +93,17 @@ export async function onRequest(context) {
 
     return new Response(JSON.stringify({ sessionId: session.id }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': origin,
+      },
     });
 
   } catch (error) {
     console.error('Payment error:', error.message);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': origin },
+    });
   }
 }
