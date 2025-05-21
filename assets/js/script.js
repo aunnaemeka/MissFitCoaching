@@ -364,67 +364,81 @@ if (newsletterForm) {
 }
 
 
-
+window.onloadTurnstileCallback = function () {
+  turnstile.render('#cf-turnstile-widget', {
+    sitekey: '0x4AAAAAABd6NQlYjEqiEjrX',
+    callback: function (token) {
+      window.turnstileToken = token;
+      document.querySelectorAll('.pricing__button').forEach(btn => btn.disabled = false);
+    },
+    'expired-callback': function () {
+      window.turnstileToken = null;
+      document.querySelectorAll('.pricing__button').forEach(btn => btn.disabled = true);
+    },
+    'error-callback': function () {
+      console.error('Turnstile error.');
+      window.turnstileToken = null;
+      document.querySelectorAll('.pricing__button').forEach(btn => btn.disabled = true);
+    }
+  });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   const stripe = Stripe('pk_live_51R50MCEK0wONGgBdBUqnsuJBmfqqYvg6BgGaKCtgVw2wPExrpbFwT7btRs15dFhHx48lGbEFMStbpZIqZoDSPaZx00jEXXl5zj');
-  const orderButtons = document.querySelectorAll('.pricingbutton');
+  const buttons = document.querySelectorAll('.pricing__button');
 
-  orderButtons.forEach(button => {
+  buttons.forEach(button => {
+    button.disabled = true; // Disable all buttons on load
+
     button.addEventListener('click', async function () {
+      if (!window.turnstileToken) {
+        alert('Security verification not completed yet. Please wait.');
+        return;
+      }
+
       const planName = this.getAttribute('data-plan');
       const price = parseFloat(this.getAttribute('data-price'));
-      const isSubscription = this.closest('.pricingitem').querySelector('.pricing__plan-subtitle');
-      let paymentType = 'onetime';
-      let intervalCount = 1;
-
-      if (isSubscription) {
-        const monthsMatch = isSubscription.textContent.match(/(\d+)\s*Monthly/i);
-        if (monthsMatch && monthsMatch[1]) intervalCount = parseInt(monthsMatch[1]);
-        paymentType = 'subscription';
-      }
 
       const originalText = this.textContent;
       this.textContent = 'Processing...';
       this.disabled = true;
 
       try {
-        // ✅ Get Turnstile token
-        const turnstileToken = document.querySelector('input[name="cf-turnstile-response"]').value;
-
         const response = await fetch('/payment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             planName,
             amount: price,
-            paymentType,
-            intervalCount,
+            paymentType: 'onetime', // adjust if using subscriptions later
+            intervalCount: 1,
             returnUrl: window.location.href,
-            turnstileToken  // ✅ Send the token
-          }),
+            turnstileToken: window.turnstileToken
+          })
         });
 
+        const result = await response.json();
+
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Network response was not ok');
+          alert('Payment failed: ' + (result.error || 'Unknown error'));
+          this.disabled = false;
+          this.textContent = originalText;
+          return;
         }
 
-        const { sessionId } = await response.json();
+        const { sessionId } = result;
         const { error } = await stripe.redirectToCheckout({ sessionId });
-
         if (error) throw error;
-      } catch (error) {
-        console.error('Payment error:', error.message);
-        alert(`Payment error: ${error.message}`);
-      } finally {
+
+      } catch (err) {
+        console.error('Payment error:', err.message);
+        alert('An error occurred. Please try again.');
         this.textContent = originalText;
         this.disabled = false;
       }
     });
   });
 });
-
 
 
 
