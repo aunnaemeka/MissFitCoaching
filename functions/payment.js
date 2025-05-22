@@ -11,7 +11,7 @@ function debugLog(...args) {
 }
 
 function isAllowedOrigin(origin) {
-  return ALLOWED_ORIGINS.includes(origin);
+  return ALLOWED_ORIGINS.some(o => origin.startsWith(o));
 }
 
 async function verifyTurnstileToken(token, secretKey, clientIp) {
@@ -31,33 +31,31 @@ async function verifyTurnstileToken(token, secretKey, clientIp) {
 
 export async function onRequest(context) {
   const { request, env } = context;
-  const origin = request.headers.get('Origin') || '';
+  const origin = request.headers.get('Origin') || request.headers.get('Referer') || '';
   const clientIp = request.headers.get('CF-Connecting-IP') || '';
 
-  // 🚫 Strict method restriction
   if (request.method !== 'POST' && request.method !== 'OPTIONS') {
     return new Response(null, { status: 405 });
   }
 
-  // 🔒 Strict early origin validation
-  if (!isAllowedOrigin(origin)) {
+  // 🔒 More flexible origin check, allow empty origin (optional)
+  if (origin && !isAllowedOrigin(origin)) {
     return new Response('Forbidden: Invalid origin', { status: 403 });
   }
 
-  // ✅ Proper CORS preflight response
+  // ✅ CORS preflight
   if (request.method === 'OPTIONS') {
     return new Response(null, {
       status: 204,
       headers: {
-        'Access-Control-Allow-Origin': origin,
+        'Access-Control-Allow-Origin': origin || '*',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Max-Age': '86400', // cache preflight
+        'Access-Control-Max-Age': '86400',
       },
     });
   }
 
-  // 🧪 Verify content type before parsing body
   const contentType = request.headers.get('Content-Type') || '';
   if (!contentType.includes('application/json')) {
     return new Response(JSON.stringify({ error: 'Invalid Content-Type' }), {
