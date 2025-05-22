@@ -41,10 +41,21 @@ export async function onRequest(context) {
 console.log('🔍 Incoming Origin:', origin);
 console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
 
-  // 🔒 More flexible origin check, allow empty origin (optional)
-  if (origin && !isAllowedOrigin(origin)) {
-    return new Response('Forbidden: Invalid origin', { status: 403 });
-  }
+ if (!isAllowedOrigin(origin)) {
+  return new Response(JSON.stringify({
+    error: 'Invalid origin',
+    origin: origin,
+    matched: ALLOWED_ORIGINS.some(o => origin.startsWith(o)),
+    expected: ALLOWED_ORIGINS
+  }), {
+    status: 403,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
+}
+
 
   // ✅ CORS preflight
   if (request.method === 'OPTIONS') {
