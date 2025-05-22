@@ -414,7 +414,9 @@ document.addEventListener('DOMContentLoaded', () => {
             intervalCount: 1,
             returnUrl: window.location.href,
             turnstileToken: window.turnstileToken
-          })
+          }),
+          mode: 'cors'
+
         });
 
         const result = await response.json();
