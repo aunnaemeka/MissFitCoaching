@@ -365,7 +365,7 @@ if (newsletterForm) {
 
 
 window.onloadTurnstileCallback = function () {
-  turnstile.render('.cf-turnstile-widget', {
+  turnstile.render('.cf-turnstile', {
     sitekey: '0x4AAAAAABd6NQlYjEqiEjrX',
     callback: function (token) {
       window.turnstileToken = token;
