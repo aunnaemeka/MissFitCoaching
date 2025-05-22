@@ -37,6 +37,9 @@ export async function onRequest(context) {
   if (request.method !== 'POST' && request.method !== 'OPTIONS') {
     return new Response(null, { status: 405 });
   }
+// 🔍 Debug: Log incoming origin and match result
+console.log('🔍 Incoming Origin:', origin);
+console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
 
   // 🔒 More flexible origin check, allow empty origin (optional)
   if (origin && !isAllowedOrigin(origin)) {
