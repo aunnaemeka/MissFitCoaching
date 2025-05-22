@@ -1,3 +1,5 @@
+// ✅ Revised payment.js file for Cloudflare Pages Functions
+
 const DEBUG = false;
 const ALLOWED_ORIGINS = [
   'https://missfitcoaching.com',
@@ -24,49 +26,42 @@ async function verifyTurnstileToken(token, secretKey, clientIp) {
       remoteip: clientIp
     })
   });
-
   const result = await res.json();
   return result.success;
 }
 
 export async function onRequest(context) {
   const { request, env } = context;
-  const origin = request.headers.get('Origin') || request.headers.get('Referer') || '';
+  const origin = request.headers.get('Origin') || 'https://missfitcoaching.com';
   const clientIp = request.headers.get('CF-Connecting-IP') || '';
 
   if (request.method !== 'POST' && request.method !== 'OPTIONS') {
     return new Response(null, { status: 405 });
   }
-// 🔍 Debug: Log incoming origin and match result
-console.log('🔍 Incoming Origin:', origin);
-console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
 
- if (!isAllowedOrigin(origin)) {
-  return new Response(JSON.stringify({
-    error: 'Invalid origin',
-    origin: origin,
-    matched: ALLOWED_ORIGINS.some(o => origin.startsWith(o)),
-    expected: ALLOWED_ORIGINS
-  }), {
-    status: 403,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
-    }
-  });
-}
+  if (!isAllowedOrigin(origin)) {
+    return new Response(JSON.stringify({
+      error: 'Invalid origin',
+      origin,
+      expected: ALLOWED_ORIGINS
+    }), {
+      status: 403,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+  }
 
-
-  // ✅ CORS preflight
   if (request.method === 'OPTIONS') {
     return new Response(null, {
       status: 204,
       headers: {
-        'Access-Control-Allow-Origin': origin || '*',
+        'Access-Control-Allow-Origin': origin,
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Max-Age': '86400',
-      },
+        'Access-Control-Max-Age': '86400'
+      }
     });
   }
 
@@ -76,8 +71,8 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       status: 400,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': origin,
-      },
+        'Access-Control-Allow-Origin': origin
+      }
     });
   }
 
@@ -90,8 +85,8 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       status: 400,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': origin,
-      },
+        'Access-Control-Allow-Origin': origin
+      }
     });
   }
 
@@ -102,8 +97,8 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       status: 400,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': origin,
-      },
+        'Access-Control-Allow-Origin': origin
+      }
     });
   }
 
@@ -113,8 +108,8 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       status: 403,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': origin,
-      },
+        'Access-Control-Allow-Origin': origin
+      }
     });
   }
 
@@ -130,7 +125,7 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
     'line_items[0][quantity]': '1',
     'mode': paymentType === 'subscription' ? 'subscription' : 'payment',
     'success_url': `${origin}/success.html?plan=${encodeURIComponent(planName)}&type=${paymentType}`,
-    'cancel_url': cancelUrl,
+    'cancel_url': cancelUrl
   };
 
   if (paymentType === 'subscription') {
@@ -143,9 +138,9 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: new URLSearchParams(sessionParams).toString(),
+      body: new URLSearchParams(sessionParams).toString()
     });
 
     const session = await stripeRes.json();
@@ -158,8 +153,8 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       status: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': origin,
-      },
+        'Access-Control-Allow-Origin': origin
+      }
     });
 
   } catch (err) {
@@ -168,8 +163,8 @@ console.log('🟢 Matches:', ALLOWED_ORIGINS.some(o => origin.startsWith(o)));
       status: 500,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': origin,
-      },
+        'Access-Control-Allow-Origin': origin
+      }
     });
   }
 }
