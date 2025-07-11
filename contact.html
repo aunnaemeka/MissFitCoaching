@@ -438,18 +438,32 @@
     <script src="assets/js/script.js"></script>
 
     <script>
-     const form = document.getElementById('contactForm');
+const form = document.getElementById('contactForm');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const formData = new FormData(form);
-  const response = await fetch(form.action, {
-    method: 'POST',
-    body: formData,
-  });
-  if (response.ok) {
-    // Show success message
-    document.getElementById('contactFormContainer').style.display = 'none';
-    document.getElementById('contact-confirmation').style.display = 'block';
+  
+  try {
+    const formData = new FormData(form);
+    
+    // Use fetch with redirect: 'manual' to prevent following redirects
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      redirect: 'manual' // This prevents automatic redirect following
+    });
+    
+    // Check if the response is a redirect (status 3xx) or success (2xx)
+    if (response.ok || (response.status >= 300 && response.status < 400)) {
+      // Show success message
+      document.getElementById('contactFormContainer').style.display = 'none';
+      document.getElementById('contact-confirmation').style.display = 'block';
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    // Handle error - show user-friendly message
+    alert('There was an error submitting the form. Please try again.');
   }
 });
     </script>
