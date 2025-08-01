@@ -340,3 +340,7 @@ margin-right: 3px;
   color: #ffffff;
   font-size: 1rem;
 }
+
+.contact-form__embed{
+  width: 100%;
+}

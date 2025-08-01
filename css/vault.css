@@ -1,0 +1,251 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --color-primary: #C41E3D;
+  --color-dark: #1D1D1D;
+  --color-bg: #FAFAFA;
+  --color-card-bg: #FFFFFF;
+  --color-border: #CCCFD9;
+
+  --font-heading: 'Barlow', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --max-width: 1296px;
+  --spacing-container: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-dark);
+  background-color: var(--color-bg);
+}
+
+/* Container */
+.container {
+  margin: 0 auto;
+}
+
+
+/* ========== HEADER ========== */
+.site-header {
+  background-color: var(--color-dark);
+  padding: 2.0625rem 0;
+  text-align: center;
+  line-height: 1.2;
+
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-header__logo-icon {
+  height: 1.375rem;
+}
+
+.site-header__logo-text {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+/* ========== GENERAL RESETS ========== */
+body {
+    background-color: #FAFAFA;
+    font-family: 'Inter', sans-serif;
+    color: #1D1D1D;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  
+  /* Vault intro section */
+.vault__intro {
+    background-color: #ffffff;
+  }
+  
+  .vault__intro-container {
+    padding: 5.5rem 7.5rem; /* 88px top/bottom, 120px left/right */
+  }
+  
+  /* Vault sections container (all sections grouped under this) */
+  .vault__sections {
+    background-color: #FAFAFA;
+  }
+  
+  .vault__sections .container {
+    max-width: var(--max-width);
+    padding-top: 5.5rem;   /* 88px */
+    padding-bottom: 8.25rem; /* 132px */
+  }
+  
+  /* Each vault section block */
+  .vault-section {
+    margin-bottom: 5.5rem; /* 88px spacing between sections */
+  }
+  
+  /* Optional: remove margin after the last section */
+  .vault-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Vault Titles */
+  .vault__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 3.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    line-height: 1.3;
+  }
+  
+  .vault__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    max-width: 36.25rem;
+
+  }
+  
+
+
+
+  
+  /* ========== VAULT STRUCTURE ========== */
+  .vault__intro {
+    text-align: left;
+  }
+  
+ 
+  
+  .vault__description {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* ========== SECTION ========== */
+
+  
+  .vault-section__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+    
+  
+  /* ========== GRID LAYOUT ========== */
+  .vault-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400PX, 1fr));
+    gap: 2.25rem 3rem;
+  }
+  
+  /* ========== CARD STYLE ========== */
+  .vault-card {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCFD9;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: box-shadow 0.2s ease-in-out;
+    text-decoration: none;
+    color: #000;
+    border-radius: 4px;
+  }
+  
+  .vault-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.06);
+  }
+  
+  .vault-card__thumb {
+    width: 100%;
+    width: 100%;
+    height: 14.0625rem;
+    overflow: hidden;
+    border-bottom: 1px solid #CCCFD9;
+  }
+  .vault-card__content{
+    padding: 1.875rem 2.25rem 2.5rem;
+
+  }
+  .vault-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.6;
+    flex-grow: 1;
+
+    margin-bottom: 1rem;
+  }
+  
+  .vault-card__price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #000;
+  }
+  
+
+  
+  .vault-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+
+  
+/* ========== FOOTER ========== */
+.site-footer {
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.site-footer__link {
+  color: #E1E2E9;
+  text-decoration: underline;
+  text-underline-offset: 0.27em;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.site-footer__link:hover {
+  color: #fff;
+}
+
+.site-footer__copyright {
+  font-size: 1rem;
+  color: #E1E2E9;
+}
+
+  

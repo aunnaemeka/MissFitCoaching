@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Product - MissFit Coaching</title>
+    <meta name="description" id="pageDescription" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #c41e3a;
+            font-size: 1.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .product-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            height: 400px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 3rem;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 2rem;
+            color: #c41e3a;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        
+        .product-description {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .testimonial {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #c41e3a;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #c41e3a;
+        }
+        
+        .buy-btn {
+            width: 100%;
+            background: #c41e3a;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .buy-btn:hover {
+            background: #a01729;
+        }
+        
+        .legal-text {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .legal-text a {
+            color: #c41e3a;
+            text-decoration: none;
+        }
+        
+        .legal-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 3rem;
+            color: #c41e3a;
+        }
+        
+        @media (max-width: 768px) {
+            .product-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-info {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MISSFIT COACHING</h1>
+    </div>
+
+    <div class="container">
+        <div id="loadingState" class="loading">Loading product...</div>
+      
+        <div id="errorState" class="error" style="display: none;">
+          Product not found. <a href="/">Return to homepage</a>
+        </div>
+      
+        <div id="productContent" class="product-layout" style="display: none;">
+          <div class="product-image" id="productImageContainer">
+            <div id="productImagePlaceholder">Loading image...</div>
+            <img id="productImage" src="" alt="" style="display: none;">
+          </div>
+      
+          <div class="product-info">
+            <h1 id="productTitle" class="product-title">Loading...</h1>
+            <div id="productDescription" class="product-description">
+              Loading description...
+            </div>
+      
+            <div class="testimonial">
+              <p class="testimonial__quote">
+                <em>"Dacia has great vision... I would welcome the chance to work with her, for her or alongside her any time."</em>
+              </p>
+              <p class="testimonial__author"><strong>- Chris H.</strong></p>
+            </div>
+      
+            <div class="purchase-card">
+              <div id="productPrice" class="product-price">$0.00 USD</div>
+      
+              <form id="purchaseForm">
+                <div class="form-group">
+                  <label for="firstName">First Name <span style="color: red;">*</span></label>
+                  <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span style="color: red;">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number <span style="color: red;">*</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="buy-btn">BUY NOW</button>
+              </form>
+      
+              <p class="legal-text">
+                By clicking "Buy Now", you are agreeing to the 
+                <a href="terms.html">Terms</a> and 
+                <a href="privacy.html">Privacy Policy</a> of MissFit Coaching.
+                This site is protected by reCAPTCHA and the Google 
+                <a href="https://policies.google.com/privacy">Privacy Policy</a> and 
+                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    <script>
+        // Product database - all your products in one place
+        const products = {
+            'interview-coaching': {
+                title: '1:1 Interview Coaching / Mock Interviews',
+                price: '$249.00',
+                image: 'assets/images/interview-coaching.png',
+                description: 'Explore 1-on-1 sessions designed to help you build a high-impact career that fuels you, not drains you.',
+                seoDescription: 'Professional interview coaching and mock interviews to help you ace your next job interview.'
+            },
+            'hidden-job-market': {
+                title: '1:1 Coaching to Access the Hidden Job Market',
+                price: '$249.00',
+                image: 'assets/images/hidden-job-market.png',
+                description: 'Unlock opportunities in the hidden job market with personalized coaching strategies.',
+                seoDescription: 'Learn how to access the hidden job market with expert coaching and networking strategies.'
+            },
+            'linkedin-tutorial': {
+                title: '1:1 LinkedIn Tutorial: Optimize Your Profile',
+                price: '$299.00',
+                image: 'assets/images/linkedin-tutorial.png',
+                description: 'Transform your LinkedIn profile into a powerful professional brand that attracts opportunities.',
+                seoDescription: 'Professional LinkedIn profile optimization tutorial to enhance your personal brand.'
+            },
+            'clifton-strengths': {
+                title: '1:1 Clifton Strengths Discovery Workshop',
+                price: '$299.00',
+                image: 'assets/images/clifton-strengths.png',
+                description: 'Discover your unique strengths and learn how to leverage them for career success.',
+                seoDescription: 'Clifton Strengths assessment and coaching to discover and leverage your natural talents.'
+            },
+            'career-resilience': {
+                title: '1:1 Career Resilience Bootcamp (Imposter Syndrome)',
+                price: '$249.00',
+                image: 'assets/images/career-resilience.png',
+                description: 'Build confidence and overcome imposter syndrome with targeted coaching strategies.',
+                seoDescription: 'Overcome imposter syndrome and build career resilience with expert coaching.'
+            },
+            'onboarding-accelerator': {
+                title: '1:1 Onboarding Accelerator: 30/60/90 day plan',
+                price: '$249.00',
+                image: 'assets/images/onboarding-accelerator.png',
+                description: 'Start strong in your new role with a structured onboarding plan.',
+                seoDescription: 'New job onboarding coaching with 30/60/90 day success plans.'
+            },
+            'cv-education': {
+                title: 'Curriculum Vitae (Education, Medical Residency)',
+                price: '$499.00',
+                image: 'assets/images/cv-education.png',
+                description: 'Professional CV templates specifically designed for education and medical residency applications.',
+                seoDescription: 'Professional CV writing service for education and medical residency applications.'
+            },
+            'complex-resume': {
+                title: 'Complex Resume',
+                price: '$399.00',
+                image: 'assets/images/complex-resume.png',
+                description: 'Comprehensive resume solutions for experienced professionals with diverse backgrounds.',
+                seoDescription: 'Professional complex resume writing for experienced professionals and career changers.'
+            },
+            'one-page-resume': {
+                title: 'One Page Resume',
+                price: '$299.00',
+                image: 'assets/images/one-page-resume.png',
+                description: 'Concise, impactful one-page resume templates that get results.',
+                seoDescription: 'Professional one-page resume writing service for maximum impact.'
+            },
+            'statement-qualifications': {
+                title: 'Statement of Qualifications',
+                price: '$499.00',
+                image: 'assets/images/statement-qualifications.png',
+                description: 'Professional statement of qualifications for government and corporate positions.',
+                seoDescription: 'Expert statement of qualifications writing for government and corporate jobs.'
+            },
+            'federal-resume': {
+                title: 'Federal Resume',
+                price: '$499.00',
+                image: 'assets/images/federal-resume.png',
+                description: 'Specialized federal resume writing that meets government requirements.',
+                seoDescription: 'Professional federal resume writing service for government positions.'
+            },
+            'tailored-complex-5': {
+        title: '5 Tailored Complex Resumes (Watch/Master)',
+        price: '$399.00',
+        image: 'assets/images/tailored-complex-5.png',
+        description: 'Five customized complex resumes designed to showcase your expertise for specific roles.',
+        seoDescription: 'Professional writing service for five tailored complex resumes to target specific job opportunities.'
+    },
+    'tailored-simple-10': {
+        title: '10 Tailored Simple Resumes (Watch/Master)',
+        price: '$299.00',
+        image: 'assets/images/tailored-simple-10.png',
+        description: 'Ten streamlined, tailored resumes to highlight your skills for various job applications.',
+        seoDescription: 'Professional writing service for ten tailored simple resumes for diverse job applications.'
+    },
+    'custom-interview-prep': {
+        title: 'Custom Interview Prep',
+        price: '$299.00',
+        image: 'assets/images/custom-interview-prep.png',
+        description: 'Personalized interview preparation materials to boost your confidence and performance.',
+        seoDescription: 'Customized interview preparation resources to excel in job interviews.'
+    },
+    'email-support-3m': {
+        title: 'Email Support (3 months)',
+        price: '$499.00',
+        image: 'assets/images/email-support-3m.png',
+        description: 'Three months of dedicated email support for your career transition and job search.',
+        seoDescription: 'Three-month email support service for career guidance and job search assistance.'
+    },
+    'email-support-1m': {
+        title: 'Email Support (1 month)',
+        price: '$299.00',
+        image: 'assets/images/email-support-1m.png',
+        description: 'One month of expert email support to guide you through your job search journey.',
+        seoDescription: 'One-month email support service for expert job search and career advice.'
+    },
+    'executive-search': {
+        title: 'Executive Search Outreach Guide',
+        price: '$149.00',
+        image: 'assets/images/executive-search.png',
+        description: 'A comprehensive guide to effectively connect with executive search firms and recruiters.',
+        seoDescription: 'Guide to mastering outreach strategies for executive search firms and recruiters.'
+    },
+    'target-company-list': {
+        title: 'Target Company List',
+        price: '$99.00',
+        image: 'assets/images/target-company-list.png',
+        description: 'Curated list of target companies tailored to your career goals and industry.',
+        seoDescription: 'Customized target company list to streamline your job search strategy.'
+    },
+    'momentum-mechanics': {
+        title: 'Momentum Mechanics: Networking Tool and Template',
+        price: '$199.00',
+        image: 'assets/images/momentum-mechanics.png',
+        description: 'Powerful networking tools and templates to build and maintain professional connections.',
+        seoDescription: 'Networking tools and templates to boost your professional connections and career.'
+    },
+    'network-without-pain': {
+        title: 'Network Without Pain: Step by Step Power Plays',
+        price: '$149.00',
+        image: 'assets/images/network-without-pain.png',
+        description: 'Step-by-step guide to effective networking without the stress or overwhelm.',
+        seoDescription: 'Step-by-step networking guide to build connections effortlessly and effectively.'
+    },
+    'decode-ats': {
+        title: 'Decode the ATS: Beat the Bots',
+        price: '$139.00',
+        image: 'assets/images/decode-ats.png',
+        description: 'Strategies to optimize your resume for Applicant Tracking Systems (ATS).',
+        seoDescription: 'Guide to optimize your resume for ATS and increase job application success.'
+    },
+    'story-starter': {
+        title: 'Story Starter: Tell Me About Yourself Template',
+        price: '$79.00',
+        image: 'assets/images/story-starter.png',
+        description: 'Craft a compelling personal narrative for interviews with this guided template.',
+        seoDescription: "Template to create a compelling 'Tell Me About Yourself' story for interviews."
+    },
+    'interview-mastery': {
+        title: 'Interview Mastery Guide "Done to Offer"',
+        price: '$149.00',
+        image: 'assets/images/interview-mastery.png',
+        description: 'Comprehensive guide to mastering every stage of the interview process, from prep to offer.',
+        seoDescription: 'Interview mastery guide to navigate from preparation to securing a job offer.'
+    },
+    'offer-negotiation': {
+        title: 'Offer Negotiation Guide "Amplify Your Worth"',
+        price: '$99.00',
+        image: 'assets/images/offer-negotiation.png',
+        description: 'Learn proven strategies to negotiate job offers and maximize your compensation.',
+        seoDescription: 'Guide to effective job offer negotiation to maximize your salary and benefits.'
+    },
+    'rise-up': {
+        title: 'Rise Up: SOAR Into Your Next Opportunity',
+        price: '$99.00',
+        image: 'assets/images/rise-up.png',
+        description: 'Inspirational guide to seize new career opportunities with confidence and strategy.',
+        seoDescription: 'Guide to confidently pursue and secure your next career opportunity.'
+    },
+    'linkedin-basics': {
+        title: 'LinkedIn Basics & Branding',
+        price: '$149.00',
+        image: 'assets/images/linkedin-basics.png',
+        description: 'Essential guide to building a strong LinkedIn presence and personal brand.',
+        seoDescription: 'Guide to LinkedIn basics and branding for a standout professional profile.'
+    },
+    'application-status': {
+        title: 'Job Application Status Email Template',
+        price: '$0.00',
+        image: 'assets/images/application-status.png',
+        description: 'Professional email template to follow up on your job application status.',
+        seoDescription: 'Free job application status email template for effective follow-up.'
+    },
+    'gratitude-notes': {
+        title: 'Personalized Gratitude Notes',
+        price: '$0.00',
+        image: 'assets/images/gratitude-notes.png',
+        description: 'Templates for personalized thank-you notes to strengthen professional relationships.',
+        seoDescription: 'Free personalized gratitude note templates for post-interview and networking.'
+    },
+    'negotiation-template': {
+        title: 'Job Offer Negotiation Template',
+        price: '$0.00',
+        image: 'assets/images/negotiation-template.png',
+        description: 'Effective template to confidently negotiate your job offer terms.',
+        seoDescription: 'Free job offer negotiation template to secure better compensation.'
+    },
+    'acceptance-letter': {
+        title: 'Job Offer Acceptance Letter',
+        price: '$0.00',
+        image: 'assets/images/acceptance-letter.png',
+        description: 'Professional template to formally accept a job offer with clarity and gratitude.',
+        seoDescription: 'Free job offer acceptance letter template for professional communication.'
+    },
+    'resignation-letter': {
+        title: 'Resignation Letter',
+        price: '$0.00',
+        image: 'assets/images/resignation-letter.png',
+        description: 'Polished resignation letter template to leave your job on a positive note.',
+        seoDescription: 'Free resignation letter template for a professional and graceful exit.'
+    },
+    'farewell-letter': {
+        title: 'Farewell To Colleagues Letter',
+        price: '$0.00',
+        image: 'assets/images/farewell-letter.png',
+        description: 'Heartfelt template to say goodbye to colleagues while maintaining connections.',
+        seoDescription: 'Free farewell to colleagues letter template for a professional goodbye.'
+    },
+    'never-quit': {
+        title: 'Never Quit: Response to Rejection Letter',
+        price: '$0.00',
+        image: 'assets/images/never-quit.png',
+        description: 'Resilient response template to handle job rejection and keep doors open.',
+        seoDescription: 'Free response to rejection letter template to stay proactive in your job search.'
+    },
+    'introduction-letter': {
+        title: 'Professional Letter of Introduction',
+        price: '$0.00',
+        image: 'assets/images/introduction-letter.png',
+        description: 'Professional template to introduce yourself to new contacts or employers.',
+        seoDescription: 'Free professional letter of introduction template for networking and job applications.'
+    }
+            // Add all your other products here...
+        };
+
+        // Get product ID from URL parameters
+        function getProductId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // Load and display product
+        function loadProduct() {
+            const productId = getProductId();
+            
+            // Hide loading state
+            document.getElementById('loadingState').style.display = 'none';
+            
+            // Check if product exists
+            if (!productId || !products[productId]) {
+                document.getElementById('errorState').style.display = 'block';
+                return;
+            }
+            
+            const product = products[productId];
+            
+            // Update page content
+            document.getElementById('productTitle').textContent = product.title;
+            document.getElementById('productPrice').textContent = product.price + ' USD';
+            document.getElementById('productDescription').textContent = product.description;
+            
+            // Handle image
+            const img = document.getElementById('productImage');
+            const placeholder = document.getElementById('productImagePlaceholder');
+            
+            img.src = product.image;
+            img.alt = product.title + ' Thumbnail';
+            
+            img.onload = function() {
+                placeholder.style.display = 'none';
+                img.style.display = 'block';
+            };
+            
+            img.onerror = function() {
+                placeholder.textContent = product.title + ' Image';
+            };
+            
+            // Update SEO meta tags
+            document.getElementById('pageTitle').textContent = product.title + ' - MissFit Coaching';
+            document.getElementById('pageDescription').setAttribute('content', product.seoDescription);
+            
+            // Show product content
+            document.getElementById('productContent').style.display = 'grid';
+            
+            // Store current product for form submission
+            window.currentProduct = {
+                id: productId,
+                ...product
+            };
+        }
+
+        // Handle form submission
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!window.currentProduct) return;
+            
+            const formData = {
+                product: window.currentProduct.id,
+                title: window.currentProduct.title,
+                price: window.currentProduct.price,
+                firstName: document.getElementById('firstName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value
+            };
+            
+            // Process payment (integrate with your payment processor)
+            console.log('Processing payment for:', formData);
+            alert('Processing payment for: ' + formData.title + ' (' + formData.price + ')');
+        });
+
+        // Load product when page loads
+        window.addEventListener('load', loadProduct);
+    </script>
+</body>
+</html>

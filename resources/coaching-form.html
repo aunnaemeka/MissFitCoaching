@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coaching Application – Missfit Coaching</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/newsletters.css" />
+  <link rel="stylesheet" href="../css/coaching-application.css" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Inter:wght@400;500&display=swap');
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__container">
+      <a href="/" class="site-header__logo">
+        <img src="../assets/icons/logo.svg" alt="Missfit Coaching Logo" class="site-header__logo-icon" />
+      </a>
+    </div>
+  </header>
+
+
+  <!-- Main Form Section -->
+  <main>
+    <section class="form-wrapper">
+      <form class="application-form">
+
+        <h1>Coaching Application</h1>
+
+        <!-- Q1 -->
+        <label for="full-name">(1/11) What's your full name? <span>*</span></label>
+        <input type="text" id="full-name" name="full-name" placeholder="Full Name" required />
+
+        <!-- Q2 -->
+        <label for="email">(2/11) What's the best email to reach you? <span>*</span></label>
+        <input type="email" id="email" name="email" placeholder="Email Address" required />
+
+        <!-- Q3 -->
+        <label for="phone">(3/11) What's your best contact number? <span>*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+
+        <!-- Q4 -->
+        <fieldset>
+          <legend>(4/11) Which best describes your professional role? <span>*</span></legend>
+          <label><input type="radio" name="role" value="Individual Contributor" required /> Individual Contributor/Specialist</label>
+          <label><input type="radio" name="role" value="Team Lead" /> Team Lead/Manager</label>
+          <label><input type="radio" name="role" value="Director" /> Senior Manager/Director</label>
+          <label><input type="radio" name="role" value="Executive" /> Executive/VP Level</label>
+          <label><input type="radio" name="role" value="Founder" /> Entrepreneur/Founder</label>
+          <label><input type="radio" name="role" value="Freelancer" /> Consultant/Freelancer</label>
+        </fieldset>
+
+        <!-- Q5 -->
+        <fieldset>
+          <legend>(5/11) Which of these is the most pressing for you right now? <span>*</span></legend>
+          <label><input type="radio" name="pressing" value="new role" required /> I need a new/better role or a promotion.</label>
+          <label><input type="radio" name="pressing" value="unclear career" /> My career progression is unclear or I feel professionally stagnant.</label>
+          <label><input type="radio" name="pressing" value="balance" /> I’m struggling to find balance and well-being amidst work demands.</label>
+          <label><input type="radio" name="pressing" value="work environment" /> I want to improve my current work situation or environment.</label>
+          <label><input type="radio" name="pressing" value="leadership" /> I need to improve my performance, impact or leadership effectiveness.</label>
+        </fieldset>
+
+        <!-- Q6 -->
+        <fieldset>
+          <legend>(6/11) What's your current annual income level? <span>*</span></legend>
+          <label><input type="radio" name="income" value="under50k" required /> Under $50K</label>
+          <label><input type="radio" name="income" value="50-100k" /> $50K - $100K</label>
+          <label><input type="radio" name="income" value="100-200k" /> $100K - $200K</label>
+          <label><input type="radio" name="income" value="200-500k" /> $200K - $500K</label>
+          <label><input type="radio" name="income" value="500kplus" /> $500K+</label>
+        </fieldset>
+
+        <!-- Q7 -->
+        <label for="frustration">(7/11) Thinking about that primary challenge, what's the most frustrating part about it for you? <span>*</span></label>
+        <textarea id="frustration" name="frustration" required></textarea>
+
+        <!-- Q8 -->
+        <label for="goal">(8/11) If that challenge (the one you selected previously) was fully solved in the next 3–6 months, what would that make possible for you? <span>*</span></label>
+        <textarea id="goal" name="goal" required></textarea>
+
+        <!-- Q9 -->
+        <fieldset>
+          <legend>(9/11) How quickly are you looking to see tangible progress towards your goals? <span>*</span></legend>
+          <label><input type="radio" name="timeline" value="30days" required /> Immediately (within the next 30 days)</label>
+          <label><input type="radio" name="timeline" value="1-3months" /> Within 1–3 months</label>
+          <label><input type="radio" name="timeline" value="3-6months" /> Within 3–6 months</label>
+          <label><input type="radio" name="timeline" value="6plus" /> 6+ months / I’m in the exploratory phase</label>
+        </fieldset>
+
+        <!-- Q10 -->
+        <label for="commitment">(10/11) On a scale of 1–10, how committed are you to investing the time and effort required to create this change? <span>*</span></label>
+        <textarea id="commitment" name="commitment" required></textarea>
+
+        <!-- Q11 -->
+        <label for="note">(11/11) Finally, is there anything else you feel is important for me to know before our call? <span>*</span></label>
+        <textarea id="note" name="note" required></textarea>
+
+        <!-- Submit -->
+        <button type="submit">APPLY NOW</button>
+
+        <!-- Disclaimer -->
+        <p class="disclaimer">
+          By providing your information, you agree to allow MissFit Coaching and/or its partners to contact you via email, phone, or text, even if your number is on a Do Not Call list. By submitting this form, you agree to the
+          <a href="#">Terms</a> and <a href="#">Privacy Policy</a> of Missfit Coaching.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__container">
+      <nav class="site-footer__nav">
+        <a href="#" class="site-footer__link">Terms of Service</a>
+        <a href="#" class="site-footer__link">Privacy Policy</a>
+      </nav>
+      <p class="site-footer__copyright">
+        © 2025 MissFit Coaching. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

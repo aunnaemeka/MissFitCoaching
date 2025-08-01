@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Missfit Coaching – Newsletter</title>
+  <title>Webinar Registration - MissFit Coaching</title>
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <!-- Fallback PNG for browsers that don't support SVG favicons -->
   <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
@@ -13,44 +13,41 @@
  <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
   </style>
-  
-  <link rel="stylesheet" href="../css/newsletters.css">
+  <link rel="stylesheet" href="../css/webinar.css" />
 </head>
-<body>
+<body class="body">
+  <!-- Site Header -->
 
   <header class="site-header">
     <div class="container site-header__container">
-      <a href="../index.html" class="site-header__logo">
+      <a href="/" class="site-header__logo">
         <img src="../assets/icons/logo-header.svg" alt="Missfit Coaching Logo" class="site-header__logo-icon" />
       </a>
     </div>
   </header>
 
-  <main class="main-content">
-    <section class="hero">
-      <div class="container hero__container">
-        <div class="hero__text">
-          <p class="hero__subheading">THE CAREER GYM NEWSLETTER</p>
-          <h1 class="hero__title">
-            EVERGREEN SYSTEMS ON BUILDING A FULFILLING, PERFORMANT CAREER.
-          </h1>
-          <p class="hero__paragraph">
-            Join 8k+ professionals who receive battle-tested insights and strategies every week.
-          </p>
-          <p class="hero__paragraph">
-            Each newsletter will take you one step further in building the career you really want, faster.
-          </p>
-          <p class="hero__paragraph">
-            As a welcome, you'll receive my five-part email series showing you how to move from an invisible professional to an in-demand professional.
-          </p>
-          <a href="#" class="hero__cta-button">GET THE PROTOCOL</a>
-        </div>
-        <div class="hero__image">
-          <img src="../assets/images/playbook-cover.png" alt="The Opportunity Magnet Career Playbook" class="hero__image-cover" />
-        </div>
+  <!-- Main Section -->
+  <main>
+    <section class="section section--intro">
+      <div class="container">
+        <h2 class="section__subtitle">Webinar Registration</h2>
+        <h1 class="section__title">
+          Evergreen systems on building a fulfilling, performant career.
+        </h1>
+        <p class="section__description">
+          Join 8k+ professionals who receive battle-tested insights and strategies every week.
+        </p>
+        <p class="section__description">
+          Each newsletter will take you one step further in building the career you really want, faster.
+        </p>
+        <p class="section__description">
+          As a welcome, you’ll receive my five-part email series showing you how to move from an invisible professional to an in-demand professional.
+        </p>
+        <button class="btn btn--primary" id="open-form">SAVE MY SEAT</button>
       </div>
     </section>
 
+    <!-- Testimonials -->
     <section class="testimonials">
       <div class="container testimonials__container">
 
@@ -64,7 +61,7 @@
           </div>
           <p class="testimonial-card__text">
             “Dee is an exceptional communicator and listener who truly takes the time to understand your unique strengths and aspirations. Her diverse business background and unwavering drive for excellence shine through in everything she does. Her responsiveness, collaboration, and deep industry insights make her a standout professional. Working with Dee has been an incredible experience, and I highly recommend her to anyone seeking career guidance or support.”
-          </p>
+                    </p>
           <p class="testimonial-card__author">Matthew G.</p>
         </article>
 
@@ -102,42 +99,64 @@
   <footer class="site-footer">
     <div class="container site-footer__container">
       <nav class="site-footer__nav">
-        <a href="../terms.html" class="site-footer__link">Terms of Service</a>
-        <a href="../policy.html" class="site-footer__link">Privacy Policy</a>
+        <a href="#" class="site-footer__link">Terms of Service</a>
+        <a href="#" class="site-footer__link">Privacy Policy</a>
       </nav>
       <p class="site-footer__copyright">
         © 2025 MissFit Coaching. All rights reserved.
       </p>
     </div>
   </footer>
-  <div class="modal" id="newsletter-modal">
-    <div class="modal__backdrop" id="modal-backdrop"></div>
-    <div class="modal__content">
+
+  <div class="modal" id="registration-modal" hidden>
+    <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h2 id="modalTitle" class="modal__title">Webinar Registration</h2>
       <form class="modal__form">
-        <h2 class="modal__title">The Career Gym Newsletter</h2>
-  
-        <label class="modal__label">What's your first name? <span>*</span>
-          <input type="text" class="modal__input" placeholder="First Name" required />
-        </label>
-  
-        <label class="modal__label">Where should we send the protocol to? <span>*</span>
-          <input type="email" class="modal__input" placeholder="Email Address" required />
-        </label>
-  
-        <label class="modal__label">What's your best phone number so my team can track your progress? <span>*</span>
-          <input type="tel" class="modal__input" placeholder="Phone Number" required />
-        </label>
-  
-        <button type="submit" class="modal__submit">GET THE PROTOCOL</button>
-  
+        <div class="form__group">
+          <label for="fname">First Name <span>*</span></label>
+          <input type="text" id="fname" name="fname" placeholder="First Name" required />
+        </div>
+        <div class="form__group">
+          <label for="email">Email Address <span>*</span></label>
+          <input type="email" id="email" name="email" placeholder="Email Address" required />
+        </div>
+        <div class="form__group">
+          <label for="phone">Phone Number <span>*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+        </div>
+        <button type="submit" class="btn btn--primary">SAVE MY SEAT</button>
         <p class="modal__disclaimer">
-          By providing your information, you agree to allow MissFit Coaching and/or its partners to contact you via email, phone, or text. By submitting this form, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+          By providing your information, you agree to allow MissFit Coaching and/or its partners to contact you via email, phone, or text, even if your number is on a Do Not Call list.
+          By submitting this form, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a> of Missfit Coaching.
         </p>
       </form>
     </div>
   </div>
   
-  <script src="../assets/js/script.js"></script>
-
+  <script>
+    const modal = document.getElementById('registration-modal');
+    const openFormButton = document.getElementById('open-form');
+  
+    openFormButton.addEventListener('click', () => {
+      modal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden'; // prevent background scroll
+    });
+  
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  
+    function closeModal() {
+      modal.setAttribute('hidden', true);
+      document.body.style.overflow = ''; // restore scroll
+    }
+  </script>
+  
+  
+  
 </body>
 </html>

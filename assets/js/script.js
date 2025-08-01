@@ -444,3 +444,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+  const modal = document.getElementById('newsletter-modal');
+  const backdrop = document.getElementById('modal-backdrop');
+  const openButton = document.querySelector('.hero__cta-button');
+
+  // Open modal
+  openButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('modal--active');
+  });
+
+  // Close modal on backdrop click
+  backdrop.addEventListener('click', () => {
+    modal.classList.remove('modal--active');
+  });
+
+  // Close modal on ESC key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.classList.remove('modal--active');
+    }
+  });

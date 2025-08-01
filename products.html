@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1:1 Interview Coaching</title>
+  <link rel="stylesheet" href="css/product.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container site-header__container">
+          <a href="/" class="site-header__logo">
+            <img src="assets/icons/logo.svg" alt="Missfit Coaching Logo" class="site-header__logo-icon" />
+          </a>
+        </div>
+      </header>
+
+      <div class="container">
+        <div id="loadingState" class="loading">Loading product...</div>
+      
+        <div id="errorState" class="error" style="display: none;">
+          Product not found. <a href="/">Return to homepage</a>
+        </div>
+      
+        <div id="productContent" class="product-layout" style="display: none;">
+          <div class="product-image" id="productImageContainer">
+            <div id="productImagePlaceholder">Loading image...</div>
+            <img id="productImage" src="" alt="" style="display: none;">
+          </div>
+      
+          <div class="product-info">
+            <h1 id="productTitle" class="product-title">Loading...</h1>
+            <div id="productDescription" class="product-description">
+              Loading description...
+            </div>
+      
+            <div class="testimonial">
+              <p class="testimonial__quote">
+                <em>"Dacia has great vision... I would welcome the chance to work with her, for her or alongside her any time."</em>
+              </p>
+              <p class="testimonial__author"><strong>- Chris H.</strong></p>
+            </div>
+      
+            <div class="purchase-card">
+              <div id="productPrice" class="product-price">$0.00 USD</div>
+      
+              <form id="purchaseForm">
+                <div class="form-group">
+                  <label for="firstName">First Name <span style="color: red;">*</span></label>
+                  <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span style="color: red;">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number <span style="color: red;">*</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="buy-btn">BUY NOW</button>
+              </form>
+      
+              <p class="legal-text">
+                By clicking "Buy Now", you are agreeing to the 
+                <a href="terms.html">Terms</a> and 
+                <a href="privacy.html">Privacy Policy</a> of MissFit Coaching.
+                This site is protected by reCAPTCHA and the Google 
+                <a href="https://policies.google.com/privacy">Privacy Policy</a> and 
+                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  <footer class="site-footer">
+    <div class="container site-footer__container">
+      <nav class="site-footer__nav">
+        <a href="#" class="site-footer__link">Contact Us</a>
+        <a href="#" class="site-footer__link">Terms of Service</a>
+        <a href="#" class="site-footer__link">Privacy Policy</a>
+      </nav>
+      <p class="site-footer__copyright">
+        © 2025 MissFit Coaching. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
