@@ -1,5 +1,5 @@
 /* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Inter:wght@400;500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Inter:wght@400;500&display=swap'); */
 
 :root {
   --color-primary: #C41E3D;
@@ -38,6 +38,8 @@ body {
   line-height: 1.6;
   color: var(--color-dark);
   background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Container */

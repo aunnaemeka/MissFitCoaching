@@ -12,12 +12,7 @@
 
   --max-width: 1296px;
   --spacing-container: 1.5rem;
-  --color-bg: #FAFAFA;
   --color-text: #1D1D1D;
-  --color-primary: #C41E3D;
-
-  --font-heading: 'Barlow', sans-serif;
-  --font-body: 'Inter', sans-serif;
 
   --font-size-base: 1rem; /* 16px */
   --line-height-base: 1.6;
@@ -27,8 +22,6 @@
   --max-width-about: 59.625rem; /* 954px */
 }
 
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -36,262 +29,250 @@
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-dark);
-  background-color: var(--color-bg);
   background-color: var(--color-bg);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text);
-
-
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-
-
-  
-  .container {
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  /* ========== Main Confirmation Area ========== */
-  .confirmation__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 5.5rem 0;
-  }
-  
-  /* ========== Confirmation Message ========== */
-  .confirmation__message {
-    text-align: center;
-  }
-  
-  .confirmation__headline,
-  .confirmation__subtext {
-    margin-bottom: var(--gap-vertical);
-  }
-  
-  /* ========== Banner Image ========== */
-  .confirmation__banner {
-    max-width: var(--max-width-banner);
-    width: 100%;
-    margin-bottom: 3.5rem;
-  }
-  
-  .confirmation__banner-img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-  }
-  
-  /* ========== Primary CTA Intro ========== */
-  .confirmation__cta-intro {
-    text-align: center;
-    margin-bottom: 3.5rem;
-    max-width: 28.3125rem;
-  }
-  
-  .confirmation__cta-lead {
-    margin-bottom: var(--gap-vertical);
-  }
-  
-  .confirmation__cta-text {
-    margin-bottom: 2rem;
-  }
-  
-  /* CTA Button */
-  .confirmation__button {
-    display: inline-block;
-    background-color: var(--color-primary);
-    color: #fff;
-    font-family: var(--font-heading);
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 600;
-    text-decoration: none;
-    padding: 1rem 8.1875rem;
-    border-radius: 0.25rem;
-    text-align: center;
-  }
-  
-  .confirmation__button--secondary {
-    margin-top: var(--gap-vertical);
-  }
-  
-  /* ========== About Section ========== */
-  .confirmation__about {
-    max-width: var(--max-width-about);
-    width: 100%;
-    text-align: center;
-    font-weight: 400;
-    margin-bottom: 3.5rem;
-  }
-  
-  .confirmation__about-intro {
-    margin-bottom: 3.5rem;
-  }
-  
-  .confirmation__about-wrapper {
-    display: flex;
-    gap: 3rem; /* 48px */
-    max-width: var(--max-width-about); /* 954px */
-    width: 100%;
-    margin: 0 auto;
-    align-items: center;
-  }
-  
-  .confirmation__about-image {
-    max-width: 50%;
-  }
-  
-  .confirmation__about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-  }
-  
-  .confirmation__about-text {
-    max-width: 50%;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 2.3rem;
-    line-height: 2.3;
-  }
-  
-  
-
-  
-  /* Grid handled separately by user */
-  
-  /* ========== Secondary CTA Section ========== */
-  .confirmation__secondary-cta {
-    text-align: center;
-    max-width: 28.3125rem; 
-    margin: 0 auto 8.25rem;
-  }
-  
-  .confirmation__secondary-heading {
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 2.3;
-  }
-  
-  .confirmation__secondary-text {
-    margin-bottom: 2.3rem;
-    font-weight: 400;
-    line-height: 2.3;
-    font-size: 1rem;
-  }
-
-  .confirmation__secondary-cta .confirmation__secondary-text:last-of-type {
-      margin-bottom: 0;
-  }
-  
-
-  
-  /* ========== Disclaimer Section ========== */
-  .confirmation__disclaimer {
-    max-width: 48.125rem;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .confirmation__disclaimer-heading {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 2.3;
-  }
-  
-  .confirmation__disclaimer-text {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 2.3rem;
-    line-height: 2.3;
-  }
-
-
-  /* ========== TESTIMONIALS ========== */
-
-.confirmation__testimonials {
-        text-align: center;
-        margin-bottom: 3.5rem;
+.container {
+  width: 100%;
+  margin: 0 auto;
 }
-      
+
+.confirmation {
+  padding: 0 3rem;
+}
+
+/* ========== Main Confirmation Area ========== */
+.confirmation__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 5.5rem 0;
+}
+
+/* ========== Confirmation Message ========== */
+.confirmation__message {
+  text-align: center;
+}
+
+.confirmation__headline {
+  margin-bottom: var(--gap-vertical);
+}
+.confirmation__subtext {
+  margin-bottom: 5.5rem;
+}
+
+/* ========== Banner Image ========== */
+.confirmation__banner {
+  max-width: var(--max-width-banner);
+  width: 100%;
+  margin-bottom: 3.5rem;
+}
+
+.confirmation__banner-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* ========== Primary CTA Intro ========== */
+.confirmation__cta-intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  max-width: 28.3125rem;
+}
+
+.confirmation__cta-lead {
+  margin-bottom: var(--gap-vertical);
+}
+
+.confirmation__cta-text {
+  margin-bottom: 2rem;
+}
+
+/* CTA Button */
+.confirmation__button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1rem 8.1875rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.confirmation__button:hover {
+  background-color: #b61f38;
+}
+
+.confirmation__button--secondary {
+  margin-top: var(--gap-vertical);
+}
+
+/* ========== About Section ========== */
+.confirmation__about {
+  max-width: var(--max-width-about);
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 3.5rem;
+}
+
+.confirmation__about-intro {
+  margin-bottom: 3.5rem;
+}
+
+.confirmation__about-wrapper {
+  display: flex;
+  gap: 3rem; /* 48px */
+  max-width: var(--max-width-about); /* 954px */
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.confirmation__about-image {
+  max-width: 50%;
+}
+
+.confirmation__about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.confirmation__about-text {
+  max-width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+  line-height: 2.3;
+}
+
+/* ========== Secondary CTA Section ========== */
+.confirmation__secondary-cta {
+  text-align: center;
+  max-width: 28.3125rem; 
+  margin: 0 auto 8.25rem;
+}
+
+.confirmation__secondary-heading {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 2.3;
+}
+
+.confirmation__secondary-text {
+  margin-bottom: 2.3rem;
+  font-weight: 400;
+  line-height: 2.3;
+  font-size: 1rem;
+}
+
+.confirmation__secondary-cta .confirmation__secondary-text:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ========== Disclaimer Section ========== */
+.confirmation__disclaimer {
+  max-width: 48.125rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.confirmation__disclaimer-heading {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2.3;
+}
+
+.confirmation__disclaimer-text {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2.3rem;
+  line-height: 2.3;
+}
+
+/* ========== TESTIMONIALS ========== */
+.confirmation__testimonials {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
 .confirmation__testimonials-heading {
-    margin: 0 auto 3.5rem;
-    line-height: 1.6;
-    font-size: 1rem;
-    color: #1D1D1D;
-    font-weight: 400;
-    max-width: 28.3125rem; /* 453px */
-    text-align: center;
-  }
-  
+  margin: 0 auto 3.5rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #1D1D1D;
+  font-weight: 400;
+  max-width: 28.3125rem; /* 453px */
+  text-align: center;
+}
+
 .testimonials {
-    background-color: var(--color-bg);
-    padding-bottom: 8.1875rem;
-    max-width: 1296px;
-  }
-  
-  .testimonials__container {
-    display: flex;
-    flex-direction: row;
-    gap: 3rem; /* 48px between cards */
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .testimonial-card {
-    background-color: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    padding: 2.5rem 2.25rem; /* top-bottom: 40px, sides: 36px */
-    border-radius: 0.25rem;
-    flex: 1 1 30%;
-    min-width: 280px;
-    height: fit-content;
-    text-align: left;
-  
-  }
-  
-  .testimonial-card__stars {
-    display: flex;
-    gap: 0.875rem;
-    margin-bottom: 1.5rem; /* 24px */
-  }
-  
-  .testimonial-card__stars img {
-    width: 1.6875rem;
-    height: 1.625rem;
-  }
-  
-  .testimonial-card__text {
-    font-size: 1rem;
-    color: #000;
-    margin-bottom: 1.5rem; /* 24px */
-    font-weight: 400;
-  }
-  
-  .testimonial-card__author {
-    font-weight: 600;
-    color: #000;
-    font-size: 1rem;
-  }
-  
+  background-color: var(--color-bg);
+  padding-bottom: 8.1875rem;
+  max-width: 1296px;
+  margin: 0 auto;
+}
+
+.testimonials__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding: 0 var(--spacing-container);
+}
+
+.testimonial-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2.25rem; /* top-bottom: 40px, sides: 36px */
+  border-radius: 0.25rem;
+  height: fit-content;
+  text-align: left;
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+.testimonial-card__stars img {
+  width: 1.6875rem;
+  height: 1.625rem;
+}
+
+.testimonial-card__text {
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 1.5rem; /* 24px */
+  font-weight: 400;
+}
+
+.testimonial-card__author {
+  font-weight: 600;
+  color: #000;
+  font-size: 1rem;
+}
+
 /* ========== HEADER ========== */
 .site-header {
   background-color: var(--color-dark);
   padding: 2.0625rem 0;
   text-align: center;
   line-height: 1.2;
-
 }
 
 .site-header__logo {
@@ -312,42 +293,189 @@ body {
   letter-spacing: 0.05rem;
 }
 
-
-
 /* ========== FOOTER ========== */
 .site-footer {
-    background-color: var(--color-dark);
-    color: #fff;
-    padding: 3.5rem 0;
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.site-footer__link {
+  color: #E1E2E9;
+  text-decoration: underline;
+  text-underline-offset: 0.27em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.site-footer__link:hover {
+  color: #fff;
+}
+
+.site-footer__copyright {
+  font-size: 1rem;
+  color: #E1E2E9;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet (2 columns) - breakpoint around 1024px */
+@media (max-width: 1024px) {
+  .confirmation {
+    padding: 0 2.25rem; /* 36px */
+  }
+  
+  .testimonials__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.25rem; /* 36px */
+  }
+  
+  .confirmation__about-wrapper {
+    gap: 2.25rem; /* 36px */
+  }
+  
+  .confirmation__button {
+    padding: 1rem 6rem;
+  }
+  
+  
+  .testimonials {
+    padding-bottom: 6rem;
+  }
+}
+
+/* Mobile (1 column) - breakpoint around 768px */
+@media (max-width: 768px) {
+  .confirmation {
+    padding: 0 1.5rem; /* 24px */
+  }
+  
+  .testimonials__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+  }
+  
+  .confirmation__about-wrapper {
+    flex-direction: column;
+    gap: 2rem;
     text-align: center;
   }
   
+  .confirmation__about-image,
+  .confirmation__about-text {
+    max-width: 100%;
+  }
+  
+  .confirmation__about-text {
+    text-align: center;
+  }
+  
+  .confirmation__button {
+    padding: 1rem 4rem;
+    font-size: 0.875rem;
+  }
+  
+
+  .confirmation__banner {
+    margin-bottom: 2.5rem;
+  }
+  
+  .confirmation__cta-intro,
+  .confirmation__about {
+    margin-bottom: 2.5rem;
+  }
+  
+  .confirmation__testimonials {
+    margin-bottom: 2.5rem;
+  }
+  
+  .confirmation__secondary-cta {
+    margin-bottom: 6rem;
+  }
+  
+  .testimonials {
+    padding-bottom: 4rem;
+  }
+  
+  .testimonial-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .site-header {
+    padding: 1.5rem 0;
+  }
+  
+  .site-footer {
+    padding: 2.5rem 0;
+  }
+  
   .site-footer__nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 3.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    .site-footer__link {
-      color: #E1E2E9;
-      text-decoration: underline;
-      text-underline-offset: 0.27em;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.6;
+    gap: 2rem;
+    flex-direction: column;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .confirmation {
+    padding: 0 1rem;
+  }
   
-    }
-    
-    .site-footer__link:hover {
-      color: #fff;
-    }
-    
+  .confirmation__button {
+    padding: 0.875rem 2rem;
+    width: 100%;
+    max-width: 280px;
+  }
   
-  .site-footer__copyright {
-      font-size: 1rem;
-      color: #E1E2E9;
-      font-weight: 400;
-  line-height: 1.6;
-    }
+  .testimonial-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .confirmation__about-text {
+    gap: 1.5rem;
+    line-height: 1.8;
+  }
+  
+  .confirmation__secondary-text,
+  .confirmation__disclaimer-text {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  
+  .confirmation__about-intro {
+    margin-bottom: 2rem;
+  }
+  
+  .confirmation__testimonials-heading {
+    margin-bottom: 2rem;
+  }
+  
+  .site-footer {
+    padding: 2rem 0;
+  }
+}
+
+/* Large mobile landscape adjustments */
+@media (max-width: 900px) and (min-width: 769px) {
+  .confirmation__about-wrapper {
+    gap: 2rem;
+  }
+  
+  .confirmation__about-text {
+    gap: 1.8rem;
+    line-height: 2;
+  }
+}
