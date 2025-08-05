@@ -1,5 +1,4 @@
-/* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Inter:wght@400;500&display=swap');
+
 
 :root {
   --color-primary: #C41E3D;
@@ -27,6 +26,8 @@ body {
   line-height: 1.6;
   color: var(--color-dark);
   background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Container */
@@ -161,7 +162,7 @@ body {
 
 .vault-card__title {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.6;
   flex-grow: 1;
   margin-bottom: 1rem;
