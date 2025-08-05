@@ -32,8 +32,8 @@ body {
 /* Container */
 .container {
   margin: 0 auto;
+  max-width: var(--max-width);
 }
-
 
 /* ========== HEADER ========== */
 .site-header {
@@ -41,7 +41,6 @@ body {
   padding: 2.0625rem 0;
   text-align: center;
   line-height: 1.2;
-
 }
 
 .site-header__logo {
@@ -62,159 +61,118 @@ body {
   letter-spacing: 0.05rem;
 }
 
-/* ========== GENERAL RESETS ========== */
-body {
-    background-color: #FAFAFA;
-    font-family: 'Inter', sans-serif;
-    color: #1D1D1D;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-
-  
-  /* Vault intro section */
+/* ========== VAULT INTRO SECTION ========== */
 .vault__intro {
-    background-color: #ffffff;
-  }
-  
-  .vault__intro-container {
-    padding: 5.5rem 7.5rem; /* 88px top/bottom, 120px left/right */
-  }
-  
-  /* Vault sections container (all sections grouped under this) */
-  .vault__sections {
-    background-color: #FAFAFA;
-  }
-  
-  .vault__sections .container {
-    max-width: var(--max-width);
-    padding-top: 5.5rem;   /* 88px */
-    padding-bottom: 8.25rem; /* 132px */
-  }
-  
-  /* Each vault section block */
-  .vault-section {
-    margin-bottom: 5.5rem; /* 88px spacing between sections */
-  }
-  
-  /* Optional: remove margin after the last section */
-  .vault-section:last-child {
-    margin-bottom: 0;
-  }
-  
-  /* Vault Titles */
-  .vault__title {
-    font-family: 'Barlow', sans-serif;
-    font-size: 3.125rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading);
-    line-height: 1.3;
-  }
-  
-  .vault__description {
-    font-size: 1rem;
-    line-height: 1.6;
-    font-weight: 400;
-    max-width: 36.25rem;
+  background-color: #ffffff;
+  text-align: left;
+}
 
-  }
-  
+.vault__intro-container {
+  padding: 5.5rem 7.5rem; /* 88px top/bottom, 120px left/right */
+}
 
+.vault__title {
+  font-family: var(--font-heading);
+  font-size: 3.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
 
+.vault__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 36.25rem;
+  color: #333;
+}
 
-  
-  /* ========== VAULT STRUCTURE ========== */
-  .vault__intro {
-    text-align: left;
-  }
-  
- 
-  
-  .vault__description {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* ========== SECTION ========== */
+/* ========== VAULT SECTIONS CONTAINER ========== */
+.vault__sections {
+  background-color: #FAFAFA;
+}
 
-  
-  .vault-section__title {
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    line-height: 1.2;
-  }
+.vault__sections .container {
+  padding: 5.5rem 3rem 8.25rem; /* 88px top, 48px sides, 132px bottom */
+}
 
-    
-  
-  /* ========== GRID LAYOUT ========== */
-  .vault-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400PX, 1fr));
-    gap: 2.25rem 3rem;
-  }
-  
-  /* ========== CARD STYLE ========== */
-  .vault-card {
-    background-color: #FFFFFF;
-    border: 1px solid #CCCFD9;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: box-shadow 0.2s ease-in-out;
-    text-decoration: none;
-    color: #000;
-    border-radius: 4px;
-  }
-  
-  .vault-card:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.06);
-  }
-  
-  .vault-card__thumb {
-    width: 100%;
-    width: 100%;
-    height: 14.0625rem;
-    overflow: hidden;
-    border-bottom: 1px solid #CCCFD9;
-  }
-  .vault-card__content{
-    padding: 1.875rem 2.25rem 2.5rem;
+/* ========== INDIVIDUAL VAULT SECTIONS ========== */
+.vault-section {
+  margin-bottom: 5.5rem; /* 88px spacing between sections */
+}
 
-  }
-  .vault-card__title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.6;
-    flex-grow: 1;
+.vault-section:last-child {
+  margin-bottom: 0;
+}
 
-    margin-bottom: 1rem;
-  }
-  
-  .vault-card__price {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #000;
-  }
-  
+.vault-section__title {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
 
-  
-  .vault-card__thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  
+/* ========== GRID LAYOUT ========== */
+.vault-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns base */
+  gap: 2.25rem 3rem;
+}
 
-  
+/* ========== VAULT CARDS ========== */
+.vault-card {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCFD9;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #000;
+  border-radius: 4px;
+}
+
+.vault-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.vault-card__thumb {
+  width: 100%;
+  /* height: 14.0625rem; Fixed height for consistency */
+  overflow: hidden;
+  border-bottom: 1px solid #CCCFD9;
+}
+
+.vault-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Shows full image without cropping */
+  object-position: center;
+  display: block;
+  background-color: #f8f9fa; /* Light background for consistency */
+}
+
+.vault-card__content {
+  padding: 1.875rem 2.25rem 2.5rem;
+}
+
+.vault-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.vault-card__price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000;
+}
+
 /* ========== FOOTER ========== */
 .site-footer {
   background-color: var(--color-dark);
@@ -236,6 +194,8 @@ body {
   text-decoration: underline;
   text-underline-offset: 0.27em;
   font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
   white-space: nowrap;
 }
 
@@ -246,6 +206,140 @@ body {
 .site-footer__copyright {
   font-size: 1rem;
   color: #E1E2E9;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Large screens (3+ columns) - Default above */
+
+/* Medium screens (2 columns) */
+@media (max-width: 1024px) {
+  .vault__intro-container {
+    padding: 5.5rem 3rem; /* Reduce side padding to 48px */
+  }
   
+  .vault__sections .container {
+    padding: 5.5rem 2.25rem 8.25rem; /* 36px side padding */
+  }
+  
+  .vault-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 2.25rem; /* 36px gap between cards */
+  }
+  
+  .vault__title {
+    font-size: 2.75rem;
+  }
+  
+  .vault-section__title {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .vault-section {
+    margin-bottom: 4.5rem;
+  }
+  
+  .site-footer__nav {
+    gap: 2.5rem;
+  }
+}
+
+/* Small screens (1 column) */
+@media (max-width: 768px) {
+  .vault__intro {
+    text-align: center; /* Center intro text on mobile */
+  }
+  
+  .vault__intro-container {
+    padding: 4rem 2.25rem; /* 36px side padding */
+  }
+  
+  .vault__sections .container {
+    padding: 4rem 1.5rem 6rem; /* 24px side padding */
+  }
+  
+  .vault-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 1.5rem; /* 24px gap */
+  }
+  
+  .vault__title {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .vault__description {
+    max-width: 100%;
+  }
+  
+  .vault-section__title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left; /* Center section titles on mobile */
+  }
+  
+  .vault-section {
+    margin-bottom: 3.5rem;
+  }
+  
+  .vault-card__content {
+    padding: 1.5rem 1.75rem 2rem;
+  }
+  
+  .vault-card__title {
+    font-size: 1.125rem;
+  }
+  
+  .vault-card__price {
+    font-size: 1.125rem;
+  }
+  
+  .site-footer {
+    padding: 2.5rem 0;
+  }
+  
+  .site-footer__nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .vault__intro-container {
+    padding: 3rem 1.5rem; /* 24px side padding */
+  }
+  
+  .vault__sections .container {
+    padding: 3rem 1rem 4.5rem; /* 16px side padding */
+  }
+  
+  .vault__title {
+    font-size: 1.875rem;
+  }
+  
+  .vault-section__title {
+    font-size: 1.375rem;
+  }
+  
+  .vault-card__content {
+    padding: 1.25rem 1.5rem 1.75rem;
+  }
+  
+  .vault-card__title {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .vault-card__price {
+    font-size: 1rem;
+  }
+  
+  .site-header {
+    padding: 1.5rem 0;
+  }
+}

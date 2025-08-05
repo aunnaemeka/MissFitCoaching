@@ -35,6 +35,10 @@ body {
   margin: 0 auto;
 }
 
+.main-content {
+  padding: 0 3rem;
+}
+
 /* ========== HEADER ========== */
 .site-header {
   background-color: var(--color-dark);
@@ -113,7 +117,7 @@ body {
   line-height: 1.6;
 }
 
-.hero__image {
+/* .hero__image {
   flex: 1 1 46.2%;
   text-align: center;
 }
@@ -122,8 +126,27 @@ body {
   max-width: 100%;
   height: 25.75rem;
   border-radius: 0.5rem;
+} */
+
+/* Mobile image - hidden on desktop */
+.hero__image {
+  display: none;
+  text-align: center;
+  margin: 1.5rem 0;
 }
 
+/* Desktop image */
+.hero__image-desktop {
+  flex: 1 1 46.2%;
+  text-align: center;
+  min-width: 280px;
+}
+
+.hero__image-cover {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
 
 /* ========== TESTIMONIALS ========== */
 .testimonials {
@@ -211,3 +234,236 @@ body {
     font-weight: 400;
 line-height: 1.6;
   }
+
+
+
+
+
+/* Modal Styles - Based on your working implementation */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal[hidden] {
+  display: none !important;
+}
+
+.modal__content {
+  background-color: #fff;
+  border-radius: 0.375rem;
+  width: 100%;
+  max-width: 32rem; /* Adjust this if you need the form wider */
+  height: 700px; /* Fixed height as requested */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.modal__content iframe {
+  width: 100% !important;
+  height: 700px !important; 
+  border: none !important;
+  border-radius: 3px;
+}
+/* Update button to be button element */
+.hero__cta-button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1rem 8.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-family: var(--font-heading);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero__cta-button:hover {
+  background-color: #a01729;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+
+
+}
+
+
+
+
+  /* ========== RESPONSIVE DESIGN ========== */
+
+/* Large screens (3 columns) - Default above */
+
+/* Tablet screens - start responsive adjustments earlier */
+@media (max-width: 1210px) {
+  .hero__title {
+    font-size: 2.75rem;
+  }
+}
+
+/* @media (max-width: 1080px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+} */
+
+
+/* Medium screens (2 columns) */
+@media (max-width: 1085px) {
+  .main-content {
+    padding: 0 2.25rem; /* 36px */
+  }
+  
+  .hero__container {
+    gap: 2.5rem;
+  }
+  
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .testimonials__container {
+    gap: 2.25rem; /* 36px */
+  }
+  
+  .testimonial-card {
+    flex: 1 1 calc(50% - 1.125rem);
+    min-width: 300px;
+  }
+  
+  .site-footer__nav {
+    gap: 2.5rem;
+  }
+}
+
+/* Small-medium screens - prepare for stacking */
+@media (max-width: 959px) {
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  
+  .hero__subheading {
+    font-size: 1.125rem;
+  }
+}
+
+/* Small screens (1 column) - stack earlier */
+@media (max-width: 870px) {
+  .main-content {
+    padding: 0 1.5rem; /* 24px */
+  }
+  
+  .hero {
+    padding: 4rem 0;
+  }
+  
+  .hero__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+  
+  .hero__content {
+    width: 100%;
+  }
+  
+  .hero__title {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  
+  /* Show mobile image, hide desktop image */
+  .hero__image {
+    display: block;
+  }
+  
+  .hero__image-desktop {
+    display: none;
+  }
+  
+  .hero__paragraph {
+    text-align: left;
+  }
+  
+  .hero__cta-button {
+    padding: 1rem 4rem;
+  }
+  
+  /* .testimonials {
+    padding-bottom: 4rem;
+  } */
+  
+  .testimonials__container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  
+  .site-footer {
+    padding: 2.5rem 0;
+  }
+  
+  .site-footer__nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modal {
+    padding: 1rem;
+  }
+  
+  .modal__content iframe {
+    height: 600px !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0 1rem; /* 16px */
+  }
+  
+  .hero__title {
+    font-size: 1.75rem;
+  }
+  
+  .hero__cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .site-header {
+    padding: 1.5rem 0;
+  }
+  
+  .modal__content iframe {
+    height: 500px !important;
+  }
+}
