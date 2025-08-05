@@ -109,6 +109,8 @@ body {
   border-radius: 0.25rem;
   text-align: center;
   transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
 }
 
 .confirmation__button:hover {
@@ -118,6 +120,7 @@ body {
 .confirmation__button--secondary {
   margin-top: var(--gap-vertical);
 }
+
 
 /* ========== About Section ========== */
 .confirmation__about {
@@ -328,6 +331,42 @@ body {
   font-weight: 400;
   line-height: 1.6;
 }
+
+/* Modal Styles - Based on your working implementation */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal[hidden] {
+  display: none !important;
+}
+
+.modal__content {
+  background-color: #fff;
+  border-radius: 0.375rem;
+  width: 100%;
+  max-width: 32rem; /* Adjust this if you need the form wider */
+  height: 700px; /* Fixed height as requested */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.modal__content iframe {
+  width: 100% !important;
+  height: 700px !important; 
+  border: none !important;
+  border-radius: 3px;
+}
+
+
 
 /* ========== RESPONSIVE DESIGN ========== */
 
