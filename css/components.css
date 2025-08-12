@@ -1652,6 +1652,7 @@ body {
   width: 100%;
   text-transform: uppercase;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .pricing__button:hover {
