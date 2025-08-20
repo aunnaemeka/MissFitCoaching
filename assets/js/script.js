@@ -383,64 +383,64 @@ window.onloadTurnstileCallback = function () {
   });
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  const stripe = Stripe('pk_live_51R50MCEK0wONGgBdBUqnsuJBmfqqYvg6BgGaKCtgVw2wPExrpbFwT7btRs15dFhHx48lGbEFMStbpZIqZoDSPaZx00jEXXl5zj');
-  const buttons = document.querySelectorAll('.pricing__button');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const stripe = Stripe('pk_live_51R50MCEK0wONGgBdBUqnsuJBmfqqYvg6BgGaKCtgVw2wPExrpbFwT7btRs15dFhHx48lGbEFMStbpZIqZoDSPaZx00jEXXl5zj');
+//   const buttons = document.querySelectorAll('.pricing__button');
 
-  buttons.forEach(button => {
-    button.disabled = true; // Disable all buttons on load
+//   buttons.forEach(button => {
+//     button.disabled = true; // Disable all buttons on load
 
-    button.addEventListener('click', async function () {
-      if (!window.turnstileToken) {
-        alert('Security verification not completed yet. Please wait.');
-        return;
-      }
+//     button.addEventListener('click', async function () {
+//       if (!window.turnstileToken) {
+//         alert('Security verification not completed yet. Please wait.');
+//         return;
+//       }
 
-      const planName = this.getAttribute('data-plan');
-      const price = parseFloat(this.getAttribute('data-price'));
+//       const planName = this.getAttribute('data-plan');
+//       const price = parseFloat(this.getAttribute('data-price'));
 
-      const originalText = this.textContent;
-      this.textContent = 'Processing...';
-      this.disabled = true;
+//       const originalText = this.textContent;
+//       this.textContent = 'Processing...';
+//       this.disabled = true;
 
-      try {
-        const response = await fetch('/payment', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            planName,
-            amount: price,
-            paymentType: 'onetime', // adjust if using subscriptions later
-            intervalCount: 1,
-            returnUrl: window.location.href,
-            turnstileToken: window.turnstileToken
-          }),
-          mode: 'cors'
+//       try {
+//         const response = await fetch('/payment', {
+//           method: 'POST',
+//           headers: { 'Content-Type': 'application/json' },
+//           body: JSON.stringify({
+//             planName,
+//             amount: price,
+//             paymentType: 'onetime', // adjust if using subscriptions later
+//             intervalCount: 1,
+//             returnUrl: window.location.href,
+//             turnstileToken: window.turnstileToken
+//           }),
+//           mode: 'cors'
 
-        });
+//         });
 
-        const result = await response.json();
+//         const result = await response.json();
 
-        if (!response.ok) {
-          alert('Payment failed: ' + (result.error || 'Unknown error'));
-          this.disabled = false;
-          this.textContent = originalText;
-          return;
-        }
+//         if (!response.ok) {
+//           alert('Payment failed: ' + (result.error || 'Unknown error'));
+//           this.disabled = false;
+//           this.textContent = originalText;
+//           return;
+//         }
 
-        const { sessionId } = result;
-        const { error } = await stripe.redirectToCheckout({ sessionId });
-        if (error) throw error;
+//         const { sessionId } = result;
+//         const { error } = await stripe.redirectToCheckout({ sessionId });
+//         if (error) throw error;
 
-      } catch (err) {
-        console.error('Payment error:', err.message);
-        alert('An error occurred. Please try again.');
-        this.textContent = originalText;
-        this.disabled = false;
-      }
-    });
-  });
-});
+//       } catch (err) {
+//         console.error('Payment error:', err.message);
+//         alert('An error occurred. Please try again.');
+//         this.textContent = originalText;
+//         this.disabled = false;
+//       }
+//     });
+//   });
+// });
 
 
 
