@@ -1,0 +1,488 @@
+/* Font Import */
+
+:root {
+  --color-primary: #C41E3D;
+  --color-dark: #1D1D1D;
+  --color-bg: #FAFAFA;
+  --color-card-bg: #FFFFFF;
+  --color-border: #CCCFD9;
+
+  --font-heading: 'Barlow', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --max-width: 1296px;
+  --spacing-container: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-dark);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ========== HEADER ========== */
+.site-header {
+  background-color: var(--color-dark);
+  padding: 2.0625rem 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-header__logo-icon {
+  height: 1.375rem;
+}
+
+.site-header__logo-text {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.main-content {
+  padding: 0 3rem;
+}
+
+/* ========== HERO ========== */
+.hero {
+  padding: 8.25rem 0 8rem;
+}
+
+.hero__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero__content {
+  flex: 1 1 40%;
+  min-width: 300px;
+}
+
+.hero__subheading {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: 3.125rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero__paragraph {
+  margin-bottom: 1.6rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.hero__text-bottom p:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.hero__cta-button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1rem 6.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-family: var(--font-heading);
+  border-radius: 4px;
+}
+
+/* Mobile image - hidden on desktop */
+.hero__image {
+  display: none;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* Desktop image */
+.hero__image-desktop {
+  flex: 1 1 46.2%;
+  text-align: center;
+  min-width: 280px;
+}
+
+.hero__image-cover {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials {
+  background-color: var(--color-bg);
+  padding-bottom: 8.1875rem;
+}
+
+.testimonials__container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2.25rem;
+  border-radius: 0.25rem;
+  flex: 1 1 calc(33.333% - 2rem);
+  min-width: 280px;
+  height: fit-content;
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-card__stars img {
+  width: 1.6875rem;
+  height: 1.625rem;
+}
+
+.testimonial-card__text {
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.testimonial-card__author {
+  font-weight: 600;
+  color: #000;
+  font-size: 1rem;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.site-footer__link {
+  color: #E1E2E9;
+  text-decoration: underline;
+  text-underline-offset: 0.27em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.site-footer__link:hover {
+  color: #fff;
+}
+
+.site-footer__copyright {
+  font-size: 1rem;
+  color: #E1E2E9;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ========== MODAL ========== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modal--active {
+  display: flex;
+}
+
+.modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.modal__content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  font-family: var(--font-body);
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.modal__content iframe {
+  width: 100% !important;
+  height: 700px !important; 
+  border: none !important;
+  border-radius: 3px;
+}
+
+.modal__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal__label {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  color: #1d1d1d;
+}
+
+.modal__label span {
+  color: var(--color-primary);
+}
+
+.modal__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cccfd9;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  font-family: inherit;
+}
+
+.modal__submit {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.875rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.modal__disclaimer {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.modal__disclaimer a {
+  color: var(--color-dark);
+  text-decoration: underline;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Large screens (3 columns) - Default above */
+
+/* Tablet screens - start responsive adjustments earlier */
+@media (max-width: 1210px) {
+  .hero__title {
+    font-size: 2.75rem;
+  }
+}
+
+/* @media (max-width: 1080px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+} */
+
+
+/* Medium screens (2 columns) */
+@media (max-width: 1085px) {
+  .main-content {
+    padding: 0 2.25rem; /* 36px */
+  }
+  
+  .hero__container {
+    gap: 2.5rem;
+  }
+  
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .testimonials__container {
+    gap: 2.25rem; /* 36px */
+  }
+  
+  .testimonial-card {
+    flex: 1 1 calc(50% - 1.125rem);
+    min-width: 300px;
+  }
+  
+  .site-footer__nav {
+    gap: 2.5rem;
+  }
+}
+
+/* Small-medium screens - prepare for stacking */
+@media (max-width: 959px) {
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  
+  .hero__subheading {
+    font-size: 1.125rem;
+  }
+}
+
+/* Small screens (1 column) - stack earlier */
+@media (max-width: 870px) {
+  .main-content {
+    padding: 0 1.5rem;
+  }
+  
+  .hero {
+    padding: 4rem 0;
+  }
+  
+  .hero__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+  
+  .hero__content {
+    width: 100%;
+  }
+  
+  .hero__title {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  
+  /* Show mobile image, hide desktop image */
+  .hero__image {
+    display: block;
+  }
+  
+  .hero__image-desktop {
+    display: none;
+  }
+  
+  .hero__paragraph {
+    text-align: left;
+  }
+  
+  .hero__cta-button {
+    padding: 1rem 4rem;
+  }
+  
+  /* .testimonials {
+    padding-bottom: 4rem;
+  } */
+  
+  .testimonials__container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  
+  .site-footer {
+    padding: 2.5rem 0;
+  }
+  
+  .site-footer__nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modal {
+    padding: 1rem;
+  }
+  
+  .modal__content iframe {
+    height: 600px !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0 1rem; /* 16px */
+  }
+  
+  .hero__title {
+    font-size: 1.75rem;
+  }
+  
+  .hero__cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .site-header {
+    padding: 1.5rem 0;
+  }
+  
+  .modal__content iframe {
+    height: 500px !important;
+  }
+}

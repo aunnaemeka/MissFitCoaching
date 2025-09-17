@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissFit Coaching - Contact</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <!-- Fallback PNG for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" href="assets/icons/favicon.png" type="image/png">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero shared-hero contact-hero ">
+  <header class="header hero__header">
+    <div class="header__container hero__container">
+      <a href="index.html" class="header__logo hero__logo">
+        <img src="assets/icons/logo-white.svg" alt="MissFit Coaching Logo">
+      </a>
+      <nav class="header__nav hero__nav">
+        <ul class="header__nav-list hero__nav-list">
+          <li class="hero__nav-item">
+            <a href="about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="coaching/executive-coaching.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
+              <li><a href="coaching/career-coaching.html" class="header__nav-dropdown-link">Career Coaching</a></li>
+              <li><a href="coaching/job-search-coaching.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">WORKSHOP
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="workshops/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">SERVICES
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="services/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">RESOURCES
+              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="resources/articles.html" class="header__nav-dropdown-link">Articles</a></li>
+              <li><a href="resources/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+        <a href="contact.html" class="header__cta hero__cta">CONTACT</a>
+      </div>
+    </div>
+    <div class="header__mobile-menu">
+      <ul class="header__mobile-nav-list">
+        <li>
+          <a href="about.html" class="header__mobile-nav-link">ABOUT</a>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="coaching/executive-coaching.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
+            <li><a href="coaching/career-coaching.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
+            <li><a href="coaching/job-search-coaching.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">WORKSHOP
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="workshops/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">SERVICES
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="services/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">RESOURCES
+            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="resources/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
+            <li><a href="resources/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  
+<div class="hero__content">
+    <div class="hero__text">
+      <h1 class="hero__title">GET IN TOUCH WITH US</h1>
+      <p class="hero__subtitle">
+        We’d love to hear from you and resolve enquiries or complaints.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="contact-section">
+  <div class="contact-section__container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <!-- Phone Information -->
+      <div class="contact-info__item">
+        <div class="contact-info__icon">
+          <img src="assets/icons/phone-icon.svg" alt="Phone Icon">
+        </div>
+        <div class="contact-info__content">
+          <h3 class="contact-info__title">PHONE</h3>
+          <p class="contact-info__details">312 380 5682</p>
+        </div>
+      </div>
+
+      <!-- Email Information -->
+      <div class="contact-info__item">
+        <div class="contact-info__icon">
+          <img src="assets/icons/email-icon.svg" alt="Email Icon">
+        </div>
+        <div class="contact-info__content">
+          <h3 class="contact-info__title">EMAIL</h3>
+          <p class="contact-info__details">hello@missfitcoaching.com</p>
+        </div>
+      </div>
+
+      <!-- Address Information -->
+      <div class="contact-info__item">
+        <div class="contact-info__icon">
+          <img src="assets/icons/address-icon.svg" alt="Address Icon">
+        </div>
+        <div class="contact-info__content">
+          <h3 class="contact-info__title">ADDRESS</h3>
+          <p class="contact-info__details">
+            MissFit Coaching,<br>
+            11 North Northwest Highway,<br>
+            Suite 143, Park Ridge, IL 60068
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Section (GoHighLevel embed) -->
+  
+
+      <div class="contact-form__embed" aria-label="Contact form">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/BXcatVRyt75m0uMAvVj1"
+          style="width:100%;height:930px;border:none;border-radius:3px"
+          id="inline-BXcatVRyt75m0uMAvVj1"
+          loading="lazy"
+          title="Contact-us"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Contact-us"
+          data-height="930"
+          data-layout-iframe-id="inline-BXcatVRyt75m0uMAvVj1"
+          data-form-id="BXcatVRyt75m0uMAvVj1"
+        ></iframe>
+      </div>
+  </div>
+</section>
+
+<!-- GoHighLevel embed helper (only needed once per page) -->
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter__container" id="newsletterFormContainer">
+      <!-- GoHighLevel Form - This already contains the heading and subtitle -->
+      <div class="newsletter__ghl-container">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/0ReUutPxYEcFxSpTwVaU"
+          style="width:100%;border:none;border-radius:4px"
+          id="inline-0ReUutPxYEcFxSpTwVaU" 
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Newsletter Signup Form with only Captcha"
+          data-height="507"
+          data-layout-iframe-id="inline-0ReUutPxYEcFxSpTwVaU"
+          data-form-id="0ReUutPxYEcFxSpTwVaU"
+          title="Newsletter Signup Form with only Captcha">
+        </iframe>
+      </div>
+    </div>
+    
+    <!-- Your existing confirmation message can be kept if needed -->
+    <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
+      <div class="subscription-confirmation__checkmark-circle">
+        <img src="assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+      </div>
+      <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
+      <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
+      <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
+    </div>
+  </section>
+  
+  <!-- GoHighLevel Script - place before the closing body tag -->
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer__container">
+      <!-- Branding Section -->
+      <div class="footer__branding">
+        <a href="index.html" class="footer__logo" >
+          <img src="assets/icons/logo.svg" alt="MissFit Coaching Logo">
+        </a>
+        <p class="footer__tagline">The Career Gym for Professionals.</p>
+        <div class="footer__socials">
+          <a href="https://www.linkedin.com/in/daciaderidder/" class="footer__social-link" target="_blank">
+            <img src="assets/icons/linkedin-logo.svg" alt="LinkedIn">
+          </a>
+          <a href="https://www.youtube.com/@DaciaDeridder" class="footer__social-link" target="_blank">
+            <img src="assets/icons/youtube-logo.svg" alt="YouTube">
+          </a>
+        </div>
+        <p class="footer__copyright">© 2025 MissFit Coaching. All Rights Reserved.</p>
+      </div>
+  
+      <!-- Links Section with Dropdown Support -->
+      <div class="footer__links">
+        <!-- COMPANY Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">COMPANY</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="about.html" class="footer__link">About</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="contact.html" class="footer__link">Contact</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="terms.html" class="footer__link">Terms of Service</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="policy.html" class="footer__link">Privacy Policy</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- COACHING Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">COACHING</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="coaching/executive-coaching.html" class="footer__link">Executive Coaching</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="coaching/career-coaching.html" class="footer__link">Career Coaching</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="coaching/job-search-coaching.html" class="footer__link">Job Search Coaching</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Similar structure for other sections... -->
+        <!-- WORKSHOP Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">WORKSHOP</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="workshops/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- SERVICES Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">SERVICES</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="services/resume.html" class="footer__link">Resume Writing</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- RESOURCES Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">RESOURCES</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="resources/articles.html" class="footer__link">Articles</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="resources/newsletter.html" class="footer__link">Newsletter</a>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/script.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+
+  if (!form) {
+    console.error('Contact form not found');
+    return;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const submitButton = form.querySelector('.contact-form__submit');
+    const originalText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'SUBMITTING...';
+
+    try {
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        },
+        redirect: 'manual' // 🔥 This prevents following CORS-blocked redirects
+      });
+
+      // Treat redirect or OK as success
+      if (response.status === 200 || response.status === 302 || response.status === 0) {
+        console.log('Form submitted successfully');
+        document.getElementById('contactFormContainer').style.display = 'none';
+        document.getElementById('contact-confirmation').style.display = 'block';
+        form.reset();
+      } else {
+        console.error('Submission failed with status:', response.status);
+        alert('Something went wrong. Please try again or contact us via email.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting the form. Please check your connection or contact us at hello@missfitcoaching.com');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
+  });
+});
+</script>
+
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+</body>
+</html>

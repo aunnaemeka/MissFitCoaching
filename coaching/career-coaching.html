@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissFit Coaching - Career Coaching</title>
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <!-- Fallback PNG for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
+    <script src="https://js.stripe.com/v3/"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      </style>
+     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+      </style>
+      
+      
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/executive.css"> <!-- Only on homepage -->
+    <link rel="stylesheet" href="../css/job-search.css"> <!-- Only on homepage -->
+    <link rel="stylesheet" href="../css/career.css"> <!-- Only on homepage -->
+
+
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <header class="header executive-header">
+        <div class="header__container executive-container">
+          <div class="header__left">
+            <a href="../index.html"><img src="../assets/icons/zigzag-icon.svg" alt="Zigzag Icon" class="header__zigzag-icon" /></a>
+            <span class="header__divider"></span> <!-- Vertical line -->
+            <a href="#" class="header__active-category">CAREER COACHING</a>
+          </div>
+          <nav class="header__nav executive-nav">
+            <ul class="header__nav-list executive-nav-list">
+              <li class="executive-nav-item">
+                <a href="#about" class="header__nav-link executive-nav-link">ABOUT</a>
+              </li>
+              <li class="executive-nav-item">
+                <a href="#deep-dive" class="header__nav-link executive-nav-link">DEEP DIVE</a>
+              </li>
+              <li class="executive-nav-item">
+                <a href="#testimonials" class="header__nav-link executive-nav-link">TESTIMONIALS</a>
+              </li>
+              <li class="executive-nav-item">
+                <a href="#faq" class="header__nav-link executive-nav-link">FAQ</a>
+              </li>
+              <li class="executive-nav-item">
+                <a href="#pricing" class="header__nav-link executive-nav-link">PRICING</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__right">
+            <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+            <a href="https://calendly.com/deemissfitcoaching/career-coaching" class="header__cta executive-cta" target="_blank">APPLY NOW</a>
+          </div>
+        </div>
+        <div class="header__mobile-menu">
+          <ul class="header__mobile-nav-list">
+            <li>
+              <a href="#about" class="header__mobile-nav-link">ABOUT</a>
+            </li>
+            <li>
+              <a href="#testimonials" class="header__mobile-nav-link">TESTIMONIALS</a>
+            </li>
+            <li>
+              <a href="#deep-dive" class="header__mobile-nav-link">DEEP DIVE</a>
+            </li>
+            <li>
+              <a href="#faq" class="header__mobile-nav-link">FAQ</a>
+            </li>
+            <li>
+                <a href="#pricing" class="header__mobile-nav-link">PRICING</a>
+            </li>
+            <li>
+              <a href="https://calendly.com/deemissfitcoaching/career-coaching" class="header__mobile-nav-link" target="_blank">APPLY NOW</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+    <div class="hero__content">
+        <div class="hero__text">
+            <h1 class="hero__title">BUILD A FULFILLING CAREER WITH BETTER BENEFITS</h1>
+            <p class="hero__subtitle">
+                Navigate career transitions, develop leadership skills, and unlock opportunities that elevate your career and enhance your quality of life.
+            </p>
+            <a href="https://calendly.com/deemissfitcoaching/career-coaching" class="hero__button" target="_blank">APPLY NOW</a>
+        </div>
+    </div>
+</section>
+
+
+  
+<section class="content-section content-section--alt">
+    <div id="about" class="content-container">
+        <h2 class="content-title">IT DOESN’T HAVE TO BE THIS WAY</h2>
+        <p class="content-text">
+            Ever feel like your career is just... stuck?
+        </p>
+        <p class="content-text">
+            Maybe it’s a promotion that never came, a layoff you didn’t see coming, or a project that didn’t go anywhere. Suddenly, you’re left wondering, “What now?”
+        </p>
+        <p class="content-text">
+            The truth is most of us are waiting. Waiting for someone else to notice us. Waiting for a recruiter to call.  Waiting for the next big opportunity to magically appear.
+        </p>
+        <p class="content-text">
+            But waiting doesn’t work.
+        </p>
+        <p class="content-text">
+            And when nothing changes, the frustration starts to build.
+        </p>
+        <p class="content-text">
+            You tell yourself to hang in there. One more project. One more networking event.
+        </p>
+        <p class="content-text">
+            But deep down, you’re asking yourself:
+        </p>
+        <p class="content-text">
+            “Am I stuck? What if this is far as I go?
+        </p>
+        <p class="content-text">Then the doubts start to creep in:</p>
+        <ul class="content-list">
+            <li>“Am I even relevant anymore?”</li>
+            <li>“Should I settle for something I don’t want to just to keep the lights on?”</li>
+            <li>“Will I ever find something that excites me again?</li>
+        </ul>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <h2 class="content-title">A BETTER WAY</h2>
+        <p class="content-text">
+            The good news is that you don’t have to live like this any longer.
+        </p>
+        <p class="content-text">
+            You don’t have to wait for that fabled “Big break.” 
+        </p>
+        <p class="content-text">
+            You can take control of your career right now.
+        </p>
+        <p class="content-text">
+            Imagine a coaching program that:
+        </p>
+        <ul class="content-list">
+            <li>
+                Is tailored to your goals—whether you want to secure a promotion, switch industries, or navigate career transitions—without relying on vague advice or random opportunities.
+            </li>
+            <li>
+                Supports you in taking consistent, actionable steps toward achieving your career milestones and reaching your full potential.
+            </li>
+            <li>
+                Helps you build confidence in your abilities, manage your career strategically, and gain the skills needed to create the professional future you want.
+            </li>
+            <li>
+                Gives you the tools, strategies, and accountability to accelerate your career.
+            </li>
+            <li>
+                Helps you build a strong, compelling personal brand that your teammates, superiors, and employers can’t ignore.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="content-section content-section--light">
+    <div class="content-container">
+        <h2 class="content-title">INTRODUCING THE MISSFIT <br> CAREER COACHING PROGRAM</h2>
+        <p class="content-text">
+            The Missfit Career Coaching Program is a monthly coaching program designed to give you the strategies, accountability, and clarity you need to secure promotions, transition into fulfilling roles, and take control of your career growth—WITHOUT relying on luck.
+        </p>
+        <p class="content-text">
+            This program is for professionals who are committed to ongoing personal growth, career advancement, ready to adapt to ever-changing industries. 
+        </p>
+        <p class="content-text">
+            In the Missfit coaching program, you will receive continuous, personalized coaching that evolves with your career, ensuring that you're always positioned to  overcome new challenges, and achieve your goals.
+        </p>
+    </div>
+</section>
+
+<section class="benefits">
+    <header class="benefits__header">
+        <h2 class="benefits__title">HERE’S WHAT YOU GAIN WHEN YOU JOIN</h2>
+    </header>
+
+    <div class="benefits__list">
+        <!-- Benefit 1 -->
+        <div class="benefit-item">
+            <div class="benefit-item__icon-wrapper">
+                <img src="../assets/icons/expert-guidance.svg" alt="Expert Guidance Icon" class="benefit-item__icon">
+            </div>
+            <div class="benefit-item__content">
+                <h3 class="benefit-item__title">Expert Guidance</h3>
+                <p class="benefit-item__description">
+                    Learn the secrets of how to position yourself as the candidate every employer wants, 
+                    from personal branding to networking and beyond.
+                </p>
+            </div>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-item">
+            <div class="benefit-item__icon-wrapper">
+                <img src="../assets/icons/proven-system.svg" alt="Proven System Icon" class="benefit-item__icon">
+            </div>
+            <div class="benefit-item__content">
+                <h3 class="benefit-item__title">A Proven System</h3>
+                <p class="benefit-item__description">
+                    Forget trial and error. We give you a step-by-step roadmap to get results. 
+                    No guesswork or luck required.
+                </p>
+            </div>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="benefit-item">
+            <div class="benefit-item__icon-wrapper">
+                <img src="../assets/icons/modern-tools.svg" alt="Modern Tools Icon" class="benefit-item__icon">
+            </div>
+            <div class="benefit-item__content">
+                <h3 class="benefit-item__title">Modern Tools and Strategies</h3>
+                <p class="benefit-item__description">
+                    Stand out from all other applicants with strategies that are relevant, innovative, and effective.
+                </p>
+            </div>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="benefit-item">
+            <div class="benefit-item__icon-wrapper">
+                <img src="../assets/icons/ongoing-support.svg" alt="Ongoing Support Icon" class="benefit-item__icon">
+            </div>
+            <div class="benefit-item__content">
+                <h3 class="benefit-item__title">Ongoing Support</h3>
+                <p class="benefit-item__description">
+                    When the going gets tough, we’re right there with you, helping you stay focused and achieve your career goals.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="testimonials" class="testimonial-section">
+  <header class="testimonial-header">
+      <h2 class="testimonial-title">HEAR WHAT PROFESSIONALS SAY ABOUT US</h2>
+  </header>
+
+  <div class="testimonial-grid">
+      <!-- Testimonial Item 1 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “Dee is an exceptional communicator and listener who truly takes the time to understand your unique strengths and aspirations. Her diverse business background and unwavering drive for excellence shine through in everything she does. Her responsiveness, collaboration, and deep industry insights make her a standout professional. Working with Dee has been an incredible experience, and I highly recommend her to anyone seeking career guidance or support.”
+          </p>
+          <p class="testimonial-author"><strong>Matthew G.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 2 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “If you’re a c-level executive or senior leader, Dacia is for you. Superb insights and professionalism. Highly recommend!”
+          </p>
+          <p class="testimonial-author"><strong>Toni V.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 3 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “She taught me so much as a leader and brought our business to new heights under her leadership!”
+          </p>
+          <p class="testimonial-author"><strong>Carlos A.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 4 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “I would no doubt recommend Dee for anyone interested in a career mentor, coach or consultant. As someone who was going through a career change in the business world, Dee heard my story in an initial meeting, then provided me with a detailed plan of action. She had outlined key milestones and timelines with great solutions to potential roadblocks.”
+          </p>
+          <p class="testimonial-author"><strong>Cameron D.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 5 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “MissFit Coaching was extremely helpful and provided me the tools and confidence to ensure my success. Under her guidance, I was able to make the step from Analyst to Manager. You won’t find better guidance anywhere.”
+          </p>
+          <p class="testimonial-author"><strong>Aaron J.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 6 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “She stepped right up to the challenge of translating transferable skills from 2 careers – beautifully positioning me for another career transition with great relevance in a new industry.”
+          </p>
+          <p class="testimonial-author"><strong>Skylar L.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 7 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “What really set her apart was her insight into the unique dynamics of startups, equity firms, established private companies, and publicly traded corporations. Her guidance on negotiating and managing C-suite dynamics was invaluable.”
+          </p>
+          <p class="testimonial-author"><strong>David A.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 8 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “The help of Dee was extremely valuable. I was able to go from feeling outdated and without back-up plan to feeling ready to go full force into exploring my full potential either within the organization I work for or outside. Dee customized a plan targeting my needs and delivered above my expectations.”
+          </p>
+          <p class="testimonial-author"><strong>Alfonso F.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 9 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “Her advice on negotiating was a game-changer, and thanks to her, I ended up with an offer that far exceeded my expectations. She really wants her clients to succeed and works tirelessly to help them make it happen.”
+          </p>
+          <p class="testimonial-author"><strong>David A.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 10 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “I am so much happier in my new role than I was in my last job! I truly feel like it was a God/Universe thing that brought me initially to my current role and Dee helped me convince leadership here that I belonged! I am so grateful for all of her assistance!”
+          </p>
+          <p class="testimonial-author"><strong>Sarah R.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 11 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “I am currently working with Dee, and it has been a game-changer for me both personally and professionally! Her expertise in providing insightful advice, guidance, and coaching has been inspiring. I highly recommend her services for anyone looking to enhance their professional profile and excel in their field.”
+          </p>
+          <p class="testimonial-author"><strong>David J.</strong></p>
+      </div>
+
+      <!-- Testimonial Item 12 -->
+      <div class="testimonial-card">
+          <div class="testimonial-stars">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+              <img src="../assets/icons/star-blue.svg" alt="Star">
+          </div>
+          <p class="testimonial-text">
+              “Dee is amazing to work with. She brings fun and laughter to every meeting. She’s knowledgeable and creative as well as very kind-hearted. I’m beyond happy we connected!”
+          </p>
+          <p class="testimonial-author"><strong>Maria L.</strong></p>
+      </div>
+  </div>
+</section>
+
+
+<section id="deep-dive" class="program-breakdown">
+    <header class="program-breakdown__header">
+        <h2 class="program-breakdown__title">PROGRAM BREAKDOWN</h2>
+    </header>
+
+    <div class="program-breakdown__content">
+        <!-- Phase 1 -->
+        <div class="program-phase">
+            <div class="program-phase__details">
+                <p class="program-phase__number">PHASE 1</p>
+                <h3 class="program-phase__title">Continuous Self-Knowledge and Career Clarity</h3>
+                <p class="program-phase__description">
+                    Maintain and enhance clarity on your career direction, continuously adapting as your circumstances and ambitions evolve.
+                </p>               
+            </div>
+            <div class="program-phase__walkaway">
+                <h4 class="walkaway__title">Walk Away With:</h4>
+                <ul class="walkaway__list">
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Ongoing Self-Discovery</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark">Career Visiont</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Dynamic Career Mapping</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Career Goals</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Self-Assessment Exercises</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Reflection Exercises</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="program-phase program-phase--reverse">
+            <div class="program-phase__walkaway">
+                <h4 class="walkaway__title">Walk Away With:</h4>
+                <ul class="walkaway__list">
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark">Skill Gap Analysis</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Skill Development Roadmap</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Personalized Learning Resources</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Competency Building</li>
+                </ul>
+            </div>
+            <div class="program-phase__details">
+                <p class="program-phase__number">PHASE 2</p>
+                <h3 class="program-phase__title">Ongoing Skill Development and Competency Building</h3>
+                <p class="program-phase__description">
+                    Ensure that your skills and competencies are always aligned with the evolving demands of your career and industry.
+                </p>
+            </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="program-phase">
+            <div class="program-phase__details">
+                <p class="program-phase__number">PHASE 3</p>
+                <h3 class="program-phase__title">Emotional and Psychological Resilience</h3>
+                <p class="program-phase__description">
+                    Build and maintain emotional resilience, confidence, and mental agility to navigate both opportunities and challenges that arise throughout your career.
+                </p>
+            </div>
+            <div class="program-phase__walkaway">
+                <h4 class="walkaway__title">Walk Away With:</h4>
+                <ul class="walkaway__list">
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Resilience Check-Ins</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark">Emotional Regulation</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Confidence Growth</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="program-phase program-phase--reverse">
+            <div class="program-phase__walkaway">
+                <h4 class="walkaway__title">Walk Away With:</h4>
+                <ul class="walkaway__list">
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Brand and Networking Reassessments</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Thought Leadership and Reputation Management</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Thought Leadership Content Strategy</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Networking Plan</li>
+                </ul>
+            </div>
+            <div class="program-phase__details">
+                <p class="program-phase__number">PHASE 4</p>
+                <h3 class="program-phase__title">External Leverage and Market Positioning</h3>
+                <p class="program-phase__description">
+                    Ensure your personal brand and market positioning evolve as you grow in your career, keeping you visible and relevant in your industry.
+                </p>
+            </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="program-phase">
+            <div class="program-phase__details">
+                <p class="program-phase__number">PHASE 5</p>
+                <h3 class="program-phase__title">Ownership and Accountability</h3>
+                <p class="program-phase__description">
+                    Help you develop and maintain systems to ensure you are always in control of your career decisions and taking action towards your goals.
+                </p>
+            </div>
+            <div class="program-phase__walkaway">
+                <h4 class="walkaway__title">Walk Away With:</h4>
+                <ul class="walkaway__list">
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Accountability Systems</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Decision-Making Models</li>
+                </ul>
+            </div>
+        </div>
+
+                <!-- Phase 6 -->
+        <div class="program-phase">
+            <div class="program-phase__walkaway">
+                <h4 class="walkaway__title">Walk Away With:</h4>
+                <ul class="walkaway__list">
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Risk Identification</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Navigating Transitions</li>
+                    <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Long-Term Career Adjustments</li>
+                </ul>
+            </div>
+            
+            <div class="program-phase__details">
+                <p class="program-phase__number">PHASE 6</p>
+                <h3 class="program-phase__title">Strategic Risk Management</h3>
+                <p class="program-phase__description">
+                    Proactively prepare for black swan career events and learn how to adapt to transitions and unforeseen opportunities as they arise.
+                </p>
+            </div>
+         
+        </div>
+
+                <!-- Phase 7 -->
+                <div class="program-phase">
+                    <div class="program-phase__details">
+                        <p class="program-phase__number">PHASE 7</p>
+                        <h3 class="program-phase__title">Continuous Adaptation and Lifelong Learning</h3>
+                        <p class="program-phase__description">
+                            Focused on equipping you with the habits, skills, and strategies necessary for lifelong career growth.
+                        </p>
+                    </div>
+                    <div class="program-phase__walkaway">
+                        <h4 class="walkaway__title">Walk Away With:</h4>
+                        <ul class="walkaway__list">
+                            <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Industry Insights</li>
+                            <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Ongoing Professional Development</li>
+                            <li><img src="../assets/icons/checkmark-blue.svg" alt="Checkmark"> Caree Progress Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+    </div>
+</section>
+
+
+<section id="pricing" class="pricing">
+    <header class="pricing__header">
+        <h2 class="pricing__title">INVEST IN YOUR FUTURE WITH <br> MISSFIT’S LINKEDIN WORKSHOP</h2>
+    </header>
+
+
+    <div class="pricing__grid">
+
+        <!-- Standard Plan -->
+        <div class="pricing__item pricing__item--best">
+            <h3 class="pricing__plan">FLEXIBLE</h3>
+            <h3 class="pricing__plan-subtitle">Weekly Payments of</h3>
+            <p class="pricing__price">$300</p>
+            <button class="pricing__button" data-plan="FLEXIBLE" data-price="300">APPLY NOW</button>
+            <p class="pricing__contact"><strong>What's Included</strong></p>
+            <ul class="pricing__features">
+                <li>Customized Coaching Sessions</li>
+                <li>Ongoing Skill Development</li>
+                <li>Confidence and Resilience Growth </li>
+                <li>Market Positioning and Branding </li>
+                <li>Flexible Scheduling</li>
+                <li>Bi-weekly career reviews</li>
+                <li>Advanced career mapping sessions</li>
+                <li>Exclusive access to advanced resources</li>
+                <li>7-Day Satisfaction Guarantee</li>
+            </ul>
+        </div>
+
+        <!-- Premier Plan -->
+        <div class="pricing__item pricing__item--popular">
+            <h3 class="pricing__plan">UPFRONT</h3>
+            <h3 class="pricing__plan-subtitle">Monthly Payments of</h3>
+            <p class="pricing__price">$900</p>
+            <button class="pricing__button" data-plan="FLEXIBLE" data-price="900">APPLY NOW</button>
+            <h4 class="pricing__included-title">What’s Included?</h4>
+            <ul class="pricing__features">
+                <li>Customized Coaching Sessions</li>
+                <li>Ongoing Skill Development</li>
+                <li>Confidence and Resilience Growth </li>
+                <li>Market Positioning and Branding </li>
+                <li>Flexible Scheduling</li>
+                <li>Bi-weekly career reviews</li>
+                <li>Advanced career mapping sessions</li>
+                <li>Exclusive access to advanced resources</li>
+                <li>7-Day Satisfaction Guarantee</li>            
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section id="about" class="story">
+    <div class="story__container">
+      <header class="section-header story__header">
+        <h2 class="section-header__title story__title">MEET YOUR CAREER COACH</h2>
+      </header>
+  
+      <div class="story__content">
+        <div class="story__text">
+          <p>
+            Dacia DeRidder is a seasoned career coach with 30 years of corporate experience, having led HR and customer experience initiatives at global organizations such as Google, Gallagher, and Analyte Health.
+          </p>
+          <p>
+            Her career has spanned the globe, with professional experience in countries like India, China, the UK, South Korea, and Brazil, providing her with a unique perspective and deep understanding of diverse work environments.
+          </p>
+        </div>
+        <div class="story__image">
+          <img src="../assets/images/story-1.png" alt="MissFit Coaching philosophy">
+        </div>
+      </div>
+  
+      <div class="story__content">
+        <div class="story__image">
+          <img src="../assets/images/story-2.png" alt="MissFit Coaching journey">
+        </div>
+        <div class="story__text">
+          <p>
+            DeRidder holds an MBA from Loyola University of Chicago, USA, and executive HR certifications including SHRM-SCP and DE&I. She is a member of the Institute of Coaching (IOC) and the National Resume Writers Association (NRWA), and she is a Nationally Certified Online Profile Expert™ (NCOPE).
+          </p>
+          <p>
+            As the founder of MissFit Coaching, she leverages her extensive corporate expertise and deep knowledge of organizational dynamics to empower professionals in their career journeys.
+         </p>
+        </div>
+      </div>
+  
+      <div class="story__content">
+        <div class="story__text">
+          <p>
+            Her work with individuals across various industries and backgrounds has enabled countless professionals to take control of their careers, secure jobs they love, step into leadership roles, and navigate career transitions successfully—without relying on luck.
+          </p>
+          <p>
+            DeRidder is driven by the belief that everyone deserves a fulfilling career.
+          </p>
+          <p>
+            Her coaching approach is rooted in empathy, authenticity, and a comprehensive understanding of the challenges and opportunities at every career stage, fostering unstoppable career growth for her clients.
+          </p>
+        </div>
+        <div class="story__image">
+          <img src="../assets/images/story-3.png" alt="MissFit Coaching philosophy">
+        </div>
+      </div>
+  </section>
+
+
+  
+
+  <section class="testimonial-section">
+    <header class="testimonial-header">
+        <h2 class="testimonial-title">HEAR WHAT PROFESSIONALS SAY ABOUT DEE</h2>
+    </header>
+
+    <div class="testimonial-grid">
+        <!-- Testimonial Item 1 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is a strong operational leader with broad understanding of business and leadership. She consistently delivers above and beyond expectations.”
+            </p>
+            <p class="testimonial-author"><strong>Wayne W.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 2 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is extremely sharp, hard working and detail oriented. She is good with people and has tremendous energy and charisma.”
+            </p>
+            <p class="testimonial-author"><strong>Michael K.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 3 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “I worked for Dacia’s Organization where she demonstrated both tight operational cadence driving exceptional business results improvements & clear strategic long term focus to beat the industry benchmark. I strongly recommend her leadership.”
+            </p>
+            <p class="testimonial-author"><strong>Mariano S.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 4 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “She avidly researches new approaches and thoughts to keep at the forefront of her field. Her ability to share a strong vision for improved performance and returns combined with an extreme ability to keep an eye on the key metrics and accountability is truly inspiring.”
+            </p>
+            <p class="testimonial-author"><strong>Elizabeth I.P.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 5 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is a detailed, creative, and collaborative work partner. She is someone that I would choose to pull on any team where innovative solutions are needed and time is of the essence.”
+            </p>
+            <p class="testimonial-author"><strong>Susan B.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 6 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is a detailed, creative, and collaborative work partner. She is someone that I would choose to pull on any team where innovative solutions are needed and time is of the essence.”
+            </p>
+            <p class="testimonial-author"><strong>Susan B.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 7 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is an excellent manager of people and relationships and she gets the right things done. I was very fortunate to have the opportunity to work with her and to later to hire her into our team. She’s great!”
+            </p>
+            <p class="testimonial-author"><strong>James B.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 8 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is a great person to work with. She is always upbeat, and enjoys her work.”
+            </p>
+            <p class="testimonial-author"><strong>Debbie A.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 9 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is a dedicated worker overseeing a multi-faceted group operating in a new and ever changing environment. Her no nonsense approach to challenges was a breath of fresh air in a difficult environment.”
+            </p>
+            <p class="testimonial-author"><strong>Christopher H.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 10 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is a dedicated worker overseeing a multi-faceted group operating in a new and ever changing environment. Her no nonsense approach to challenges was a breath of fresh air in a difficult environment.”
+            </p>
+            <p class="testimonial-author"><strong>Christopher H.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 11 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is an exceptional leader and model to any team. I can honestly say with confidence she will absolutely be the answer to any company’s overall success and future growth!”
+            </p>
+            <p class="testimonial-author"><strong>Melissa B.</strong></p>
+        </div>
+
+        <!-- Testimonial Item 12 -->
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+                <img src="../assets/icons/star-blue.svg" alt="Star">
+            </div>
+            <p class="testimonial-text">
+                “Dacia is an exceptional leader and model to any team. I can honestly say with confidence she will absolutely be the answer to any company’s overall success and future growth!”
+            </p>
+            <p class="testimonial-author"><strong>Melissa B.</strong></p>
+        </div>
+    </div>
+</section>
+
+
+<section class="cta-section">
+    <header class="cta-section__header">
+        <h2 class="cta-section__title">
+            INVEST IN YOUR FUTURE WITH <br> MISSFIT’S EXECUTIVE COACHING
+        </h2>
+    </header>
+
+    <div class="cta-section__card">
+        <h3 class="cta-section__card-title">
+            TRY THE PROGRAM FOR <br> 14 DAYS RISK FREE
+        </h3>
+        <p class="cta-section__description">
+            We’re confident that MissFit Coaching will transform your job search experience. 
+            That’s why we offer a 14-day full refund if you are not satisfied.
+        </p>
+        <p class="cta-section__description">
+            Join the program, engage with the resources, and if you don’t feel it’s delivering 
+            the value we promised—whether it’s actionable advice, confidence, or progress—
+            send an email to <strong>support@missfitcoaching.com</strong> and you’ll get every penny back.
+        </p>
+        <a href="https://calendly.com/deemissfitcoaching/career-coaching" class="cta-section__button" target="_blank">APPLY NOW</a>
+    </div>
+</section>
+
+<section id="faq" class="faq">
+    <div class="faq__container">
+      <!-- FAQ Section Title -->
+      <h2 class="faq__title">F.A.Q's</h2>
+  
+      <!-- FAQ Items -->
+      <div class="faq__items">
+        <!-- FAQ Item 1 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IS THIS CAREER COACHING PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              This is a personalized, high-touch career coaching program designed to help you navigate your career challenges, grow your leadership abilities, and achieve your career goals. It’s not a generic course but a tailored coaching experience that adapts to where you are in your professional journey. Whether you're looking to land a promotion, pivot to a new career, or build confidence in your leadership abilities, this program will guide you every step of the way. It focuses on self-discovery, skill development, emotional resilience, market positioning, and long-term career strategy, ensuring you gain clarity, confidence, and actionable steps to move forward.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 2 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF I’VE TRIED CAREER COACHING BEFORE AND IT DIDN’T WORK?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              If you’ve had a less-than-successful experience with career coaching in the past, you’re not alone. Here’s how this program differs:
+              <ul>
+                <li><strong>Tailored coaching:</strong> We provide a customized plan, not a one-size-fits-all approach.</li>
+                <li><strong>Ongoing support:</strong> You won’t be left to figure things out on your own. We’re with you every step of the way, adjusting tactics and holding you accountable.</li>
+                <li><strong>Focus on long-term strategy:</strong> We’re here to set you up for lasting success, not just quick fixes or short-term goals.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 3 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW IS THIS PROGRAM DIFFERENT FROM OTHER CAREER COACHING SERVICES?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              <ul>
+                <li><strong>Personalized coaching:</strong> This program is all about you—your goals, your challenges, and your pace. We work together to create a roadmap that’s tailored to your unique situation, whether you’re just starting your career or are already in a leadership role.</li>
+                <li><strong>Holistic support:</strong> We focus on more than just resumes and job interviews. You’ll work on emotional resilience, confidence, personal branding, strategic networking, and ongoing career development.</li>
+                <li><strong>Ongoing support:</strong> Unlike other programs that might only offer a one-time session or course, this program gives you continuous guidance. You'll have access to regular check-ins, feedback, and accountability to keep you on track.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 4 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT DOES "RECURRING PROGRAM" MEAN?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              A recurring program means that you will have ongoing coaching support over a period of time. This isn’t a one-and-done service; instead, we focus on sustainable growth. This gives you the chance to adjust your strategy as you progress, stay accountable, and build on the lessons learned, ensuring long-term success. The frequency of sessions will be adjusted to fit your schedule, and you’ll have consistent check-ins to track progress.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 5 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT ARE THE PRIMARY OBJECTIVES OF THIS PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The main objectives of the program are to:
+              <ul>
+                <li>Clarify your career vision: Understand what you want in the long-term and how to strategically move toward it.</li>
+                <li>Build your skills and emotional resilience: Strengthen your leadership, problem-solving, and confidence to tackle career challenges.</li>
+                <li>Position yourself in the market: Develop a strong personal brand, enhance your networking, and build thought leadership in your field.</li>
+                <li>Provide actionable steps: Create a customized career strategy that includes clear milestones, job search tactics, and career growth frameworks.</li>
+                <li>Offer support and accountability: Ensure that you stay on track and adjust your strategy as needed.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 6 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT RESULTS CAN I EXPECT FROM THIS PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              <ul>
+                <li><strong>Clarity and confidence:</strong> A clear understanding of your career goals and a confident mindset to pursue them.</li>
+                <li><strong>Skills and marketability:</strong> Enhanced leadership skills, strategic thinking, and emotional resilience.</li>
+                <li><strong>Increased opportunities:</strong> Whether you're aiming for a promotion, career pivot, or job search, you’ll have the tools to create and attract opportunities.</li>
+                <li><strong>Sustainable growth:</strong> A long-term strategy that adapts as your career evolves and as industry trends shift.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 7 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW LONG DOES IT TAKE TO SEE RESULTS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Most clients start seeing meaningful results within 4–6 weeks, whether it’s increased confidence, clearer goals, or early-stage progress toward job offers or promotions. For deeper transformations, such as executive-level positioning or career pivots, results may take 3–6 months, but you’ll be steadily moving toward your goals with support throughout.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 8 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DO YOU MEASURE SUCCESS IN THIS PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Success is measured by:
+              <ul>
+                <li><strong>Achievement of career goals:</strong> Whether that’s securing a new job, getting promoted, or feeling more confident in your leadership.</li>
+                <li><strong>Progress on personal development:</strong> Building emotional resilience, leadership capabilities, and market positioning.</li>
+                <li><strong>Satisfaction and confidence:</strong> How aligned you feel with your career path and how empowered you are to navigate challenges.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 9 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">DOES THIS PROGRAM GUARANTEE CAREER SUCCESS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              While we can’t guarantee specific outcomes, we do guarantee that you’ll have the tools, strategies, and support needed to move your career forward. Success depends on your active participation, but we minimize risks by:
+              <ul>
+                <li>Offering ongoing coaching and support.</li>
+                <li>Helping you adjust strategies if something isn’t working.</li>
+                <li>Creating a realistic roadmap with achievable milestones.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 10 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHO IS THIS PROGRAM BEST SUITED FOR?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              This program is designed for professionals at all levels—whether you're early in your career, looking to pivot to a new industry, or seeking to climb the leadership ladder. It’s ideal if:
+              <ul>
+                <li>You want clarity on your career direction.</li>
+                <li>You need support with leadership growth or job transition.</li>
+                <li>You’re feeling stuck or stagnant in your current position and want to make a change.</li>
+                <li>You want actionable strategies to stand out and build your market presence.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 11 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHO MIGHT THIS PROGRAM NOT WORK FOR?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              This program may not be the best fit if:
+              <ul>
+                <li>You’re looking for quick fixes or shortcuts—real career growth takes time and effort.</li>
+                <li>You’re not willing to engage with the process or put in the work to develop new skills or strategies.</li>
+                <li>You need a fully automated system—our approach is customized and requires active participation.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 12 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN THIS PROGRAM HELP SENIOR PROFESSIONALS OR EXECUTIVES?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Absolutely! In fact, this program can be especially valuable for senior professionals or executives looking to:
+              <ul>
+                <li>Strengthen their leadership and decision-making.</li>
+                <li>Build a stronger personal brand and thought leadership.</li>
+                <li>Navigate complex career transitions or elevate their impact within their organization or industry.</li>
+                <li>Gain clarity on their long-term career trajectory and build sustainable strategies for success.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 13 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF I’M CONSIDERING A CAREER PIVOT?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              If you’re considering a career pivot, this program will help you:
+              <ul>
+                <li>Clarify transferable skills and identify how your current expertise can be applied in a new field.</li>
+                <li>Develop strategies to rebrand yourself for the new industry.</li>
+                <li>Gain confidence and resilience to navigate the potential challenges of switching careers.</li>
+                <li>Build a strong network in your new field through targeted outreach and personal branding.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 14 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW MUCH TIME WILL I NEED TO COMMIT?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The time commitment varies depending on your goals and availability, but most clients typically dedicate:
+              <ul>
+                <li>1-2 hours per week for coaching sessions and action steps.</li>
+                <li>Additional time for working on specific tasks, such as updating resumes, reaching out to potential contacts, or engaging in learning activities.</li>
+              </ul>
+              The key is to find a sustainable pace that fits your current schedule while making steady progress toward your goals. Flexibility is built into the program, so we can adjust based on your needs.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 15 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW IS THE CONTENT DELIVERED?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Content is delivered through a combination of:
+              <ul>
+                <li>One-on-one coaching sessions (live or virtual) for personalized support.</li>
+                <li>Actionable worksheets and resources to guide your career strategy.</li>
+                <li>On-demand videos and training to help you develop specific skills (e.g., negotiation tactics, resume writing, etc.).</li>
+                <li>Ongoing feedback and adjustments to make sure your strategy stays on track.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 16 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">DO I NEED ANY SPECIFIC TOOLS OR RESOURCES?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              You don’t need any specific tools, but you may find it helpful to have:
+              <ul>
+                <li>Access to your professional materials (resume, LinkedIn profile, portfolio, etc.).</li>
+                <li>A reliable internet connection for coaching sessions.</li>
+                <li>A notebook or digital tool for tracking progress and reflecting on key insights during the program.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 17 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT HAPPENS IF I MISS A SESSION?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              If you miss a session, don’t worry! We understand that life happens. You’ll have the ability to reschedule and catch up on what you missed. Our flexible approach ensures that you don’t fall behind, and we’ll always provide you with any resources or action steps discussed in the missed session.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 18 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WILL THIS PROGRAM WORK IF I’M IN A DIFFERENT TIME ZONE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes! The program is designed to accommodate professionals in different time zones. We can schedule sessions at times that are convenient for you, and you’ll also have access to resources and recordings that you can review at any time.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 19 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN THE PROGRAM ADAPT IF MY GOALS CHANGE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes, absolutely! One of the main strengths of this program is its adaptability. As your career progresses, your goals may evolve—and that’s completely normal. Whether you find yourself shifting industries, seeking new opportunities, or focusing more on leadership development, we’ll adjust your strategy to reflect these changes. You’ll always have the support you need to pivot or refine your direction without losing momentum.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 20 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF I DON’T KNOW MY EXACT CAREER GOALS YET?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              That’s okay! This program is perfect for individuals who aren’t 100% clear on their career goals yet. We’ll work together to help you gain clarity through self-reflection, skill assessment, and strategic exploration. By focusing on your strengths, values, and aspirations, we’ll help you uncover your direction and create actionable steps toward defining your ideal career path.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 21 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF MY INDUSTRY CHANGES OR FACES DISRUPTIONS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Career paths are rarely linear, and industry shifts are inevitable. That’s why this program focuses on building resilience and adaptability. We will work with you on:
+              <ul>
+                <li>Re-skilling or up-skilling to keep pace with changes in your field.</li>
+                <li>Developing a long-term career plan that incorporates flexibility and anticipates potential industry changes.</li>
+                <li>Pivot your career strategy to address new opportunities or emerging fields.</li>
+                <li>Leverage transferable skills to stay competitive in different sectors or roles.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 22 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IF I FEEL STUCK OR UNMOTIVATED DURING THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              It’s completely normal to feel stuck or unmotivated at times during any growth process. When you feel stuck:
+              <ul>
+                <li>You’ll have consistent support from your coach to help you work through obstacles and stay motivated.</li>
+                <li>We provide psychological tools to help you build resilience, manage setbacks, and stay focused on the bigger picture.</li>
+                <li>If motivation wanes, we’ll help you break tasks into smaller, more manageable steps and remind you of the progress you’ve already made.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 23 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">I’M OVERWHELMED WITH WORK. HOW WILL I FIND THE TIME?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              We understand that your time is precious. This program is designed to fit into your busy life. Here’s how we make it work:
+              <ul>
+                <li><strong>Flexible pacing:</strong> You can move at a pace that works for you, whether that’s accelerating during quieter times or taking it slower when your schedule is packed.</li>
+                <li><strong>Efficiency-focused strategies:</strong> We’ll help you make the most of the time you have, prioritizing the tasks that will have the greatest impact on your career.</li>
+                <li><strong>Accountability and support:</strong> If you’re feeling overwhelmed, we’ll help you break tasks down into manageable steps and offer encouragement to keep you on track.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 24 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IS THE COST OF THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The cost of the program depends on the level of support you choose, and we offer different packages based on your needs and goals. The investment in your career is one of the most valuable choices you can make—especially when you consider the return in terms of job satisfaction, growth opportunities, and long-term earning potential. We’re happy to discuss pricing options with you during our initial consultation to find the best fit for your budget and objectives.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 25 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">ARE THERE PAYMENT PLANS AVAILABLE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes, we offer flexible payment plans to help make the program more accessible. You can choose from monthly payments, upfront payments with discounts, or custom arrangements depending on your preferences.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 26 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">IS THERE A REFUND POLICY?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              We want you to feel confident in your decision to enroll. If after the first few sessions you feel the program isn’t the right fit for you, we offer a money-back guarantee within a specified period (usually the first 30 days). We’re committed to ensuring that you’re completely satisfied and set up for success.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 27 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT HAPPENS AFTER I ENROLL?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Once you enroll, you’ll receive:
+              <ul>
+                <li>Welcome materials to help you get started.</li>
+                <li>A kick-off session with your coach to discuss your goals, challenges, and map out a plan.</li>
+                <li>Access to the client portal, where all your resources and coaching materials will be available. After that, we’ll jump right into the first phase of the program, with regular check-ins, progress tracking, and ongoing support.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 28 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">DO I HAVE LIFETIME ACCESS TO THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              While your coaching program has a set duration, you’ll have lifetime access to any materials and resources provided during your coaching sessions. If you ever need to revisit strategies or tools, they’ll be available for you to reference anytime.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 29 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DOES THIS PROGRAM STAY RELEVANT TO INDUSTRY TRENDS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The career coaching program stays up-to-date with the latest industry trends through:
+              <ul>
+                <li><strong>Continuous learning:</strong> We regularly update our materials to reflect emerging trends, technologies, and best practices across various fields.</li>
+                <li><strong>Real-time market insights:</strong> We keep track of changes in the job market, recruitment strategies, and industry shifts so you’re always equipped with the most relevant advice.</li>
+                <li><strong>Access to industry experts:</strong> You’ll have access to experts and coaches who bring fresh perspectives based on their own industry experience, ensuring you stay competitive.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 30 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN THIS PROGRAM HELP ME BUILD THOUGHT LEADERSHIP IN MY FIELD?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes! A key part of this program is helping you build a strong personal brand and establish yourself as a thought leader in your industry. This involves:
+              <ul>
+                <li>Crafting a unique professional narrative that resonates with your target audience.</li>
+                <li>Developing content strategies that showcase your expertise and thought leadership.</li>
+                <li>Networking and positioning strategies that help you connect with key influencers and decision-makers in your field.</li>
+              </ul>
+              As you advance, we’ll help you create opportunities for public speaking, publishing, or social media engagement, which will build your credibility and visibility.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 31 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN I PAUSE THE PROGRAM IF NEEDED?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Life happens, and we understand that sometimes things come up. If you need to pause the program for any reason, you can do so, and we’ll work with you to reschedule or adjust your coaching sessions. We want this to work for your schedule and commitments, so you can take time when needed without losing progress.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <section class="cta-section">
+
+
+    <div class="cta-section__card">
+        <h3 class="cta-section__card-title">
+            TRY THE PROGRAM FOR <br> 14 DAYS RISK FREE
+        </h3>
+        <p class="cta-section__description">
+            We’re confident that MissFit Coaching will transform your job search experience. 
+            That’s why we offer a 14-day full refund if you are not satisfied.
+        </p>
+        <p class="cta-section__description">
+            Join the program, engage with the resources, and if you don’t feel it’s delivering 
+            the value we promised—whether it’s actionable advice, confidence, or progress—
+            send an email to <strong>support@missfitcoaching.com</strong> and you’ll get every penny back.
+        </p>
+        <a href="https://calendly.com/deemissfitcoaching/career-coaching" class="cta-section__button" target="_blank">APPLY NOW</a>
+    </div>
+</section>
+
+  <footer class="footer">
+    <div class="footer__links">
+        <a href="../terms.html" class="footer__link">Terms of Service</a>
+        <a href="../policy.html" class="footer__link">Privacy Policy</a>
+    </div>
+    <p class="footer__copyright">© 2024 MissFit Coaching. All rights reserved.</p>
+</footer>
+
+
+
+
+    <script src="../assets/js/script.js"></script>
+
+
+</body>
+</html>

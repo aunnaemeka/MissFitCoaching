@@ -1,0 +1,249 @@
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Newsletter Hero Section */
+.shared-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/newsletter-background.png') center/cover no-repeat;
+  }
+
+  
+  .header{
+    background-color: transparent;
+}
+
+
+  .shared-hero .newsletter-hero__content{
+    padding: 0;
+  }
+  .shared-hero .hero__content{
+    margin: 6rem 0;
+  }
+
+  .newsletter-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 41rem; /* 640px */
+    width: 100%;
+    margin: 6rem 0;
+  }
+  
+  .shared-hero .hero__title {
+    text-align: center;
+  }
+  
+  .shared-hero .hero__subtitle {
+    text-align: center;
+  }
+  
+  .newsletter-hero__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    max-width: 21.3125rem;
+    width: 100%;
+  }
+  
+  .newsletter-hero__input {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    padding: 1rem 1.75rem; /* 12px vertical, 16px horizontal */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .newsletter-hero__submit {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9375rem; /* 16px */
+    line-height: 1.5rem;
+    font-weight: 600;
+    background-color: #c41e3d;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 1rem 2rem; /* 12px vertical, 32px horizontal */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .newsletter-hero__submit:hover {
+    background-color: #a91e1e; /* Darker red on hover */
+
+  }
+
+  @media (max-width: 634px) {
+    .shared-hero .hero__title {
+      font-size: clamp(2.188rem, 7.614vw + 0.108rem, 3.125rem);
+      line-height: clamp(2.625rem, 9.137vw + 0.129rem, 3.75rem);
+    }
+    .shared-hero .hero__content{
+      padding: 0 clamp(3rem, 0.2272rem + 10.1523vw, 4.25rem);;
+    }
+  
+  }
+  
+  
+  /* === Newsletter Archive Section === */
+.newsletter-archive {
+    padding: 5.5rem 3rem 8.25rem; /* 64px from previous section */
+    text-align: center;
+    background-color: #FAFAFA ;
+  }
+  
+  .newsletter-archive__header {
+    margin-bottom: 5.5rem; /* 88px below the title */
+  }
+  
+  .newsletter-archive__title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    letter-spacing: 0;
+    text-align: center;
+  }
+  
+  .newsletter-archive__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem; /* 48px between columns and rows */
+    margin: 0 auto;
+    max-width: 69rem;
+
+  }
+  
+  .newsletter-item {
+    padding: 1.875rem 2.25rem; /* 30px vertically, 36px horizontally */
+    text-align: left;
+    background-color: #fff; /* Ensure a white background */
+    border-radius: 0.25rem; /* 4px */
+    height: fit-content;
+    border: 1px solid #EFEFEF;
+  }
+  
+  .newsletter-item__number {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.8125rem; /* 29.05px */
+    letter-spacing: 0;
+    margin: 0;
+  }
+  
+  .newsletter-item__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5125rem; /* 24.2px */
+    letter-spacing: 0;
+    margin-top: 1rem; /* 16px below the number */
+  }
+  
+  .newsletter-item__date {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.4rem; /* 22.4px */
+    letter-spacing: 0;
+    margin-top: 1rem; /* 16px below the title */
+    color: #888888; /* Gray text for the date */
+  }
+  
+  /* Load More Button */
+  .newsletter-archive__load-more {
+    margin-top: 8.25rem; /* 132px below the grid */
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.5rem; /* 24px */
+    letter-spacing: 0;
+    text-align: center;
+    padding: 0.75rem 1.8125rem; /* 12px vertically, 29px horizontally */
+    background-color: #c41e3d; /* Button background color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 0.25rem; /* 4px */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .newsletter-archive__load-more:hover {
+    background-color: #a91e1e; /* Darker red on hover */
+  }
+  
+
+/* Responsive Breakpoints */
+@media (max-width: 1032px) {
+  /* .newsletter-archive {
+    padding: 6.625rem 3.75rem 8.25rem 3.75rem;
+  } */
+
+  .newsletter-archive__grid {
+    grid-template-columns: 1fr 1fr; /* Stack newsletter below articles */
+    gap: 2.25rem; /* Maintain gap */
+  }
+  .newsletter-archive {
+    padding: 5.5rem 2.25rem 8.25rem; /* 64px from previous section */
+  }
+
+}
+
+@media (max-width: 668px) {
+  /* .newsletter-archive {
+    padding: 6.625rem 3.75rem 8.25rem 3.75rem;
+  } */
+
+  .newsletter-archive__grid {
+    grid-template-columns: 1fr; /* Stack newsletter below articles */
+    gap: 3rem; /* Maintain gap */
+  }
+  .newsletter-archive {
+    padding: 5.5rem 1.5rem 8.25rem; /* 64px from previous section */
+  }
+
+}
+
+
+
+
+
+  .footer__heading{
+    color:#E1E2E9 ;
+  }
+  .footer__link{
+    color: #E1E2E9;
+  }
+  .footer__tagline,
+  .footer__copyright {
+    color: #E1E2E9;
+  }
+
+  .newsletter-item__link {
+    display: block; /* Makes the link a block element to fill the newsletter item */
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit text color from parent (newsletter-item) */
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+  }
+  
+  /* Ensure the newsletter item content inside the link is styled as before */
+  .newsletter-item {
+    /* No changes needed here, as the newsletter item’s original styling (number, title, date) remains intact */
+  }
+  
+  /* Optional: Add hover effect for better UX */
+  .newsletter-item__link:hover .newsletter-item__title,
+  .newsletter-item__link:hover .newsletter-item__number {
+    color: #C41E3D; /* Red color on hover, matching your theme */
+  }
+  

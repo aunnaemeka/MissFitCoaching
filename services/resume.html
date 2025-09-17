@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissFit Coaching - Resume</title>
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <!-- Fallback PNG for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" href="../assets/icons/favicon.png" type="image/png">
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+    
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/resume.css"> <!-- Only on homepage -->
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <header class="header hero__header">
+    <div class="header__container hero__container">
+      <a href="../index.html" class="header__logo hero__logo">
+        <img src="../assets/icons/logo-white.svg" alt="MissFit Coaching Logo">
+      </a>
+      <nav class="header__nav hero__nav">
+        <ul class="header__nav-list hero__nav-list">
+          <li class="hero__nav-item">
+            <a href="../about.html" class="header__nav-link hero__nav-link">ABOUT</a>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../coaching/executive-coaching.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
+              <li><a href="../coaching/career-coaching.html" class="header__nav-dropdown-link">Career Coaching</a></li>
+              <li><a href="../coaching/job-search-coaching.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">WORKSHOP
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../workshops/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">SERVICES
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../services/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
+            </ul>
+          </li>
+          <li class="hero__nav-item">
+            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">RESOURCES
+              <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
+            </a>
+            <ul class="header__nav-dropdown">
+              <li><a href="../resources/articles.html" class="header__nav-dropdown-link">Articles</a></li>
+              <li><a href="../resources/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+        <a href="../contact.html" class="header__cta hero__cta">CONTACT</a>
+      </div>
+    </div>
+    <div class="header__mobile-menu">
+      <ul class="header__mobile-nav-list">
+        <li>
+          <a href="../about.html" class="header__mobile-nav-link">ABOUT</a>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../coaching/executive-coaching.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
+            <li><a href="../coaching/career-coaching.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
+            <li><a href="../coaching/job-search-coaching.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">WORKSHOP
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../workshops/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">SERVICES
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../services/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">RESOURCES
+            <img src="../assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
+          </a>
+          <ul class="header__mobile-nav-dropdown">
+            <li><a href="../resources/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
+            <li><a href="../resources/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
+        </li>
+      </ul>
+    </div>
+  </header>
+
+    <div class="hero__content">
+        <div class="hero__text">
+            <h1 class="hero__title">BUILD A RESUME DESIGNED TO MEET EMPLOYER EXPECTATIONS HEAD-ON.</h1>
+            <p class="hero__subtitle">
+                We craft resumes that align your career with employer priorities and role-specific requirements, using proven strategies and expert insights.
+            </p>
+            <a href="#pricing" class="hero__button">GET CUSTOM RESUME</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="testimonial testimonial-section--dark">
+    <blockquote class="testimonial__quote">
+      “Dee is fantastic! The first thing the interviewer said during my third interview with the company was, “Wow, I really like the format of your resume! It has everything I need to see and in ALLthe right places.” That was all the confirmation I needed to know I’d made an excellent choice.”    </blockquote>
+    <cite class="testimonial__author">
+      Tanisha N.
+    </cite>
+  </section>
+  
+
+  <div class="info__wrapper">
+    <div class="info__container info__container--text-only">
+        <h2 class="info__title">TELL YOUR CAREER STORY WITH MEASURABLE IMPACT</h2>
+        <p class="info__description">
+          We craft resumes that not only highlight your career journey but show how your actions have made a tangible difference with clear, data-backed results by purposefully focusing on your growth and the impact you’ve created.
+        </p>
+      <div class="info__image">
+        <img src="../assets/images/resume-impact.png" alt="Professional woman holding a resume">
+      </div>
+    </div>
+  </div>
+  
+<!-- Testimonial Section -->
+<section class="testimonial testimonial-section--dark">
+    <blockquote class="testimonial__quote">
+      “Dee is an Angel!!! I gave her the recipe of my draft resume, and she made it into a Michelin Star dish!!! Mind you, within 2 hours. Just simply amazing, and I highly recommend her. Thank you, Dee! You are the bomb!!!”    </blockquote>
+    <cite class="testimonial__author">
+      Irene D.
+    </cite>
+  </section>
+  
+  <div class="info__wrapper">
+    <div class="info__container info__container--text-only">
+      <div class="info__image">
+          <img src="../assets/images/resume-fast.png" alt="Professional woman holding a resume">
+        </div>
+        <h2 class="info__title">GET A RESUME THAT'S READY TO GO-FAST.</h2>
+        <p class="info__description">
+          Stop wasting time on endless revisions. With a professionally written resume, you’ll have a polished document that’s ready to send in no time, giving you confidence in every application. Plus, it’s built to evolve with you—easy to update for future opportunities.
+        </p>
+    
+    </div>
+  </div>
+
+ 
+  <section class="masonry-section">
+    <header class="masonry-section__header">
+      <h2 class="masonry-section__title">HOW DOES IT WORK?</h2>
+    </header>
+    <div class="masonry-grid">
+      <div class="masonry-item">
+        <p class="masonry-item__number">01</p>
+        <p class="masonry-item__title">Purchase resume package</p>
+        <p class="masonry-item__description">
+          Get access to a tailored service that perfectly aligns with your specific objectives.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">02</p>
+        <p class="masonry-item__title">Share your career details</p>
+        <p class="masonry-item__description">
+          Submit your current resume (if available) and provide insights into your professional background, target roles, and career goals.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">03</p>
+        <p class="masonry-item__title">Review your first draft</p>
+        <p class="masonry-item__description">
+          Get an initial resume that aligns your achievements, unique value, and experiences with your target employers and job roles. Initial resume also uses the required keywords and is properly formatted for compatibility. Request revisions to ensure the final resume aligns with your vision.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">04</p>
+        <p class="masonry-item__title">Get your finalized resume</p>
+        <p class="masonry-item__description">
+          After revisions, receive your polished resume in multiple formats, including PDF, Word, and Google Docs, which is ready to use immediately.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">05</p>
+        <p class="masonry-item__title">Leverage additional support</p>
+        <p class="masonry-item__description">
+          Depending on your package, enjoy access to LinkedIn profile optimization or tutorials, interview coaching and mock sessions, and ongoing email support for questions, updates, or advice.
+        </p>
+      </div>
+      
+    </div>
+  </section>
+  
+  
+  
+  <!-- Testimonial Section -->
+<section class="testimonial testimonial-section--light">
+    <blockquote class="testimonial__quote">
+      “Since updating my resume, I've already seen a positive impact—as I noticed a significant increase in recruiter engagement, almost instantly once I received my final resume for Dee.”    </blockquote>
+    <cite class="testimonial__author">
+      Veena N.
+    </cite>
+  </section>
+  
+
+
+  <section class="faq">
+    <div class="faq__container">
+      <!-- FAQ Section Title -->
+      <h2 class="faq__title">F.A.Q's</h2>
+  
+      <!-- FAQ Items -->
+      <div class="faq__items">
+        <!-- FAQ Item 1 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DO I KNOW WHICH RESUME SERVICE PACKAGE IS RIGHT FOR ME?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Our packages are designed for various career stages. For comprehensive support, including coaching and unlimited personalized documents, the Career Mastery package is best. If you're focused on optimizing your profile and gaining interview support, the Career Success and Career Launch packages provide excellent value. The Career Starter is ideal for those who need a foundational, ATS-optimized resume and minimal extras. We offer guidance to help you decide the right fit for your situation.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 2 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT DOES THE “TAILORED FOR SPECIFIC ROLES” FEATURE MEAN IN MY PACKAGE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              It means your resume will be customized to reflect the key skills, experiences, and keywords relevant to the specific role you’re targeting. We focus on crafting resumes that highlight your experience in alignment with the expectations of the job market, ensuring you meet employer priorities for the positions you're aiming for.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 3 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW LONG DOES IT TAKE TO RECEIVE MY FINISHED RESUME?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The standard turnaround time is 5-7 business days. For faster delivery, we offer an expedited service upon request. Our team ensures quality within this timeframe, focusing on a resume that aligns with your career goals.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 4 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN I REVISE MY RESUME AFTER RECEIVING IT?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes! Our resumes are designed to be easily updated as your career evolves. We provide guidance on how to make changes, and you can always reach out to us for advice on tweaking your document for specific applications.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 5 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHY SHOULD I INVEST IN A PROFESSIONAL RESUME WHEN I CAN DO IT MYSELF?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              While you can certainly write your own resume, our professional writers bring industry-specific knowledge, expertise in crafting ATS-friendly resumes, and a clear understanding of employer expectations. This significantly increases your chances of landing interviews, saving you time and effort that would otherwise go into trial-and-error resume writing.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 6 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WILL MY RESUME BE REJECTED BY ATS (APPLICANT TRACKING SYSTEMS)?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              No, ATS do not automatically reject resumes. They are designed to help hiring teams manage large numbers of applications more efficiently by parsing resumes for relevant keywords, qualifications, and skills. However, ATS do prioritize resumes that are properly formatted and include the right keywords for the job. While ATS may rank resumes based on their relevance to a job description, your resume still needs to be compelling to human reviewers.
+              <br><br>
+              At MissFit, we optimize your resume for ATS compatibility, ensuring it’s formatted correctly, includes important keywords, and is structured for maximum impact. This way, your resume is likely to pass through ATS filters and still stand out when it reaches the recruiter or hiring manager.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 7 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT’S INCLUDED IN THE LINKEDIN PROFILE OPTIMIZATION AND PERSONAL BRANDING TUTORIALS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Our LinkedIn Profile Optimization and Personal Branding Tutorial ensures your online presence aligns with your professional goals. We’ll guide you on how to effectively showcase your skills, experience, and accomplishments in a way that increases visibility and appeal to recruiters.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 8 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW DO I ACCESS THE CAREER COACHING SESSIONS AND MOCK INTERVIEWS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Once you’ve selected your package, we will schedule your coaching and mock interview sessions directly. These sessions are personalized to your career goals, and you’ll get expert advice on your interview strategy, how to answer common questions, and specific preparation for the roles you’re targeting.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 9 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WILL THIS RESUME GUARANTEE ME A JOB?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              While we can’t guarantee job offers, we can guarantee that our resumes are crafted to meet employer expectations and increase your chances of standing out in a competitive job market. Our goal is to position you as the top candidate and provide you with the tools, support, and confidence to succeed in your job search.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 10 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT HAPPENS IF I DON’T GET THE JOB I WANT AFTER USING YOUR SERVICE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              We provide continuous support to help you improve your application strategy. If you're facing challenges, you can reach out for additional guidance. Our team is committed to helping you succeed, offering career coaching, resume updates, and personalized advice as needed.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 11 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT SUPPORT DO I GET AFTER I RECEIVE MY RESUME?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Our service doesn’t end once you receive your resume. Depending on the package you purchase, you’ll have access to email support (12 months for Career Mastery, 6 months for Career Success, etc.), which means you can reach out with questions, adjustments, or new job opportunities. Additionally, all packages include a subscription to Career Insider, with weekly advice and resources to help guide your career.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 12 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHY IS THE PRICE DIFFERENT FOR EACH PACKAGE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              The price varies based on the level of personalization, support, and additional services included in each package. Higher-tier packages offer more resume versions, extended coaching, and longer email support, ensuring you have a comprehensive solution for your job search.
+            </p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 13 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">CAN I MAKE PAYMENTS IN INSTALLMENTS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>
+              Yes! We offer flexible payment options for our services, including installment plans, to make it easier for you to access the support you need without the financial burden of paying upfront. Please contact us for more details on payment options.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <!-- Testimonial Section -->
+<section class="testimonial testimonial-section--light">
+    <blockquote class="testimonial__quote">
+      “I needed an updated resume to be completed within a few hours to apply for Govt jobs that were hiring onsite. Ms. Dee expedited request with a cover letter and an outline of potential questions for me during my interview process. I was offered 4 jobs that day. She's phenomenal and highly recommended for your professional writing and coaching needs.”    </blockquote>
+    <cite class="testimonial__author">
+      Holli E.
+    </cite>
+  </section>
+  
+
+  <section id="pricing" class="pricing">
+    <header class="pricing__header">
+        <h2 class="pricing__title">INVEST IN YOUR FUTURE WITH <br> MISSFIT’S RESUME WRITING</h2>
+    </header>
+    <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAABd6NQlYjEqiEjrX"></div> -->
+
+    <div class="pricing__grid">
+      <!-- Premier Plan -->
+<div class="pricing__item pricing__item--best">
+    <h3 class="pricing__plan">PREMIER</h3>
+    <p class="pricing__price">$1397 <s>$3772</s></p>
+    <a href="premier-resume-package.html" class="pricing__button">ORDER NOW</a>
+    <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
+    <h4 class="pricing__included-title">What’s Included?</h4>
+    <ul class="pricing__features">
+        <li class="pricing__feature-bold">Everything in Professional +</li>
+        <li>Complex Resume × 2</li>
+        <li>Executive Biography × 1</li>
+        <li>1:1 Interview Coaching / Mock Interview</li>
+        <li>Executive Search Outreach Guide</li>
+        <li>Anytime Answers Email Support (6 months)</li>
+        <li>Offer Negotiation Guide "Amplify Your Worth"</li>
+        <li>Career Planning Guide</li>
+        <li>Weekly Career Insider (6 month subscription)</li>
+        <li>Job Offer Acceptance Letter</li>
+        <li>Resignation Letter</li>
+        <li>Farewell To Colleagues Letter</li>
+        <li>Never Quit: Response to Rejection Letter</li>
+        <li>Custom Interview Prep x10</li>
+        <li>30% Discount: Successful Onboarding</li>
+        <li>30% Discount on Future State Planning: Where Are You Going Next?</li>
+    </ul>
+</div>
+
+<!-- Professional Plan -->
+<div class="pricing__item pricing__item--popular">
+    <h3 class="pricing__plan">PROFESSIONAL</h3>
+    <p class="pricing__price">$997 <s>$2513</s></p>
+    <a href="professional-resume-package.html" class="pricing__button">ORDER NOW</a>
+    <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
+    <h4 class="pricing__included-title">What’s Included?</h4>
+    <ul class="pricing__features">
+        <li class="pricing__feature-bold">Everything in Essentials +</li>
+        <li>LinkedIn Visibility & Personal Branding Group Coaching (1 hr)</li>
+        <li>Access the Hidden Job Market Group Coaching (1 hr)</li>
+        <li>Anytime Answers Email Support (3 months)</li>
+        <li>Custom Interview Prep x3</li>
+        <li>Professional Letter of Introduction Unlimited</li>
+        <li>Personalized Gratitude Notes</li>
+        <li>Job Offer Negotiation Template</li>
+        <li>Weekly Career Insider (3 month subscription)</li>
+        <li>10% Discount: Successful Onboarding</li>
+        <li>10% Discount on Future State Planning: Where Are You Going Next?</li>
+    </ul>
+</div>
+
+<!-- Essentials Plan -->
+<div class="pricing__item">
+    <h3 class="pricing__plan">ESSENTIALS</h3>
+    <p class="pricing__price">$947 <s>$1680</s></p>
+    <a href="essentials-resume-package.html" class="pricing__button">ORDER NOW</a>
+    <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
+    <h4 class="pricing__included-title">What’s Included?</h4>
+    <ul class="pricing__features">
+        <li class="pricing__feature-bold">Everything in Basic +</li>
+        <li>Complex Resume × 1</li>
+        <li>Networking Tool and Templates</li>
+        <li>Story Starter: Tell Me About Yourself Template</li>
+        <li>Weekly Career Insider (2 month subscription)</li>
+        <li>Job Application Status Email Template</li>
+        <li>Custom Interview Prep x1</li>
+    </ul>
+</div>
+
+<!-- Basic Plan -->
+<div class="pricing__item">
+    <h3 class="pricing__plan">BASIC</h3>
+    <p class="pricing__price">$397 <s>$855</s></p>
+    <a href="basic-resume-package.html" class="pricing__button">ORDER NOW</a>
+    <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
+    <h4 class="pricing__included-title">What’s Included?</h4>
+    <ul class="pricing__features">
+        <li>One Page Resume × 1</li>
+        <li>Customized Guide on How to Build Your LinkedIn Profile</li>
+        <li>Decode the ATS Guide: Beat the Bots</li>
+        <li>Interview Mastery Guide "Dare to Differ"</li>
+        <li>Weekly Career Insider (1 month subscription)</li>
+        <li>Professional Letter of Introduction × 1</li>
+    </ul>
+</div>
+
+  </div>
+</section>
+
+
+    <!-- Testimonial Section -->
+    <section class="testimonial testimonial-section--white">
+        <blockquote class="testimonial__quote">
+          “For my entire career, I’ve written my own resume. So I was blown away with how Dee reframed and recast it in a whole new light. The extra attention my reimagined resume has produced has been a total game changer. Why did I wait this long to get help?!?”        </blockquote>
+        <cite class="testimonial__author">
+          Bill H.
+        </cite>
+      </section>
+      
+     
+  <footer class="footer">
+    <div class="footer__container">
+      <!-- Branding Section -->
+      <div class="footer__branding">
+        <a href="../index.html" class="footer__logo" >
+          <img src="../assets/icons/logo.svg" alt="MissFit Coaching Logo">
+        </a>
+        <p class="footer__tagline">The Career Gym for Professionals.</p>
+        <div class="footer__socials">
+          <a href="https://www.linkedin.com/in/daciaderidder/" class="footer__social-link" target="_blank">
+            <img src="../assets/icons/linkedin-logo.svg" alt="LinkedIn">
+          </a>
+          <a href="https://www.youtube.com/@DaciaDeridder" class="footer__social-link" target="_blank">
+            <img src="../assets/icons/youtube-logo.svg" alt="YouTube">
+          </a>
+        </div>
+        <p class="footer__copyright">© 2025 MissFit Coaching. All Rights Reserved.</p>
+      </div>
+  
+      <!-- Links Section with Dropdown Support -->
+      <div class="footer__links">
+        <!-- COMPANY Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">COMPANY</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../about.html" class="footer__link">About</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../contact.html" class="footer__link">Contact</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../terms.html" class="footer__link">Terms of Service</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../policy.html" class="footer__link">Privacy Policy</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- COACHING Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">COACHING</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../coaching/executive-coaching.html" class="footer__link">Executive Coaching</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../coaching/career-coaching.html" class="footer__link">Career Coaching</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../coaching/job-search-coaching.html" class="footer__link">Job Search Coaching</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Similar structure for other sections... -->
+        <!-- WORKSHOP Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">WORKSHOP</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../workshops/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- SERVICES Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">SERVICES</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../services/resume.html" class="footer__link">Resume Writing</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- RESOURCES Section -->
+        <div class="footer__links-group">
+          <div class="footer__heading">
+            <span class="footer__heading-text">RESOURCES</span>
+            <div class="footer__heading-icon-wrapper">
+              <img src="../assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
+              <img src="../assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
+            </div>
+          </div>
+          <div class="footer__list-container">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../resources/articles.html" class="footer__link">Articles</a>
+                </div>
+              </li>
+              <li class="footer__list-item">
+                <div class="footer__link-wrapper">
+                  <a href="../resources/newsletter.html" class="footer__link">Newsletter</a>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+      
+
+
+    <!-- <script src="../assets/js/script.js"></script> -->
+
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ 
+
+
+      <script>
+                $(document).ready(function() {
+         var $grid = $('.masonry-grid').isotope({
+           itemSelector: '.masonry-item',
+           percentPosition: true,
+           transitionDuration: 0, // Set to 0 to disable animations
+           masonry: {
+             columnWidth: '.masonry-item',
+             gutter: 48
+           }
+          });
+
+     
+         // Reinitialize on window resize
+         $(window).resize(function() {
+           $grid.isotope('layout');
+         });
+       });
+
+
+    
+      </script>
+
+      <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq__item");
+
+  // Ensure all answers are hidden by default
+  faqItems.forEach((item) => {
+    const answer = item.querySelector(".faq__answer");
+    const plusIcon = item.querySelector(".faq__icon--plus");
+    const minusIcon = document.createElement("img");
+
+    // Set minus icon attributes
+    minusIcon.src = "../assets/icons/minus.svg";
+    minusIcon.alt = "Collapse";
+    minusIcon.classList.add("faq__icon", "faq__icon--minus");
+    minusIcon.style.display = "none"; // Hide minus icon initially
+
+    // Insert minus icon after the plus icon
+    plusIcon.insertAdjacentElement("afterend", minusIcon);
+
+    // Hide answers by default
+    answer.style.display = "none";
+
+    // Add click event listener to the entire FAQ item (not just the header)
+    item.addEventListener("click", (e) => {
+      // Prevent default behavior if the click is on a link or button (optional, adjust as needed)
+      if (e.target.tagName === "A" || e.target.tagName === "BUTTON") return;
+
+      const isExpanded = item.classList.toggle("faq__item--expanded");
+
+      // Toggle icon visibility
+      plusIcon.style.display = isExpanded ? "none" : "inline-block";
+      minusIcon.style.display = isExpanded ? "inline-block" : "none";
+
+      // Toggle the answer visibility
+      answer.style.display = isExpanded ? "block" : "none";
+    });
+  });
+});
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.header{
+    background-color: #1D1D1D;
+}
+
+
+  
+ 
+  
+  .article-details__time {
+    font-family: "Inter", sans-serif;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400;
+    line-height: 1.4rem; /* 22.4px */
+    text-align: left;
+    color: #888888;
+  }
+  
+
+
+  
+  /* Newsletter Box */
+  .newsletter {
+    flex: 1;
+    align-self: flex-start;
+    padding: 0;
+  }
+  
+
+.details__category{
+  background-color: #1D1D1D;
+  color: #FFB400; /* Yellow gold color from your image */
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+
+
+
+@media (max-width: 952px) {
+  .category {
+      display: block;
+  }
+}
