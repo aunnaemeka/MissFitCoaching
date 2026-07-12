@@ -67,7 +67,7 @@ body {
     font-size: 0.9375rem; /* 16px */
     line-height: 1.5rem;
     font-weight: 600;
-    background-color: #c41e3d;
+    background-color: #002147;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -77,7 +77,7 @@ body {
   }
   
   .newsletter-hero__submit:hover {
-    background-color: #a91e1e; /* Darker red on hover */
+    background-color: #001730; /* Darker red on hover */
 
   }
 
@@ -169,7 +169,7 @@ body {
     letter-spacing: 0;
     text-align: center;
     padding: 0.75rem 1.8125rem; /* 12px vertically, 29px horizontally */
-    background-color: #c41e3d; /* Button background color */
+    background-color: #002147; /* Button background color */
     color: #fff; /* White text */
     border: none;
     border-radius: 0.25rem; /* 4px */
@@ -178,7 +178,7 @@ body {
   }
   
   .newsletter-archive__load-more:hover {
-    background-color: #a91e1e; /* Darker red on hover */
+    background-color: #001730; /* Darker red on hover */
   }
   
 
@@ -244,6 +244,6 @@ body {
   /* Optional: Add hover effect for better UX */
   .newsletter-item__link:hover .newsletter-item__title,
   .newsletter-item__link:hover .newsletter-item__number {
-    color: #C41E3D; /* Red color on hover, matching your theme */
+    color: #002147; /* Red color on hover, matching your theme */
   }
   

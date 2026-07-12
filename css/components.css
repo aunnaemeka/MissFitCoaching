@@ -139,7 +139,7 @@ body {
 
 /* CTA Button */
 .header__cta {
-  background-color: #C41E3D;
+  background-color: #002147;
   color: #FFFFFF;
   padding: 0.75rem 2.25rem; /* Padding inside the button */
   font-family: "Barlow", serif;
@@ -153,7 +153,7 @@ body {
 }
 
 .header__cta:hover {
-  background-color: #a91e1e; /* Darker red on hover */
+  background-color: #001730; /* Darker red on hover */
 }
 
 /* Hamburger Menu Icon */
@@ -228,7 +228,7 @@ body {
 }
 
 .header__mobile-nav-link:hover{
-  color: #C41E3D;
+  color: #002147;
 }
 
 /* Mobile Navigation Icon */
@@ -267,7 +267,7 @@ body {
 }
 
 .header__mobile-nav-dropdown-link:hover {
-  color: #C41E3D;; /* Darker background on hover, optional */
+  color: #002147;; /* Darker background on hover, optional */
 }
 
 /* Mobile CONTACT Link (Text, not button) */
@@ -391,7 +391,7 @@ body {
 
 /* Hero Button */
 .hero__button {
-  background-color: #C41E3D;
+  background-color: #002147;
   color: #FFFFFF;
   padding: 1.1rem 2.25rem;
   font-family: 'Barlow', sans-serif;
@@ -405,7 +405,7 @@ body {
 }
 
 .hero__button:hover {
-  background-color: #a91e1e; /* Darker red on hover */
+  background-color: #001730; /* Darker red on hover */
 }
 
 @media (max-width: 664px) {
@@ -537,7 +537,7 @@ body {
 }
 
 .footer__link:hover {
-  color: #C41E3D; /* Red color on hover */
+  color: #002147; /* Red color on hover */
 }
 
 /* === Responsive Design === */
@@ -629,7 +629,7 @@ body {
     margin: 0;
   }
   .footer__heading:hover{
-    color:#C41E3D ;
+    color:#002147 ;
   }
 
   .footer__heading-text {
@@ -680,7 +680,7 @@ body {
   font-size: 1.875rem; /* 30px */
   font-weight: 700; /* Bold */
   line-height: 2.25rem; /* 36px */
-  color: #C41E3D; /* Red */
+  color: #002147; /* Red */
   margin-bottom: 1.75rem; /* 16px spacing below the title */
 }
 
@@ -1009,7 +1009,7 @@ body {
 /* Milestone Button */
 .career-milestone__button {
   width: 100%;
-  background-color: #C41E3D;
+  background-color: #002147;
   color: #FFFFFF;
   padding: 1rem 2.25rem;
   font-family: 'Barlow', sans-serif;
@@ -1023,7 +1023,7 @@ body {
 }
 
 .career-milestone__button:hover {
-  background-color: #a91e1e; /* Darker red on hover */
+  background-color: #001730; /* Darker red on hover */
 }
 
 @media (max-width: 1074px) {
@@ -1125,7 +1125,7 @@ body {
 }
 
 .newsletter__highlight {
-  color: #c41e3d; /* Highlight color */
+  color: #002147; /* Highlight color */
 }
 
 .newsletter__subtitle {
@@ -1169,7 +1169,7 @@ body {
   font-size: 1rem; /* 16px */
   font-weight: 700;
   color: #ffffff;
-  background-color: #c41e3d; /* Button color */
+  background-color: #002147; /* Button color */
   border: none;
   border-radius: 0.25rem; /* Rounded corners */
   padding: 1rem; /* 16px padding on all sides */
@@ -1179,7 +1179,7 @@ body {
 }
 
 .newsletter__submit:hover {
-  background-color: #a91e1e; /* Darker red on hover */
+  background-color: #001730; /* Darker red on hover */
 }
 
 /* For very small screens */
@@ -1309,7 +1309,7 @@ body {
 }
 
 .details__body a {
-  color: #C41E3D;
+  color: #002147;
 }
 
 .details__body strong {
@@ -1717,7 +1717,7 @@ body {
   .subscription-confirmation__checkmark-circle {
     width: 96px; /* Size of the circle */
     height: 96px;
-    background-color: #C41E3D; /* Red circle */
+    background-color: #002147; /* Red circle */
     border-radius: 50%;
     display: flex;
     justify-content: center;

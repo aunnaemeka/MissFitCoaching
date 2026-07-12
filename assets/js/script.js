@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdownItems = document.querySelectorAll('.category-dropdown__item');
   const dropdownText = document.querySelector('.category-dropdown__text');
 
+  if (!dropdownToggle || !dropdownList || !dropdownText) return;
+
   // Function to update the active category
   const updateActiveCategory = (value) => {
     categories.forEach(category => {
@@ -152,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevArrow = document.querySelector(`.${sliderClass}__arrow--left`);
     const nextArrow = document.querySelector(`.${sliderClass}__arrow--right`);
     const pagination = document.querySelector(`.${sliderClass}__pagination`);
+    if (!slidesContainer || slides.length === 0) return;
     const totalSlides = slides.length;
     let currentSlide = 1;
     let isTransitioning = false;
@@ -448,20 +451,22 @@ window.onloadTurnstileCallback = function () {
   const backdrop = document.getElementById('modal-backdrop');
   const openButton = document.querySelector('.hero__cta-button');
 
-  // Open modal
-  openButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.classList.add('modal--active');
-  });
+  if (modal && backdrop && openButton) {
+    // Open modal
+    openButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('modal--active');
+    });
 
-  // Close modal on backdrop click
-  backdrop.addEventListener('click', () => {
-    modal.classList.remove('modal--active');
-  });
-
-  // Close modal on ESC key press
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+    // Close modal on backdrop click
+    backdrop.addEventListener('click', () => {
       modal.classList.remove('modal--active');
-    }
-  });
+    });
+
+    // Close modal on ESC key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal.classList.remove('modal--active');
+      }
+    });
+  }

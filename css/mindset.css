@@ -1,0 +1,555 @@
+/* ============================================================
+   MISSFIT MINDSET — rebrand stylesheet (MFM-BD-011)
+   Load AFTER base.css / components.css on rebranded pages.
+   Palette per Ezekiel's brand kit (May 2026):
+     Prussian Blue #002147 · Light Tan #EECE95 · Tan #D2B48C
+     Gold #FFD700 · White #FFFFFF
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800;900&display=swap');
+
+:root {
+  --mm-navy: #002147;
+  --mm-navy-deep: #001730;
+  --mm-tan-light: #EECE95;
+  --mm-tan: #D2B48C;
+  --mm-gold: #FFD700;
+  --mm-white: #FFFFFF;
+  --mm-ink: #14212F;
+  --mm-font-display: 'Raleway', 'Barlow', sans-serif;
+  --mm-font-body: 'Barlow', sans-serif;
+}
+
+body.mm {
+  color: var(--mm-ink);
+  background: var(--mm-white);
+}
+
+/* ---------- Header (overrides components.css reds/darks) ---------- */
+body.mm .header,
+body.mm .hero__header {
+  background-color: var(--mm-navy);
+}
+
+body.mm .header__logo img,
+body.mm .footer__logo img {
+  height: 3rem;
+  width: auto;
+}
+
+body.mm .header__nav-link,
+body.mm .hero__nav-link {
+  color: var(--mm-white);
+}
+
+body.mm .header__nav-link:hover,
+body.mm .hero__nav-link:hover {
+  color: var(--mm-tan-light);
+}
+
+body.mm .header__cta,
+body.mm .hero__cta {
+  background-color: var(--mm-gold);
+  color: var(--mm-navy);
+  font-weight: 700;
+}
+
+body.mm .header__cta:hover,
+body.mm .hero__cta:hover {
+  background-color: var(--mm-tan-light);
+  color: var(--mm-navy);
+}
+
+body.mm .header__mobile-menu {
+  background-color: var(--mm-white);
+}
+
+body.mm .header__mobile-nav-link {
+  color: var(--mm-navy);
+}
+
+/* ---------- Shared section primitives ---------- */
+.mm-section {
+  padding: 5.5rem 1.5rem;
+}
+
+.mm-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.mm-narrow {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.mm-eyebrow {
+  font-family: var(--mm-font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.mm-h2 {
+  font-family: var(--mm-font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 1.75rem;
+}
+
+.mm-body p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.mm-body p:last-child {
+  margin-bottom: 0;
+}
+
+.mm-btn {
+  display: inline-block;
+  background-color: var(--mm-gold);
+  color: var(--mm-navy);
+  font-family: var(--mm-font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mm-btn:hover {
+  background-color: var(--mm-tan-light);
+  transform: translateY(-1px);
+}
+
+.mm-textlink {
+  color: var(--mm-tan-light);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.mm-textlink:hover {
+  color: var(--mm-gold);
+}
+
+/* ---------- Hero ---------- */
+.mm-hero {
+  background: linear-gradient(180deg, var(--mm-navy) 0%, var(--mm-navy-deep) 100%);
+  color: var(--mm-white);
+  padding: 6.5rem 1.5rem 7rem;
+  text-align: left;
+}
+
+.mm-hero__title {
+  font-family: var(--mm-font-display);
+  font-weight: 900;
+  font-size: clamp(2.25rem, 5.4vw, 4rem);
+  line-height: 1.12;
+  max-width: 17ch;
+  margin-bottom: 1.5rem;
+}
+
+.mm-hero__reframe {
+  font-family: var(--mm-font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  color: var(--mm-gold);
+  margin-bottom: 1.5rem;
+}
+
+.mm-hero__support {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.mm-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* ---------- Social proof bar ---------- */
+.mm-proof {
+  background: var(--mm-white);
+  border-bottom: 1px solid rgba(0, 33, 71, 0.08);
+  padding: 3.25rem 1.5rem;
+  text-align: center;
+}
+
+.mm-proof__label {
+  font-family: var(--mm-font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mm-navy);
+  margin-bottom: 2rem;
+}
+
+.mm-proof__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 4.5rem);
+}
+
+.mm-proof__logo {
+  height: 1.75rem;
+  width: auto;
+  max-width: 10rem;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.35);
+  opacity: 0.75;
+}
+
+/* ---------- Problem section ---------- */
+.mm-problem {
+  background: var(--mm-white);
+}
+
+.mm-problem .mm-eyebrow { color: var(--mm-tan); }
+.mm-problem .mm-h2 { color: var(--mm-navy); }
+
+/* ---------- Authority section (Dee's voice) ---------- */
+.mm-authority {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+}
+
+.mm-authority .mm-eyebrow { color: var(--mm-gold); }
+.mm-authority .mm-h2 { color: var(--mm-white); }
+.mm-authority .mm-body p { color: rgba(255, 255, 255, 0.88); }
+
+/* ---------- Method section ---------- */
+.mm-method {
+  background: #FBF4E3; /* light tint of the tan family */
+}
+
+.mm-method .mm-eyebrow { color: var(--mm-tan); }
+.mm-method .mm-h2 { color: var(--mm-navy); }
+
+/* ---------- Products section ---------- */
+.mm-products {
+  background: var(--mm-white);
+  text-align: center;
+}
+
+.mm-products .mm-eyebrow { color: var(--mm-tan); }
+
+.mm-products__intro {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 38rem;
+  margin: 0 auto 3.25rem;
+  color: var(--mm-ink);
+}
+
+.mm-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  text-align: left;
+  margin-bottom: 3.25rem;
+}
+
+@media (max-width: 860px) {
+  .mm-products__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mm-card {
+  border-radius: 6px;
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mm-card--light {
+  background: var(--mm-white);
+  border: 2px solid var(--mm-navy);
+  color: var(--mm-ink);
+}
+
+.mm-card--navy {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+}
+
+.mm-card__kicker {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+}
+
+.mm-card--light .mm-card__kicker { color: var(--mm-tan); }
+.mm-card--navy .mm-card__kicker { color: var(--mm-gold); }
+
+.mm-card__title {
+  font-family: var(--mm-font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mm-card--light .mm-card__title { color: var(--mm-navy); }
+
+.mm-card__tagline {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.mm-card--navy .mm-card__tagline { color: rgba(255, 255, 255, 0.88); }
+
+.mm-card__list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  flex: 1;
+}
+
+.mm-card__list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.mm-card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--mm-tan);
+}
+
+.mm-card--navy .mm-card__list li { color: rgba(255, 255, 255, 0.88); }
+.mm-card--navy .mm-card__list li::before { background: var(--mm-gold); }
+
+.mm-card__link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mm-card--light .mm-card__link { color: var(--mm-navy); border-bottom: 2px solid var(--mm-gold); align-self: flex-start; padding-bottom: 2px; }
+.mm-card--navy .mm-card__link { color: var(--mm-gold); border-bottom: 2px solid var(--mm-gold); align-self: flex-start; padding-bottom: 2px; }
+
+.mm-products__bridge {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.mm-products__bridge-q {
+  font-family: var(--mm-font-display);
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: var(--mm-navy);
+  margin-bottom: 0.75rem;
+}
+
+.mm-products__bridge p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Closing CTA ---------- */
+.mm-close {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  text-align: center;
+}
+
+.mm-close .mm-h2 {
+  color: var(--mm-white);
+  max-width: 24ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mm-close p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 36rem;
+  margin: 0 auto 2.25rem;
+}
+
+/* ---------- Footer ---------- */
+.mm-footer {
+  background: var(--mm-navy-deep);
+  color: var(--mm-white);
+  padding: 4rem 1.5rem 2.5rem;
+}
+
+.mm-footer__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.mm-footer__brand img {
+  height: 3.25rem;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.mm-footer__tagline {
+  font-family: var(--mm-font-display);
+  font-weight: 700;
+  color: var(--mm-tan-light);
+  margin-bottom: 1.25rem;
+}
+
+.mm-footer__socials {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mm-footer__socials img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mm-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+.mm-footer__nav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.mm-footer__nav a:hover {
+  color: var(--mm-gold);
+}
+
+.mm-footer__meta {
+  max-width: 1140px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mm-footer__meta a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+/* ---------- Legacy page recolor ----------
+   about/contact/terms/policy keep their existing layouts until their
+   own copy rewrites land; these overrides retire the old red accents
+   so the pages sit coherently inside the new navy/tan/gold brand. */
+
+body.mm .about-hero {
+  background: linear-gradient(rgba(0, 33, 71, 0.88), rgba(0, 23, 48, 0.9)),
+              url('../assets/images/background-about-us.png') center / cover no-repeat;
+}
+
+body.mm .masonry-section__title,
+body.mm .section-header__title,
+body.mm .story__title {
+  color: var(--mm-navy);
+}
+
+body.mm .contact-hero {
+  background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 23, 48, 0.88)),
+              url('../assets/images/background-contact.png') center / cover no-repeat;
+}
+
+body.mm .contact-info__item,
+body.mm .contact-form,
+body.mm .contact-confirmation,
+body.mm .subscription-confirmation {
+  background-color: var(--mm-navy);
+}
+
+body.mm .contact-info__title,
+body.mm .contact-form__title {
+  color: var(--mm-gold);
+}
+
+body.mm .masonry-item {
+  background-color: var(--mm-navy);
+  border-color: var(--mm-navy-deep);
+}
+
+body.mm .masonry-item__title {
+  color: var(--mm-gold);
+}
+
+body.mm .required-asterisk {
+  color: var(--mm-navy);
+}
+
+body.mm .career-milestone {
+  background-color: var(--mm-navy);
+}
+
+body.mm .career-milestone__button,
+body.mm .contact-form__submit,
+body.mm button[type="submit"] {
+  background-color: var(--mm-gold);
+  color: var(--mm-navy);
+}
+
+body.mm .career-milestone__button:hover,
+body.mm .contact-form__submit:hover,
+body.mm button[type="submit"]:hover {
+  background-color: var(--mm-tan-light);
+}
+
+body.mm .subscription-confirmation__checkmark-circle {
+  background-color: var(--mm-navy);
+}
+
+/* ---------- Product stub pages ---------- */
+.mm-stub {
+  background: var(--mm-white);
+  min-height: 55vh;
+}
+
+.mm-stub .mm-eyebrow { color: var(--mm-tan); }
+.mm-stub .mm-h2 { color: var(--mm-navy); }
+
+.mm-stub__note {
+  font-size: 1rem;
+  color: rgba(20, 33, 47, 0.65);
+  margin-top: 2rem;
+  font-style: italic;
+}

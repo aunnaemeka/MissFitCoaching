@@ -160,7 +160,7 @@ text-align: center;
   font-weight: 700;
   margin-bottom: 1.75rem;
   text-align: center;
-  color: #C41E3D;
+  color: #002147;
 }
 
 /* Masonry Grid */
@@ -239,7 +239,7 @@ text-align: center;
   line-height: 1.8rem; /* 28.8px */
   font-weight: 600;
   margin-bottom: 1.5rem; /* 16px spacing below title */
-  color: #C41E3D; /* Red text */
+  color: #002147; /* Red text */
   z-index: 2; /* Ensure text is above icons */
   position: relative;
 }

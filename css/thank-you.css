@@ -1,8 +1,9 @@
 /* Font Import */
 
 :root {
-  --color-primary: #C41E3D;
-  --color-dark: #1D1D1D;
+  /* MissFit Mindset rebrand palette (see css/mindset.css) */
+  --color-primary: #FFD700;
+  --color-dark: #001730;
   --color-bg: #FAFAFA;
   --color-card-bg: #FFFFFF;
   --color-border: #CCCFD9;
@@ -81,6 +82,24 @@ body {
   border-radius: 0.5rem;
 }
 
+.confirmation__banner-card {
+  background: linear-gradient(180deg, #002147 0%, #001730 100%);
+  border-radius: 0.5rem;
+  padding: 4.5rem 2rem;
+  text-align: center;
+}
+
+.confirmation__banner-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #FFD700;
+  max-width: 18ch;
+  margin: 0 auto;
+}
+
 /* ========== Primary CTA Intro ========== */
 .confirmation__cta-intro {
   text-align: center;
@@ -100,7 +119,7 @@ body {
 .confirmation__button {
   display: inline-block;
   background-color: var(--color-primary);
-  color: #fff;
+  color: #002147;
   font-family: var(--font-heading);
   font-size: 0.9375rem; /* 15px */
   font-weight: 600;
@@ -114,7 +133,7 @@ body {
 }
 
 .confirmation__button:hover {
-  background-color: #b61f38;
+  background-color: #EECE95;
 }
 
 .confirmation__button--secondary {
@@ -285,7 +304,7 @@ body {
 }
 
 .site-header__logo-icon {
-  height: 1.375rem;
+  height: 2.75rem;
 }
 
 .site-header__logo-text {

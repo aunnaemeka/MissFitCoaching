@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MissFit Coaching - About Us</title>
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <title>MissFit Mindset - About Us</title>
+    <link rel="icon" href="assets/icons/favicon-mindset.svg" type="image/svg+xml">
     <!-- Fallback PNG for browsers that don't support SVG favicons -->
-    <link rel="alternate icon" href="assets/icons/favicon.png" type="image/png">
+    <link rel="alternate icon" href="assets/icons/favicon-mindset.png" type="image/png">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
@@ -16,116 +16,47 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mindset.css">
     <link rel="stylesheet" href="css/about.css">
 
 </head>
-<body>
+<body class="mm">
 
 <!-- HERO SECTION -->
 <section class="hero about-hero ">
-  <header class="header hero__header">
-    <div class="header__container hero__container">
-      <a href="index.html" class="header__logo hero__logo">
-        <img src="assets/icons/logo-white.svg" alt="MissFit Coaching Logo">
-      </a>
-      <nav class="header__nav hero__nav">
-        <ul class="header__nav-list hero__nav-list">
-          <li class="hero__nav-item">
-            <a href="about.html" class="header__nav-link hero__nav-link">ABOUT</a>
-          </li>
-          <li class="hero__nav-item">
-            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">COACHING
-              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
-            </a>
-            <ul class="header__nav-dropdown">
-              <li><a href="coaching/executive-coaching.html" class="header__nav-dropdown-link">Executive Coaching</a></li>
-              <li><a href="coaching/career-coaching.html" class="header__nav-dropdown-link">Career Coaching</a></li>
-              <li><a href="coaching/job-search-coaching.html" class="header__nav-dropdown-link">Job Search Coaching</a></li>
-            </ul>
-          </li>
-          <li class="hero__nav-item">
-            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">WORKSHOP
-              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
-            </a>
-            <ul class="header__nav-dropdown">
-              <li><a href="workshops/linkedin-drill.html" class="header__nav-dropdown-link">LinkedIn Engine</a></li>
-            </ul>
-          </li>
-          <li class="hero__nav-item">
-            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">SERVICES
-              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
-            </a>
-            <ul class="header__nav-dropdown">
-              <li><a href="services/resume.html" class="header__nav-dropdown-link">Resume Writing</a></li>
-            </ul>
-          </li>
-          <li class="hero__nav-item">
-            <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown" aria-haspopup="true" aria-expanded="false">RESOURCES
-              <img src="assets/icons/angle.svg" alt="Dropdown icon" class="header__nav-icon hero__nav-icon">
-            </a>
-            <ul class="header__nav-dropdown">
-              <li><a href="resources/articles.html" class="header__nav-dropdown-link">Articles</a></li>
-              <li><a href="resources/newsletter.html" class="header__nav-dropdown-link">Newsletter</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__right">
-        <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-        <a href="contact.html" class="header__cta hero__cta">CONTACT</a>
-      </div>
-    </div>
-    <div class="header__mobile-menu">
-      <ul class="header__mobile-nav-list">
-        <li>
-          <a href="about.html" class="header__mobile-nav-link">ABOUT</a>
-        </li>
-        <li>
-          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">COACHING
-            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
-          </a>
-          <ul class="header__mobile-nav-dropdown">
-            <li><a href="coaching/executive.html" class="header__mobile-nav-dropdown-link">Executive Coaching</a></li>
-              <li><a href="coaching/career.html" class="header__mobile-nav-dropdown-link">Career Coaching</a></li>
-              <li><a href="coaching/job-search.html" class="header__mobile-nav-dropdown-link">Job Search Coaching</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">WORKSHOP
-            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
-          </a>
-          <ul class="header__mobile-nav-dropdown">
-            <li><a href="workshops/linkedin-drill.html" class="header__mobile-nav-dropdown-link">LinkedIn Engine</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">SERVICES
-            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
-          </a>
-          <ul class="header__mobile-nav-dropdown">
-            <li><a href="services/resume.html" class="header__mobile-nav-dropdown-link">Resume Writing</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">RESOURCES
-            <img src="assets/icons/angle-header.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
-          </a>
-          <ul class="header__mobile-nav-dropdown">
-            <li><a href="resources/articles.html" class="header__mobile-nav-dropdown-link">Articles</a></li>
-            <li><a href="resources/newsletter.html" class="header__mobile-nav-dropdown-link">Newsletter</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="contact.html" class="header__mobile-nav-link">CONTACT</a> <!-- Changed to text link -->
-        </li>
+  <header class="header">
+  <div class="header__container">
+    <a href="index.html" class="header__logo">
+      <img src="assets/icons/logo-mindset-white.png" alt="MissFit Mindset Logo">
+    </a>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li><a href="about.html" class="header__nav-link">ABOUT</a></li>
+        <li><a href="index.html#how-it-works" class="header__nav-link">HOW IT WORKS</a></li>
+        <li><a href="essentials.html" class="header__nav-link">ESSENTIALS</a></li>
+        <li><a href="intensive.html" class="header__nav-link">1:1 INTENSIVE</a></li>
       </ul>
+    </nav>
+    <div class="header__right">
+      <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery" class="header__cta" target="_blank" rel="noopener">BOOK A DIAGNOSTIC</a>
     </div>
-  </header>
+  </div>
+  <div class="header__mobile-menu">
+    <ul class="header__mobile-nav-list">
+      <li><a href="about.html" class="header__mobile-nav-link">ABOUT</a></li>
+      <li><a href="index.html#how-it-works" class="header__mobile-nav-link">HOW IT WORKS</a></li>
+      <li><a href="essentials.html" class="header__mobile-nav-link">ESSENTIALS</a></li>
+      <li><a href="intensive.html" class="header__mobile-nav-link">1:1 INTENSIVE</a></li>
+      <li><a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery" class="header__mobile-nav-link" target="_blank" rel="noopener">BOOK A DIAGNOSTIC</a></li>
+    </ul>
+  </div>
+</header>
 
 <div class="hero__content">
     <h1 class="hero__title">THE CAREER GYM FOR PROS.</h1>
     <p class="hero__description">
-      MissFit Coaching provides tailored career coaching for job seekers, employees, and executives. 
+      MissFit Mindset provides tailored career coaching for job seekers, employees, and executives. 
       Our approach is built on decades of experience in corporate HR and leadership, combined with 
       a deep understanding of what it takes to thrive in today’s competitive landscape.
     </p>
@@ -144,20 +75,20 @@
       <div class="story__content">
         <div class="story__text">
           <p>
-            MissFit Coaching was born from a single, striking realization: while organizations are equipped with teams, tools, and strategies to succeed, individuals are often left to navigate their careers alone, armed only with outdated advice and generic resources.
+            MissFit Mindset was born from a single, striking realization: while organizations are equipped with teams, tools, and strategies to succeed, individuals are often left to navigate their careers alone, armed only with outdated advice and generic resources.
           </p>
           <p>
-            Dee, the founder of MissFit Coaching, spent over 30 years in corporate HR and leadership roles at global organizations like Google, Gallagher, and Analytle Health. During her time in these roles, she saw the immense disparity between the resources available to employers and those available to job seekers, professionals, and executives alike.
+            Dee, the founder of MissFit Mindset, spent over 30 years in corporate HR and leadership roles at global organizations like Google, Gallagher, and Analytle Health. During her time in these roles, she saw the immense disparity between the resources available to employers and those available to job seekers, professionals, and executives alike.
           </p>
         </div>
         <div class="story__image">
-          <img src="assets/images/story-1.png" alt="MissFit Coaching philosophy">
+          <img src="assets/images/story-1.png" alt="MissFit Mindset philosophy">
         </div>
       </div>
   
       <div class="story__content">
         <div class="story__image">
-          <img src="assets/images/story-2.png" alt="MissFit Coaching journey">
+          <img src="assets/images/story-2.png" alt="MissFit Mindset journey">
         </div>
         <div class="story__text">
           <p>
@@ -172,14 +103,14 @@
       <div class="story__content preamble">
         <div class="story__text">
           <p>
-            MissFit Coaching isn’t just about careers; it’s about meeting people where they are, understanding their unique challenges and ambitions, and helping them move forward with clarity and confidence.
+            MissFit Mindset isn’t just about careers; it’s about meeting people where they are, understanding their unique challenges and ambitions, and helping them move forward with clarity and confidence.
           </p>
           <p>
             This story is where it all began—a journey to level the playing field and create a space where every individual, regardless of their starting point, can thrive on their own terms.
           </p>
         </div>
         <div class="story__image">
-          <img src="assets/images/story-3.png" alt="MissFit Coaching philosophy">
+          <img src="assets/images/story-3.png" alt="MissFit Mindset philosophy">
         </div>
       </div>
   </section>
@@ -256,159 +187,31 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer__container">
-    <!-- Branding Section -->
-    <div class="footer__branding">
-      <a href="index.html" class="footer__logo" >
-        <img src="assets/icons/logo.svg" alt="MissFit Coaching Logo">
-      </a>
-      <p class="footer__tagline">The Career Gym for Professionals.</p>
-      <div class="footer__socials">
-        <a href="https://www.linkedin.com/in/daciaderidder/" class="footer__social-link" target="_blank">
+<footer class="mm-footer">
+  <div class="mm-footer__inner">
+    <div class="mm-footer__brand">
+      <a href="index.html"><img src="assets/icons/logo-mindset-white.png" alt="MissFit Mindset Logo"></a>
+      <p class="mm-footer__tagline">Stop applying. Start solving.</p>
+      <div class="mm-footer__socials">
+        <a href="https://www.linkedin.com/in/daciaderidder/" target="_blank" rel="noopener">
           <img src="assets/icons/linkedin-logo.svg" alt="LinkedIn">
         </a>
-        <a href="https://www.youtube.com/@DaciaDeridder" class="footer__social-link" target="_blank">
+        <a href="https://www.youtube.com/@DaciaDeridder" target="_blank" rel="noopener">
           <img src="assets/icons/youtube-logo.svg" alt="YouTube">
         </a>
       </div>
-      <p class="footer__copyright">© 2025 MissFit Coaching. All Rights Reserved.</p>
     </div>
-
-    <!-- Links Section with Dropdown Support -->
-    <div class="footer__links">
-      <!-- COMPANY Section -->
-      <div class="footer__links-group">
-        <div class="footer__heading">
-          <span class="footer__heading-text">COMPANY</span>
-          <div class="footer__heading-icon-wrapper">
-            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
-            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
-          </div>
-        </div>
-        <div class="footer__list-container">
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="about.html" class="footer__link">About</a>
-              </div>
-            </li>
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="contact.html" class="footer__link">Contact</a>
-              </div>
-            </li>
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="terms.html" class="footer__link">Terms of Service</a>
-              </div>
-            </li>
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="policy.html" class="footer__link">Privacy Policy</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- COACHING Section -->
-      <div class="footer__links-group">
-        <div class="footer__heading">
-          <span class="footer__heading-text">COACHING</span>
-          <div class="footer__heading-icon-wrapper">
-            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
-            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
-          </div>
-        </div>
-        <div class="footer__list-container">
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="coaching/executive-coaching.html" class="footer__link">Executive Coaching</a>
-              </div>
-            </li>
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="coaching/career-coaching.html" class="footer__link">Career Coaching</a>
-              </div>
-            </li>
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="coaching/job-search-coaching.html" class="footer__link">Job Search Coaching</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Similar structure for other sections... -->
-      <!-- WORKSHOP Section -->
-      <div class="footer__links-group">
-        <div class="footer__heading">
-          <span class="footer__heading-text">WORKSHOP</span>
-          <div class="footer__heading-icon-wrapper">
-            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
-            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
-          </div>
-        </div>
-        <div class="footer__list-container">
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="workshops/linkedin-drill.html" class="footer__link">LinkedIn Engine</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- SERVICES Section -->
-      <div class="footer__links-group">
-        <div class="footer__heading">
-          <span class="footer__heading-text">SERVICES</span>
-          <div class="footer__heading-icon-wrapper">
-            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
-            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
-          </div>
-        </div>
-        <div class="footer__list-container">
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="services/resume.html" class="footer__link">Resume Writing</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- RESOURCES Section -->
-      <div class="footer__links-group">
-        <div class="footer__heading">
-          <span class="footer__heading-text">RESOURCES</span>
-          <div class="footer__heading-icon-wrapper">
-            <img src="assets/icons/angle-down.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-down">
-            <img src="assets/icons/angle-up.svg" alt="Dropdown" class="footer__heading-icon footer__heading-icon-up" style="display:none;">
-          </div>
-        </div>
-        <div class="footer__list-container">
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="resources/articles.html" class="footer__link">Articles</a>
-              </div>
-            </li>
-            <li class="footer__list-item">
-              <div class="footer__link-wrapper">
-                <a href="resources/newsletter.html" class="footer__link">Newsletter</a>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </div>
+    <nav class="mm-footer__nav">
+      <a href="about.html">About</a>
+      <a href="essentials.html">Essentials</a>
+      <a href="intensive.html">1:1 Intensive</a>
+      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery" target="_blank" rel="noopener">Book a Diagnostic</a>
+      <a href="policy.html">Privacy Policy</a>
+    </nav>
+  </div>
+  <div class="mm-footer__meta">
+    <a href="mailto:Dee@missfitcoaching.com">Dee@missfitcoaching.com</a>
+    <span>&copy; 2026 MissFit Mindset. All rights reserved.</span>
   </div>
 </footer>
 
