@@ -241,13 +241,16 @@ body.mm .header__mobile-nav-link {
 }
 
 /* White/light-fill marks are invisible against the white proof bar.
-   Seat them on a dark neutral chip rather than recoloring the source
-   artwork, so the supplied SVG stays untouched. */
-.mm-proof__logo--chip {
+   Seat them on a dark chip rather than recoloring the source artwork,
+   so the supplied SVG stays untouched. The chip is a wrapper, not a
+   background on the <img>, so the logo's grayscale filter does not
+   desaturate the chip along with it. */
+.mm-proof__chip {
+  display: inline-flex;
+  align-items: center;
   background-color: var(--mm-navy);
   padding: 0.5rem 0.875rem;
   border-radius: 0.375rem;
-  box-sizing: content-box;
 }
 
 /* ---------- Problem section ---------- */
