@@ -1,5 +1,5 @@
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -298,7 +298,7 @@ body {
 }
 
 .articles__load-more {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 0.9375rem; /* 15px */
   font-weight: 600;
   line-height: 1.5rem; /* 24px */

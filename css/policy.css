@@ -1,5 +1,5 @@
 body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -28,7 +28,7 @@ body {
 }
 
 .hero__title--policy {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 3.125rem; /* 50px (50 / 16 = 3.125rem) */
     line-height: 3.75rem; /* 60px (60 / 16 = 3.75rem) */
@@ -69,7 +69,7 @@ body {
 }
 
 .privacy-policy__heading {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 1.5rem; /* 16px (16 / 16 = 1rem) */
     line-height: 2.7rem; /* 36.8px (36.8 / 16 = 2.3rem) */

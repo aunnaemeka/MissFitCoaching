@@ -11,7 +11,7 @@
 } */
 
 body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -25,7 +25,7 @@ body {
     --color-dark-gray: #212121;
     --color-white: #FFFFFF;
     
-    --font-primary: 'Barlow', sans-serif;
+    --font-primary: 'Raleway', sans-serif;
     --font-secondary: 'Inter', sans-serif;
 
     --spacing-small: 1rem;

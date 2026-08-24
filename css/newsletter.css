@@ -1,5 +1,5 @@
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -105,7 +105,7 @@ body {
   }
   
   .newsletter-archive__title {
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 1.875rem; /* 30px */
     line-height: 2.25rem; /* 36px */
@@ -162,7 +162,7 @@ body {
   /* Load More Button */
   .newsletter-archive__load-more {
     margin-top: 8.25rem; /* 132px below the grid */
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-size: 0.9375rem; /* 15px */
     line-height: 1.5rem; /* 24px */

@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   box-sizing: border-box; /* Include padding and border in element's total width and height */
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -54,7 +54,7 @@ button, input, select, textarea {
 
 /* Hero Title */
 .hero__title {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     line-height: 3.75rem; /* 60px */
     font-weight: 700;
     font-size: 3.125rem; /* 72px */
@@ -125,7 +125,7 @@ text-align: center;
   }
   
   .values__title {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.5rem; /* 24px converted to rem */
     font-weight: 600;
     line-height: 1.8rem; /* 28.8px converted to rem */
@@ -154,7 +154,7 @@ text-align: center;
 }
 
 .masonry-section__title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.875rem;
   line-height: 3rem;
   font-weight: 700;

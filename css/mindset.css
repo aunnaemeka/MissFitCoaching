@@ -26,8 +26,9 @@
 }
 
 /* Unify all type on Raleway (Ezekiel review 2026-07-15).
-   Overrides the Barlow declarations in base.css / components.css
-   on rebranded (body.mm) pages. */
+   base.css / components.css now declare Raleway sitewide, so this
+   block is a belt-and-braces override for any rule on a rebranded
+   (body.mm) page that still carries its own font-family. */
 body.mm,
 body.mm * {
   font-family: var(--mm-font-body);

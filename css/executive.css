@@ -1,5 +1,5 @@
 body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     background-color: #1D1D1D;
@@ -99,7 +99,7 @@ body {
 }
 
 .header__active-category {
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
@@ -130,7 +130,7 @@ body {
 }
 
 .header__nav-link.executive-nav-link {
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
@@ -159,7 +159,7 @@ body {
   background-color: #FFB400; /* Yellow button */
   color: #000; /* Black text for contrast */
   padding: 0.75rem 2.25rem; /* Padding inside the button */
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.5rem;
@@ -320,7 +320,7 @@ body {
 
 /* === Content Title === */
 .content-title {
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 1.875rem; /* 30px */
     line-height: 2.25rem; /* 36px */
@@ -378,7 +378,7 @@ section.content-section p.content-text:last-of-type {
 
 /* === Testimonial Header === */
 .testimonial-title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 2.5rem; /* 40px */
   line-height: 3rem; /* 48px */
@@ -483,7 +483,7 @@ section.content-section p.content-text:last-of-type {
   }
   
   .program-breakdown__title {
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 2.5rem; /* Scales naturally */
     line-height: 1.2em; /* Keeps spacing proportional */
@@ -678,7 +678,7 @@ section.content-section p.content-text:last-of-type {
 }
 
 .cta-section__title {
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 2.5rem; /* 40px */
     line-height: 3rem; /* 48px */
@@ -698,7 +698,7 @@ section.content-section p.content-text:last-of-type {
 
 /* CTA Section Card Title */
 .cta-section__card-title {
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 2.1875rem; /* 30px */
     line-height: 2.625rem; /* 36px */
@@ -725,7 +725,7 @@ section.content-section p.content-text:last-of-type {
 /* CTA Button */
 .cta-section__button {
 
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-size: 0.9375rem; /* 15px */
     line-height: 1.5rem; /* 24px */

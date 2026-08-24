@@ -1,5 +1,5 @@
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -61,7 +61,7 @@ body {
 
 /* Navigation Link */
 .header__nav-link {
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
@@ -120,7 +120,7 @@ body {
 
 /* Dropdown Link */
 .header__nav-dropdown-link {
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
@@ -142,7 +142,7 @@ body {
   background-color: #002147;
   color: #FFFFFF;
   padding: 0.75rem 2.25rem; /* Padding inside the button */
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.5rem;
@@ -207,7 +207,7 @@ body {
 
 /* Mobile Navigation Link */
 .header__mobile-nav-link {
-  font-family: "Barlow", serif;
+  font-family: "Raleway", serif;
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
@@ -368,7 +368,7 @@ body {
 
 /* Hero Title */
 .hero__title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 3.125rem; /* Convert 100px to vw */
   font-weight: 700;
   line-height: 3.75rem;
@@ -394,7 +394,7 @@ body {
   background-color: #002147;
   color: #FFFFFF;
   padding: 1.1rem 2.25rem;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.9375rem; /* Matches 19px */
   font-weight: 600;
   line-height: 1.5rem; /* Matches 22.8px */
@@ -487,7 +487,7 @@ body {
 }
 
 .footer__heading {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.5rem;
@@ -676,7 +676,7 @@ body {
 }
 
 .section-header__title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.875rem; /* 30px */
   font-weight: 700; /* Bold */
   line-height: 2.25rem; /* 36px */
@@ -725,7 +725,7 @@ body {
 
 /* === Child Elements === */
 .info__title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.875rem; /* 30px */
   font-weight: 700;
   line-height: 2.25rem; /* 36px */
@@ -989,7 +989,7 @@ body {
 /* Milestone Heading */
 .career-milestone__heading {
   margin-bottom: 1.375rem; /* Space between heading and description */
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 2.1875rem;
   font-weight: 700;
   line-height: 2.625rem;
@@ -1012,7 +1012,7 @@ body {
   background-color: #002147;
   color: #FFFFFF;
   padding: 1rem 2.25rem;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.9375rem; /* Matches 19px */
   font-weight: 600;
   line-height: 1.5rem; /* Matches 22.8px */
@@ -1065,7 +1065,7 @@ body {
 }
 
 .shared-hero .hero__title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 3.125rem; /* 60px converted to rem */
   font-weight: 700;
   line-height: 3.75rem; /* 72px converted to rem */
@@ -1117,7 +1117,7 @@ body {
 
 
 .newsletter__title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 2.1875rem; /* 40px */
   font-weight: 700;
   line-height: 2.625rem; /* 48px */
@@ -1272,7 +1272,7 @@ body {
 }
 
 .details__title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 3.125rem; /* 50px */
   font-weight: 700;
   line-height: 3.75rem; /* 60px */
@@ -1313,7 +1313,7 @@ body {
 }
 
 .details__body strong {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.5rem; /* 24px */
   font-weight: 600;
   line-height: 3.45rem; /* 55.2px */
@@ -1369,7 +1369,7 @@ body {
 }
 
 .read-next__title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.875rem; /* 30px */
   font-weight: 700;
   line-height: 2.25rem; /* 36px */
@@ -1431,7 +1431,7 @@ body {
 }
 
 .faq__title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 2.5rem; /* 40px */
   font-weight: 700;
   line-height: 3rem; /* 48px */
@@ -1462,7 +1462,7 @@ body {
 }
 
 .faq__question {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.0625rem; /* 17px */
   font-weight: 500;
   line-height: 1.275rem; /* 20.4px */
@@ -1524,7 +1524,7 @@ body {
 }
 
 .pricing__title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3rem;
@@ -1626,7 +1626,7 @@ body {
 }
 
 .pricing__price {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 2.5rem;
   line-height: 3rem;
@@ -1637,7 +1637,7 @@ body {
 }
 
 .pricing__button {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 0.9375rem;
   line-height: 1.5rem;
@@ -1733,7 +1733,7 @@ body {
   
   /* Element: title (the main heading) */
   .subscription-confirmation__title {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700; /* Bold */
     font-size: 35px; /* Title size */
     margin: 0 0 22px; /* 22px margin below the title */
