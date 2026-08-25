@@ -254,9 +254,10 @@ body.mm .header__mobile-nav-link {
 }
 
 /* ---------- Client success stories (testimonial videos) ----------
-   Source reels are 9:16 (720x1280), so the players are portrait.
+   Full interview cuts are 16:9 (1280x720), which is why Ezekiel's
+   thumbnail cards are 16:9 too. Served from CloudFront.
    preload="none" keeps video bytes off the initial page load; only
-   the ~16KB poster is fetched. */
+   the ~65KB poster is fetched. */
 .mm-testimonials {
   background: var(--mm-white);
   text-align: center;
@@ -266,39 +267,24 @@ body.mm .header__mobile-nav-link {
 
 .mm-testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 22rem));
-  justify-content: center;
-  gap: 2.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
   margin-top: 2.5rem;
 }
 
 .mm-testimonial {
   margin: 0;
   width: 100%;
-  max-width: 22rem;
 }
 
 .mm-testimonial__video {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   background: var(--mm-navy);
   border-radius: 6px;
-}
-
-.mm-testimonial__more {
-  margin-top: 0.875rem;
-  font-size: 0.9375rem;
-}
-
-.mm-testimonial__more .mm-textlink {
-  color: var(--mm-navy);
-}
-
-.mm-testimonial__more .mm-textlink:hover {
-  color: var(--mm-tan);
 }
 
 /* Stack on narrow screens */
