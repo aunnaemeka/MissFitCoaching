@@ -253,6 +253,49 @@ body.mm .header__mobile-nav-link {
   border-radius: 0.375rem;
 }
 
+/* ---------- Client success stories (testimonial videos) ----------
+   Source reels are 9:16 (720x1280), so the players are portrait.
+   preload="none" keeps video bytes off the initial page load; only
+   the ~16KB poster is fetched. */
+.mm-testimonials {
+  background: var(--mm-white);
+  text-align: center;
+}
+
+.mm-testimonials .mm-eyebrow { color: var(--mm-tan); }
+
+.mm-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 22rem));
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.mm-testimonial {
+  margin: 0;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.mm-testimonial__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: var(--mm-navy);
+  border-radius: 6px;
+}
+
+/* Stack on narrow screens */
+@media (max-width: 860px) {
+  .mm-testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 /* ---------- Problem section ---------- */
 .mm-problem {
   background: var(--mm-white);
