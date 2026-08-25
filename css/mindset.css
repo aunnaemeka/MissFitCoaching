@@ -288,6 +288,19 @@ body.mm .header__mobile-nav-link {
   border-radius: 6px;
 }
 
+.mm-testimonial__more {
+  margin-top: 0.875rem;
+  font-size: 0.9375rem;
+}
+
+.mm-testimonial__more .mm-textlink {
+  color: var(--mm-navy);
+}
+
+.mm-testimonial__more .mm-textlink:hover {
+  color: var(--mm-tan);
+}
+
 /* Stack on narrow screens */
 @media (max-width: 860px) {
   .mm-testimonials__grid {
