@@ -1,0 +1,682 @@
+/* ============================================================
+   MISSFIT MINDSET — rebrand stylesheet (MFM-BD-011)
+   Load AFTER base.css / components.css on rebranded pages.
+   Palette per Ezekiel's brand kit (May 2026), refined per his
+   2026-07-15 review:
+     Prussian Blue #002147 · Secondary Gold #EECE95 · Tan #D2B48C
+     Button Yellow #FFD500 · White #FFFFFF
+   Yellow (#FFD500) is reserved for buttons ONLY. Secondary Gold
+   (#EECE95, --mm-tan-light) carries every other accent touch.
+   Type is unified on Raleway for consistency with the brand assets.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --mm-navy: #002147;
+  --mm-navy-deep: #001730;
+  --mm-tan-light: #EECE95;
+  --mm-tan: #D2B48C;
+  --mm-yellow: #FFD500;   /* buttons only */
+  --mm-gold: #FFD700;     /* legacy token — retained for safety, no longer used for accents */
+  --mm-white: #FFFFFF;
+  --mm-ink: #14212F;
+  --mm-font-display: 'Raleway', sans-serif;
+  --mm-font-body: 'Raleway', sans-serif;
+}
+
+/* Unify all type on Raleway (Ezekiel review 2026-07-15).
+   base.css / components.css now declare Raleway sitewide, so this
+   block is a belt-and-braces override for any rule on a rebranded
+   (body.mm) page that still carries its own font-family. */
+body.mm,
+body.mm * {
+  font-family: var(--mm-font-body);
+}
+
+body.mm {
+  color: var(--mm-ink);
+  background: var(--mm-white);
+}
+
+/* ---------- Header (overrides components.css reds/darks) ---------- */
+body.mm .header,
+body.mm .hero__header {
+  background-color: var(--mm-navy);
+}
+
+body.mm .header__logo img,
+body.mm .footer__logo img {
+  height: 3rem;
+  width: auto;
+}
+
+body.mm .header__nav-link,
+body.mm .hero__nav-link {
+  color: var(--mm-white);
+}
+
+body.mm .header__nav-link:hover,
+body.mm .hero__nav-link:hover {
+  color: var(--mm-tan-light);
+}
+
+body.mm .header__cta,
+body.mm .hero__cta {
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+  font-weight: 700;
+}
+
+body.mm .header__cta:hover,
+body.mm .hero__cta:hover {
+  background-color: var(--mm-tan-light);
+  color: var(--mm-navy);
+}
+
+body.mm .header__mobile-menu {
+  background-color: var(--mm-white);
+}
+
+body.mm .header__mobile-nav-link {
+  color: var(--mm-navy);
+}
+
+/* Interim landing-page mode (Israel, 2026-08-26): About / Essentials /
+   1:1 Intensive are shelved until the Method & Proof page lands, so their
+   nav and footer links render greyed out and inert rather than
+   disappearing - the labels still show visitors what is coming. */
+body.mm .is-disabled {
+  /* no colour here on purpose: the product-card CTAs keep their own
+     (one sits on white, one on navy) and just dim */
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+/* Header and footer sit on navy, so the label has to stay light. */
+body.mm .header .is-disabled,
+body.mm .footer .is-disabled {
+  color: var(--mm-white);
+}
+
+/* ---------- Shared section primitives ---------- */
+.mm-section {
+  padding: 5.5rem 1.5rem;
+}
+
+.mm-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.mm-narrow {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.mm-eyebrow {
+  font-family: var(--mm-font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.mm-h2 {
+  font-family: var(--mm-font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 1.75rem;
+}
+
+.mm-body p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.mm-body p:last-child {
+  margin-bottom: 0;
+}
+
+.mm-btn {
+  display: inline-block;
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+  font-family: var(--mm-font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mm-btn:hover {
+  background-color: var(--mm-tan-light);
+  transform: translateY(-1px);
+}
+
+.mm-textlink {
+  color: var(--mm-tan-light);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.mm-textlink:hover {
+  color: var(--mm-white);
+}
+
+/* ---------- Hero ---------- */
+.mm-hero {
+  background: linear-gradient(180deg, var(--mm-navy) 0%, var(--mm-navy-deep) 100%);
+  color: var(--mm-white);
+  padding: 6.5rem 1.5rem 7rem;
+  text-align: left;
+}
+
+.mm-hero__title {
+  font-family: var(--mm-font-display);
+  font-weight: 900;
+  font-size: clamp(2.25rem, 5.4vw, 4rem);
+  line-height: 1.12;
+  max-width: 17ch;
+  margin-bottom: 1.5rem;
+}
+
+.mm-hero__reframe {
+  font-family: var(--mm-font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  color: var(--mm-tan-light);
+  margin-bottom: 1.5rem;
+}
+
+.mm-hero__support {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.mm-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* ---------- Social proof bar ---------- */
+.mm-proof {
+  background: var(--mm-white);
+  border-bottom: 1px solid rgba(0, 33, 71, 0.08);
+  padding: 3.25rem 1.5rem;
+  text-align: center;
+}
+
+.mm-proof__label {
+  font-family: var(--mm-font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mm-navy);
+  margin-bottom: 2rem;
+}
+
+.mm-proof__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 4.5rem);
+}
+
+.mm-proof__logo {
+  height: 1.75rem;
+  width: auto;
+  max-width: 10rem;
+  object-fit: contain;
+  /* Grayscale at rest, full brand color on hover (Ezekiel review
+     2026-07-15). No brightness() fudge here: light-fill marks sit
+     on a dark chip instead (below), so the resting state is true
+     grayscale rather than an artificial darkening of every logo. */
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+
+.mm-proof__logo:hover,
+.mm-proof__logo:focus {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* White/light-fill marks are invisible against the white proof bar.
+   Seat them on a dark chip rather than recoloring the source artwork,
+   so the supplied SVG stays untouched. The chip is a wrapper, not a
+   background on the <img>, so the logo's grayscale filter does not
+   desaturate the chip along with it. */
+.mm-proof__chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--mm-navy);
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.375rem;
+}
+
+/* ---------- Client success stories (testimonial videos) ----------
+   Full interview cuts are 16:9 (1280x720), which is why Ezekiel's
+   thumbnail cards are 16:9 too. Served from CloudFront.
+   preload="none" keeps video bytes off the initial page load; only
+   the ~65KB poster is fetched. */
+.mm-testimonials {
+  background: var(--mm-white);
+  text-align: center;
+}
+
+.mm-testimonials .mm-eyebrow { color: var(--mm-tan); }
+
+.mm-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.mm-testimonial {
+  margin: 0;
+  width: 100%;
+}
+
+.mm-testimonial__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--mm-navy);
+  border-radius: 6px;
+}
+
+/* Stack on narrow screens */
+@media (max-width: 860px) {
+  .mm-testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ---------- Problem section ---------- */
+.mm-problem {
+  background: var(--mm-white);
+}
+
+.mm-problem .mm-eyebrow { color: var(--mm-tan); }
+.mm-problem .mm-h2 { color: var(--mm-navy); }
+
+/* ---------- Authority section (Dee's voice) ---------- */
+.mm-authority {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+}
+
+/* Dee's photo alongside her voice (Israel, 2026-08-26). */
+.mm-authority__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.mm-authority__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+@media (max-width: 860px) {
+  .mm-authority__grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .mm-authority__media {
+    max-width: 18rem;
+    margin: 0 auto;
+  }
+}
+
+.mm-authority .mm-eyebrow { color: var(--mm-tan-light); }
+.mm-authority .mm-h2 { color: var(--mm-white); }
+.mm-authority .mm-body p { color: rgba(255, 255, 255, 0.88); }
+
+/* ---------- Method section ---------- */
+.mm-method {
+  background: #FBF4E3; /* light tint of the tan family */
+}
+
+.mm-method .mm-eyebrow { color: var(--mm-tan); }
+.mm-method .mm-h2 { color: var(--mm-navy); }
+
+/* ---------- Products section ---------- */
+.mm-products {
+  background: var(--mm-white);
+  text-align: center;
+}
+
+.mm-products .mm-eyebrow { color: var(--mm-tan); }
+
+.mm-products__intro {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 38rem;
+  margin: 0 auto 3.25rem;
+  color: var(--mm-ink);
+}
+
+.mm-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  text-align: left;
+  margin-bottom: 3.25rem;
+}
+
+@media (max-width: 860px) {
+  .mm-products__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mm-card {
+  border-radius: 6px;
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mm-card--light {
+  background: var(--mm-white);
+  border: 2px solid var(--mm-navy);
+  color: var(--mm-ink);
+}
+
+.mm-card--navy {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+}
+
+.mm-card__kicker {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+}
+
+.mm-card--light .mm-card__kicker { color: var(--mm-tan); }
+.mm-card--navy .mm-card__kicker { color: var(--mm-tan-light); }
+
+.mm-card__title {
+  font-family: var(--mm-font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mm-card--light .mm-card__title { color: var(--mm-navy); }
+
+.mm-card__tagline {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.mm-card--navy .mm-card__tagline { color: rgba(255, 255, 255, 0.88); }
+
+.mm-card__list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  flex: 1;
+}
+
+.mm-card__list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.mm-card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--mm-tan);
+}
+
+.mm-card--navy .mm-card__list li { color: rgba(255, 255, 255, 0.88); }
+.mm-card--navy .mm-card__list li::before { background: var(--mm-tan-light); }
+
+.mm-card__link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mm-card--light .mm-card__link { color: var(--mm-navy); border-bottom: 2px solid var(--mm-tan-light); align-self: flex-start; padding-bottom: 2px; }
+.mm-card--navy .mm-card__link { color: var(--mm-tan-light); border-bottom: 2px solid var(--mm-tan-light); align-self: flex-start; padding-bottom: 2px; }
+
+.mm-products__bridge {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.mm-products__bridge-q {
+  font-family: var(--mm-font-display);
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: var(--mm-navy);
+  margin-bottom: 0.75rem;
+}
+
+.mm-products__bridge p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Closing CTA ---------- */
+.mm-close {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  text-align: center;
+}
+
+.mm-close .mm-h2 {
+  color: var(--mm-white);
+  max-width: 24ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mm-close p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 36rem;
+  margin: 0 auto 2.25rem;
+}
+
+/* ---------- Footer ---------- */
+.mm-footer {
+  background: var(--mm-navy-deep);
+  color: var(--mm-white);
+  padding: 4rem 1.5rem 2.5rem;
+}
+
+.mm-footer__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.mm-footer__brand img {
+  height: 3.25rem;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.mm-footer__tagline {
+  font-family: var(--mm-font-display);
+  font-weight: 700;
+  color: var(--mm-tan-light);
+  margin-bottom: 1.25rem;
+}
+
+.mm-footer__socials {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mm-footer__socials img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mm-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+.mm-footer__nav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.mm-footer__nav a:hover {
+  color: var(--mm-tan-light);
+}
+
+.mm-footer__meta {
+  max-width: 1140px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mm-footer__meta a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+/* ---------- Legacy page recolor ----------
+   about/contact/terms/policy keep their existing layouts until their
+   own copy rewrites land; these overrides retire the old red accents
+   so the pages sit coherently inside the new navy/tan/gold brand. */
+
+body.mm .about-hero {
+  background: linear-gradient(rgba(0, 33, 71, 0.88), rgba(0, 23, 48, 0.9)),
+              url('../assets/images/background-about-us.png') center / cover no-repeat;
+}
+
+body.mm .masonry-section__title,
+body.mm .section-header__title,
+body.mm .story__title {
+  color: var(--mm-navy);
+}
+
+body.mm .contact-hero {
+  background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 23, 48, 0.88)),
+              url('../assets/images/background-contact.png') center / cover no-repeat;
+}
+
+body.mm .contact-info__item,
+body.mm .contact-form,
+body.mm .contact-confirmation,
+body.mm .subscription-confirmation {
+  background-color: var(--mm-navy);
+}
+
+body.mm .contact-info__title,
+body.mm .contact-form__title {
+  color: var(--mm-tan-light);
+}
+
+body.mm .masonry-item {
+  background-color: var(--mm-navy);
+  border-color: var(--mm-navy-deep);
+}
+
+body.mm .masonry-item__title {
+  color: var(--mm-tan-light);
+}
+
+body.mm .required-asterisk {
+  color: var(--mm-navy);
+}
+
+body.mm .career-milestone {
+  background-color: var(--mm-navy);
+}
+
+body.mm .career-milestone__button,
+body.mm .contact-form__submit,
+body.mm button[type="submit"] {
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+}
+
+body.mm .career-milestone__button:hover,
+body.mm .contact-form__submit:hover,
+body.mm button[type="submit"]:hover {
+  background-color: var(--mm-tan-light);
+}
+
+body.mm .subscription-confirmation__checkmark-circle {
+  background-color: var(--mm-navy);
+}
+
+/* ---------- Product stub pages ---------- */
+.mm-stub {
+  background: var(--mm-white);
+  min-height: 55vh;
+}
+
+.mm-stub .mm-eyebrow { color: var(--mm-tan); }
+.mm-stub .mm-h2 { color: var(--mm-navy); }
+
+.mm-stub__note {
+  font-size: 1rem;
+  color: rgba(20, 33, 47, 0.65);
+  margin-top: 2rem;
+  font-style: italic;
+}

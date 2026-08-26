@@ -1,5 +1,5 @@
 body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -87,7 +87,7 @@ body {
 }
 
 .benefits__title {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 1.875rem; /* 30px */
   line-height: 2.25rem; /* 36px */
@@ -197,7 +197,7 @@ body {
 
 .program-not__title {
   color: #1D55C4;
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 1.875rem; /* 30px */
     line-height: 2.25rem; /* 36px */
@@ -289,7 +289,7 @@ body {
 }
 
 .coaching-difference__title {
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 1.875rem; /* 30px */
     line-height: 2.25rem; /* 36px */

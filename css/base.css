@@ -11,7 +11,7 @@
 } */
 
 body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -19,13 +19,13 @@ body {
 
 /* === VARIABLES === */
 :root {
-    --color-primary: #C41E3D;
+    --color-primary: #002147;
     --color-secondary: #1D1D1D;
     --color-light-gray: #F0F0F0;
     --color-dark-gray: #212121;
     --color-white: #FFFFFF;
     
-    --font-primary: 'Barlow', sans-serif;
+    --font-primary: 'Raleway', sans-serif;
     --font-secondary: 'Inter', sans-serif;
 
     --spacing-small: 1rem;

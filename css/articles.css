@@ -1,5 +1,5 @@
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -298,13 +298,13 @@ body {
 }
 
 .articles__load-more {
-  font-family: "Barlow", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 0.9375rem; /* 15px */
   font-weight: 600;
   line-height: 1.5rem; /* 24px */
   text-align: center;
   padding: 0.75rem 1.8125rem; /* 15px vertical, 36px horizontal */
-  background-color: #c41e3d;
+  background-color: #002147;
   color: #ffffff;
   border: none;
   border-radius: 0.25rem; /* 4px */
@@ -316,7 +316,7 @@ body {
 }
 
 .articles__load-more:hover {
-  background-color: #a91e1e;
+  background-color: #001730;
 }
 
 .article__link {
@@ -326,7 +326,7 @@ body {
 }
 
 .article__link:hover .article__title {
-  color: #C41E3D;
+  color: #002147;
 }
 
 

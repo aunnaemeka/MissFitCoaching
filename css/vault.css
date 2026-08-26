@@ -1,13 +1,13 @@
 
 
 :root {
-  --color-primary: #C41E3D;
-  --color-dark: #1D1D1D;
+  --color-primary: #002147;
+  --color-dark: #001730;
   --color-bg: #FAFAFA;
   --color-card-bg: #FFFFFF;
   --color-border: #CCCFD9;
 
-  --font-heading: 'Barlow', sans-serif;
+  --font-heading: 'Raleway', sans-serif;
   --font-body: 'Inter', sans-serif;
 
   --max-width: 1296px;

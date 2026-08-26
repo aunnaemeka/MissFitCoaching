@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box; /* Include padding and border in element's total width and height */
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -197,7 +197,7 @@ button, input, select, textarea {
 /* Title Element */
 .coaching-programs__title {
   margin-top: 8.25rem; /* 132px converted to rem */
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.875rem; /* 30px converted to rem */
   font-weight: 700;
   line-height: 2.25rem; /* 36px converted to rem */
@@ -427,7 +427,7 @@ button, input, select, textarea {
 
 .testimonial-slider__quote {
   color: var(--color-white);
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.125rem; /* 20px */
   font-weight: 400;
   line-height: 1.8rem; /* 32px */
@@ -570,7 +570,7 @@ button, input, select, textarea {
 
 .testimonial-slider-2__quote {
   color: var(--color-white);
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.125rem; /* 20px */
   font-weight: 400;
   line-height: 1.8rem; /* 32px */
