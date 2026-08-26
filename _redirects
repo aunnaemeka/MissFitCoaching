@@ -4,3 +4,13 @@
 /workshops/* / 301
 /services/* / 301
 /resources/* / 301
+
+# Interim landing-page mode (Israel, 2026-08-26): the homepage carries the
+# whole experience while Method & Proof copy is written. These three are
+# shelved rather than retired - they come back consolidated.
+/about / 301
+/about.html / 301
+/essentials / 301
+/essentials.html / 301
+/intensive / 301
+/intensive.html / 301

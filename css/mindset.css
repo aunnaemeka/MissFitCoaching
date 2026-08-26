@@ -82,6 +82,26 @@ body.mm .header__mobile-nav-link {
   color: var(--mm-navy);
 }
 
+/* Interim landing-page mode (Israel, 2026-08-26): About / Essentials /
+   1:1 Intensive are shelved until the Method & Proof page lands, so their
+   nav and footer links render greyed out and inert rather than
+   disappearing - the labels still show visitors what is coming. */
+body.mm .is-disabled {
+  /* no colour here on purpose: the product-card CTAs keep their own
+     (one sits on white, one on navy) and just dim */
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+/* Header and footer sit on navy, so the label has to stay light. */
+body.mm .header .is-disabled,
+body.mm .footer .is-disabled {
+  color: var(--mm-white);
+}
+
 /* ---------- Shared section primitives ---------- */
 .mm-section {
   padding: 5.5rem 1.5rem;
@@ -307,6 +327,33 @@ body.mm .header__mobile-nav-link {
 .mm-authority {
   background: var(--mm-navy);
   color: var(--mm-white);
+}
+
+/* Dee's photo alongside her voice (Israel, 2026-08-26). */
+.mm-authority__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.mm-authority__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+@media (max-width: 860px) {
+  .mm-authority__grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .mm-authority__media {
+    max-width: 18rem;
+    margin: 0 auto;
+  }
 }
 
 .mm-authority .mm-eyebrow { color: var(--mm-tan-light); }
