@@ -311,6 +311,71 @@ body.mm .footer .is-disabled {
   border-radius: 0.375rem;
 }
 
+/* ---------- Interior page intro (Method & Proof, Essentials, Insights) --- */
+.mm-hero--page {
+  padding: 4.5rem 1.5rem 4rem;
+}
+
+.mm-hero--page .mm-eyebrow {
+  color: var(--mm-tan-light);
+}
+
+.mm-hero--page .mm-hero__title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  max-width: 24ch;
+}
+
+/* ---------- The five phases ---------- */
+.mm-phases {
+  list-style: none;
+  counter-reset: phase;
+  margin: 2.5rem 0 0;
+  padding: 0;
+}
+
+.mm-phase {
+  counter-increment: phase;
+  position: relative;
+  padding-left: 3.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.mm-phase::before {
+  content: counter(phase);
+  position: absolute;
+  left: 0;
+  top: -0.125rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--mm-navy);
+  color: var(--mm-tan-light);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mm-phase__title {
+  font-family: var(--mm-font-display);
+  font-weight: 800;
+  font-size: 1.1875rem;
+  color: var(--mm-navy);
+  margin-bottom: 0.5rem;
+}
+
+.mm-phase p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.mm-card__subhead {
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+}
+
 /* ---------- Client success stories (testimonial videos) ----------
    Full interview cuts are 16:9 (1280x720), which is why Ezekiel's
    thumbnail cards are 16:9 too. Served from CloudFront.
@@ -343,6 +408,36 @@ body.mm .footer .is-disabled {
   object-fit: cover;
   background: var(--mm-navy);
   border-radius: 6px;
+}
+
+/* Quote beneath each story. Clients are credited by initials only
+   (MM-22: no client names anywhere on the site). */
+.mm-testimonial__quote {
+  margin: 1.25rem 0 0;
+  text-align: left;
+}
+
+.mm-testimonial__quote p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--mm-ink);
+  margin: 0 0 0.75rem;
+}
+
+.mm-testimonial__quote cite {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--mm-navy);
+}
+
+/* A story with no video yet still reads as a card, not a gap. */
+.mm-testimonial--text .mm-testimonial__quote {
+  background: #FBF4E3;
+  border-radius: 6px;
+  padding: 2rem 1.875rem;
+  margin-top: 0;
+  height: 100%;
 }
 
 /* Stack on narrow screens */
