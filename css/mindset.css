@@ -216,6 +216,42 @@ body.mm .footer .is-disabled {
   gap: 1.75rem;
 }
 
+/* ---------- Two ways to work with us, early preview ----------
+   Short teaser on the homepage; the full comparison lives on
+   Method & Proof (MM-22 final copy). */
+.mm-preview {
+  background: var(--mm-white);
+  text-align: center;
+  padding-block: 4rem;
+}
+
+.mm-preview .mm-h2 {
+  color: var(--mm-navy);
+  margin-bottom: 1rem;
+}
+
+.mm-preview__body {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--mm-ink);
+  max-width: 34rem;
+  margin: 0 auto 1.5rem;
+}
+
+.mm-preview .mm-textlink,
+.mm-method__link .mm-textlink {
+  color: var(--mm-navy);
+}
+
+.mm-preview .mm-textlink:hover,
+.mm-method__link .mm-textlink:hover {
+  color: var(--mm-tan);
+}
+
+.mm-method__link {
+  margin-top: 1.75rem;
+}
+
 /* ---------- Social proof bar ---------- */
 .mm-proof {
   background: var(--mm-white);
@@ -232,18 +268,20 @@ body.mm .footer .is-disabled {
   margin-bottom: 2rem;
 }
 
+/* Six marks on a single row at desktop (MM-22: "Logos, one row"),
+   wrapping only once there genuinely is not room. */
 .mm-proof__logos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: clamp(2rem, 6vw, 4.5rem);
+  gap: clamp(1.25rem, 3.2vw, 2.75rem);
 }
 
 .mm-proof__logo {
-  height: 1.75rem;
+  height: 1.5rem;
   width: auto;
-  max-width: 10rem;
+  max-width: 8rem;
   object-fit: contain;
   /* Grayscale at rest, full brand color on hover (Ezekiel review
      2026-07-15). No brightness() fudge here: light-fill marks sit
