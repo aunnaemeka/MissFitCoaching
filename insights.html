@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Search Resources | MissFit Coaching</title>
-    <meta name="description" content="The Search Is the Problem: a new book on why executive job searches stall, and what works instead. Get notified when it launches.">
+    <title>Career Search Insights | MissFit Coaching</title>
+    <meta name="description" content="Direct, practical insights on why executive searches stall and what moves them, from 30 years of hiring experience.">
 
     <link rel="icon" href="assets/icons/favicon-mindset.svg" type="image/svg+xml">
     <link rel="alternate icon" href="assets/icons/favicon-mindset.png" type="image/png">
@@ -50,50 +50,44 @@
 </header>
 
 <!--
-  MM-22, note for Josh: "This page is intentionally partial today. Build it
-  so it's easy to extend, not a fixed one-item layout." Hence .mm-shelf — a
-  list of resource items. The course, the second book and the workshop
-  collateral each drop in as another .mm-shelf__item when they are ready.
+  MM-22 technical requirement: "CMS platform is Josh's call. Hard
+  requirement: Damola must be able to publish directly, no dev request per
+  post. Posts sync with Substack on the same schedule."
+
+  The page below is the shell only. The post list is NOT wired to a CMS yet
+  because the platform has not been chosen. Worth noting before choosing:
+  this repo already ships a Sanity studio (studio-missfit-coaching/,
+  project 6lsv3s2h) with `article` and `newsletter` schemas, and the
+  production dataset already holds 8 articles and 2 newsletters. The old
+  resources/articles.html rendered them before /resources/* was redirected
+  away. Its categories are the pre-rebrand service taxonomy and would need
+  remapping to the five below.
 -->
 
-<!-- HERO: THE BOOK -->
+<!-- PAGE INTRO -->
 <section class="mm-hero mm-hero--page">
   <div class="mm-container">
-    <p class="mm-eyebrow">The search is the problem</p>
-    <h1 class="mm-hero__title">The book that demystifies the search.</h1>
+    <p class="mm-eyebrow">Insights</p>
+    <h1 class="mm-hero__title">What we&rsquo;ve learned from thirty years of hiring, and every search since.</h1>
   </div>
 </section>
 
-<section class="mm-section mm-shelf">
+<!-- CATEGORIES -->
+<section class="mm-section mm-insights">
   <div class="mm-container">
+    <nav class="mm-insights__cats" aria-label="Insight categories">
+      <span class="mm-insights__cat">Diagnosing the Search</span>
+      <span class="mm-insights__cat">Building the Strategy</span>
+      <span class="mm-insights__cat">Market-Ready</span>
+      <span class="mm-insights__cat">Go-to-Market</span>
+      <span class="mm-insights__cat">Landing and Onboarding</span>
+    </nav>
 
-    <article class="mm-shelf__item">
-      <div class="mm-shelf__media">
-        <!-- TODO(MM-22): replace with the supplied jacket art, "Full book-1.png".
-             Placeholder kept deliberately so nothing 404s before it arrives. -->
-        <div class="mm-bookph" role="img" aria-label="The Search Is the Problem — cover art to come">
-          <span class="mm-bookph__title">The Search<br>Is the Problem</span>
-          <span class="mm-bookph__note">Cover to come</span>
-        </div>
-      </div>
-
-      <div class="mm-shelf__text">
-        <p class="mm-shelf__kicker">Book</p>
-        <h2 class="mm-h2">The Search Is the Problem</h2>
-        <div class="mm-body">
-          <p>Most executives believe a stalled job search means something is wrong with them. It rarely does. <em>The Search Is the Problem</em> argues that the mechanism senior professionals rely on, applying online, waiting to be found, has silently stopped working, and shows what replaces it: precision over volume, positioning over performance, conversations over applications.</p>
-        </div>
-        <p class="mm-shelf__status">Coming soon, be the first to know when it&rsquo;s live.</p>
-
-        <!-- TODO(MM-22): swap for the GoHighLevel embed once a form exists that
-             tags submissions "book-launch-list". Inert until then: no action,
-             no field, so nobody can submit into a void. -->
-        <div class="mm-notify" data-ghl-tag="book-launch-list">
-          <p class="mm-notify__pending">Launch notifications open shortly.</p>
-        </div>
-      </div>
-    </article>
-
+    <!-- TODO(MM-22): post list renders here once the CMS is chosen and wired.
+         Categories above become the filter control at the same time. -->
+    <div class="mm-insights__pending">
+      <p>New writing is on the way.</p>
+    </div>
   </div>
 </section>
 
