@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Transactional pages — no search value, and they leak funnel state.
+Disallow: /success
+Disallow: /success.html
+Disallow: /thank-you
+Disallow: /thank-you.html
+Disallow: /pages/success
+Disallow: /pages/success.html
+
+Sitemap: https://missfitcoaching.com/sitemap.xml
