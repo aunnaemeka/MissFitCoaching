@@ -1,16 +1,46 @@
-# MissFit Mindset rebrand (MFM-BD-011): pages dropped from the new IA
-# redirect to the homepage per Josh's decision (2026-07-11).
-/coaching/* / 301
-/workshops/* / 301
-/services/* / 301
-/resources/* / 301
+# MissFit Coaching — redirect map
+#
+# Source: MM-22 "Final Website Copy v4", section "Redirect Mapping —
+# Retiring Pages". Israel's instruction: "Each needs a 301 redirect to its
+# listed destination, not a domain-wide redirect."
+#
+# The live set is four pages: / , /essentials , /method-and-proof ,
+# /insights. Terms of Service and Privacy Policy stay live as-is and are
+# deliberately absent from this file. So are /success and /thank-you —
+# success is the Stripe return URL and redirecting it breaks checkout.
+#
+# Cloudflare Pages takes the first match, so the specific rules below come
+# before the directory wildcards.
 
-# Interim landing-page mode (Israel, 2026-08-26): the homepage carries the
-# whole experience while Method & Proof copy is written. These three are
-# shelved rather than retired - they come back consolidated.
-/about / 301
-/about.html / 301
-/essentials / 301
-/essentials.html / 301
-/intensive / 301
-/intensive.html / 301
+# --- About -> Method & Proof (content absorbed into Section 1) ---
+/about                                      /method-and-proof   301
+/about.html                                 /method-and-proof   301
+
+# --- 1:1 Intensive -> Method & Proof (absorbed into Two Ways to Work) ---
+/intensive                                  /method-and-proof   301
+/intensive.html                             /method-and-proof   301
+
+# --- Coaching pages -> Method & Proof (absorbed into Two Ways to Work) ---
+/coaching/executive-coaching.html           /method-and-proof   301
+/coaching/career-coaching.html              /method-and-proof   301
+/coaching/job-search-coaching.html          /method-and-proof   301
+/coaching/*                                 /method-and-proof   301
+
+# --- Resume writing -> Method & Proof (covered by Essentials / 1:1) ---
+/services/resume.html                       /method-and-proof   301
+/services/*                                 /method-and-proof   301
+
+# --- Articles and Newsletter -> Insights (direct successor) ---
+/resources/articles.html                    /insights           301
+/resources/article-selected.html            /insights           301
+/resources/newsletter.html                  /insights           301
+/resources/newsletter-selected.html         /insights           301
+/resources/*                                /insights           301
+
+# --- Workshop / LinkedIn Engine -> Homepage ---
+# No dedicated workshop page yet; revisit once the workshop has a firm date.
+/workshops/*                                /                   301
+
+# --- Contact -> Homepage (Book a Diagnostic replaces generic contact) ---
+/contact                                    /                   301
+/contact.html                               /                   301
