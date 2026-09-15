@@ -1,46 +1,178 @@
-# MissFit Coaching — redirect map
+# MissFit Coaching - redirect map
 #
-# Source: MM-22 "Final Website Copy v4", section "Redirect Mapping —
-# Retiring Pages". Israel's instruction: "Each needs a 301 redirect to its
-# listed destination, not a domain-wide redirect."
+# Source: MM-22 "Final Website Copy v4", section "Redirect Mapping - Retiring
+# Pages", plus Israel in Slack on 2026-09-15: "I trust your judgment. We can
+# redirect all of these sites to the closest equivalent page instead of a
+# blanket homepage redirect."
 #
-# The live set is four pages: / , /essentials , /method-and-proof ,
-# /insights. Terms of Service and Privacy Policy stay live as-is and are
-# deliberately absent from this file. So are /success and /thank-you —
-# success is the Stripe return URL and redirecting it breaks checkout.
+# So nothing here lands on / any more. Every retired page goes to the page
+# that inherited its job:
 #
-# Cloudflare Pages takes the first match, so the specific rules below come
-# before the directory wildcards.
+#   the coaching engagement, about, enquiry  ->  /method-and-proof
+#   anything you could buy or download       ->  /essentials
+#   articles and the newsletter              ->  /insights
+#
+# The live set is six pages: / , /essentials , /method-and-proof , /insights ,
+# /terms , /policy. Terms and Privacy are deliberately absent from this file.
+# So are /success and /thank-you: success is the Stripe return URL and
+# redirecting it breaks checkout.
+#
+# Both spellings of each path are listed. Pages 308s /x.html to /x on its own,
+# so the extensionless rule alone would work, but inbound links from the
+# Teachable era are nearly all .html and one hop beats two.
+#
+# Cloudflare Pages takes the first match, so specific rules precede the
+# directory wildcards at the foot of the file.
 
-# --- About -> Method & Proof (content absorbed into Section 1) ---
-/about                                      /method-and-proof   301
-/about.html                                 /method-and-proof   301
 
-# --- 1:1 Intensive -> Method & Proof (absorbed into Two Ways to Work) ---
-/intensive                                  /method-and-proof   301
-/intensive.html                             /method-and-proof   301
+# --- About and the 1:1 engagement -> Method & Proof ---
+# MM-22 absorbs both into Section 1 and 'Two Ways to Work With Us'.
+/about                                             /method-and-proof      301
+/about.html                                        /method-and-proof      301
+/intensive                                         /method-and-proof      301
+/intensive.html                                    /method-and-proof      301
 
-# --- Coaching pages -> Method & Proof (absorbed into Two Ways to Work) ---
-/coaching/executive-coaching.html           /method-and-proof   301
-/coaching/career-coaching.html              /method-and-proof   301
-/coaching/job-search-coaching.html          /method-and-proof   301
-/coaching/*                                 /method-and-proof   301
+# --- Coaching service pages -> Method & Proof ---
+# The engagement they described is the one Two Ways now describes.
+/coaching/career-coaching                          /method-and-proof      301
+/coaching/career-coaching.html                     /method-and-proof      301
+/coaching/career-coaching-flexible                 /method-and-proof      301
+/coaching/career-coaching-flexible.html            /method-and-proof      301
+/coaching/career-coaching-upfront                  /method-and-proof      301
+/coaching/career-coaching-upfront.html             /method-and-proof      301
+/coaching/executive-coaching                       /method-and-proof      301
+/coaching/executive-coaching.html                  /method-and-proof      301
+/coaching/job-search-coaching                      /method-and-proof      301
+/coaching/job-search-coaching.html                 /method-and-proof      301
+/interview-coaching                                /method-and-proof      301
+/interview-coaching.html                           /method-and-proof      301
 
-# --- Resume writing -> Method & Proof (covered by Essentials / 1:1) ---
-/services/resume.html                       /method-and-proof   301
-/services/*                                 /method-and-proof   301
+# --- Enquiry and booking -> Method & Proof ---
+# Every one of these was a way to start a conversation. Two Ways carries
+# the diagnostic booking that replaced them, so land people there rather
+# than on a homepage they then have to re-navigate.
+/contact                                           /method-and-proof#two-ways 301
+/contact.html                                      /method-and-proof#two-ways 301
+/appointment-booking                               /method-and-proof#two-ways 301
+/appointment-booking.html                          /method-and-proof#two-ways 301
+/coaching-application                              /method-and-proof#two-ways 301
+/coaching-application.html                         /method-and-proof#two-ways 301
+/resources/coaching-form                           /method-and-proof#two-ways 301
+/resources/coaching-form.html                      /method-and-proof#two-ways 301
 
-# --- Articles and Newsletter -> Insights (direct successor) ---
-/resources/articles.html                    /insights           301
-/resources/article-selected.html            /insights           301
-/resources/newsletter.html                  /insights           301
-/resources/newsletter-selected.html         /insights           301
-/resources/*                                /insights           301
+# --- Articles and the newsletter -> Insights ---
+# Direct successor.
+/resources/articles                                /insights              301
+/resources/articles.html                           /insights              301
+/resources/article-selected                        /insights              301
+/resources/article-selected.html                   /insights              301
+/resources/newsletter                              /insights              301
+/resources/newsletter.html                         /insights              301
+/resources/newsletter-selected                     /insights              301
+/resources/newsletter-selected.html                /insights              301
 
-# --- Workshop / LinkedIn Engine -> Homepage ---
-# No dedicated workshop page yet; revisit once the workshop has a firm date.
-/workshops/*                                /                   301
+# --- Resume products -> MissFit Essentials ---
+# Written collateral you buy. That is what Essentials is for.
+/complex-resume                                    /essentials            301
+/complex-resume.html                               /essentials            301
+/one-page-resume                                   /essentials            301
+/one-page-resume.html                              /essentials            301
+/federal-resume                                    /essentials            301
+/federal-resume.html                               /essentials            301
+/cv-education                                      /essentials            301
+/cv-education.html                                 /essentials            301
+/statement-qualifications                          /essentials            301
+/statement-qualifications.html                     /essentials            301
+/tailored-complex-5                                /essentials            301
+/tailored-complex-5.html                           /essentials            301
+/tailored-simple-10                                /essentials            301
+/tailored-simple-10.html                           /essentials            301
+/services/resume                                   /essentials            301
+/services/resume.html                              /essentials            301
+/services/basic-resume-package                     /essentials            301
+/services/basic-resume-package.html                /essentials            301
+/services/essentials-resume-package                /essentials            301
+/services/essentials-resume-package.html           /essentials            301
+/services/premier-resume-package                   /essentials            301
+/services/premier-resume-package.html              /essentials            301
+/services/professional-resume-package              /essentials            301
+/services/professional-resume-package.html         /essentials            301
 
-# --- Contact -> Homepage (Book a Diagnostic replaces generic contact) ---
-/contact                                    /                   301
-/contact.html                               /                   301
+# --- Letter and email templates -> MissFit Essentials ---
+# Same shelf: a downloadable someone paid for.
+/acceptance-letter                                 /essentials            301
+/acceptance-letter.html                            /essentials            301
+/application-status                                /essentials            301
+/application-status.html                           /essentials            301
+/farewell-letter                                   /essentials            301
+/farewell-letter.html                              /essentials            301
+/gratitude-notes                                   /essentials            301
+/gratitude-notes.html                              /essentials            301
+/introduction-letter                               /essentials            301
+/introduction-letter.html                          /essentials            301
+/job-offer-negotiation                             /essentials            301
+/job-offer-negotiation.html                        /essentials            301
+/never-quit                                        /essentials            301
+/never-quit.html                                   /essentials            301
+/offer-negotiation                                 /essentials            301
+/offer-negotiation.html                            /essentials            301
+/resignation-letter                                /essentials            301
+/resignation-letter.html                           /essentials            301
+/story-starter                                     /essentials            301
+/story-starter.html                                /essentials            301
+/target-company-list                               /essentials            301
+/target-company-list.html                          /essentials            301
+
+# --- Courses, workshops and guides -> MissFit Essentials ---
+# Israel's note says Essentials is deliberately partial and will grow. These
+# are the products that grow it, so this is where their traffic belongs.
+/career-resilience                                 /essentials            301
+/career-resilience.html                            /essentials            301
+/clifton-strengths                                 /essentials            301
+/clifton-strengths.html                            /essentials            301
+/decode-ats                                        /essentials            301
+/decode-ats.html                                   /essentials            301
+/executive-search                                  /essentials            301
+/executive-search.html                             /essentials            301
+/hidden-job-market                                 /essentials            301
+/hidden-job-market.html                            /essentials            301
+/interview-mastery                                 /essentials            301
+/interview-mastery.html                            /essentials            301
+/interview-coaching-workshop                       /essentials            301
+/interview-coaching-workshop.html                  /essentials            301
+/custom-interview-prep                             /essentials            301
+/custom-interview-prep.html                        /essentials            301
+/linkedin-basics                                   /essentials            301
+/linkedin-basics.html                              /essentials            301
+/linkedin-tutorial                                 /essentials            301
+/linkedin-tutorial.html                            /essentials            301
+/momentum-mechanics                                /essentials            301
+/momentum-mechanics.html                           /essentials            301
+/network-without-pain                              /essentials            301
+/network-without-pain.html                         /essentials            301
+/onboarding-accelerator                            /essentials            301
+/onboarding-accelerator.html                       /essentials            301
+/rise-up                                           /essentials            301
+/rise-up.html                                      /essentials            301
+/webinar                                           /essentials            301
+/webinar.html                                      /essentials            301
+/email-support-1m                                  /essentials            301
+/email-support-1m.html                             /essentials            301
+/email-support-3m                                  /essentials            301
+/email-support-3m.html                             /essentials            301
+/workshops/linkedin-drill                          /essentials            301
+/workshops/linkedin-drill.html                     /essentials            301
+/workshops/linkedin-drill-early-bird-package       /essentials            301
+/workshops/linkedin-drill-early-bird-package.html  /essentials            301
+/workshops/linkedin-drill-standard-package         /essentials            301
+/workshops/linkedin-drill-standard-package.html    /essentials            301
+/resources/vault                                   /essentials            301
+/resources/vault.html                              /essentials            301
+
+# --- Directory catch-alls ---
+# Anything under these prefixes that is not named above. Kept last so the
+# specific rules win, and kept at all so a stray old link never 404s.
+/coaching/*                                        /method-and-proof      301
+/services/*                                        /essentials            301
+/workshops/*                                       /essentials            301
+/resources/*                                       /insights              301
