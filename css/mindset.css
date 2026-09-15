@@ -610,6 +610,8 @@ body.mm .footer .is-disabled {
 }
 
 .mm-testimonial {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   width: 100%;
 }
@@ -645,13 +647,51 @@ body.mm .footer .is-disabled {
   color: var(--mm-navy);
 }
 
-/* A story with no video yet still reads as a card, not a gap. */
-.mm-testimonial--text .mm-testimonial__quote {
+/* A story with no video still reads as a card, not a gap. The card is the
+   figure, so a portrait and the PDF link sit inside it with the quote. */
+.mm-testimonial--text {
   background: #FBF4E3;
   border-radius: 6px;
   padding: 2rem 1.875rem;
+}
+
+.mm-testimonial--text .mm-testimonial__quote {
   margin-top: 0;
-  height: 100%;
+}
+
+.mm-testimonial__portrait {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Link to the full written story. Sits at the foot of the figure so the two
+   columns line up whatever length the quotes run to. */
+.mm-testimonial__card {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--mm-navy);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.mm-testimonial__card:hover,
+.mm-testimonial__card:focus-visible {
+  color: var(--mm-tan);
+  text-decoration: underline;
+}
+
+.mm-testimonial__card-meta {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: rgba(0, 33, 71, 0.6);
 }
 
 /* Stack on narrow screens */
