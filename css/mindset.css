@@ -416,6 +416,18 @@ body.mm .footer .is-disabled {
 }
 
 /* Stand-in for the jacket art until it is supplied */
+.mm-shelf__jacket {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  /* The mockup is a lit 3D render on white; a soft drop shadow keeps it
+     sitting on the page instead of floating in a white rectangle. */
+  filter: drop-shadow(0 12px 24px rgba(0, 33, 71, 0.18));
+}
+
+/* Placeholder for shelf items whose art has not arrived. The book's has, but
+   the course and workshop collateral will land the same way. */
 .mm-bookph {
   aspect-ratio: 2 / 3;
   border-radius: 4px;
@@ -446,6 +458,17 @@ body.mm .footer .is-disabled {
 
 .mm-notify {
   margin-top: 1.5rem;
+}
+
+/* GoHighLevel injects its own height once form_embed.js runs. The min-height
+   stops the page jumping while that loads, and is a usable fallback if the
+   script is blocked. */
+.mm-notify iframe {
+  display: block;
+  width: 100%;
+  min-height: 19rem;
+  border: none;
+  border-radius: 8px;
 }
 
 .mm-notify__pending {

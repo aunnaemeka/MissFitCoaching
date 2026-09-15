@@ -55,6 +55,11 @@
   so it's easy to extend, not a fixed one-item layout." Hence .mm-shelf — a
   list of resource items. The course, the second book and the workshop
   collateral each drop in as another .mm-shelf__item when they are ready.
+
+  The jacket art and the launch-list form both landed 2026-09-15, so the two
+  placeholders that stood here are gone. The GoHighLevel script at the foot of
+  the page drives the iframe's height; without it the form renders at a fixed
+  stub height and the submit button falls below the fold.
 -->
 
 <!-- HERO: THE BOOK -->
@@ -70,12 +75,13 @@
 
     <article class="mm-shelf__item">
       <div class="mm-shelf__media">
-        <!-- TODO(MM-22): replace with the supplied jacket art, "Full book-1.png".
-             Placeholder kept deliberately so nothing 404s before it arrives. -->
-        <div class="mm-bookph" role="img" aria-label="The Search Is the Problem — cover art to come">
-          <span class="mm-bookph__title">The Search<br>Is the Problem</span>
-          <span class="mm-bookph__note">Cover to come</span>
-        </div>
+        <picture>
+          <source srcset="assets/images/book-search-is-the-problem.webp" type="image/webp">
+          <img class="mm-shelf__jacket"
+               src="assets/images/book-search-is-the-problem.jpg"
+               width="576" height="884"
+               alt="The Search Is the Problem, by Dacia &ldquo;Dee&rdquo; DeRidder">
+        </picture>
       </div>
 
       <div class="mm-shelf__text">
@@ -86,11 +92,24 @@
         </div>
         <p class="mm-shelf__status">Coming soon, be the first to know when it&rsquo;s live.</p>
 
-        <!-- TODO(MM-22): swap for the GoHighLevel embed once a form exists that
-             tags submissions "book-launch-list". Inert until then: no action,
-             no field, so nobody can submit into a void. -->
+        <!-- GoHighLevel, form id iUMxn3C7qoTB8T97rQ6Q, tags submissions
+             "book-launch-list". Supplied by Israel 2026-09-15. The iframe sizes
+             itself through form_embed.js, so the wrapper carries the height. -->
         <div class="mm-notify" data-ghl-tag="book-launch-list">
-          <p class="mm-notify__pending">Launch notifications open shortly.</p>
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/iUMxn3C7qoTB8T97rQ6Q"
+            id="inline-iUMxn3C7qoTB8T97rQ6Q"
+            title="Book Launch List"
+            loading="lazy"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-activation-type="alwaysActivated"
+            data-deactivation-type="neverDeactivate"
+            data-form-name="Book Launch List"
+            data-layout-iframe-id="inline-iUMxn3C7qoTB8T97rQ6Q"
+            data-form-id="iUMxn3C7qoTB8T97rQ6Q"
+            data-cookie-consent="true"
+            data-cookie-consent-provider="auto"></iframe>
         </div>
       </div>
     </article>
@@ -137,6 +156,8 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
+<!-- Resizes the GoHighLevel form iframe to its content. -->
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 
 </body>
 </html>
