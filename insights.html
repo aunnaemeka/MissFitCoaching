@@ -85,8 +85,14 @@
       <button type="button" class="mm-insights__cat" data-cat="Landing and Onboarding">Landing and Onboarding</button>
     </nav>
 
-    <div class="mm-insights__list" id="insights-list" aria-live="polite">
-      <p class="mm-insights__state">Loading&hellip;</p>
+    <div class="mm-insights__list" id="insights-list" aria-live="polite" aria-busy="true">
+      <!-- Skeleton, replaced the moment the query settles. A bare "Loading..."
+           on an otherwise empty page reads as a broken page, which is exactly
+           how it was reported. -->
+      <div class="mm-post mm-post--skeleton" aria-hidden="true"></div>
+      <div class="mm-post mm-post--skeleton" aria-hidden="true"></div>
+      <div class="mm-post mm-post--skeleton" aria-hidden="true"></div>
+      <p class="mm-insights__sr" role="status">Loading insights&hellip;</p>
     </div>
   </div>
 </section>
@@ -141,6 +147,9 @@
   // fetch only succeeds from the real domain. Add localhost in Sanity's API
   // settings if you want it working against the local preview.
   var PROJECT = '6lsv3s2h', DATASET = 'production', API = 'v2021-10-21';
+  var SUBSTACK = 'https://dehurter.substack.com';
+  // A hung request must not leave the page sitting on a skeleton forever.
+  var TIMEOUT_MS = 8000;
   var QUERY =
     '*[_type == "article" && !(_id in path("drafts.**"))] | order(publishedAt desc) {' +
     'title, "slug": slug.current, category, excerpt, readingTime, publishedAt,' +
@@ -180,28 +189,65 @@
       '</article>';
   }
 
+  /* Every terminal state says what happened and offers somewhere to go. The
+     newsletter is the live home of this writing, so an Insights index with
+     nothing in it should still send a reader there rather than dead-end. */
+  // `body` is injected as HTML so these states can carry a link; every caller
+  // passes a literal defined here. Never pass CMS or URL data through it.
+  function state(headline, body) {
+    listEl.setAttribute('aria-busy', 'false');
+    listEl.innerHTML =
+      '<div class="mm-insights__state">' +
+        '<p class="mm-insights__state-head">' + esc(headline) + '</p>' +
+        (body ? '<p>' + body + '</p>' : '') +
+      '</div>';
+  }
+
+  var NEWSLETTER =
+    'In the meantime, the newsletter goes out most weeks: ' +
+    '<a href="' + SUBSTACK + '" target="_blank" rel="noopener">read it on Substack</a>.';
+
   function render() {
     var shown = active ? posts.filter(function (p) { return p.category === active; }) : posts;
-    if (!shown.length) {
-      listEl.innerHTML = '<p class="mm-insights__state">' +
-        (posts.length ? 'Nothing in this category yet.' : 'New writing is on the way.') +
-        '</p>';
-      return;
+
+    if (!posts.length) {
+      return state('New writing is on the way.', NEWSLETTER);
     }
+    if (!shown.length) {
+      return state('Nothing in this category yet.',
+        'Try another category, or <button type="button" class="mm-insights__reset">see everything</button>.');
+    }
+    listEl.setAttribute('aria-busy', 'false');
     listEl.innerHTML = shown.map(card).join('');
+  }
+
+  function select(cat) {
+    active = cat || '';
+    Array.prototype.forEach.call(catsEl.querySelectorAll('[data-cat]'), function (b) {
+      b.classList.toggle('is-active', (b.getAttribute('data-cat') || '') === active);
+    });
+    render();
   }
 
   if (catsEl) {
     catsEl.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-cat]');
-      if (!btn) return;
-      active = btn.getAttribute('data-cat') || '';
-      Array.prototype.forEach.call(catsEl.querySelectorAll('[data-cat]'), function (b) {
-        b.classList.toggle('is-active', b === btn);
-      });
-      render();
+      if (btn) select(btn.getAttribute('data-cat'));
     });
   }
+
+  // "see everything" inside the no-matches state
+  listEl.addEventListener('click', function (e) {
+    if (e.target.classList.contains('mm-insights__reset')) select('');
+  });
+
+  var settled = false;
+  var timer = setTimeout(function () {
+    if (!settled) {
+      settled = true;
+      state('Insights are taking longer than usual to load.', NEWSLETTER);
+    }
+  }, TIMEOUT_MS);
 
   fetch('https://' + PROJECT + '.apicdn.sanity.io/' + API + '/data/query/' + DATASET +
         '?query=' + encodeURIComponent(QUERY))
@@ -209,9 +255,16 @@
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     })
-    .then(function (d) { posts = d.result || []; render(); })
+    .then(function (d) {
+      if (settled) return;
+      settled = true; clearTimeout(timer);
+      posts = d.result || [];
+      render();
+    })
     .catch(function () {
-      listEl.innerHTML = '<p class="mm-insights__state">Insights are unavailable right now.</p>';
+      if (settled) return;
+      settled = true; clearTimeout(timer);
+      state('Insights are unavailable right now.', NEWSLETTER);
     });
 })();
 </script>

@@ -515,10 +515,70 @@ body.mm .footer .is-disabled {
   color: var(--mm-white);
 }
 
+/* Terminal states live inside the post grid, so they have to span it rather
+   than sit in the first column looking like a stray card. */
 .mm-insights__state {
-  margin-top: 3rem;
+  grid-column: 1 / -1;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+  text-align: center;
   color: var(--mm-ink);
-  opacity: 0.7;
+}
+
+.mm-insights__state p {
+  margin: 0;
+  opacity: 0.75;
+}
+
+.mm-insights__state-head {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--mm-navy);
+  margin-bottom: 0.5rem !important;
+  opacity: 1 !important;
+}
+
+.mm-insights__reset {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--mm-navy);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Announced to screen readers while the skeleton is on screen. */
+.mm-insights__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Placeholder cards. Shaped like the real thing so the layout does not jump
+   when the posts arrive. */
+.mm-post--skeleton {
+  min-height: 19rem;
+  background: linear-gradient(100deg,
+      rgba(0, 33, 71, 0.04) 30%,
+      rgba(0, 33, 71, 0.08) 50%,
+      rgba(0, 33, 71, 0.04) 70%) 0 0 / 300% 100%;
+  animation: mm-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes mm-shimmer {
+  to { background-position: -150% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-post--skeleton { animation: none; }
 }
 
 .mm-insights__list {
