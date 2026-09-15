@@ -292,6 +292,13 @@ body.mm .footer .is-disabled {
   margin-top: 2.5rem;
 }
 
+/* One cleared story left: centre it rather than leave a dead half-column.
+   Reverts to two columns on its own when the next video lands. */
+.mm-testimonials__grid:has(> .mm-testimonial:only-child) {
+  grid-template-columns: minmax(0, 34rem);
+  justify-content: center;
+}
+
 .mm-testimonial {
   margin: 0;
   width: 100%;

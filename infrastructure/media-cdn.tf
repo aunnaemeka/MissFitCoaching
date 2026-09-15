@@ -100,6 +100,27 @@ data "aws_iam_policy_document" "marketing_media" {
       values   = [aws_cloudfront_distribution.media.arn]
     }
   }
+
+  # Consent takedown, 2026-09-15. Israel Okunaya: this client never confirmed
+  # consent, so her footage must not be reachable, including by anyone who
+  # still has the CDN URL. The objects are kept rather than deleted so the
+  # decision stays reversible; the Deny is what makes them unservable.
+  # Do not drop this statement without written consent on file.
+  statement {
+    sid       = "DenyUnconsentedTestimonialMedia"
+    effect    = "Deny"
+    actions   = ["s3:GetObject"]
+
+    resources = [
+      "${aws_s3_bucket.marketing_media.arn}/video/full-vidya-venkat.mp4",
+      "${aws_s3_bucket.marketing_media.arn}/video/testimonial-vidya-venkat.mp4",
+    ]
+
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+  }
 }
 
 resource "aws_s3_bucket_policy" "marketing_media" {
