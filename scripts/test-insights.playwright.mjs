@@ -24,6 +24,11 @@
  * Images use loading="lazy", so they must be scrolled into view before being
  * measured, and decode() is the reliable check - naturalWidth is 0 for a lazy
  * image that simply has not loaded yet, which looks identical to a failure.
+ *
+ * Third trap, added with the loading skeletons: they are .mm-post too, so that
+ * the grid does not resize when the real cards replace them. Every count here
+ * therefore says .mm-post:not(.mm-post--skeleton), or three placeholders read
+ * as three articles.
  */
 async (page) => {
 
@@ -68,8 +73,8 @@ async (page) => {
 
   // ---- 1. renders live data ------------------------------------------------
   await reset(payload, 't=live');
-  await page.waitForSelector('.mm-post', { timeout: 15000 });
-  const cards = await page.locator('.mm-post').count();
+  await page.waitForSelector('.mm-post:not(.mm-post--skeleton)', { timeout: 15000 });
+  const cards = await page.locator('.mm-post:not(.mm-post--skeleton)').count();
   tests.push(ok(cards === live.length, 'renders every published article', `${cards} cards / ${live.length} in dataset`));
 
   // ---- 2. drafts excluded --------------------------------------------------
@@ -103,25 +108,53 @@ async (page) => {
 
   // ---- 5. category filter --------------------------------------------------
   await page.getByRole('button', { name: 'Go-to-Market' }).click();
-  const emptyCat = await page.locator('.mm-post').count();
+  const emptyCat = await page.locator('.mm-post:not(.mm-post--skeleton)').count();
   const emptyMsg = await page.locator('.mm-insights__state').innerText();
   tests.push(ok(emptyCat === 0 && /Nothing in this category/i.test(emptyMsg),
     'filter with no matches shows its own message', emptyMsg));
 
   await page.getByRole('button', { name: 'All', exact: true }).click();
-  tests.push(ok((await page.locator('.mm-post').count()) === live.length, 'filter resets'));
+  tests.push(ok((await page.locator('.mm-post:not(.mm-post--skeleton)').count()) === live.length, 'filter resets'));
+
+  await page.getByRole('button', { name: 'Go-to-Market' }).click();
+
+  const resetLink = await page.locator('.mm-insights__reset').count();
+  await page.locator('.mm-insights__reset').click();
+  tests.push(ok(resetLink === 1 && (await page.locator('.mm-post:not(.mm-post--skeleton)').count()) === live.length &&
+    (await page.locator('.mm-insights__cat.is-active').innerText()).trim() === 'All',
+    'the no-matches state can get you back to All'));
 
   // ---- 6. empty dataset ----------------------------------------------------
   await reset(JSON.stringify({ result: [] }), 't=empty');
-  tests.push(ok(/New writing is on the way/i.test(await page.locator('.mm-insights__state').innerText()),
-    'empty dataset shows the coming-soon state'));
+  const emptyState = await page.locator('.mm-insights__state').innerText();
+  tests.push(ok(/New writing is on the way/i.test(emptyState) && /Substack/i.test(emptyState),
+    'empty dataset shows the coming-soon state and points somewhere', emptyState.replace(/\s+/g, ' ')));
 
   // ---- 7. API failure ------------------------------------------------------
   await reset(500, 't=fail');
   const failMsg = await page.locator('.mm-insights__state').innerText();
   const navUsable = await page.locator('.header__nav-link').count();
   tests.push(ok(/unavailable/i.test(failMsg) && navUsable === 3,
-    'API failure degrades without breaking the page', failMsg));
+    'API failure degrades without breaking the page', failMsg.replace(/\s+/g, ' ')));
+
+  // ---- 7b. skeleton, then a hung request must time out ---------------------
+  // The reported bug was a bare "Loading..." that never resolved. Both halves
+  // matter: something shaped like content while waiting, and a real message if
+  // the wait never ends.
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  await page.route(/apicdn\.sanity\.io/, () => { /* deliberately never settles */ });
+  await page.goto(`${BASE}/insights.html?t=hang`, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(400);
+  const skeletons = await page.locator('.mm-post--skeleton').count();
+  const busyWhileLoading = await page.locator('#insights-list').getAttribute('aria-busy');
+  tests.push(ok(skeletons === 3 && busyWhileLoading === 'true',
+    'loading shows skeleton cards, not a bare message', `${skeletons} skeletons`));
+
+  await page.waitForTimeout(8200);   // TIMEOUT_MS in the page is 8000
+  const hungMsg = await page.locator('.mm-insights__state').innerText();
+  tests.push(ok(/taking longer/i.test(hungMsg) &&
+    (await page.locator('#insights-list').getAttribute('aria-busy')) === 'false',
+    'a hung request times out into a real message', hungMsg.replace(/\s+/g, ' ')));
 
   // ---- 8. content is escaped -----------------------------------------------
   await reset(JSON.stringify({ result: [{
