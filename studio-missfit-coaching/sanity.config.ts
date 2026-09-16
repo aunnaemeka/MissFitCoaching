@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'MissFit Coaching',
 
-  projectId: '6lsv3s2h',
+  projectId: '70j9t2re',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
