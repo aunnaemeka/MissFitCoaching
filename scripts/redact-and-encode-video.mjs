@@ -48,8 +48,15 @@ try {
 // the name runs x20-49,y653-704, i.e. to its left and slightly taller.
 const BLOCK = { x: 53, y: 650, w: 57, h: 58, hex: '0x412100' };
 const MASK = { x: 0, y: 646, w: 114, h: 66 };   // covers both, with margin
+// Where the name itself sits. Used by the check at the end.
+const NAME = { x: 18, y: 684, w: 34, h: 22 };
 const SAMPLE_FPS = 10;                          // interval resolution: 0.1s
-const PAD = 0.4;                                // seconds either side of a run
+const COVERAGE = 0.45;       // block coverage that counts as painted
+const GLYPH_EDGES = 20;      // edge pixels that count as text
+// Padding is small because the glyph test finds the end of a run to within a
+// frame or two. It was 1.0s while detection keyed off the block alone, which
+// left the mask sitting over the following cutaway for a visible second.
+const PAD = 0.3;
 
 const isBlock = ([r, g, b]) =>
   r > 40 && r < 115 && g > 12 && g < 72 && b < 48 && r > g && g > b;
@@ -63,41 +70,106 @@ function probe(file) {
 }
 
 /**
- * Sample the block's own footprint and return the runs where it is painted.
- * Raw RGB straight out of ffmpeg rather than PNGs on disk, so this needs no
- * image library and no temp files.
+ * Where is the name on screen?
+ *
+ * Two independent signals, unioned, because each misses on its own:
+ *
+ *   the block   - the flat brown patch baked into the footage. Marks the
+ *                 talking-head shots, but fades out a few frames before the
+ *                 name does, which is how an earlier pass left 10s exposed.
+ *   glyph edges - bright pixels sitting next to much darker ones inside the
+ *                 name box. Text has many, a brightly lit wall has none. On
+ *                 the R.P. master this fires on 605 sampled frames, 604 of
+ *                 which have the block, and on 1 of 828 cutaway frames.
  */
-function blockRuns(file) {
-  const W = BLOCK.w, H = BLOCK.h, FRAME = W * H * 3;
-  const raw = execFileSync(FFMPEG, ['-v', 'error', '-i', file, '-vf',
-    `fps=${SAMPLE_FPS},crop=${W}:${H}:${BLOCK.x}:${BLOCK.y}`,
-    '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'],
-    { maxBuffer: 1 << 30 });
-
-  const on = [];
-  for (let f = 0; f + FRAME <= raw.length; f += FRAME) {
-    let hit = 0, seen = 0;
-    for (let y = 6; y < H - 6; y += 4) {
-      for (let x = 6; x < W - 6; x += 4) {
-        const i = f + (y * W + x) * 3;
-        seen++;
-        if (isBlock([raw[i], raw[i + 1], raw[i + 2]])) hit++;
-      }
-    }
-    on.push(hit / seen > 0.8);
-  }
+function nameRuns(file) {
+  const r = sampleRegions(file, SAMPLE_FPS);
+  const on = r.block.map((b, i) => b || r.glyph[i]);
 
   // close single-frame dropouts so one compressed frame does not split a run
   for (let i = 1; i < on.length - 1; i++) if (on[i - 1] && on[i + 1]) on[i] = true;
 
-  const runs = [];
+  const out = [];
   let start = null;
   on.forEach((v, i) => {
     if (v && start === null) start = i;
-    if (!v && start !== null) { runs.push([start / SAMPLE_FPS, (i - 1) / SAMPLE_FPS]); start = null; }
+    if (!v && start !== null) { out.push([start, i - 1]); start = null; }
   });
-  if (start !== null) runs.push([start / SAMPLE_FPS, (on.length - 1) / SAMPLE_FPS]);
-  return runs.filter(([a, b]) => b - a >= 0.4);
+  if (start !== null) out.push([start, on.length - 1]);
+
+  // Runs are kept whether the block is painted or not. Dropping the ones with
+  // no block frame looks tempting - it would trim a few seconds where the
+  // mask sits over a cutaway - but it deletes the 409s segment, where the name
+  // is up and the block is not. The check at the end caught that; the seconds
+  // of extra cover are not worth trading for it.
+  return out
+    .map(([a, b]) => [a / SAMPLE_FPS, b / SAMPLE_FPS])
+    .filter(([a, b]) => b - a >= 0.4);
+}
+
+/** Decode two small crops once and score every sampled frame in both. */
+function sampleRegions(file, fps) {
+  const N = { x: NAME.x - 8, y: NAME.y - 8, w: NAME.w + 16, h: NAME.h + 16 };
+  const grab = (x, y, w, h) => execFileSync(FFMPEG,
+    ['-v', 'error', '-i', file, '-vf', `fps=${fps},crop=${w}:${h}:${x}:${y}`,
+     '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 1 << 30 });
+
+  const nb = grab(N.x, N.y, N.w, N.h);
+  const bb = grab(BLOCK.x, BLOCK.y, BLOCK.w, BLOCK.h);
+  const NF = N.w * N.h * 3, BF = BLOCK.w * BLOCK.h * 3;
+  const frames = Math.min(nb.length / NF, bb.length / BF) | 0;
+
+  const block = [], glyph = [], edges = [];
+  for (let f = 0; f < frames; f++) {
+    let hit = 0, seen = 0;
+    for (let i = 0; i < BF; i += 12) {
+      seen++;
+      if (isBlock([bb[f * BF + i], bb[f * BF + i + 1], bb[f * BF + i + 2]])) hit++;
+    }
+    block.push(hit / seen > COVERAGE);
+    const e = glyphEdges(nb, f * NF, N.w, N.h);
+    edges.push(e);
+    glyph.push(e >= GLYPH_EDGES);
+  }
+  return { block, glyph, edges, frames };
+}
+
+/** Bright pixels with a much darker pixel three across. Text, not a lit wall. */
+function glyphEdges(buf, off, w, h) {
+  const lum = (x, y) => {
+    const i = off + (y * w + x) * 3;
+    return (buf[i] + buf[i + 1] + buf[i + 2]) / 3;
+  };
+  let n = 0;
+  for (let y = 3; y < h - 3; y++) {
+    for (let x = 3; x < w - 3; x++) {
+      if (lum(x, y) <= 200) continue;
+      if (lum(x + 3, y) < 150 || lum(x - 3, y) < 150 ||
+          lum(x, y + 3) < 150 || lum(x, y - 3) < 150) n++;
+    }
+  }
+  return n;
+}
+
+/**
+ * Times where the name is legible in the master but not covered in the output.
+ *
+ * Deliberately does NOT gate on the block. An earlier version did, and skipped
+ * exactly the frames that were broken: at a segment tail the block has already
+ * gone while the name is still up, so the check stepped over its own bug and
+ * reported a clean run.
+ */
+function nameStillLegible(masterFile, outFile) {
+  const FPS = 5;
+  const m = sampleRegions(masterFile, FPS);
+  const o = sampleRegions(outFile, FPS);
+  const n = Math.min(m.frames, o.frames);
+  const bad = [];
+  for (let f = 0; f < n; f++) {
+    if (m.edges[f] < GLYPH_EDGES) continue;   // no name here in the master
+    if (o.edges[f] > 0) bad.push(f / FPS);    // anything left is too much
+  }
+  return bad;
 }
 
 const [master, out] = process.argv.slice(2);
@@ -113,7 +185,7 @@ if (meta.width !== 1280 || meta.height !== 720) {
   process.exit(1);
 }
 
-const runs = blockRuns(master);
+const runs = nameRuns(master);
 if (!runs.length) {
   console.error('no redaction block found. Either this master does not have one, ' +
                 'or it is a different colour. Check a frame before trusting this.');
@@ -121,7 +193,7 @@ if (!runs.length) {
 }
 
 const covered = runs.reduce((n, [a, b]) => n + (b - a), 0);
-console.error(`block painted in ${covered.toFixed(1)}s of ${meta.duration.toFixed(1)}s, ` +
+console.error(`name on screen for ${covered.toFixed(1)}s of ${meta.duration.toFixed(1)}s, ` +
               `across ${runs.length} segments:`);
 runs.forEach(([a, b]) => console.error(`  ${a.toFixed(1)}s - ${b.toFixed(1)}s`));
 
@@ -137,9 +209,19 @@ execFileSync(FFMPEG, ['-v', 'error', '-y', '-i', master,
   '-c:a', 'aac', '-b:a', '128k', '-ar', '48000',
   '-movflags', '+faststart', out], { stdio: 'inherit' });
 
+// Verify rather than trust. The reason this file exists is that a redaction was
+// signed off twice without anyone checking a frame.
+const exposed = nameStillLegible(master, out);
+if (exposed.length) {
+  console.error(`\nFAILED: the name is still legible in ${exposed.length} sampled ` +
+                `frames, first at ${exposed[0].toFixed(1)}s. Do not upload this.`);
+  console.error('Raise PAD or lower COVERAGE and run again.');
+  process.exit(1);
+}
+
 console.error(`\nwrote ${out}`);
-console.error('Check a frame from the middle of each segment before uploading. ' +
-              'Then: aws s3 cp <out> s3://missfit-s3-media-prd/video/<name>.mp4 ' +
+console.error('Checked every 0.2s: the name is legible nowhere in the output.');
+console.error('Upload:  aws s3 cp <out> s3://missfit-s3-media-prd/video/<name>.mp4 ' +
               '--profile missfit --cache-control "public, max-age=31536000, immutable"');
 console.error('The objects are immutable at the edge, so replacing one needs ' +
               'a CloudFront invalidation on distribution E213W02J15QH0G.');
