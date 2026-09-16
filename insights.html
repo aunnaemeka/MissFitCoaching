@@ -51,18 +51,9 @@
 </header>
 
 <!--
-  MM-22 technical requirement: "CMS platform is Josh's call. Hard
-  requirement: Damola must be able to publish directly, no dev request per
-  post. Posts sync with Substack on the same schedule."
-
-  The page below is the shell only. The post list is NOT wired to a CMS yet
-  because the platform has not been chosen. Worth noting before choosing:
-  this repo already ships a Sanity studio (studio-missfit-coaching/,
-  project 6lsv3s2h) with `article` and `newsletter` schemas, and the
-  production dataset already holds 8 articles and 2 newsletters. The old
-  resources/articles.html rendered them before /resources/* was redirected
-  away. Its categories are the pre-rebrand service taxonomy and would need
-  remapping to the five below.
+  Posts come from Sanity project 70j9t2re, which Josh owns. The old project
+  6lsv3s2h is not used: nobody here can administer it, and its eight articles
+  all carry the same body text under different titles.
 -->
 
 <!-- PAGE INTRO -->
@@ -146,7 +137,7 @@
   // NOTE: Sanity CORS allowlists missfitcoaching.com but not localhost, so this
   // fetch only succeeds from the real domain. Add localhost in Sanity's API
   // settings if you want it working against the local preview.
-  var PROJECT = '6lsv3s2h', DATASET = 'production', API = 'v2021-10-21';
+  var PROJECT = '70j9t2re', DATASET = 'production', API = 'v2021-10-21';
   var SUBSTACK = 'https://dehurter.substack.com';
   // A hung request must not leave the page sitting on a skeleton forever.
   var TIMEOUT_MS = 8000;
