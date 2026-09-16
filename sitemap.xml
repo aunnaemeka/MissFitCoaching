@@ -4,6 +4,10 @@
   absent: a sitemap should not advertise URLs that 301 away.
   URLs are extensionless because that is the canonical form Cloudflare Pages
   serves (/method-and-proof.html 308s to /method-and-proof).
+
+  Individual articles are absent on purpose. They canonicalise to Substack,
+  where they were published first, so listing them here would ask Google to
+  index a copy we have already told it is not the original.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>

@@ -164,20 +164,24 @@
       { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
+  // The whole card is the link. Cards that are not clickable are the reason
+  // there was no way to read a published article at all.
   function card(p) {
     var meta = [p.category, fmtDate(p.publishedAt),
                 p.readingTime ? p.readingTime + ' min read' : null]
                 .filter(Boolean).map(esc).join(' &middot; ');
+    var href = 'article.html?slug=' + encodeURIComponent(p.slug || '');
     return '' +
-      '<article class="mm-post">' +
+      '<a class="mm-post" href="' + esc(href) + '">' +
         (p.image ? '<img class="mm-post__thumb" src="' + esc(p.image) +
                    '?w=600&fit=max" alt="" loading="lazy">' : '') +
         '<div class="mm-post__body">' +
           '<p class="mm-post__meta">' + meta + '</p>' +
           '<h3 class="mm-post__title">' + esc(p.title) + '</h3>' +
           (p.excerpt ? '<p class="mm-post__excerpt">' + esc(p.excerpt) + '</p>' : '') +
+          '<span class="mm-post__more">Read it &rarr;</span>' +
         '</div>' +
-      '</article>';
+      '</a>';
   }
 
   /* Every terminal state says what happened and offers somewhere to go. The

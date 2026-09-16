@@ -22,11 +22,35 @@ const FEED = 'https://dehurter.substack.com/feed';
 
 // ---------------------------------------------------------------- utilities
 
-const decode = (s) =>
-  s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
-   .replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+/**
+ * Substack's feed is entity-encoded, and it uses numeric references heavily -
+ * &#8217; for an apostrophe, &#8212; for an em dash. Missing those left the
+ * raw entity sitting in the text, which the page then escaped again and
+ * rendered literally as "Let&#8217;s say it plainly".
+ */
+const NAMED = {
+  lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', amp: '&',
+  ldquo: '“', rdquo: '”', lsquo: '‘', rsquo: '’',
+  mdash: '—', ndash: '–', hellip: '…',
+};
 
-const stripTags = (s) => decode(s.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
+const decode = (s) =>
+  s.replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+   .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+   .replace(/&([a-z]+);/gi, (m, n) => (n.toLowerCase() in NAMED ? NAMED[n.toLowerCase()] : m))
+   // &amp; last, or "&amp;#8217;" would decode to an apostrophe in one pass
+   .replace(/&amp;/g, '&');
+
+/**
+ * Block tags become a space, not nothing. Without this the paragraph boundary
+ * in "...looking for work.</p><p>Companies will tell you..." collapsed into
+ * "work.Companies".
+ */
+const stripTags = (s) =>
+  decode(s.replace(/<(?:br|\/p|\/h[1-6]|\/li|\/blockquote|\/div)[^>]*>/gi, ' ')
+          .replace(/<[^>]+>/g, ''))
+    .replace(/\s+/g, ' ')
+    .trim();
 
 /** Deterministic key so re-imports produce identical documents. */
 function keyFor(seed, i) {
@@ -59,6 +83,15 @@ function toPortableText(htmlBody, seed) {
       tagName === 'blockquote' ? 'blockquote'
       : tagName === 'p' ? 'normal'
       : `h${Math.min(parseInt(tagName[1], 10) + 1, 6)}`; // demote: post h1 -> page h2
+    // Substack sometimes closes a sentence in its own paragraph - the feed
+    // really does contain "<p>Find that organization</p><p>.</p>". Rejoin it
+    // rather than render a paragraph made of one full stop.
+    const prev = blocks[blocks.length - 1];
+    if (prev && style === 'normal' && prev.style === 'normal' && /^[.,;:!?…]+$/.test(text)) {
+      prev.children[0].text += text;
+      continue;
+    }
+
     blocks.push({
       _type: 'block',
       _key: keyFor(seed, blocks.length),
@@ -68,6 +101,16 @@ function toPortableText(htmlBody, seed) {
     });
   }
   return blocks;
+}
+
+/** Cut at a sentence if there is one nearby, otherwise a word. Never mid-word. */
+function excerptOf(plain, max = 220) {
+  if (plain.length <= max) return plain;
+  const head = plain.slice(0, max);
+  const stop = Math.max(head.lastIndexOf('. '), head.lastIndexOf('? '), head.lastIndexOf('! '));
+  if (stop > max * 0.5) return head.slice(0, stop + 1);
+  const space = head.lastIndexOf(' ');
+  return (space > 0 ? head.slice(0, space) : head).replace(/[,;:]$/, '') + '…';
 }
 
 function slugFrom(link, title) {
@@ -105,7 +148,7 @@ async function main() {
       source: 'substack',
       substackUrl: link,
       publishedAt: new Date(tag(item, 'pubDate') || Date.now()).toISOString(),
-      excerpt: plain.slice(0, 200).trim(),
+      excerpt: excerptOf(plain),
       // ~225 wpm, the usual reading-speed assumption
       readingTime: Math.max(1, Math.round(plain.split(/\s+/).filter(Boolean).length / 225)),
       // left blank on purpose: an editor fills these, they are not auto-derived
