@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only the live pages are listed. Everything in _redirects is deliberately
+  absent: a sitemap should not advertise URLs that 301 away.
+  URLs are extensionless because that is the canonical form Cloudflare Pages
+  serves (/method-and-proof.html 308s to /method-and-proof).
+
+  Individual articles are absent on purpose. They canonicalise to Substack,
+  where they were published first, so listing them here would ask Google to
+  index a copy we have already told it is not the original.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://missfitcoaching.com/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://missfitcoaching.com/method-and-proof</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://missfitcoaching.com/essentials</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://missfitcoaching.com/insights</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://missfitcoaching.com/terms</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://missfitcoaching.com/policy</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+</urlset>
