@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | MissFit Coaching</title>
+    <meta name="description" content="An article from MissFit Coaching.">
+    <!-- Title, description and canonical are rewritten from the CMS once the
+         article loads. The canonical points at Substack, which is where these
+         were published first and which canonicalises to itself. -->
+    <link rel="canonical" href="https://missfitcoaching.com/insights">
+
+    <link rel="icon" href="assets/icons/favicon-mindset.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="assets/icons/favicon-mindset.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="assets/icons/favicon-mindset-32.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="assets/icons/favicon-mindset-16.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mindset.css">
+</head>
+<body class="mm">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__container">
+    <a href="index.html" class="header__logo">
+      <img src="assets/icons/logo-mindset-white.png" alt="MissFit Coaching">
+    </a>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li><a href="essentials.html" class="header__nav-link">MISSFIT ESSENTIALS</a></li>
+        <li><a href="method-and-proof.html" class="header__nav-link">METHOD &amp; PROOF</a></li>
+        <li><a href="insights.html" class="header__nav-link">INSIGHTS</a></li>
+      </ul>
+    </nav>
+    <div class="header__right">
+      <button class="header__menu-toggle" aria-label="Toggle menu"></button>
+      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="header__cta" target="_blank" rel="noopener">BOOK A DIAGNOSTIC</a>
+    </div>
+  </div>
+  <div class="header__mobile-menu">
+    <ul class="header__mobile-nav-list">
+      <li><a href="essentials.html" class="header__mobile-nav-link">MISSFIT ESSENTIALS</a></li>
+      <li><a href="method-and-proof.html" class="header__mobile-nav-link">METHOD &amp; PROOF</a></li>
+      <li><a href="insights.html" class="header__mobile-nav-link">INSIGHTS</a></li>
+      <li><a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="header__mobile-nav-link" target="_blank" rel="noopener">BOOK A DIAGNOSTIC</a></li>
+    </ul>
+  </div>
+</header>
+
+<!--
+  Posts come from Sanity project 70j9t2re, which Josh owns. The old project
+  6lsv3s2h is not used: nobody here can administer it, and its eight articles
+  all carry the same body text under different titles.
+-->
+
+<!-- ARTICLE -->
+<article class="mm-article" id="article">
+  <div class="mm-container">
+    <p class="mm-article__state" id="article-state">Loading&hellip;</p>
+  </div>
+</article>
+
+<!-- CLOSING CTA -->
+<section class="mm-section mm-close">
+  <div class="mm-container">
+    <h2 class="mm-h2">If the search is not moving, the strategy is the problem.</h2>
+    <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="mm-btn" target="_blank" rel="noopener">Book Your Free Diagnostic &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mm-footer">
+  <div class="mm-footer__inner">
+    <div class="mm-footer__brand">
+      <a href="index.html"><img src="assets/icons/logo-mindset-white.png" alt="MissFit Coaching"></a>
+      <p class="mm-footer__tagline">Stop applying. Start solving.</p>
+      <div class="mm-footer__socials">
+        <a href="https://www.linkedin.com/in/daciaderidder/" target="_blank" rel="noopener">
+          <img src="assets/icons/linkedin-logo.svg" alt="LinkedIn">
+        </a>
+        <a href="https://www.youtube.com/@DaciaDeridder" target="_blank" rel="noopener">
+          <img src="assets/icons/youtube-logo.svg" alt="YouTube">
+        </a>
+      </div>
+    </div>
+    <nav class="mm-footer__nav">
+      <a href="essentials.html">MissFit Essentials&trade;</a>
+      <a href="method-and-proof.html">Method &amp; Proof</a>
+      <a href="insights.html">Insights</a>
+      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" target="_blank" rel="noopener">Book a Diagnostic</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="policy.html">Privacy Policy</a>
+    </nav>
+  </div>
+  <div class="mm-footer__meta">
+    <a href="mailto:dee@missfitcoaching.com">dee@missfitcoaching.com</a>
+    <span>&copy; 2026 MissFit Coaching&trade;. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+<script>
+/* Article page.
+
+   One template, ?slug= picks the article. The site has no build step, so the
+   body is fetched and rendered here the same way the Insights index is.
+
+   Only PUBLISHED articles resolve. A draft slug 404s, which is correct: the
+   whole point of the drafts queue is that nothing is readable until someone
+   has reviewed it. */
+(function () {
+  var PROJECT = '70j9t2re', DATASET = 'production', API = 'v2021-10-21';
+  var SUBSTACK = 'https://dehurter.substack.com';
+
+  var el = document.getElementById('article');
+  var stateEl = document.getElementById('article-state');
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US',
+      { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function state(headline, body) {
+    el.innerHTML = '<div class="mm-container"><div class="mm-article__state">' +
+      '<p class="mm-article__state-head">' + esc(headline) + '</p>' +
+      (body ? '<p>' + body + '</p>' : '') + '</div></div>';
+  }
+
+  /* Portable text -> HTML. The importer only emits blocks of plain spans, so
+     this handles paragraphs, headings and blockquotes and ignores the rest
+     rather than half-rendering something it does not understand. */
+  function render(blocks) {
+    return (blocks || []).map(function (b) {
+      if (b._type !== 'block') return '';
+      var text = (b.children || []).map(function (c) { return esc(c.text); }).join('');
+      if (!text.trim()) return '';
+      if (b.style === 'blockquote') return '<blockquote>' + text + '</blockquote>';
+      if (/^h[2-6]$/.test(b.style)) return '<' + b.style + '>' + text + '</' + b.style + '>';
+      return '<p>' + text + '</p>';
+    }).join('');
+  }
+
+  function show(a) {
+    var meta = [a.category, fmtDate(a.publishedAt),
+                a.readingTime ? a.readingTime + ' min read' : null]
+               .filter(Boolean).map(esc).join(' &middot; ');
+
+    document.title = (a.seoTitle || a.title) + ' | MissFit Coaching';
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', a.seoDescription || a.excerpt || '');
+    var canon = document.querySelector('link[rel="canonical"]');
+    if (canon && a.substackUrl) canon.setAttribute('href', a.substackUrl);
+
+    el.innerHTML =
+      '<div class="mm-container">' +
+        '<p class="mm-article__back"><a href="insights.html">&larr; All insights</a></p>' +
+        '<p class="mm-article__meta">' + meta + '</p>' +
+        '<h1 class="mm-article__title">' + esc(a.title) + '</h1>' +
+        (a.image ? '<img class="mm-article__hero" src="' + esc(a.image) +
+                   '?w=1200&fit=max" alt="">' : '') +
+        '<div class="mm-article__body">' + render(a.content) + '</div>' +
+        (a.substackUrl
+          ? '<p class="mm-article__origin">First published on ' +
+            '<a href="' + esc(a.substackUrl) + '" target="_blank" rel="noopener">' +
+            'Dee&rsquo;s newsletter</a>.</p>'
+          : '') +
+      '</div>';
+  }
+
+  var slug = new URLSearchParams(location.search).get('slug') || '';
+  if (!slug) {
+    return state('No article specified.',
+      '<a href="insights.html">Browse all insights</a>.');
+  }
+
+  var QUERY = '*[_type == "article" && slug.current == $slug && ' +
+              '!(_id in path("drafts.**"))][0]{title, category, excerpt, content, ' +
+              'readingTime, publishedAt, seoTitle, seoDescription, substackUrl, ' +
+              '"image": mainImage.asset->url}';
+
+  var settled = false;
+  var timer = setTimeout(function () {
+    if (!settled) { settled = true; state('This is taking longer than usual to load.',
+      'Try again, or <a href="' + SUBSTACK + '" target="_blank" rel="noopener">read it on Substack</a>.'); }
+  }, 8000);
+
+  fetch('https://' + PROJECT + '.apicdn.sanity.io/' + API + '/data/query/' + DATASET +
+        '?query=' + encodeURIComponent(QUERY) +
+        '&$slug=' + encodeURIComponent(JSON.stringify(slug)))
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (d) {
+      if (settled) return;
+      settled = true; clearTimeout(timer);
+      if (!d.result) {
+        return state('That article is not published.',
+          '<a href="insights.html">Browse all insights</a>.');
+      }
+      show(d.result);
+    })
+    .catch(function () {
+      if (settled) return;
+      settled = true; clearTimeout(timer);
+      state('This article is unavailable right now.',
+        'Try <a href="' + SUBSTACK + '" target="_blank" rel="noopener">Dee&rsquo;s newsletter</a> instead.');
+    });
+})();
+</script>
+
+</body>
+</html>

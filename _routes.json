@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [],
+  "routes": [
+    {
+      "pattern": "/payment",
+      "script": "payment.js"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "missfitcoaching",
+  "version": "1.0.0",
+  "description": "The website of MissFitCoaching",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sanity/client": "^7.2.1",
+    "@sanity/image-url": "^1.1.0",
+    "typescript": "^5.8.3"
+  }
+}
