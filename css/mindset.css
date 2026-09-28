@@ -311,6 +311,25 @@ body.mm .footer .is-disabled {
   border-radius: 0.375rem;
 }
 
+/* A logo that needs a qualifier under it. Dee worked with New World
+   Ventures' portfolio companies, not the firm itself (MM-27). */
+.mm-proof__item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.mm-proof__caption {
+  font-family: var(--mm-font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--mm-navy);
+  opacity: 0.7;
+}
+
 /* ---------- Interior page intro (Method & Proof, Essentials, Insights) --- */
 .mm-hero--page {
   padding: 4.5rem 1.5rem 4rem;
