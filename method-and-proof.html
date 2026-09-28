@@ -28,24 +28,26 @@
     <a href="index.html" class="header__logo">
       <img src="assets/icons/logo-mindset-white.png" alt="MissFit Coaching">
     </a>
-    <nav class="header__nav">
+    <nav class="header__nav" aria-label="Main">
       <ul class="header__nav-list">
-        <li><a href="essentials.html" class="header__nav-link">MISSFIT ESSENTIALS</a></li>
-        <li><a href="method-and-proof.html" class="header__nav-link">METHOD &amp; PROOF</a></li>
-        <li><a href="insights.html" class="header__nav-link">INSIGHTS</a></li>
+        <li><a href="index.html" class="header__nav-link">Home</a></li>
+        <li><a href="essentials.html" class="header__nav-link">Essentials</a></li>
+        <li><a href="method-and-proof.html" class="header__nav-link" aria-current="page">Method and Proof</a></li>
+        <li><a href="insights.html" class="header__nav-link">Insights</a></li>
       </ul>
     </nav>
     <div class="header__right">
-      <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="header__cta" target="_blank" rel="noopener">BOOK A DIAGNOSTIC</a>
+      <button class="header__menu-toggle" aria-label="Toggle menu" aria-expanded="false"></button>
+      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="header__cta" target="_blank" rel="noopener">Book A Diagnostic <svg class="mm-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
   <div class="header__mobile-menu">
     <ul class="header__mobile-nav-list">
-      <li><a href="essentials.html" class="header__mobile-nav-link">MISSFIT ESSENTIALS</a></li>
-      <li><a href="method-and-proof.html" class="header__mobile-nav-link">METHOD &amp; PROOF</a></li>
-      <li><a href="insights.html" class="header__mobile-nav-link">INSIGHTS</a></li>
-      <li><a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="header__mobile-nav-link" target="_blank" rel="noopener">BOOK A DIAGNOSTIC</a></li>
+      <li><a href="index.html" class="header__mobile-nav-link">Home</a></li>
+      <li><a href="essentials.html" class="header__mobile-nav-link">Essentials</a></li>
+      <li><a href="method-and-proof.html" class="header__mobile-nav-link" aria-current="page">Method and Proof</a></li>
+      <li><a href="insights.html" class="header__mobile-nav-link">Insights</a></li>
+      <li><a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="header__mobile-nav-link" target="_blank" rel="noopener">Book A Diagnostic</a></li>
     </ul>
   </div>
 </header>
@@ -59,13 +61,13 @@
 </section>
 
 <!-- SECTION 1: ABOUT DEE -->
-<section class="mm-section mm-authority">
+<section class="mm-section mm-authority mm-authority--about">
   <div class="mm-container">
     <div class="mm-authority__grid">
       <div class="mm-authority__media">
         <picture>
-          <source srcset="assets/images/dee-authority.webp" type="image/webp">
-          <img src="assets/images/dee-authority.jpg" alt="Dee DeRidder, founder of MissFit Coaching">
+          <source srcset="assets/images/dee-portrait.webp" type="image/webp">
+          <img src="assets/images/dee-portrait.jpg" width="1200" height="1803" alt="Dee DeRidder, founder of MissFit Coaching">
         </picture>
       </div>
       <div class="mm-authority__text">
@@ -81,9 +83,10 @@
 </section>
 
 <!-- SECTION 2: THE METHOD, IN FULL -->
-<section class="mm-section mm-method" id="method">
-  <div class="mm-narrow">
+<section class="mm-section mm-method mm-method--full mm-rule" id="method">
+  <div class="mm-container">
     <p class="mm-eyebrow">The MissFit Method&trade;</p>
+    <div class="mm-method__grid">
     <h2 class="mm-h2">Five phases. Each one earns the next.</h2>
     <ol class="mm-phases">
       <li class="mm-phase">
@@ -107,17 +110,18 @@
         <p>Support through the transition itself, so the first few months build on the same strategy that got you there.</p>
       </li>
     </ol>
+    </div>
   </div>
 </section>
 
 <!-- SECTION 3: TWO WAYS TO WORK WITH US -->
 <section class="mm-section mm-products" id="two-ways">
   <div class="mm-container">
-    <p class="mm-eyebrow">Two ways to work with us</p>
+    <h2 class="mm-products__title">Two ways to work with us</h2>
     <p class="mm-products__intro">The same method. Different levels of Dee&rsquo;s involvement. Choose based on where you are and what you need right now.</p>
 
     <div class="mm-products__grid">
-      <div class="mm-card mm-card--light">
+      <div class="mm-card mm-card--self">
         <p class="mm-card__kicker">Self-guided</p>
         <h3 class="mm-card__title">MissFit Essentials&trade;</h3>
         <p class="mm-card__tagline">The complete MissFit Coaching system, on your own schedule, at your own pace.</p>
@@ -128,7 +132,7 @@
         </ul>
       </div>
 
-      <div class="mm-card mm-card--navy">
+      <div class="mm-card mm-card--intensive">
         <p class="mm-card__kicker">Collaborative, personal, premium</p>
         <h3 class="mm-card__title">1:1 Intensive with Dee</h3>
         <p class="mm-card__tagline">It&rsquo;s a partnership. Dee works alongside you across every phase of the search.</p>
@@ -137,7 +141,7 @@
           <li>Positioning strategy, executive brand build, go-to-market execution, and outreach, handled together</li>
           <li>Interview preparation and offer negotiation with Dee in the room</li>
         </ul>
-        <p class="mm-card__subhead">Right for you if:</p>
+        <p class="mm-card__subhead"><span>Right for you if:</span></p>
         <ul class="mm-card__list">
           <li>You&rsquo;ve been out of work for months and every week carries an actual cost</li>
           <li>You&rsquo;re negotiating an offer right now and can&rsquo;t afford to get it wrong</li>
@@ -150,7 +154,7 @@
     <div class="mm-products__bridge">
       <p class="mm-products__bridge-q">Not sure which is right for you?</p>
       <p>Book a free 15-minute executive search diagnostic. We&rsquo;ll identify the specific gaps in your current strategy and tell you where to start.</p>
-      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="mm-btn" target="_blank" rel="noopener">Book the Diagnostic &rarr;</a>
+      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="mm-btn" target="_blank" rel="noopener">Book the Diagnostic <svg class="mm-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>
@@ -212,8 +216,8 @@
 <!-- CLOSING CTA -->
 <section class="mm-section mm-close">
   <div class="mm-container">
-    <h2 class="mm-h2">If the search is not moving, the strategy is the problem.</h2>
-    <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="mm-btn" target="_blank" rel="noopener">Book Your Free Diagnostic &rarr;</a>
+    <h2 class="mm-h2">If the search is not moving, <span class="mm-close__accent">the strategy is the problem.</span></h2>
+    <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="mm-btn" target="_blank" rel="noopener">Book Your Free Diagnostic <svg class="mm-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 
@@ -221,29 +225,29 @@
 <footer class="mm-footer">
   <div class="mm-footer__inner">
     <div class="mm-footer__brand">
-      <a href="index.html"><img src="assets/icons/logo-mindset-white.png" alt="MissFit Coaching"></a>
+      <a href="index.html"><img src="assets/icons/logo-mindset-navy.png" alt="MissFit Coaching"></a>
       <p class="mm-footer__tagline">Stop applying. Start solving.</p>
-      <div class="mm-footer__socials">
-        <a href="https://www.linkedin.com/in/daciaderidder/" target="_blank" rel="noopener">
-          <img src="assets/icons/linkedin-logo.svg" alt="LinkedIn">
-        </a>
-        <a href="https://www.youtube.com/@DaciaDeridder" target="_blank" rel="noopener">
-          <img src="assets/icons/youtube-logo.svg" alt="YouTube">
-        </a>
-      </div>
+      <a class="mm-footer__email" href="mailto:dee@missfitcoaching.com">dee@missfitcoaching.com</a>
     </div>
-    <nav class="mm-footer__nav">
-      <a href="essentials.html">MissFit Essentials&trade;</a>
-      <a href="method-and-proof.html">Method &amp; Proof</a>
+    <nav class="mm-footer__col" aria-label="Sitemap">
+      <p class="mm-footer__head">Sitemap</p>
+      <a href="index.html">Home</a>
+      <a href="essentials.html">Essentials</a>
+      <a href="method-and-proof.html">Method and Proof</a>
       <a href="insights.html">Insights</a>
-      <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" target="_blank" rel="noopener">Book a Diagnostic</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="policy.html">Privacy Policy</a>
+    </nav>
+    <nav class="mm-footer__col" aria-label="Follow">
+      <p class="mm-footer__head">Follow</p>
+      <a href="https://www.linkedin.com/in/daciaderidder/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@DaciaDeridder" target="_blank" rel="noopener">YouTube</a>
     </nav>
   </div>
   <div class="mm-footer__meta">
-    <a href="mailto:dee@missfitcoaching.com">dee@missfitcoaching.com</a>
     <span>&copy; 2026 MissFit Coaching&trade;. All rights reserved.</span>
+    <nav class="mm-footer__legal" aria-label="Legal">
+      <a href="terms.html">Terms of Service</a>
+      <a href="policy.html">Privacy Policy</a>
+    </nav>
   </div>
 </footer>
 
