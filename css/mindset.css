@@ -9,10 +9,10 @@
    (#EECE95, --mm-tan-light) carries every other accent touch.
    Type is unified on Raleway for consistency with the brand assets,
    except page titles, which are set in Playfair Display capitals
-   (MM-26, Ezekiel's UI upgrade, 2026-09-28).
+   (MM-26, Ezekiel's UI upgrade, 2026-09-28). Sizes, weights, spacing
+   and radii follow section 2 of his "UI Redesign Scope" brief.
+   Fonts are loaded by <link> in each page, not @import here.
    ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600&display=swap');
 
 :root {
   --mm-navy: #002147;
@@ -22,12 +22,12 @@
   --mm-yellow: #FFD500;   /* buttons only */
   --mm-gold: #FFD700;     /* legacy token — retained for safety, no longer used for accents */
   --mm-white: #FFFFFF;
-  --mm-ink: #14212F;
+  --mm-ink: #000000;
   --mm-font-display: 'Raleway', sans-serif;
   --mm-font-body: 'Raleway', sans-serif;
   --mm-font-title: 'Playfair Display', Georgia, serif;
-  --mm-line: rgba(20, 33, 47, 0.3);
-  --mm-panel: #E8E8E8;   /* grey panels behind product imagery */
+  --mm-line: #000000;
+  --mm-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
 }
 
 /* Unify all type on Raleway (Ezekiel review 2026-07-15).
@@ -42,6 +42,12 @@ body.mm * {
 body.mm {
   color: var(--mm-ink);
   background: var(--mm-white);
+}
+
+/* Only 400/500/600/900 are loaded (brief 2.2); bold would fall to Black. */
+body.mm strong,
+body.mm b {
+  font-weight: 600;
 }
 
 /* ---------- Header (overrides components.css reds/darks) ---------- */
@@ -68,13 +74,13 @@ body.mm .header__nav-list {
 body.mm .header__nav-link,
 body.mm .hero__nav-link {
   color: var(--mm-white);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: none;
 }
 
 body.mm .header__nav-link[aria-current="page"] {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 body.mm .header__nav-link:hover,
@@ -91,7 +97,7 @@ body.mm .hero__cta {
   color: var(--mm-navy);
   font-weight: 500;
   padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  border-radius: 8px;
 }
 
 body.mm .header__cta:hover,
@@ -123,7 +129,7 @@ body.mm .header__mobile-nav-link {
 }
 
 body.mm .header__mobile-nav-link[aria-current="page"] {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Interim landing-page mode (Israel, 2026-08-26): About / Essentials /
@@ -148,7 +154,7 @@ body.mm .footer .is-disabled {
 
 /* ---------- Shared section primitives ---------- */
 .mm-section {
-  padding: 4.5rem 1.5rem;
+  padding: 3.5rem 1.5rem;
 }
 
 /* A hairline between white sections, drawn at container width whatever
@@ -160,8 +166,8 @@ body.mm .footer .is-disabled {
 .mm-rule::before {
   content: '';
   display: block;
-  max-width: 1140px;
-  margin: 0 auto 4rem;
+  max-width: 1200px;
+  margin: 0 auto 3.5rem;
   border-top: 1px solid var(--mm-line);
 }
 
@@ -172,37 +178,64 @@ body.mm .footer .is-disabled {
 }
 
 .mm-container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .mm-narrow {
-  max-width: 46rem;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+/* Visible focus on everything a keyboard can reach (brief 4.1). */
+body.mm a:focus-visible,
+body.mm button:focus-visible {
+  outline: 2px solid var(--mm-navy);
+  outline-offset: 3px;
+}
+
+body.mm .header a:focus-visible,
+body.mm .header button:focus-visible,
+body.mm .mm-preview a:focus-visible,
+body.mm .mm-products a:focus-visible,
+body.mm .mm-close a:focus-visible {
+  outline-color: var(--mm-tan-light);
+}
+
+/* "Opens in a new tab", for screen readers only. */
+.mm-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .mm-eyebrow {
   font-family: var(--mm-font-body);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--mm-ink);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .mm-h2 {
   font-family: var(--mm-font-display);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
-  line-height: 1.25;
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;   /* 38px at 32px */
   color: var(--mm-ink);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .mm-body p {
-  font-size: 1.0625rem;
-  line-height: 1.75;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;      /* 32px at 20px */
   margin-bottom: 1.25rem;
 }
 
@@ -217,11 +250,11 @@ body.mm .footer .is-disabled {
   background-color: var(--mm-yellow);
   color: var(--mm-navy);
   font-family: var(--mm-font-body);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  font-weight: 400;
   text-decoration: none;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -259,15 +292,15 @@ body.mm .footer .is-disabled {
 .mm-hero {
   background: var(--mm-white);
   color: var(--mm-ink);
-  padding: 4.5rem 1.5rem 3.5rem;
+  padding: 3.5rem 1.5rem;
   text-align: left;
 }
 
 body.mm .mm-hero__title {
   font-family: var(--mm-font-title);
-  font-weight: 500;
-  font-size: clamp(2rem, 3.6vw, 2.875rem);
-  line-height: 1.2;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.3;
   text-transform: uppercase;
   color: var(--mm-ink);
   max-width: 22ch;
@@ -277,17 +310,17 @@ body.mm .mm-hero__title {
 .mm-hero__reframe {
   font-family: var(--mm-font-display);
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
   color: var(--mm-ink);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .mm-hero__support {
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
   color: var(--mm-ink);
-  max-width: 36rem;
-  margin-bottom: 2rem;
+  max-width: 38rem;
+  margin-bottom: 2.5rem;
 }
 
 .mm-hero__actions {
@@ -300,13 +333,9 @@ body.mm .mm-hero__title {
 /* Homepage: copy left, Dee right. */
 .mm-hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
   gap: 4rem;
   align-items: center;
-}
-
-.mm-hero--split {
-  padding-top: 3.5rem;
 }
 
 .mm-hero__media img {
@@ -315,8 +344,8 @@ body.mm .mm-hero__title {
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
+  object-position: 48% top;
+  border-radius: 12px;
 }
 
 @media (max-width: 860px) {
@@ -349,9 +378,9 @@ body.mm .mm-hero__title {
 
 .mm-preview__title {
   font-family: var(--mm-font-display);
-  font-weight: 500;
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  line-height: 1.3;
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
   text-transform: uppercase;
   color: var(--mm-tan-light);
   margin: 0;
@@ -463,15 +492,13 @@ body.mm .mm-hero--page .mm-hero__title {
    Heading left, the phases on a rail to its right (MM-26). */
 .mm-method__grid {
   display: grid;
-  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
   gap: 3rem;
   align-items: start;
 }
 
 .mm-method--full .mm-h2 {
   text-transform: uppercase;
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  line-height: 1.3;
 }
 
 .mm-phases {
@@ -483,8 +510,8 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-phase {
   position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 1.75rem;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mm-phase:last-child {
@@ -495,9 +522,9 @@ body.mm .mm-hero--page .mm-hero__title {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.45rem;
-  width: 0.625rem;
-  height: 0.625rem;
+  top: 0.6875rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background: var(--mm-yellow);
 }
@@ -505,14 +532,15 @@ body.mm .mm-hero--page .mm-hero__title {
 .mm-phase__title {
   font-family: var(--mm-font-display);
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  line-height: 1.5833;   /* 38px at 24px */
   color: var(--mm-ink);
   margin-bottom: 0.5rem;
 }
 
 .mm-phase p {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -531,7 +559,7 @@ body.mm .mm-hero--page .mm-hero__title {
   display: inline-block;
   background: var(--mm-navy);
   color: var(--mm-white);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   padding: 0.25rem 0.5rem;
 }
 
@@ -549,28 +577,27 @@ body.mm .mm-hero--page .mm-hero__title {
   align-items: start;
 }
 
-.mm-shelf__media {
-  background: var(--mm-panel);
-  border-radius: 10px;
-  padding: 2rem 3rem;
-}
-
-/* Wide grey panel under the Essentials title (MM-26). */
+/* Wide open-book render under the Essentials title (MM-26). */
 .mm-showcase {
   padding: 0 1.5rem;
 }
 
-.mm-showcase__panel {
-  background: var(--mm-panel);
-  border-radius: 10px;
-  padding: 2.5rem 1.5rem;
-  display: flex;
-  justify-content: center;
+.mm-showcase__img,
+.mm-shelf__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
-.mm-showcase__panel img {
-  width: auto;
-  max-height: 20rem;
+.mm-showcase__img {
+  aspect-ratio: 15 / 8;   /* trims studio floor and sky, keeps both books whole */
+  object-fit: cover;
+}
+
+.mm-shelf__img {
+  aspect-ratio: 7 / 8;
+  object-fit: cover;
 }
 
 .mm-shelf__item + .mm-shelf__item {
@@ -580,16 +607,14 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-shelf__kicker {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--mm-ink);
   margin-bottom: 0.75rem;
 }
 
 .mm-shelf .mm-h2 {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -628,7 +653,7 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-bookph__title {
   font-family: var(--mm-font-display);
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.375rem;
   line-height: 1.3;
 }
@@ -678,9 +703,10 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-insights__cat {
   border: 1px solid var(--mm-navy);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  font-weight: 400;
   font-family: inherit;
   color: var(--mm-navy);
   background: transparent;
@@ -695,7 +721,7 @@ body.mm .mm-hero--page .mm-hero__title {
 .mm-insights__cat.is-active {
   background: var(--mm-navy);
   border-color: var(--mm-navy);
-  color: var(--mm-white);
+  color: var(--mm-tan-light);
 }
 
 /* Terminal states live inside the post grid, so they have to span it rather
@@ -715,7 +741,7 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-insights__state-head {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.125rem;
   color: var(--mm-navy);
   margin-bottom: 0.5rem !important;
@@ -817,9 +843,9 @@ body.mm .mm-hero--page .mm-hero__title {
   bottom: 0;
   background: var(--mm-white);
   border: 1px solid var(--mm-navy);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--mm-navy);
 }
 
@@ -834,7 +860,7 @@ body.mm .mm-hero--page .mm-hero__title {
   margin-top: auto;
   padding-top: 1.25rem;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--mm-ink);
 }
 
@@ -865,7 +891,7 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-article__meta {
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--mm-tan);
@@ -927,7 +953,7 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-article__state-head {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.125rem;
   color: var(--mm-navy);
   margin-bottom: 0.5rem;
@@ -938,11 +964,12 @@ body.mm .mm-hero--page .mm-hero__title {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+  border-radius: 12px;
 }
 
 /* No image in the CMS: a quiet grey block keeps the grid even. */
 .mm-post__thumb--empty {
-  background: var(--mm-panel);
+  background: #E8E8E8;
 }
 
 .mm-post__body {
@@ -959,28 +986,28 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-post__meta {
   font-size: 0.75rem;
-  color: rgba(20, 33, 47, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   margin-bottom: 0.5rem;
 }
 
 .mm-post__title {
   font-family: var(--mm-font-display);
   font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.35;
+  font-size: 1.25rem;
+  line-height: 1.3;
   color: var(--mm-ink);
   margin-bottom: 0.5rem;
 }
 
 .mm-post--featured .mm-post__title {
-  font-weight: 500;
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
+  margin-bottom: 1rem;
 }
 
 .mm-post__excerpt {
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;      /* 24px at 16px */
   color: var(--mm-ink);
   margin: 0;
 }
@@ -1054,7 +1081,7 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-testimonial__quote cite {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9375rem;
   color: var(--mm-navy);
 }
@@ -1087,7 +1114,7 @@ body.mm .mm-hero--page .mm-hero__title {
   gap: 0.5rem;
   margin-top: auto;
   padding-top: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9375rem;
   color: var(--mm-navy);
   text-decoration: none;
@@ -1130,7 +1157,7 @@ body.mm .mm-hero--page .mm-hero__title {
 /* Dee's photo alongside her voice (Israel, 2026-08-26). */
 .mm-authority__grid {
   display: grid;
-  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 22.5rem) minmax(0, 1fr);
   gap: 2rem;
   align-items: center;
 }
@@ -1141,12 +1168,8 @@ body.mm .mm-hero--page .mm-hero__title {
   height: auto;
   aspect-ratio: 5 / 6;
   object-fit: cover;
-  object-position: top;
-  border-radius: 6px;
-}
-
-.mm-authority--about .mm-h2 {
-  font-size: 1.5rem;
+  object-position: 42% center;
+  border-radius: 12px;
 }
 
 @media (max-width: 860px) {
@@ -1179,16 +1202,17 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-products__title {
   font-family: var(--mm-font-display);
-  font-weight: 500;
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
   text-transform: uppercase;
   color: var(--mm-tan-light);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .mm-products__intro {
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
   max-width: 38rem;
   margin: 0 auto 3rem;
   color: var(--mm-white);
@@ -1199,7 +1223,7 @@ body.mm .mm-hero--page .mm-hero__title {
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
   padding: 1.5rem 0.75rem 0.75rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--mm-tan-light);
   border-radius: 12px;
   text-align: left;
   margin-bottom: 3.5rem;
@@ -1214,7 +1238,7 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-card {
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1227,6 +1251,7 @@ body.mm .mm-hero--page .mm-hero__title {
 .mm-card--intensive {
   background: var(--mm-white);
   color: var(--mm-ink);
+  box-shadow: var(--mm-shadow);
   margin-top: -2.5rem;   /* rises above the frame, as in the mockup */
 }
 
@@ -1237,7 +1262,7 @@ body.mm .mm-hero--page .mm-hero__title {
 .mm-card__kicker {
   order: -2;
   align-self: flex-end;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -1245,15 +1270,15 @@ body.mm .mm-hero--page .mm-hero__title {
 .mm-card__title {
   order: -1;
   font-family: var(--mm-font-display);
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1.25rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 .mm-card__tagline {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 1.25rem;
 }
 
@@ -1264,8 +1289,8 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-card__list li {
   margin-bottom: 0.75rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .mm-products__bridge {
@@ -1273,17 +1298,19 @@ body.mm .mm-hero--page .mm-hero__title {
   margin: 0 auto;
 }
 
-.mm-products__bridge-q {
+/* Doubled class so it outranks .mm-products__bridge p below. */
+.mm-products__bridge .mm-products__bridge-q {
   font-family: var(--mm-font-display);
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
   color: var(--mm-white);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .mm-products__bridge p {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
@@ -1295,13 +1322,11 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-close {
-  padding-block: 5rem;
+  padding-block: 6.5rem;
 }
 
 .mm-close .mm-h2 {
   color: var(--mm-white);
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  line-height: 1.3;
   text-transform: uppercase;
   max-width: 32ch;
   margin: 0 auto 2.5rem;
@@ -1329,7 +1354,7 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-footer__inner {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 9rem 7rem;
@@ -1343,13 +1368,13 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-footer__tagline {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--mm-ink);
   margin-bottom: 0.75rem;
 }
 
 .mm-footer__email {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--mm-ink);
   text-decoration: none;
 }
@@ -1362,7 +1387,7 @@ body.mm .mm-hero--page .mm-hero__title {
 
 .mm-footer__head {
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -1370,7 +1395,7 @@ body.mm .mm-hero--page .mm-hero__title {
 .mm-footer__legal a {
   color: var(--mm-ink);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1rem;
 }
 
 .mm-footer__col a:hover,
@@ -1380,7 +1405,7 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-footer__meta {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 3.5rem auto 0;
   padding-top: 1.5rem;
   border-top: 1px solid var(--mm-line);
@@ -1388,7 +1413,7 @@ body.mm .mm-hero--page .mm-hero__title {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem 2rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .mm-footer__legal {
@@ -1397,7 +1422,7 @@ body.mm .mm-hero--page .mm-hero__title {
 }
 
 .mm-footer__legal a {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 @media (max-width: 640px) {
