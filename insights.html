@@ -170,9 +170,9 @@
    until someone reviews and publishes them. */
 (function () {
   // apicdn = CDN-cached endpoint: faster and cheaper for published content.
-  // NOTE: Sanity CORS allowlists missfitcoaching.com but not localhost, so this
-  // fetch only succeeds from the real domain. Add localhost in Sanity's API
-  // settings if you want it working against the local preview.
+  // NOTE: Sanity CORS allows missfitcoaching.com, www, and every Cloudflare
+  // preview (https://*.missfitcoaching.pages.dev, added 2026-09-29), but not
+  // localhost:2100. Add it in Sanity's API settings to test against local.
   var PROJECT = '70j9t2re', DATASET = 'production', API = 'v2021-10-21';
   var SUBSTACK = 'https://dehurter.substack.com';
   // A hung request must not leave the page sitting on a skeleton forever.
