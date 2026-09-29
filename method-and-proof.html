@@ -42,6 +42,14 @@
       "image": "https://missfitcoaching.com/assets/images/og-missfit.jpg",
       "email": "dee@missfitcoaching.com",
       "telephone": "+1-872-224-2803",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11 North Northwest Highway, Suite 143",
+        "addressLocality": "Park Ridge",
+        "addressRegion": "IL",
+        "postalCode": "60068",
+        "addressCountry": "US"
+      },
       "founder": {
         "@id": "https://missfitcoaching.com/#dee"
       },
@@ -200,7 +208,7 @@
 
     <div class="mm-products__bridge">
       <p class="mm-products__bridge-q">Not sure which is right for you?</p>
-      <p>Book a free 15-minute executive search diagnostic. We&rsquo;ll identify the specific gaps in your current strategy and tell you where to start.</p>
+      <p>Book a free 30-minute executive search diagnostic. We&rsquo;ll identify the specific gaps in your current strategy and tell you where to start.</p>
       <a href="https://calendly.com/deemissfitcoaching/executive-career-coaching-discovery?month=2026-09" class="mm-btn" target="_blank" rel="noopener">Book the Diagnostic <svg class="mm-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mm-sr"> (opens in a new tab)</span></a>
     </div>
   </div>
@@ -274,7 +282,13 @@
     <div class="mm-footer__brand">
       <a href="index.html"><img src="assets/icons/logo-mindset-navy.png" alt="MissFit Coaching"></a>
       <p class="mm-footer__tagline">Stop applying. Start solving.</p>
-      <a class="mm-footer__email" href="mailto:dee@missfitcoaching.com">dee@missfitcoaching.com</a>
+      <!-- MM-28 (Dee, via Israel): the only phone number anywhere on the site. -->
+      <address class="mm-footer__contact">
+        <span class="mm-footer__org">MissFit Coaching</span>
+        <a href="tel:+18722242803">872-224-2803</a>
+        <span>11 North Northwest Highway, Suite 143, Park Ridge, IL 60068</span>
+        <a href="mailto:dee@missfitcoaching.com">dee@missfitcoaching.com</a>
+      </address>
     </div>
     <nav class="mm-footer__col" aria-label="Sitemap">
       <p class="mm-footer__head">Sitemap</p>
@@ -290,10 +304,11 @@
     </nav>
   </div>
   <div class="mm-footer__meta">
-    <span>&copy; 2026 MissFit Coaching&trade;. All rights reserved.</span>
+    <span>&copy; 2026 MissFit Coaching</span>
     <nav class="mm-footer__legal" aria-label="Legal">
-      <a href="terms.html">Terms of Service</a>
       <a href="policy.html">Privacy Policy</a>
+      <a href="recording-and-data-retention.html">Recording &amp; Data Retention</a>
+      <a href="terms.html">Terms of Service</a>
     </nav>
   </div>
 </footer>
