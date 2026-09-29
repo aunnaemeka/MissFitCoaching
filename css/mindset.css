@@ -1479,6 +1479,7 @@ body.mm .mm-legal__title {
 .mm-legal__meta {
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1.6;
   color: var(--mm-ink);
   padding-bottom: 2rem;
   margin-bottom: 2.5rem;
@@ -1499,6 +1500,25 @@ body.mm .mm-legal__title {
   line-height: 1.3;
   color: var(--mm-navy);
   margin: 2.75rem 0 1rem;
+}
+
+.mm-legal__h3 {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--mm-ink);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.mm-legal__body ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.mm-legal__body li {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 .mm-legal__body a {
