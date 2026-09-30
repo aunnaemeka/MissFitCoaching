@@ -132,6 +132,25 @@ body.mm .header__mobile-nav-link[aria-current="page"] {
   font-weight: 600;
 }
 
+/* The booking link in the mobile menu is the one action on it, so it is
+   drawn as the same yellow button as the desktop header (MM-26). */
+body.mm .header__mobile-nav-link.header__mobile-cta {
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+  font-weight: 500;
+  border-bottom: 0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+body.mm .header__mobile-nav-link.header__mobile-cta:hover {
+  background-color: var(--mm-tan-light);
+  color: var(--mm-navy);
+}
+
 /* Interim landing-page mode (Israel, 2026-08-26): About / Essentials /
    1:1 Intensive are shelved until the Method & Proof page lands, so their
    nav and footer links render greyed out and inert rather than
@@ -871,7 +890,9 @@ body.mm .mm-hero--page .mm-hero__title {
 /* ---------- Article ---------- */
 .mm-article {
   background: var(--mm-white);
-  padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+  /* 24px side gutter like every other section; without it the text ran to
+     the screen edge on phones (Ezekiel, 2026-09-30). */
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem clamp(3.5rem, 7vw, 6rem);
 }
 
 .mm-article .mm-container {
