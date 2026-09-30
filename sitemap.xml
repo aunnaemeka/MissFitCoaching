@@ -42,7 +42,13 @@
   </url>
   <url>
     <loc>https://missfitcoaching.com/policy</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://missfitcoaching.com/recording-and-data-retention</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
