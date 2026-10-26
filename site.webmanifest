@@ -1,0 +1,19 @@
+{
+  "name": "MissFit Mindset",
+  "short_name": "MissFit",
+  "icons": [
+    {
+      "src": "/assets/icons/favicon-mindset-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/favicon-mindset-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#002147",
+  "background_color": "#002147",
+  "display": "standalone"
+}

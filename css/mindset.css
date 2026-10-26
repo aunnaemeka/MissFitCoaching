@@ -1,0 +1,1671 @@
+/* ============================================================
+   MISSFIT MINDSET — rebrand stylesheet (MFM-BD-011)
+   Load AFTER base.css / components.css on rebranded pages.
+   Palette per Ezekiel's brand kit (May 2026), refined per his
+   2026-07-15 review:
+     Prussian Blue #002147 · Secondary Gold #EECE95 · Tan #D2B48C
+     Button Yellow #FFD500 · White #FFFFFF
+   Yellow (#FFD500) is reserved for buttons ONLY. Secondary Gold
+   (#EECE95, --mm-tan-light) carries every other accent touch.
+   Type is unified on Raleway for consistency with the brand assets,
+   except page titles, which are set in Playfair Display capitals
+   (MM-26, Ezekiel's UI upgrade, 2026-09-28). Sizes, weights, spacing
+   and radii follow section 2 of his "UI Redesign Scope" brief.
+   Fonts are loaded by <link> in each page, not @import here.
+   ============================================================ */
+
+:root {
+  --mm-navy: #002147;
+  --mm-navy-deep: #001730;
+  --mm-tan-light: #EECE95;
+  --mm-tan: #D2B48C;
+  --mm-yellow: #FFD500;   /* buttons only */
+  --mm-gold: #FFD700;     /* legacy token — retained for safety, no longer used for accents */
+  --mm-white: #FFFFFF;
+  --mm-ink: #000000;
+  --mm-font-display: 'Raleway', sans-serif;
+  --mm-font-body: 'Raleway', sans-serif;
+  --mm-font-title: 'Playfair Display', Georgia, serif;
+  --mm-line: #000000;
+  --mm-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Unify all type on Raleway (Ezekiel review 2026-07-15).
+   base.css / components.css now declare Raleway sitewide, so this
+   block is a belt-and-braces override for any rule on a rebranded
+   (body.mm) page that still carries its own font-family. */
+body.mm,
+body.mm * {
+  font-family: var(--mm-font-body);
+}
+
+body.mm {
+  color: var(--mm-ink);
+  background: var(--mm-white);
+}
+
+/* Only 400/500/600/900 are loaded (brief 2.2); bold would fall to Black. */
+body.mm strong,
+body.mm b {
+  font-weight: 600;
+}
+
+/* ---------- Header (overrides components.css reds/darks) ---------- */
+body.mm .header,
+body.mm .hero__header {
+  background-color: var(--mm-navy);
+  height: 4.5rem;
+}
+
+body.mm .header__logo {
+  height: auto;
+}
+
+body.mm .header__logo img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
+body.mm .header__nav-list {
+  gap: 2rem;
+}
+
+body.mm .header__nav-link,
+body.mm .hero__nav-link {
+  color: var(--mm-white);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+body.mm .header__nav-link[aria-current="page"] {
+  font-weight: 600;
+}
+
+body.mm .header__nav-link:hover,
+body.mm .hero__nav-link:hover {
+  color: var(--mm-tan-light);
+}
+
+body.mm .header__cta,
+body.mm .hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+body.mm .header__cta:hover,
+body.mm .hero__cta:hover {
+  background-color: var(--mm-tan-light);
+  color: var(--mm-navy);
+}
+
+/* Four short links fit well below components.css's 1200px hamburger
+   breakpoint, so keep them out in the open down to tablet width. */
+@media (min-width: 900px) and (max-width: 1200px) {
+  body.mm .header__nav { display: flex; }
+  body.mm .header__menu-toggle { display: none; }
+}
+
+/* components.css hides the header button on phones; the display above
+   would otherwise bring it back. The menu carries the link instead. */
+@media (max-width: 664px) {
+  body.mm .header__cta { display: none; }
+}
+
+body.mm .header__mobile-menu {
+  background-color: var(--mm-white);
+}
+
+body.mm .header__mobile-nav-link {
+  color: var(--mm-navy);
+  text-transform: none;
+}
+
+body.mm .header__mobile-nav-link[aria-current="page"] {
+  font-weight: 600;
+}
+
+/* The booking link in the mobile menu is the one action on it, so it is
+   drawn as the same yellow button as the desktop header (MM-26). */
+body.mm .header__mobile-nav-link.header__mobile-cta {
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+  font-weight: 500;
+  border-bottom: 0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+body.mm .header__mobile-nav-link.header__mobile-cta:hover {
+  background-color: var(--mm-tan-light);
+  color: var(--mm-navy);
+}
+
+/* Interim landing-page mode (Israel, 2026-08-26): About / Essentials /
+   1:1 Intensive are shelved until the Method & Proof page lands, so their
+   nav and footer links render greyed out and inert rather than
+   disappearing - the labels still show visitors what is coming. */
+body.mm .is-disabled {
+  /* no colour here on purpose: the product-card CTAs keep their own
+     (one sits on white, one on navy) and just dim */
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+/* Header and footer sit on navy, so the label has to stay light. */
+body.mm .header .is-disabled,
+body.mm .footer .is-disabled {
+  color: var(--mm-white);
+}
+
+/* ---------- Shared section primitives ---------- */
+.mm-section {
+  padding: 3.5rem 1.5rem;
+}
+
+/* A hairline between white sections, drawn at container width whatever
+   the width of the section's own content (MM-26). */
+.mm-rule {
+  padding-top: 0;
+}
+
+.mm-rule::before {
+  content: '';
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto 3.5rem;
+  border-top: 1px solid var(--mm-line);
+}
+
+.mm-icon {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+.mm-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mm-narrow {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Visible focus on everything a keyboard can reach (brief 4.1). */
+body.mm a:focus-visible,
+body.mm button:focus-visible {
+  outline: 2px solid var(--mm-navy);
+  outline-offset: 3px;
+}
+
+body.mm .header a:focus-visible,
+body.mm .header button:focus-visible,
+body.mm .mm-preview a:focus-visible,
+body.mm .mm-products a:focus-visible,
+body.mm .mm-close a:focus-visible {
+  outline-color: var(--mm-tan-light);
+}
+
+/* "Opens in a new tab", for screen readers only. */
+.mm-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mm-eyebrow {
+  font-family: var(--mm-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--mm-ink);
+  margin-bottom: 1.5rem;
+}
+
+.mm-h2 {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;   /* 38px at 32px */
+  color: var(--mm-ink);
+  margin-bottom: 1.5rem;
+}
+
+.mm-body p {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;      /* 32px at 20px */
+  margin-bottom: 1.25rem;
+}
+
+.mm-body p:last-child {
+  margin-bottom: 0;
+}
+
+.mm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+  font-family: var(--mm-font-body);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mm-btn:hover {
+  background-color: var(--mm-tan-light);
+  transform: translateY(-1px);
+}
+
+/* Text links read as plain text with an arrow; the underline arrives on
+   hover. Ink on white, white on navy. */
+.mm-textlink {
+  color: var(--mm-ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mm-textlink span {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.mm-textlink:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.mm-textlink:hover span {
+  transform: translateX(3px);
+}
+
+/* ---------- Hero ----------
+   White since MM-26; page titles are Playfair capitals. The selector
+   carries body.mm so it outranks the Raleway-everywhere rule above. */
+.mm-hero {
+  background: var(--mm-white);
+  color: var(--mm-ink);
+  padding: 3.5rem 1.5rem;
+  text-align: left;
+}
+
+body.mm .mm-hero__title {
+  font-family: var(--mm-font-title);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--mm-ink);
+  max-width: 22ch;
+  margin-bottom: 1rem;
+}
+
+.mm-hero__reframe {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  color: var(--mm-ink);
+  margin-bottom: 1.5rem;
+}
+
+.mm-hero__support {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--mm-ink);
+  max-width: 38rem;
+  margin-bottom: 2.5rem;
+}
+
+.mm-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Homepage: copy left, Dee right. */
+.mm-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+  gap: 4rem;
+  align-items: center;
+}
+
+.mm-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 48% top;
+  border-radius: 12px;
+}
+
+@media (max-width: 860px) {
+  .mm-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .mm-hero__media {
+    max-width: 22rem;
+  }
+}
+
+/* ---------- Two ways to work with us, early preview ----------
+   Short teaser on the homepage; the full comparison lives on
+   Method & Proof (MM-22 final copy). A navy band since MM-26. */
+.mm-preview {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  padding: 3.5rem 1.5rem;
+}
+
+.mm-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 4rem;
+  align-items: center;
+  max-width: 62rem;
+}
+
+.mm-preview__title {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
+  text-transform: uppercase;
+  color: var(--mm-tan-light);
+  margin: 0;
+}
+
+.mm-preview__body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--mm-white);
+  max-width: 28rem;
+  margin: 0 0 1.25rem;
+}
+
+.mm-preview .mm-textlink {
+  color: var(--mm-white);
+}
+
+@media (max-width: 700px) {
+  .mm-preview__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mm-method__link {
+  margin-top: 2rem;
+}
+
+/* ---------- Social proof bar ---------- */
+.mm-proof {
+  background: var(--mm-white);
+  padding: 2.5rem 1.5rem 3.5rem;
+  text-align: center;
+}
+
+.mm-proof__label {
+  font-family: var(--mm-font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mm-navy);
+  margin-bottom: 1.75rem;
+}
+
+/* Six marks on a single row at desktop (MM-22: "Logos, one row"),
+   wrapping only once there genuinely is not room. */
+.mm-proof__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.25rem, 3.2vw, 2.75rem);
+}
+
+/* Full brand colour at rest (MM-26). This replaces the grayscale-until-
+   hover treatment from Ezekiel's 2026-07-15 review. */
+.mm-proof__logo {
+  height: 1.75rem;
+  width: auto;
+  max-width: 9rem;
+  object-fit: contain;
+}
+
+/* White/light-fill marks are invisible against the white proof bar.
+   Seat them on a dark chip rather than recoloring the source artwork,
+   so the supplied SVG stays untouched. The chip is a wrapper, not a
+   background on the <img>, so the logo's grayscale filter does not
+   desaturate the chip along with it. */
+.mm-proof__chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--mm-navy);
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.375rem;
+}
+
+/* A logo that needs a qualifier under it. Dee worked with New World
+   Ventures' portfolio companies, not the firm itself (MM-27). */
+.mm-proof__item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.mm-proof__caption {
+  font-family: var(--mm-font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--mm-navy);
+  opacity: 0.7;
+}
+
+/* ---------- Interior page intro (Method & Proof, Essentials, Insights) --- */
+.mm-hero--page {
+  padding: 3.5rem 1.5rem 2.5rem;
+}
+
+.mm-hero--page .mm-eyebrow {
+  margin-bottom: 1rem;
+}
+
+body.mm .mm-hero--page .mm-hero__title {
+  max-width: 28ch;
+  margin-bottom: 0;
+}
+
+/* ---------- The five phases ----------
+   Heading left, the phases on a rail to its right (MM-26). */
+.mm-method__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.mm-method--full .mm-h2 {
+  text-transform: uppercase;
+}
+
+.mm-phases {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.75rem;
+  border-left: 1px solid var(--mm-line);
+}
+
+.mm-phase {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mm-phase:last-child {
+  margin-bottom: 0;
+}
+
+.mm-phase::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6875rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--mm-yellow);
+}
+
+.mm-phase__title {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  line-height: 1.5833;   /* 38px at 24px */
+  color: var(--mm-ink);
+  margin-bottom: 0.5rem;
+}
+
+.mm-phase p {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .mm-method__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.mm-card__subhead {
+  margin: 0.5rem 0 1rem;
+}
+
+.mm-card__subhead span {
+  display: inline-block;
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* ---------- Essentials shelf ----------
+   A list, not a one-item layout: the course, the second book and the
+   workshop collateral each land as another .mm-shelf__item (MM-22). */
+.mm-shelf {
+  background: var(--mm-white);
+}
+
+.mm-shelf__item {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Wide open-book render under the Essentials title (MM-26). */
+.mm-showcase {
+  padding: 0 1.5rem;
+}
+
+.mm-showcase__img,
+.mm-shelf__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.mm-showcase__img {
+  aspect-ratio: 15 / 8;   /* trims studio floor and sky, keeps both books whole */
+  object-fit: cover;
+}
+
+.mm-shelf__img {
+  aspect-ratio: 7 / 8;
+  object-fit: cover;
+}
+
+.mm-shelf__item + .mm-shelf__item {
+  margin-top: 4.5rem;
+  padding-top: 4.5rem;
+  border-top: 1px solid rgba(0, 33, 71, 0.1);
+}
+
+.mm-shelf__kicker {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--mm-ink);
+  margin-bottom: 0.75rem;
+}
+
+.mm-shelf .mm-h2 {
+  margin-bottom: 1rem;
+}
+
+.mm-shelf__status {
+  font-weight: 500;
+  color: var(--mm-ink);
+  margin-top: 1rem;
+}
+
+/* Stand-in for the jacket art until it is supplied */
+.mm-shelf__jacket {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  /* The mockup is a lit 3D render on white; a soft drop shadow keeps it
+     sitting on the page instead of floating in a white rectangle. */
+  filter: drop-shadow(0 12px 24px rgba(0, 33, 71, 0.18));
+}
+
+/* Placeholder for shelf items whose art has not arrived. The book's has, but
+   the course and workshop collateral will land the same way. */
+.mm-bookph {
+  aspect-ratio: 2 / 3;
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--mm-navy) 0%, var(--mm-navy-deep) 100%);
+  color: var(--mm-tan-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mm-bookph__title {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.mm-bookph__note {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.mm-notify {
+  margin-top: 1.5rem;
+}
+
+/* GoHighLevel injects its own height once form_embed.js runs. The min-height
+   stops the page jumping while that loads, and is a usable fallback if the
+   script is blocked. */
+.mm-notify iframe {
+  display: block;
+  width: 100%;
+  min-height: 19rem;
+  border: none;
+  border-radius: 8px;
+}
+
+.mm-notify__pending {
+  display: inline-block;
+  background: #FBF4E3;
+  border-radius: 4px;
+  padding: 0.75rem 1.125rem;
+  font-size: 0.9375rem;
+  color: var(--mm-navy);
+}
+
+/* ---------- Insights ---------- */
+.mm-insights {
+  background: var(--mm-white);
+  padding-top: 0;
+}
+
+.mm-insights__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.mm-insights__cat {
+  border: 1px solid var(--mm-navy);
+  border-radius: 8px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: inherit;
+  color: var(--mm-navy);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.mm-insights__cat:hover {
+  border-color: var(--mm-navy);
+}
+
+.mm-insights__cat.is-active {
+  background: var(--mm-navy);
+  border-color: var(--mm-navy);
+  color: var(--mm-tan-light);
+}
+
+/* Terminal states live inside the post grid, so they have to span it rather
+   than sit in the first column looking like a stray card. */
+.mm-insights__state {
+  grid-column: 1 / -1;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+  text-align: center;
+  color: var(--mm-ink);
+}
+
+.mm-insights__state p {
+  margin: 0;
+  opacity: 0.75;
+}
+
+.mm-insights__state-head {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--mm-navy);
+  margin-bottom: 0.5rem !important;
+  opacity: 1 !important;
+}
+
+.mm-insights__reset {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--mm-navy);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Announced to screen readers while the skeleton is on screen. */
+.mm-insights__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Placeholder cards. Shaped like the real thing so the layout does not jump
+   when the posts arrive. */
+.mm-post--skeleton {
+  min-height: 19rem;
+  background: linear-gradient(100deg,
+      rgba(0, 33, 71, 0.04) 30%,
+      rgba(0, 33, 71, 0.08) 50%,
+      rgba(0, 33, 71, 0.04) 70%) 0 0 / 300% 100%;
+  animation: mm-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes mm-shimmer {
+  to { background-position: -150% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-post--skeleton { animation: none; }
+}
+
+.mm-insights__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3.5rem 2rem;
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+@media (max-width: 960px) {
+  .mm-insights__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .mm-insights__list { grid-template-columns: 1fr; }
+}
+
+.mm-post {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The lead post: image left, words right, across the whole grid. */
+.mm-post--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1rem 2rem;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .mm-post--featured { grid-template-columns: 1fr; }
+}
+
+.mm-post__media {
+  position: relative;
+  padding-bottom: 1rem;  /* room for the tag hanging off the image */
+}
+
+.mm-post:hover .mm-post__title,
+.mm-post:focus-visible .mm-post__title {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.mm-post__tag {
+  position: absolute;
+  left: 0.375rem;
+  bottom: 0;
+  background: var(--mm-white);
+  border: 1px solid var(--mm-navy);
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  color: var(--mm-navy);
+}
+
+.mm-post--featured .mm-post__tag {
+  left: 0;
+  background: var(--mm-navy);
+  color: var(--mm-tan-light);
+}
+
+.mm-post__more {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--mm-ink);
+}
+
+.mm-post__more span {
+  margin-left: 0.5rem;
+}
+
+/* ---------- Article ---------- */
+.mm-article {
+  background: var(--mm-white);
+  /* 24px side gutter like every other section; without it the text ran to
+     the screen edge on phones (Ezekiel, 2026-09-30). */
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem clamp(3.5rem, 7vw, 6rem);
+}
+
+.mm-article .mm-container {
+  max-width: 44rem;   /* ~70 characters a line */
+}
+
+.mm-article__back {
+  margin: 0 0 2rem;
+  font-size: 0.9375rem;
+}
+
+.mm-article__back a {
+  color: var(--mm-navy);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 33, 71, 0.25);
+}
+
+.mm-article__meta {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mm-tan);
+  margin-bottom: 0.75rem;
+}
+
+.mm-article__title {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--mm-navy);
+  margin: 0 0 2rem;
+}
+
+.mm-article__hero {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 2.5rem;
+}
+
+.mm-article__body p,
+.mm-article__body blockquote {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--mm-ink);
+  margin: 0 0 1.5rem;
+}
+
+.mm-article__body h2,
+.mm-article__body h3,
+.mm-article__body h4 {
+  color: var(--mm-navy);
+  line-height: 1.25;
+  margin: 2.5rem 0 1rem;
+}
+
+.mm-article__body h2 { font-size: 1.5rem; }
+.mm-article__body h3 { font-size: 1.25rem; }
+.mm-article__body h4 { font-size: 1.0625rem; }
+
+.mm-article__body blockquote {
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--mm-yellow);
+  font-style: italic;
+}
+
+.mm-article__origin {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 33, 71, 0.12);
+  font-size: 0.9375rem;
+  color: rgba(0, 33, 71, 0.7);
+}
+
+.mm-article__state {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--mm-ink);
+}
+
+.mm-article__state-head {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--mm-navy);
+  margin-bottom: 0.5rem;
+}
+
+.mm-post__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* No image in the CMS: a quiet grey block keeps the grid even. */
+.mm-post__thumb--empty {
+  background: #E8E8E8;
+}
+
+.mm-post__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 0.75rem;
+}
+
+.mm-post--featured .mm-post__body {
+  padding-top: 0;
+  height: 100%;
+}
+
+.mm-post__meta {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.mm-post__title {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: var(--mm-ink);
+  margin-bottom: 0.5rem;
+}
+
+.mm-post--featured .mm-post__title {
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
+  margin-bottom: 1rem;
+}
+
+.mm-post__excerpt {
+  font-size: 1rem;
+  line-height: 1.5;      /* 24px at 16px */
+  color: var(--mm-ink);
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .mm-shelf__item {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mm-shelf__media {
+    max-width: 14rem;
+  }
+}
+
+/* ---------- Client success stories (testimonial videos) ----------
+   Full interview cuts are 16:9 (1280x720), which is why Ezekiel's
+   thumbnail cards are 16:9 too. Served from CloudFront.
+   preload="none" keeps video bytes off the initial page load; only
+   the ~65KB poster is fetched. */
+.mm-testimonials {
+  background: var(--mm-white);
+  text-align: center;
+}
+
+
+.mm-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* One cleared story left: centre it rather than leave a dead half-column.
+   Reverts to two columns on its own when the next video lands. */
+.mm-testimonials__grid:has(> .mm-testimonial:only-child) {
+  grid-template-columns: minmax(0, 34rem);
+  justify-content: center;
+}
+
+.mm-testimonial {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+.mm-testimonial__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--mm-navy);
+  border-radius: 6px;
+}
+
+/* Quote beneath each story. Clients are credited by initials only
+   (MM-22: no client names anywhere on the site). */
+.mm-testimonial__quote {
+  margin: 1.25rem 0 0;
+  text-align: left;
+}
+
+.mm-testimonial__quote p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--mm-ink);
+  margin: 0 0 0.75rem;
+}
+
+.mm-testimonial__quote cite {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--mm-navy);
+}
+
+/* A story with no video still reads as a card, not a gap. The card is the
+   figure, so a portrait and the PDF link sit inside it with the quote. */
+.mm-testimonial--text {
+  background: #FBF4E3;
+  border-radius: 6px;
+  padding: 2rem 1.875rem;
+}
+
+.mm-testimonial--text .mm-testimonial__quote {
+  margin-top: 0;
+}
+
+.mm-testimonial__portrait {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Link to the full written story. Sits at the foot of the figure so the two
+   columns line up whatever length the quotes run to. */
+.mm-testimonial__card {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--mm-navy);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.mm-testimonial__card:hover,
+.mm-testimonial__card:focus-visible {
+  color: var(--mm-tan);
+  text-decoration: underline;
+}
+
+.mm-testimonial__card-meta {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: rgba(0, 33, 71, 0.6);
+}
+
+/* Stack on narrow screens */
+@media (max-width: 860px) {
+  .mm-testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ---------- Problem section ---------- */
+.mm-problem {
+  background: var(--mm-white);
+}
+
+
+
+/* ---------- Authority section (Dee's voice) ---------- */
+.mm-authority {
+  background: var(--mm-white);
+  color: var(--mm-ink);
+}
+
+/* Dee's photo alongside her voice (Israel, 2026-08-26). */
+.mm-authority__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 22.5rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.mm-authority__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  object-position: 42% center;
+  border-radius: 12px;
+}
+
+@media (max-width: 860px) {
+  .mm-authority__grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .mm-authority__media {
+    max-width: 18rem;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* ---------- Method section ---------- */
+.mm-method {
+  background: var(--mm-white);
+}
+
+/* ---------- Products section ----------
+   Navy since MM-26. Both offers sit in one outlined frame: Essentials
+   open on the navy, the 1:1 Intensive raised on a white card. */
+.mm-products {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  text-align: center;
+}
+
+.mm-products__title {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
+  text-transform: uppercase;
+  color: var(--mm-tan-light);
+  margin-bottom: 1.5rem;
+}
+
+.mm-products__intro {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 38rem;
+  margin: 0 auto 3rem;
+  color: var(--mm-white);
+}
+
+.mm-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  padding: 1.5rem 0.75rem 0.75rem 1rem;
+  border: 1px solid var(--mm-tan-light);
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 860px) {
+  .mm-products__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+.mm-card {
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mm-card--self {
+  color: var(--mm-white);
+}
+
+.mm-card--intensive {
+  background: var(--mm-white);
+  color: var(--mm-ink);
+  box-shadow: var(--mm-shadow);
+  margin-top: -2.5rem;   /* rises above the frame, as in the mockup */
+}
+
+@media (max-width: 860px) {
+  .mm-card--intensive { margin-top: 0; }
+}
+
+.mm-card__kicker {
+  order: -2;
+  align-self: flex-end;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.mm-card__title {
+  order: -1;
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.mm-card__tagline {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.mm-card__list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.mm-card__list li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mm-products__bridge {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+/* Doubled class so it outranks .mm-products__bridge p below. */
+.mm-products__bridge .mm-products__bridge-q {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 2.6vw, 2rem);
+  line-height: 1.1875;
+  color: var(--mm-white);
+  margin-bottom: 1rem;
+}
+
+.mm-products__bridge p {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Closing CTA ---------- */
+.mm-close {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  text-align: center;
+}
+
+.mm-close {
+  padding-block: 6.5rem;
+}
+
+.mm-close .mm-h2 {
+  color: var(--mm-white);
+  text-transform: uppercase;
+  max-width: 32ch;
+  margin: 0 auto 2.5rem;
+}
+
+.mm-close__accent {
+  color: var(--mm-tan-light);
+}
+
+.mm-close p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 36rem;
+  margin: 0 auto 2.25rem;
+}
+
+/* ---------- Footer ----------
+   White since MM-26: brand left, Sitemap and Follow columns right,
+   legal links on the bottom rule. */
+.mm-footer {
+  background: var(--mm-white);
+  color: var(--mm-ink);
+  padding: 4rem 1.5rem 2.5rem;
+}
+
+.mm-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9rem 7rem;
+  gap: 2.5rem 3rem;
+}
+
+.mm-footer__brand img {
+  height: 2.5rem;
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+
+.mm-footer__tagline {
+  font-size: 1rem;
+  color: var(--mm-ink);
+  margin-bottom: 0.75rem;
+}
+
+/* Contact block (MM-28): name, phone, street address, email. */
+.mm-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mm-footer__org {
+  font-weight: 600;
+}
+
+.mm-footer__contact a {
+  color: var(--mm-ink);
+  text-decoration: none;
+}
+
+.mm-footer__contact a:hover {
+  text-decoration: underline;
+}
+
+.mm-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mm-footer__head {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mm-footer__col a,
+.mm-footer__legal a {
+  color: var(--mm-ink);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.mm-footer__col a:hover,
+.mm-footer__legal a:hover {
+  text-decoration: underline;
+}
+
+.mm-footer__meta {
+  max-width: 1200px;
+  margin: 3.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--mm-line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  font-size: 0.875rem;
+}
+
+.mm-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+}
+
+.mm-footer__legal a {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 640px) {
+  .mm-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mm-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Legal pages (MM-28) ----------
+   Privacy Policy and Recording & Data Retention. The text is the client's
+   source document verbatim, so this is typography only: a readable
+   measure, the brief's H1, and a table for the retention schedule. */
+.mm-legal {
+  background: var(--mm-white);
+  padding: 3.5rem 1.5rem 4.5rem;
+}
+
+.mm-legal__inner {
+  max-width: 46rem;   /* ~75 characters a line at 20px */
+  margin: 0 auto;
+}
+
+body.mm .mm-legal__title {
+  font-family: var(--mm-font-title);
+  font-weight: 600;
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--mm-ink);
+  margin-bottom: 0.75rem;
+}
+
+.mm-legal__meta {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--mm-ink);
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--mm-line);
+}
+
+.mm-legal__body p {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--mm-ink);
+  margin: 0 0 1rem;
+}
+
+.mm-legal__h2 {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: clamp(1.375rem, 2vw, 1.5rem);
+  line-height: 1.3;
+  color: var(--mm-navy);
+  margin: 2.75rem 0 1rem;
+}
+
+.mm-legal__h3 {
+  font-family: var(--mm-font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--mm-ink);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.mm-legal__body ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.mm-legal__body li {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.mm-legal__body a {
+  color: var(--mm-navy);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.mm-legal__see a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mm-legal__see a:hover {
+  text-decoration: underline;
+}
+
+.mm-legal__table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+}
+
+.mm-legal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mm-legal__table th,
+.mm-legal__table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mm-legal__table thead th {
+  background: var(--mm-navy);
+  color: var(--mm-white);
+  font-weight: 600;
+}
+
+.mm-legal__table tbody th {
+  font-weight: 500;
+  width: 38%;
+}
+
+/* ---------- Legacy page recolor ----------
+   about/contact/terms/policy keep their existing layouts until their
+   own copy rewrites land; these overrides retire the old red accents
+   so the pages sit coherently inside the new navy/tan/gold brand. */
+
+body.mm .about-hero {
+  background: linear-gradient(rgba(0, 33, 71, 0.88), rgba(0, 23, 48, 0.9)),
+              url('../assets/images/background-about-us.png') center / cover no-repeat;
+}
+
+body.mm .masonry-section__title,
+body.mm .section-header__title,
+body.mm .story__title {
+  color: var(--mm-navy);
+}
+
+body.mm .contact-hero {
+  background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 23, 48, 0.88)),
+              url('../assets/images/background-contact.png') center / cover no-repeat;
+}
+
+body.mm .contact-info__item,
+body.mm .contact-form,
+body.mm .contact-confirmation,
+body.mm .subscription-confirmation {
+  background-color: var(--mm-navy);
+}
+
+body.mm .contact-info__title,
+body.mm .contact-form__title {
+  color: var(--mm-tan-light);
+}
+
+body.mm .masonry-item {
+  background-color: var(--mm-navy);
+  border-color: var(--mm-navy-deep);
+}
+
+body.mm .masonry-item__title {
+  color: var(--mm-tan-light);
+}
+
+body.mm .required-asterisk {
+  color: var(--mm-navy);
+}
+
+body.mm .career-milestone {
+  background-color: var(--mm-navy);
+}
+
+body.mm .career-milestone__button,
+body.mm .contact-form__submit,
+body.mm button[type="submit"] {
+  background-color: var(--mm-yellow);
+  color: var(--mm-navy);
+}
+
+body.mm .career-milestone__button:hover,
+body.mm .contact-form__submit:hover,
+body.mm button[type="submit"]:hover {
+  background-color: var(--mm-tan-light);
+}
+
+body.mm .subscription-confirmation__checkmark-circle {
+  background-color: var(--mm-navy);
+}
+
+/* ---------- Product stub pages ---------- */
+.mm-stub {
+  background: var(--mm-white);
+  min-height: 55vh;
+}
+
+.mm-stub .mm-h2 { color: var(--mm-navy); }
+
+.mm-stub__note {
+  font-size: 1rem;
+  color: rgba(20, 33, 47, 0.65);
+  margin-top: 2rem;
+  font-style: italic;
+}
