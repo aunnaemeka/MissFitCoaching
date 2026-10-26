@@ -470,3 +470,49 @@ window.onloadTurnstileCallback = function () {
       }
     });
   }
+
+
+/* Analytics (MM-44, MM-45).
+
+   GTM-NNJJGDR7 is MissFit's container, under dee@missfitcoaching.com. GA4
+   (G-E1D0H9V79C) is configured inside it, not here. Every page that loads
+   this file is tagged; with GTM_ID empty nothing loads.
+
+   PDF downloads and outbound links are not pushed here: GA4's enhanced
+   measurement records file_download and click on its own, and pushing them
+   too would count each one twice. */
+(function () {
+  var GTM_ID = 'GTM-NNJJGDR7';
+
+  window.dataLayer = window.dataLayer || [];
+
+  if (GTM_ID) {
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(s);
+  }
+
+  // Which Book a Diagnostic button it was. GA4 adds the page on its own.
+  function placement(a) {
+    if (a.closest('.header__mobile-menu')) return 'mobile_menu';
+    if (a.closest('header')) return 'header';
+    if (a.closest('.mm-hero')) return 'hero';
+    if (a.closest('#two-ways')) return 'two_ways';
+    if (a.closest('.mm-close')) return 'closing_cta';
+    if (a.closest('footer')) return 'footer';
+    return 'body';
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="calendly.com/"]');
+    if (!a) return;
+    window.dataLayer.push({
+      event: 'book_diagnostic_click',
+      link_url: a.href,
+      link_text: (a.textContent || '').replace('(opens in a new tab)', '').replace(/\s+/g, ' ').trim(),
+      link_placement: placement(a)
+    });
+  });
+})();

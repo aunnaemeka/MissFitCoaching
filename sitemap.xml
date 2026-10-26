@@ -5,9 +5,9 @@
   URLs are extensionless because that is the canonical form Cloudflare Pages
   serves (/method-and-proof.html 308s to /method-and-proof).
 
-  Individual articles are absent on purpose. They canonicalise to Substack,
-  where they were published first, so listing them here would ask Google to
-  index a copy we have already told it is not the original.
+  Individual articles are not listed here: functions/sitemap.xml.js appends
+  every published Insights article at /insights/<slug> when this is served.
+  The site is their canonical home (MM-47).
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://missfitcoaching.com/policy</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
