@@ -474,15 +474,15 @@ window.onloadTurnstileCallback = function () {
 
 /* Analytics (MM-44, MM-45).
 
-   GTM_ID is empty until MissFit's Tag Manager container exists. While it is
-   empty nothing loads and nothing is sent; the dataLayer pushes below are
-   harmless. Set it once and every page that loads this file is tagged.
+   GTM-NNJJGDR7 is MissFit's container, under dee@missfitcoaching.com. GA4
+   (G-E1D0H9V79C) is configured inside it, not here. Every page that loads
+   this file is tagged; with GTM_ID empty nothing loads.
 
    PDF downloads and outbound links are not pushed here: GA4's enhanced
    measurement records file_download and click on its own, and pushing them
    too would count each one twice. */
 (function () {
-  var GTM_ID = '';
+  var GTM_ID = 'GTM-NNJJGDR7';
 
   window.dataLayer = window.dataLayer || [];
 
